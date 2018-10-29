@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gallio.AutoCAD.UI</name>
+    </assembly>
+    <members>
+        <member name="T:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePane">
+            <summary>
+            Preference pane for AutoCAD startup options.
+            </summary>
+        </member>
+        <member name="M:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePane.#ctor(Gallio.AutoCAD.Preferences.IAcadPreferenceManager)">
+            <summary>
+            Creates a new <see cref="T:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePane"/>.
+            </summary>
+            <param name="preferenceManager">The AutoCAD preference manager.</param>
+        </member>
+        <member name="M:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePane.ApplyPendingSettingsChanges(Gallio.Runtime.Security.IElevationContext,Gallio.Runtime.ProgressMonitoring.IProgressMonitor)">
+            <inheritdoc/>
+        </member>
+        <member name="F:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePane.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePane.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePane.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePaneProvider">
+            <summary>
+            Provides the preference pane for AutoCAD startup options.
+            </summary>
+        </member>
+        <member name="M:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePaneProvider.#ctor(Gallio.AutoCAD.Preferences.IAcadPreferenceManager)">
+            <summary>
+            Creates a new <see cref="T:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePaneProvider"/>.
+            </summary>
+            <param name="preferenceManager">The AutoCAD preference manager.</param>
+        </member>
+        <member name="M:Gallio.AutoCAD.UI.ControlPanel.StartupPreferencePaneProvider.CreatePreferencePane">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

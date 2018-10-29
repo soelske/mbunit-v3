@@ -55,3 +55,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\x64\Debug\Gallio.
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\x64\Debug\Gallio.Tests.vs2010.csproj.CopyComplete
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\x64\Debug\Gallio.Tests.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\x64\Debug\Gallio.Tests.pdb
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\x64\Debug\Gallio.Host.exe
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\x64\Debug\Gallio.Host.pdb
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\x64\Debug\Gallio.Host.xml

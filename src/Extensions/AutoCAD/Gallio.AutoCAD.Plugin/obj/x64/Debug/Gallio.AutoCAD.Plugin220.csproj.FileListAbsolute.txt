@@ -1,0 +1,2 @@
+C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\x64\Debug\Gallio.AutoCAD.Plugin220.csprojAssemblyReference.cache
+C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\x64\Debug\Gallio.AutoCAD.Plugin220.csproj.CoreCompileInputs.cache

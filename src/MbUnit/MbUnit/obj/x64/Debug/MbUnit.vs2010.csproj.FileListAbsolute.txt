@@ -26,3 +26,4 @@ C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.vs2010
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.vs2010.csproj.CopyComplete
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.pdb
+C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.vs2010.csprojAssemblyReference.cache

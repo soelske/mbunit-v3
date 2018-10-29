@@ -25,3 +25,4 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Host\bin\Microsoft.Cci.PdbR
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Host\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Host\bin\Microsoft.Cci.MetadataHelper.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Host\bin\Gallio.XmlSerializers.dll
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Host\obj\Debug\Gallio.Host.vs2010.csprojAssemblyReference.cache

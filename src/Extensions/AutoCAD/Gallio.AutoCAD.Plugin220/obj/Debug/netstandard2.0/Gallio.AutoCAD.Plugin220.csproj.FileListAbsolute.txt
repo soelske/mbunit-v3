@@ -1,9 +1,0 @@
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\bin\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.deps.json
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\bin\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.dll
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\bin\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\obj\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.csprojAssemblyReference.cache
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\obj\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.csproj.CoreCompileInputs.cache
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\obj\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.AssemblyInfoInputs.cache
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\obj\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.AssemblyInfo.cs
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\obj\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.dll
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin220\obj\Debug\netstandard2.0\Gallio.AutoCAD.Plugin220.pdb

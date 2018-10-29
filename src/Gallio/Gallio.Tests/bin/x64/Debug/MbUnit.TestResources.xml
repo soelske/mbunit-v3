@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MbUnit.TestResources</name>
+    </assembly>
+    <members>
+        <member name="T:MbUnit.TestResources.AnnotatedTests">
+            <summary>
+            A variety of tests for which the framework will generate an annotation due to
+            their being malformed or noteworthy.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.ProcessorArchitecture.MSILSample">
+            <summary>
+            Verifies that the test is being run using the right host process assuming it is
+            being run using the <see cref="F:Gallio.Runner.StandardTestRunnerFactoryNames.IsolatedProcess" /> test runner.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Reflection.ReflectionPolicySample">
+            <summary>
+            This class contains a variety of different types that are used by
+            the reflection policy tests.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Reflection.ReflectionPolicySample.TortureTest`1">
+            <summary>
+            This sample is a bit of a torture test for the exhaustive test case.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.UnhandledExceptionTest">
+            <summary>
+            This test fixture simply contains a test that throws an unhandled exception.
+            We use this test to verify that the test runner does not terminate abruptly
+            when unhandled exceptions occur.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.DataBinding.BindingSample">
+            <summary>
+            Basic data-binding scenarios.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.DocumentedClass">
+            <summary>
+            A documented class.
+            </summary>
+            <remarks>
+            The XML documentation of this test is significant.
+              Including the leading whitespace on this line.
+                And the extra 8 trailing spaces on this line!        
+            </remarks>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.#ctor">
+            <summary>
+            A documented constructor.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.#ctor(System.Int32)">
+            <summary>
+            A documented constructor with parameters.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.Finalize">
+            <summary>
+            A documented finalizer.
+            </summary>
+        </member>
+        <member name="F:MbUnit.TestResources.DocumentedClass.DocumentedField">
+            <summary>
+            A documented field.
+            </summary>
+        </member>
+        <member name="P:MbUnit.TestResources.DocumentedClass.DocumentedProperty">
+            <summary>
+            A documented property.
+            </summary>
+        </member>
+        <member name="E:MbUnit.TestResources.DocumentedClass.DocumentedEvent">
+            <summary>
+            A documented event.
+            </summary>
+        </member>
+        <member name="P:MbUnit.TestResources.DocumentedClass.Item(System.Int32)">
+            <summary>
+            A documented indexer.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.DocumentedMethod">
+            <summary>
+            A documented method.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.DocumentedMethod(System.Int32,MbUnit.TestResources.DocumentedClass,MbUnit.TestResources.DocumentedClass.GenericNestedClass{System.Int32})">
+            <summary>
+            A documented overloaded method with parameters.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.op_Addition(MbUnit.TestResources.DocumentedClass,MbUnit.TestResources.DocumentedClass)">
+            <summary>
+            A documented operator.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.op_Implicit(MbUnit.TestResources.DocumentedClass)~System.Int32">
+            <summary>
+            A documented implicit conversion operator.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.op_Explicit(MbUnit.TestResources.DocumentedClass)~System.Double">
+            <summary>
+            A documented explicit conversion operator.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.DocumentedClass.GenericNestedClass`1">
+            <summary>
+            A documented generic nested class.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.DocumentedClass.GenericNestedClass`1.DocumentedGenericMethodWithParameters``1(``0,`0,System.Int32)">
+            <summary>
+            A documented generic method with parameters.
+            </summary>
+        </member>
+        <member name="P:MbUnit.TestResources.DocumentedClass.GenericNestedClass`1.Item(`0)">
+            <summary>
+            A documented generic indexer.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.FailingTests">
+            <summary>
+            This class is used by the MSBuild task tests. Please don't modify it.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Fixtures.ContextOutcomeFailingSetUpSample">
+            <summary>
+            A sample test fixture with failing setup.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Fixtures.ContextOutcomeFailingTearDownSample">
+            <summary>
+            A sample test fixture with failing setup.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Fixtures.ContextOutcomeFailingTestSample">
+            <summary>
+            A sample test fixture with failing setup.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Fixtures.ContextOutcomePassingTestSample">
+            <summary>
+            A sample test fixture with failing setup.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Fixtures.FixtureInheritanceSample">
+            <summary>
+            This fixture is used to ensure that test fixtures with inherited attributes
+            compose in the desired manner.
+            </summary>
+            <remarks>
+            This is also a useful sample for testing fixtures in nested types.
+            </remarks>
+        </member>
+        <member name="T:MbUnit.TestResources.PassingTests">
+            <summary>
+            This class is used by the MSBuild task tests. Please don't modify it.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MbUnit.TestResources.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MbUnit.TestResources.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.ParameterizedTest">
+            <summary>
+            A simple parameterized test.
+            </summary>
+        </member>
+        <member name="F:MbUnit.TestResources.ParameterizedTest.FieldParameter">
+            <summary>
+            A field parameter.
+            </summary>
+        </member>
+        <member name="P:MbUnit.TestResources.ParameterizedTest.PropertyParameter">
+            <summary>
+            A property parameter.
+            </summary>
+        </member>
+        <member name="T:MbUnit.TestResources.SimpleTest">
+            <summary>
+            A simple test fixture.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.SimpleTest.Pass">
+            <summary>
+            A passing test.
+            </summary>
+        </member>
+        <member name="M:MbUnit.TestResources.SimpleTest.Fail">
+            <summary>
+            A failing test.
+            </summary>
+        </member>
+        <member name="T:ReflectionPolicySampleInGlobalNamespace">
+            <summary>
+            A test type in the global namespace.
+            </summary>
+        </member>
+    </members>
+</doc>

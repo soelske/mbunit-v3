@@ -162,7 +162,7 @@ namespace Gallio.Common.Reflection
             /// Accepts a version number like "1.2.3.4" or a range like "1.0.0.0-1.1.65535.65535".
             /// </para>
             /// </remarks>
-            /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
+            // <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
             public string OldVersion
             {
                 get { return oldVersion; }

@@ -71,10 +71,10 @@ namespace Gallio.AutoCAD.Tests
         }
 
         [Test]
-        [Row(null, "Gallio.AutoCAD.Plugin190.dll")]
+        [Row(null, "Gallio.AutoCAD.Plugin220.dll")]
         public void GetPluginPath_WhenSpecifiedVersionIsNull_ReturnsHighestAvailableVersion(string version, string highestPlugin)
         {
-            StubAvailablePlugins(180, 181, 190);
+            StubAvailablePlugins(180, 181, 190, 220);
             Assert.AreEqual(highestPlugin, pluginLocator.GetPluginPath(null));
         }
 

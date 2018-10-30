@@ -95,7 +95,7 @@ namespace Gallio.AutoCAD.Commands
                 }
             }
 
-            private static ThreadTask CreateSTAThread(Action start)
+            private static ThreadTask CreateSTAThread(GallioAction start)
             {
                 var task = new ThreadTask("AutoCAD Command Runner", start)
                                {

@@ -243,7 +243,7 @@ namespace Gallio.Echo
             }
         }
 
-        private void ShowRegisteredComponents<T>(string heading, ICollection<T> handles, Func<T, string> getName, Func<T, string> getDescription)
+        private void ShowRegisteredComponents<T>(string heading, ICollection<T> handles, GallioFunc<T, string> getName, GallioFunc<T, string> getDescription)
         {
             Console.WriteLine(heading);
             Console.WriteLine();

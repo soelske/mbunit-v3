@@ -44,7 +44,7 @@ namespace Gallio.UI.Reports
     {
         private const string ReportName = "Report";
 
-        private readonly HashSet<string> attachmentPaths;
+        private readonly GallioHashSet<string> attachmentPaths;
         private readonly TemporaryDiskCache cache;
         private readonly IDiskCacheGroup cacheGroup;
         private readonly ReportFilePool reportFilePool;
@@ -66,7 +66,7 @@ namespace Gallio.UI.Reports
             cache = new TemporaryDiskCache("Gallio.UI");
             cacheGroup = cache.Groups[Guid.NewGuid().ToString()];
             reportFilePool = new ReportFilePool(cacheGroup, 5);
-            attachmentPaths = new HashSet<string>();
+            attachmentPaths = new GallioHashSet<string>();
         }
 
         public void Dispose()
@@ -203,7 +203,7 @@ namespace Gallio.UI.Reports
             }
         }
 
-        private static void WriteCodeLocationLink(TextWriter writer, CodeLocation location, Action contents)
+        private static void WriteCodeLocationLink(TextWriter writer, CodeLocation location, GallioAction contents)
         {
             if (location.Path != null)
             {

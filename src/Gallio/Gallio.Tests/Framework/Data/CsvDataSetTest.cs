@@ -38,7 +38,7 @@ namespace Gallio.Tests.Framework.Data
         [Test]
         public void DefaultFieldDelimiterIsComma()
         {
-            Gallio.Common.Func<TextReader> documentReaderProvider = delegate { return new StringReader(""); };
+            Gallio.Common.GallioFunc<TextReader> documentReaderProvider = delegate { return new StringReader(""); };
             CsvDataSet dataSet = new CsvDataSet(documentReaderProvider, false);
 
             Assert.AreEqual(',', dataSet.FieldDelimiter);
@@ -47,7 +47,7 @@ namespace Gallio.Tests.Framework.Data
         [Test]
         public void DefaultCommentPrefixIsPound()
         {
-            Gallio.Common.Func<TextReader> documentReaderProvider = delegate { return new StringReader(""); };
+            Gallio.Common.GallioFunc<TextReader> documentReaderProvider = delegate { return new StringReader(""); };
             CsvDataSet dataSet = new CsvDataSet(documentReaderProvider, false);
 
             Assert.AreEqual('#', dataSet.CommentPrefix);
@@ -56,7 +56,7 @@ namespace Gallio.Tests.Framework.Data
         [Test]
         public void DefaultHasHeaderIsFalse()
         {
-            Gallio.Common.Func<TextReader> documentReaderProvider = delegate { return new StringReader(""); };
+            Gallio.Common.GallioFunc<TextReader> documentReaderProvider = delegate { return new StringReader(""); };
             CsvDataSet dataSet = new CsvDataSet(documentReaderProvider, false);
 
             Assert.IsFalse(dataSet.HasHeader);
@@ -102,7 +102,7 @@ namespace Gallio.Tests.Framework.Data
         public void BindValues(string document, char fieldDelimiter, char commentPrefix, bool hasHeader,
             int? bindingIndex, string bindingPath, string[] expectedValues)
         {
-            Gallio.Common.Func<TextReader> documentReaderProvider = delegate { return new StringReader(document); };
+            Gallio.Common.GallioFunc<TextReader> documentReaderProvider = delegate { return new StringReader(document); };
             CsvDataSet dataSet = new CsvDataSet(documentReaderProvider, false);
 
             dataSet.FieldDelimiter = fieldDelimiter;
@@ -129,7 +129,7 @@ namespace Gallio.Tests.Framework.Data
         public void ProducesMetadata()
         {
             string document = "value,[Metadata]\n123,abc\n456,def";
-            Gallio.Common.Func<TextReader> documentReaderProvider = delegate { return new StringReader(document); };
+            Gallio.Common.GallioFunc<TextReader> documentReaderProvider = delegate { return new StringReader(document); };
             CsvDataSet dataSet = new CsvDataSet(documentReaderProvider, false);
 
             dataSet.HasHeader = true;
@@ -179,7 +179,7 @@ namespace Gallio.Tests.Framework.Data
         public void IgnoresMissingMetadataColumns()
         {
             string document = "value,[Metadata]\n123";
-            Gallio.Common.Func<TextReader> documentReaderProvider = delegate { return new StringReader(document); };
+            Gallio.Common.GallioFunc<TextReader> documentReaderProvider = delegate { return new StringReader(document); };
             CsvDataSet dataSet = new CsvDataSet(documentReaderProvider, false)
             {
                 HasHeader = true

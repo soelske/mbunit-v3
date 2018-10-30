@@ -315,7 +315,7 @@ namespace Gallio.Framework
         /// <param name="triggerEvent">The triggering event.</param>
         /// <param name="triggerAction">The action to execute when triggered.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="triggerAction"/> is null.</exception>
-        public void AutoExecute(TriggerEvent triggerEvent, Action triggerAction)
+        public void AutoExecute(TriggerEvent triggerEvent, GallioAction triggerAction)
         {
             AutoExecute(triggerEvent, triggerAction, null);
         }
@@ -328,7 +328,7 @@ namespace Gallio.Framework
         /// <param name="cleanupAction">The action to execute to clean up after triggering or when the test finishes without triggering having occurred, or null if none.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="triggerAction"/> is null.</exception>
         [UserCodeEntryPoint]
-        public void AutoExecute(TriggerEvent triggerEvent, Action triggerAction, Action cleanupAction)
+        public void AutoExecute(TriggerEvent triggerEvent, GallioAction triggerAction, GallioAction cleanupAction)
         {
             if (triggerAction == null)
                 throw new ArgumentNullException("triggerAction");
@@ -428,7 +428,7 @@ namespace Gallio.Framework
         /// <returns>The context of the step that ran.</returns>
         /// <exception cref="ArgumentException">Thrown if <paramref name="name"/> is the empty string.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
-        public TestContext RunStep(string name, Action action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement)
+        public TestContext RunStep(string name, GallioAction action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement)
         {
             if (name == null)
                 throw new ArgumentNullException("name");
@@ -485,7 +485,7 @@ namespace Gallio.Framework
         /// <exception cref="ArgumentException">Thrown if <paramref name="name"/> is the empty string.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
         /// <exception cref="AssertionFailureException">Thrown if the expected outcome was not obtained.</exception>
-        public TestContext RunStepAndVerifyOutcome(string name, Action action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement, TestOutcome expectedOutcome)
+        public TestContext RunStepAndVerifyOutcome(string name, GallioAction action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement, TestOutcome expectedOutcome)
         {
             TestContext childContext = RunStep(name, action, timeout, isTestCase, codeElement);
 

@@ -276,11 +276,11 @@ namespace MbUnit.Framework.ContractVerifiers
         {
             public string Name;
             public string MethodFriendlyName;
-            public Func<object, Type> GetWorkingType;
-            public Func<Type, MethodInfo> GetEqualityMethod;
-            public Func<object, bool> IsEqualityMethodRequired;
+            public GallioFunc<object, Type> GetWorkingType;
+            public GallioFunc<Type, MethodInfo> GetEqualityMethod;
+            public GallioFunc<object, bool> IsEqualityMethodRequired;
             public bool ExpectedEquality;
-            public Func<object, bool> IsSecondArgumentCompatible;
+            public GallioFunc<object, bool> IsSecondArgumentCompatible;
         }
 
         private Test CreateEqualityTest(EqualitySpecifications spec)

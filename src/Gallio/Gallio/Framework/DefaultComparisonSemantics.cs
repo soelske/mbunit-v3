@@ -68,7 +68,7 @@ namespace Gallio.Framework
             primitiveSubtractionFuncs.Add(typeof(T), new Pair<Type, Delegate>(typeof(D), subtractionFunc));
         }
 
-        private void AddSpecialEqualityFunc<T>(Func<T, T, bool> equalityFunc)
+        private void AddSpecialEqualityFunc<T>(GallioFunc<T, T, bool> equalityFunc)
         {
             specialEqualityFuncs.Add(typeof(T), (a, b) => equalityFunc((T)a, (T)b));
         }

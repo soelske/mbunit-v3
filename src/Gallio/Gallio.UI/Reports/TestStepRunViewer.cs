@@ -145,7 +145,7 @@ namespace Gallio.UI.Reports
             });
         }
 
-        private void DoAsync(Action action)
+        private void DoAsync(GallioAction action)
         {
             if (InvokeRequired)
             {

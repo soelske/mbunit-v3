@@ -81,7 +81,7 @@ namespace Gallio.UI.ControlPanel
             return controlPanelDialog;
         }
 
-        private static Func<ControlPanelTab> GetControlPanelTabFactory(ComponentHandle<IControlPanelTabProvider, ControlPanelTabProviderTraits> controlPanelTabProviderHandle)
+        private static GallioFunc<ControlPanelTab> GetControlPanelTabFactory(ComponentHandle<IControlPanelTabProvider, ControlPanelTabProviderTraits> controlPanelTabProviderHandle)
         {
             return () => controlPanelTabProviderHandle.GetComponent().CreateControlPanelTab();
         }

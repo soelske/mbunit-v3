@@ -20,7 +20,7 @@ using System.Text;
 using Gallio.Framework;
 using Gallio.Framework.Assertions;
 using Gallio.Common.Diagnostics;
-using Action=Gallio.Common.Action;
+using GallioAction=Gallio.Common.GallioAction;
 using System.Reflection;
 using System.IO;
 
@@ -29,7 +29,7 @@ namespace MbUnit.Tests.Framework
     public abstract class BaseAssertTest
     {
         [SystemInternal]
-        public static AssertionFailure[] Capture(Action action)
+        public static AssertionFailure[] Capture(GallioAction action)
         {
             AssertionFailure[] failures = AssertionHelper.Eval(action);
 

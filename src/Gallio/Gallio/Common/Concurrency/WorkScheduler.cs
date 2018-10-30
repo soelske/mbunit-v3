@@ -82,7 +82,7 @@ namespace Gallio.Common.Concurrency
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="actions"/> is null
         /// or contains null.</exception>
         [DebuggerHidden]
-        public void Run(IEnumerable<Action> actions)
+        public void Run(IEnumerable<GallioAction> actions)
         {
             // NOTE: This method has been optimized to minimize the total stack depth of the action
             //       by inlining blocks on the critical path that had previously been factored out.
@@ -91,8 +91,8 @@ namespace Gallio.Common.Concurrency
                 throw new ArgumentNullException("actions");
 
             // Copy the queue of actions to process from the enumeration.
-            var actionQueue = new Queue<Action>();
-            foreach (Action action in actions)
+            var actionQueue = new Queue<GallioAction>();
+            foreach (GallioAction action in actions)
             {
                 if (action == null)
                     throw new ArgumentNullException("actions");
@@ -116,7 +116,7 @@ namespace Gallio.Common.Concurrency
             // Loop until all actions in this work set are finished.
             for (; ; )
             {
-                Action nextAction;
+                GallioAction nextAction;
 
                 lock (syncRoot)
                 {
@@ -186,7 +186,7 @@ namespace Gallio.Common.Concurrency
             for (; ; )
             {
                 WorkSet nextWorkSet;
-                Action nextAction;
+                GallioAction nextAction;
 
                 lock (syncRoot)
                 {
@@ -237,10 +237,10 @@ namespace Gallio.Common.Concurrency
 
         private sealed class WorkSet
         {
-            private readonly Queue<Action> actionQueue;
+            private readonly Queue<GallioAction> actionQueue;
             private int actionsInProgress;
 
-            public WorkSet(Queue<Action> actionQueue)
+            public WorkSet(Queue<GallioAction> actionQueue)
             {
                 this.actionQueue = actionQueue;
             }
@@ -255,9 +255,9 @@ namespace Gallio.Common.Concurrency
                 return actionsInProgress != 0;
             }
 
-            public Action SyncPrepareNextAction()
+            public GallioAction SyncPrepareNextAction()
             {
-                Action action = actionQueue.Dequeue();
+                GallioAction action = actionQueue.Dequeue();
                 actionsInProgress += 1;
                 return action;
             }

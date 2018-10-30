@@ -37,7 +37,7 @@ namespace MbUnit.Framework
     /// <seealso cref="Test"/>
     public class TestCase : TestDefinition
     {
-        private readonly Action execute;
+        private readonly GallioAction execute;
 
         /// <summary>
         /// Gets or sets a set-up action to be executed before the test case.
@@ -47,7 +47,7 @@ namespace MbUnit.Framework
         /// If set to <c>null</c> (default), no action is performed.
         /// </para>
         /// </remarks>
-        public Action SetUp
+        public GallioAction SetUp
         {
             get;
             set;
@@ -61,7 +61,7 @@ namespace MbUnit.Framework
         /// If set to <c>null</c> (default), no action is performed.
         /// </para>
         /// </remarks>
-        public Action TearDown
+        public GallioAction TearDown
         {
             get;
             set;
@@ -74,7 +74,7 @@ namespace MbUnit.Framework
         /// <param name="execute">The main body of the test case.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="name"/> or <paramref name="execute"/>
         /// is null.</exception>
-        public TestCase(string name, Action execute)
+        public TestCase(string name, GallioAction execute)
             : base(name)
         {
             if (execute == null)
@@ -87,7 +87,7 @@ namespace MbUnit.Framework
         /// <summary>
         /// Gets the delegate to run as the main body of the test case.
         /// </summary>
-        public Action Execute
+        public GallioAction Execute
         {
             get
             {

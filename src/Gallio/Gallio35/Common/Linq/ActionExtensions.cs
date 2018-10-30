@@ -22,7 +22,7 @@ using System.Text;
 namespace Gallio.Common.Linq
 {
     /// <summary>
-    /// Extension methods for <see cref="Common.Action" /> delegates.
+    /// Extension methods for <see cref="Common.GallioAction" /> delegates.
     /// </summary>
     public static class ActionExtensions
     {

@@ -32,7 +32,7 @@ namespace Gallio.Common.Collections
     /// </remarks>
     public class LazyCache<TKey, TValue>
     {
-        private readonly Func<TKey, TValue> populator;
+        private readonly GallioFunc<TKey, TValue> populator;
         private readonly Dictionary<TKey, TValue> contents;
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Gallio.Common.Collections
         /// </summary>
         /// <param name="populator">A function that provides a value given a key.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="populator"/> is null.</exception>
-        public LazyCache(Func<TKey, TValue> populator)
+        public LazyCache(GallioFunc<TKey, TValue> populator)
         {
             if (populator == null)
                 throw new ArgumentNullException("populator");

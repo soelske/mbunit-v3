@@ -25,10 +25,10 @@ namespace Gallio.Framework.Pattern
     /// </summary>
     public abstract class BaseBuilder : ISupportDeferredActions
     {
-        private List<Triple<ICodeElementInfo, int, Action>> deferredActions;
+        private List<Triple<ICodeElementInfo, int, GallioAction>> deferredActions;
 
         /// <inheritdoc />
-        public void AddDeferredAction(ICodeElementInfo codeElement, int order, Action deferredAction)
+        public void AddDeferredAction(ICodeElementInfo codeElement, int order, GallioAction deferredAction)
         {
             if (codeElement == null)
                 throw new ArgumentNullException("codeElement");
@@ -36,9 +36,9 @@ namespace Gallio.Framework.Pattern
                 throw new ArgumentNullException("deferredAction");
 
             if (deferredActions == null)
-                deferredActions = new List<Triple<ICodeElementInfo, int, Action>>();
+                deferredActions = new List<Triple<ICodeElementInfo, int, GallioAction>>();
 
-            deferredActions.Add(new Triple<ICodeElementInfo, int, Action>(codeElement, order, deferredAction));
+            deferredActions.Add(new Triple<ICodeElementInfo, int, GallioAction>(codeElement, order, deferredAction));
         }
 
         /// <inheritdoc />
@@ -59,7 +59,7 @@ namespace Gallio.Framework.Pattern
         /// <returns>The test model builder.</returns>
         protected abstract ITestModelBuilder GetTestModelBuilder();
 
-        private void RunDeferredAction(ICodeElementInfo codeElement, Action deferredAction)
+        private void RunDeferredAction(ICodeElementInfo codeElement, GallioAction deferredAction)
         {
             try
             {

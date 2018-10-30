@@ -77,7 +77,7 @@ namespace MbUnit.Framework
         /// </summary>
         /// <param name="type">The type on which the comparer operates.</param>
         /// <param name="operation">The comparison operation.</param>
-        protected abstract void Register(Type type, Func<object, object, object> operation);
+        protected abstract void Register(Type type, GallioFunc<object, object, object> operation);
 
         /// <summary>
         /// Registers the custom comparison operation for the specified type.

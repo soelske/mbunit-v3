@@ -32,7 +32,7 @@ namespace Gallio.Tests.Common.Linq
         [Test, ExpectedArgumentNullException]
         public void RewriteThrowsIfArgumentIsNull()
         {
-            new ExpressionTracer().Rewrite<Expression<Gallio.Common.Func<int>>>(null);
+            new ExpressionTracer().Rewrite<Expression<Gallio.Common.GallioFunc<int>>>(null);
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace Gallio.Tests.Common.Linq
                     new[] { "Constant", "MemberAccess", "Constant", "MemberAccess", "GreaterThan" });
                 AssertTrace(() => x >= y, true,
                     new[] { "Constant", "MemberAccess", "Constant", "MemberAccess", "GreaterThanOrEqual" });
-                AssertTrace(() => ((Gallio.Common.Func<int>)(() => 5))(), 5,
+                AssertTrace(() => ((Gallio.Common.GallioFunc<int>)(() => 5))(), 5,
                     new[] { "Lambda", "Convert", "Invoke" });
                 AssertTrace(() => x << y, 20,
                     new[] { "Constant", "MemberAccess", "Constant", "MemberAccess", "LeftShift" });

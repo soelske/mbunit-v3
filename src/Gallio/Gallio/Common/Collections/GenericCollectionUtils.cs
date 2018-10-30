@@ -281,7 +281,7 @@ namespace Gallio.Common.Collections
         /// <param name="filter"></param>
         /// <returns>The output sequence</returns>
         /// <exception cref="ArgumentNullException">Thrown if any argument is null.</exception>
-        public static IEnumerable<TOutput> Select<TInput, TOutput>(IEnumerable<TInput> enumeration, Func<TInput, TOutput> filter)
+        public static IEnumerable<TOutput> Select<TInput, TOutput>(IEnumerable<TInput> enumeration, GallioFunc<TInput, TOutput> filter)
         {
             if (enumeration == null)
                 throw new ArgumentNullException("enumeration");

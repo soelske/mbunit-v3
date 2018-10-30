@@ -582,7 +582,7 @@ namespace MbUnit.Framework
         #endregion
 
         private static void AssertOrder<T>(T left, T right, Comparison<T> comparer, string exceptionMessage,
-            Func<int, bool> orderingPredicate, string messageFormat, params object[] messageArgs)
+            GallioFunc<int, bool> orderingPredicate, string messageFormat, params object[] messageArgs)
         {
             AssertionHelper.Verify(() =>
             {

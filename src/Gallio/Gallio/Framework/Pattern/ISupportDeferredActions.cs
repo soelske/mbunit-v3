@@ -38,7 +38,7 @@ namespace Gallio.Framework.Pattern
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="codeElement"/>
         /// or <paramref name="deferredAction"/> is null.</exception>
         /// <seealso cref="ApplyDeferredActions"/>
-        void AddDeferredAction(ICodeElementInfo codeElement, int order, Action deferredAction);
+        void AddDeferredAction(ICodeElementInfo codeElement, int order, GallioAction deferredAction);
 
         /// <summary>
         /// Applies all pending deferred in order and clears the list.

@@ -63,7 +63,7 @@ namespace Gallio.Framework.Pattern
         }
 
         /// <inheritdoc />
-        public Func<TimeSpan?> TimeoutFunc
+        public GallioFunc<TimeSpan?> TimeoutFunc
         {
             get { return test.TimeoutFunc; }
             set { test.TimeoutFunc = value; }

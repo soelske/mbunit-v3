@@ -43,7 +43,7 @@ namespace Gallio.Tests.Common
         {
             Assert.AreEqual(LengthOf, chain.Func);
 
-            Gallio.Common.Func<string, int> func = x => 1;
+            Gallio.Common.GallioFunc<string, int> func = x => 1;
             chain.Func = func;
             Assert.AreEqual(func, chain.Func);
         }

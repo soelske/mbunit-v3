@@ -144,7 +144,7 @@ namespace MbUnit.Framework
 
         /// <inheritdoc />
         [UserCodeEntryPoint]
-        protected override TestOutcome RunDynamicTest(ICodeElementInfo declaringCodeElement, Action setUp, Action tearDown)
+        protected override TestOutcome RunDynamicTest(ICodeElementInfo declaringCodeElement, GallioAction setUp, GallioAction tearDown)
         {
             return TestStep.RunStep(Name, () =>
             {

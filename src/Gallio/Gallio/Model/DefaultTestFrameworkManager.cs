@@ -261,8 +261,8 @@ namespace Gallio.Model
             // Approximate fallback mode.
             if (assemblyReferences != null)
             {
-                HashSet<string> matchingReferences = null;
-                HashSet<string> matchingSignatures = null;
+                GallioHashSet<string> matchingReferences = null;
+                GallioHashSet<string> matchingSignatures = null;
 
                 foreach (var testFrameworkHandle in filteredTestFrameworkHandlesWithoutFallback)
                 {
@@ -276,8 +276,8 @@ namespace Gallio.Model
                             {
                                 if (matchingReferences == null)
                                 {
-                                    matchingReferences = new HashSet<string>();
-                                    matchingSignatures = new HashSet<string>();
+                                    matchingReferences = new GallioHashSet<string>();
+                                    matchingSignatures = new GallioHashSet<string>();
                                 }
 
                                 matchingReferences.Add(assemblyName.FullName);
@@ -337,7 +337,7 @@ namespace Gallio.Model
 
         private static TestFrameworkSelection GetOrCreateSelectionIfAbsent(
             Dictionary<object, TestFrameworkSelection> selections,
-            object key, Func<TestFrameworkSelection> factory)
+            object key, GallioFunc<TestFrameworkSelection> factory)
         {
             TestFrameworkSelection selection;
             if (!selections.TryGetValue(key, out selection))
@@ -472,7 +472,7 @@ namespace Gallio.Model
             }
 
             private bool ForEachDriver<T>(MultiMap<TestFrameworkSelection, T> testFrameworkPartitions,
-                Func<ITestDriver, IList<T>, int, bool> func)
+                GallioFunc<ITestDriver, IList<T>, int, bool> func)
                 where T : class
             {
                 var testDriverPartitions = new Dictionary<TestDriverFactory, TestDriverData<T>>();
@@ -493,7 +493,7 @@ namespace Gallio.Model
                         }
                         else
                         {
-                            testDriverData.ItemIndex = new HashSet<T>(ReferentialEqualityComparer<T>.Instance);
+                            testDriverData.ItemIndex = new GallioHashSet<T>(ReferentialEqualityComparer<T>.Instance);
                             GenericCollectionUtils.AddAll(testDriverData.Items, testDriverData.ItemIndex);
                         }
 
@@ -562,7 +562,7 @@ namespace Gallio.Model
             public readonly TestFrameworkOptions TestFrameworkOptions;
             public readonly List<T> Items;
 
-            public HashSet<T> ItemIndex;
+            public GallioHashSet<T> ItemIndex;
         }
     }
 }

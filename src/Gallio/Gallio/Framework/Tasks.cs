@@ -87,7 +87,7 @@ namespace Gallio.Framework
         /// <param name="action">The action to perform.</param>
         /// <returns>The new thread task.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public static ThreadTask CreateThreadTask(string name, Action action)
+        public static ThreadTask CreateThreadTask(string name, GallioAction action)
         {
             if (action == null)
                 throw new ArgumentNullException("action");
@@ -110,7 +110,7 @@ namespace Gallio.Framework
         /// <param name="action">The action to perform.</param>
         /// <returns>The new thread task.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public static ThreadTask StartThreadTask(string name, Action action)
+        public static ThreadTask StartThreadTask(string name, GallioAction action)
         {
             ThreadTask task = CreateThreadTask(name, action);
             task.Start();

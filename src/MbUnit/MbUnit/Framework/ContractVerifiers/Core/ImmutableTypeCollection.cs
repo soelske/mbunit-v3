@@ -24,11 +24,11 @@ namespace MbUnit.Framework.ContractVerifiers.Core
 {
     internal class ImmutableTypeCollection : ICollection<Type>
     {
-        private readonly HashSet<Type> types;
+        private readonly GallioHashSet<Type> types;
 
         public ImmutableTypeCollection()
         {
-            types = new HashSet<Type>
+            types = new GallioHashSet<Type>
             {
                 typeof(Boolean),
                 typeof(Int16),

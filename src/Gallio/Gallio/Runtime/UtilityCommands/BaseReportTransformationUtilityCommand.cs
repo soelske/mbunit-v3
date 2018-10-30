@@ -109,7 +109,7 @@ namespace Gallio.Runtime.UtilityCommands
         /// <param name="getOutputName"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        protected bool SaveReport(Report report, ReportArchive reportArchive, string formatterName, string outputPath, Func<string> getOutputName, ReportFormatterOptions options)
+        protected bool SaveReport(Report report, ReportArchive reportArchive, string formatterName, string outputPath, GallioFunc<string> getOutputName, ReportFormatterOptions options)
         {
             return CaptureFileException(() => "The specified output directory is not a valid file path.", () =>
             {
@@ -149,7 +149,7 @@ namespace Gallio.Runtime.UtilityCommands
         /// <param name="getErrorMessage">The error message to log.</param>
         /// <param name="func"></param>
         /// <returns></returns>
-        protected T CaptureFileException<T>(Func<string> getErrorMessage, Func<T> func)
+        protected T CaptureFileException<T>(GallioFunc<string> getErrorMessage, GallioFunc<T> func)
         {
             try
             {

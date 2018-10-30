@@ -208,7 +208,7 @@ namespace Gallio.Runtime.ConsoleSupport
         /// <param name="showFooter">A delegate to display the footer.</param>
         /// <param name="hideFooter">A delegate to hide the footer, leaving the custor at
         /// the beginning of the line where the footer used to begin.</param>
-        void SetFooter(Action showFooter, Action hideFooter);
+        void SetFooter(GallioAction showFooter, GallioAction hideFooter);
 
         /// <summary>
         /// Writes a character.

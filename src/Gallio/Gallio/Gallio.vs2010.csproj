@@ -14,7 +14,7 @@
     <AssemblyOriginatorKeyFile>..\..\Key.snk</AssemblyOriginatorKeyFile>
     <SGenUseProxyTypes>false</SGenUseProxyTypes>
     <SGenShouldGenerateSerializer>true</SGenShouldGenerateSerializer>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <RootDir>$(MSBuildProjectDirectory)\..\..\..</RootDir>
     <CustomAfterMicrosoftCommonTargets>$(RootDir)\bin\Custom.After.Microsoft.Common.targets</CustomAfterMicrosoftCommonTargets>
     <PublishUrl>http://localhost/Gallio/</PublishUrl>
@@ -32,6 +32,7 @@
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -131,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Accessor.cs" />
-    <Compile Include="Common\Action.cs" />
+    <Compile Include="Common\GallioAction.cs" />
     <Compile Include="Common\Collections\EnumerableCounter.cs" />
     <Compile Include="Common\Collections\IPropertySetContainer.cs" />
     <Compile Include="Common\Comparison.cs" />
@@ -183,7 +184,7 @@
     <Compile Include="Common\Collections\EmptyArray.cs" />
     <Compile Include="Common\Collections\EmptyDictionary.cs" />
     <Compile Include="Common\Collections\GenericCollectionUtils.cs" />
-    <Compile Include="Common\Collections\HashSet.cs" />
+    <Compile Include="Common\Collections\GallioHashSet.cs" />
     <Compile Include="Common\Collections\IMultiMap.cs" />
     <Compile Include="Common\Collections\Key.cs" />
     <Compile Include="Common\Collections\LazyCache.cs" />
@@ -1006,7 +1007,7 @@
     <Compile Include="Model\Contexts\ObservableTestLogWriter.cs" />
     <Compile Include="Model\Contexts\StubTestContext.cs" />
     <Compile Include="Model\Contexts\StubTestContextTracker.cs" />
-    <Compile Include="Common\Func.cs" />
+    <Compile Include="Common\GallioFunc.cs" />
     <Compile Include="Framework\TestException.cs" />
     <Compile Include="Framework\TestFailedException.cs" />
     <Compile Include="Framework\TestInconclusiveException.cs" />

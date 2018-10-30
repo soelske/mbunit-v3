@@ -128,7 +128,7 @@ namespace MbUnit.Framework.ContractVerifiers.Core
             AssertContained(item, "Expected the list to contain a just inserted item.");
         }
 
-        public void DoActionAtInvalidIndex(Func<TList, int> getInvalidIndex, Action<TList, int> action, string actionName)
+        public void DoActionAtInvalidIndex(GallioFunc<TList, int> getInvalidIndex, Action<TList, int> action, string actionName)
         {
             int invalidIndex = getInvalidIndex(List);
 

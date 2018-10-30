@@ -177,7 +177,7 @@ namespace Gallio.Framework.Pattern
                             reentered = true;
 
                             ThreadTask task = new TestEnvironmentAwareThreadTask("Test Runner " + test.ApartmentState,
-                                (Action) Run, executor.environmentManager);
+                                (GallioAction) Run, executor.environmentManager);
                             task.ApartmentState = test.ApartmentState;
                             task.Run(null);
 
@@ -261,7 +261,7 @@ namespace Gallio.Framework.Pattern
                                                     }
                                                     else
                                                     {
-                                                        executor.scheduler.Run(GenericCollectionUtils.ConvertAllToArray<RunTestDataItemAction, Action>(
+                                                        executor.scheduler.Run(GenericCollectionUtils.ConvertAllToArray<RunTestDataItemAction, GallioAction>(
                                                             actions, action => action.Run));
                                                     }
 
@@ -558,7 +558,7 @@ namespace Gallio.Framework.Pattern
                                             RunTestAction[] actions = GenericCollectionUtils.ConvertAllToArray(batch.Commands,
                                                 childTestCommand => new RunTestAction(executor, childTestCommand, context, testActionsDecorator));
 
-                                            executor.scheduler.Run(Array.ConvertAll<RunTestAction, Action>(actions, action => action.Run));
+                                            executor.scheduler.Run(Array.ConvertAll<RunTestAction, GallioAction>(actions, action => action.Run));
 
                                             TestOutcome combinedChildOutcome = TestOutcome.Passed;
                                             foreach (var action in actions)

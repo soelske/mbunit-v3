@@ -31,7 +31,7 @@ namespace Gallio.Tests.Runner.Reports
         public void SetUp()
         {
             reportContainer = MockRepository.GenerateStub<IReportContainer>();
-            reportContainer.Stub(rc => rc.EncodeFileName(Arg<string>.Is.Anything)).Do(new Func<string, string>(s => s));
+            reportContainer.Stub(rc => rc.EncodeFileName(Arg<string>.Is.Anything)).Do(new GallioFunc<string, string>(s => s));
             attachmentPathResolver = new AttachmentPathResolver(reportContainer);
         }
 

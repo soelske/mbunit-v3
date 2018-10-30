@@ -123,7 +123,7 @@ namespace MbUnit.Framework.ContractVerifiers
         /// };
         /// ]]></code>
         /// </example>
-        public Func<TTarget> DefaultInstance
+        public GallioFunc<TTarget> DefaultInstance
         {
             get;
             set;

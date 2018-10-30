@@ -21,7 +21,7 @@ namespace Gallio.Framework
     /// <summary>
     /// Specifies a trigger condition for automatic execution of an action.
     /// </summary>
-    /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Action)"/>
+    /// <seealso cref="TestContext.AutoExecute(TriggerEvent, GallioAction)"/>
     public enum TriggerEvent
     {
         /// <summary>

@@ -124,7 +124,7 @@ namespace MbUnit.Framework
         /// <paramref name="tests"/> is null or contains a null.</exception>
         /// <seealso cref="DynamicTestFactoryAttribute" />
         [SystemInternal]
-        public static TestOutcome RunDynamicTests(IEnumerable<Test> tests, ICodeElementInfo declaringCodeElement, Action setUp, Action tearDown)
+        public static TestOutcome RunDynamicTests(IEnumerable<Test> tests, ICodeElementInfo declaringCodeElement, GallioAction setUp, GallioAction tearDown)
         {
             if (declaringCodeElement == null)
                 throw new ArgumentNullException("declaringCodeElement");
@@ -170,6 +170,6 @@ namespace MbUnit.Framework
         /// <param name="tearDown">Optional tear-down code to run after the test, or null if none.</param>
         /// <seealso cref="DynamicTestFactoryAttribute" />
         [SystemInternal]
-        protected abstract TestOutcome RunDynamicTest(ICodeElementInfo declaringCodeElement, Action setUp, Action tearDown);
+        protected abstract TestOutcome RunDynamicTest(ICodeElementInfo declaringCodeElement, GallioAction setUp, GallioAction tearDown);
     }
 }

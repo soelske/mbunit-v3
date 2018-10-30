@@ -44,7 +44,7 @@ namespace MbUnit.Framework
         /// <returns>The exception that was thrown.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static TExpectedException Throws<TExpectedException>(Action action)
+        public static TExpectedException Throws<TExpectedException>(GallioAction action)
             where TExpectedException : Exception
         {
             return Throws<TExpectedException>(action, null, null);
@@ -72,7 +72,7 @@ namespace MbUnit.Framework
         /// <returns>The exception that was thrown.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static TExpectedException Throws<TExpectedException, TExpectedInnerException>(Action action)
+        public static TExpectedException Throws<TExpectedException, TExpectedInnerException>(GallioAction action)
             where TExpectedException : Exception
             where TExpectedInnerException : Exception
         {
@@ -101,7 +101,7 @@ namespace MbUnit.Framework
         /// <returns>The exception that was thrown.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static TExpectedException Throws<TExpectedException>(Action action, string messageFormat, params object[] messageArgs)
+        public static TExpectedException Throws<TExpectedException>(GallioAction action, string messageFormat, params object[] messageArgs)
             where TExpectedException : Exception
         {
             return (TExpectedException)Throws(typeof(TExpectedException), null, action, messageFormat, messageArgs);
@@ -131,7 +131,7 @@ namespace MbUnit.Framework
         /// <returns>The exception that was thrown.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static TExpectedException Throws<TExpectedException, TExpectedInnerException>(Action action, string messageFormat, params object[] messageArgs)
+        public static TExpectedException Throws<TExpectedException, TExpectedInnerException>(GallioAction action, string messageFormat, params object[] messageArgs)
             where TExpectedException : Exception
             where TExpectedInnerException : Exception
         {
@@ -159,7 +159,7 @@ namespace MbUnit.Framework
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="expectedExceptionType"/>
         /// or <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static Exception Throws(Type expectedExceptionType, Action action)
+        public static Exception Throws(Type expectedExceptionType, GallioAction action)
         {
             return Throws(expectedExceptionType, null, action, null);
         }
@@ -187,7 +187,7 @@ namespace MbUnit.Framework
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="expectedExceptionType"/>
         /// or <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static Exception Throws(Type expectedExceptionType, Type expectedInnerExceptionType, Action action)
+        public static Exception Throws(Type expectedExceptionType, Type expectedInnerExceptionType, GallioAction action)
         {
             return Throws(expectedExceptionType, expectedInnerExceptionType, action, null);
         }
@@ -215,7 +215,7 @@ namespace MbUnit.Framework
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="expectedExceptionType"/>
         /// or <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static Exception Throws(Type expectedExceptionType, Action action, string messageFormat, params object[] messageArgs)
+        public static Exception Throws(Type expectedExceptionType, GallioAction action, string messageFormat, params object[] messageArgs)
         {
             return Throws(expectedExceptionType, null, action, messageFormat, messageArgs);
      }
@@ -245,7 +245,7 @@ namespace MbUnit.Framework
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="expectedExceptionType"/>
         /// or <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static Exception Throws(Type expectedExceptionType, Type expectedInnerExceptionType, Action action, string messageFormat, params object[] messageArgs)
+        public static Exception Throws(Type expectedExceptionType, Type expectedInnerExceptionType, GallioAction action, string messageFormat, params object[] messageArgs)
         {
             if (expectedExceptionType == null)
                 throw new ArgumentNullException("expectedExceptionType");
@@ -321,7 +321,7 @@ namespace MbUnit.Framework
         /// <param name="action">The action delegate to evaluate.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static void DoesNotThrow(Action action)
+        public static void DoesNotThrow(GallioAction action)
         {
             DoesNotThrow(action, null, null);
         }
@@ -343,7 +343,7 @@ namespace MbUnit.Framework
         /// <param name="messageArgs">The custom assertion message arguments, or null if none.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="AssertionException">Thrown if the verification failed unless the current <see cref="AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
-        public static void DoesNotThrow(Action action, string messageFormat, params object[] messageArgs)
+        public static void DoesNotThrow(GallioAction action, string messageFormat, params object[] messageArgs)
         {
             if (action == null)
                 throw new ArgumentNullException("action");

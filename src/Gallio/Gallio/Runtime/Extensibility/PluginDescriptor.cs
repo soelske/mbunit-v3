@@ -66,7 +66,7 @@ namespace Gallio.Runtime.Extensibility
         }
 
         // Used by unit tests.
-        internal static void RunWithInjectedTraitsHandlerFactoryMock(IHandlerFactory traitsHandlerFactory, Action action)
+        internal static void RunWithInjectedTraitsHandlerFactoryMock(IHandlerFactory traitsHandlerFactory, GallioAction action)
         {
             IHandlerFactory oldTraitsHandlerFactory = traitsHandlerFactory;
             try

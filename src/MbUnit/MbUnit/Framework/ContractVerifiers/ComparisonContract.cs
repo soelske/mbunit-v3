@@ -247,12 +247,12 @@ namespace MbUnit.Framework.ContractVerifiers
         {
             public string Name;
             public string MethodFriendlyName;
-            public Func<object, Type> GetWorkingType;
-            public Func<Type, MethodInfo> GetComparisonMethod;
-            public Func<object, bool> IsComparisonMethodRequired;
-            public Func<int, TResult> AdjustExpectedEquivalence;
-            public Func<TResult, string> FormatResult;
-            public Func<object, bool> IsSecondArgumentCompatible;
+            public GallioFunc<object, Type> GetWorkingType;
+            public GallioFunc<Type, MethodInfo> GetComparisonMethod;
+            public GallioFunc<object, bool> IsComparisonMethodRequired;
+            public GallioFunc<int, TResult> AdjustExpectedEquivalence;
+            public GallioFunc<TResult, string> FormatResult;
+            public GallioFunc<object, bool> IsSecondArgumentCompatible;
         }
 
         private Test CreateComparisonTest<TResult>(ComparisonSpecifications<TResult> spec)

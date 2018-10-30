@@ -64,7 +64,7 @@ namespace MbUnit.Framework
         }
 
         /// <inheritdoc />
-        protected override void Register(Type type, Func<object, object, object> operation)
+        protected override void Register(Type type, GallioFunc<object, object, object> operation)
         {
             ExtensionPoints.CustomEqualityComparers.Register(type, (x, y) => (bool)operation(x, y));
         }

@@ -77,7 +77,7 @@ namespace Gallio.Framework.Pattern
             throw new NotSupportedException();
         }
 
-        void ISupportDeferredActions.AddDeferredAction(ICodeElementInfo codeElement, int order, Action deferredAction)
+        void ISupportDeferredActions.AddDeferredAction(ICodeElementInfo codeElement, int order, GallioAction deferredAction)
         {
             throw new NotSupportedException();
         }
@@ -89,7 +89,7 @@ namespace Gallio.Framework.Pattern
 
         private sealed class DummyRootTestBuilder : ITestBuilder
         {
-            public void AddDeferredAction(ICodeElementInfo codeElement, int order, Action deferredAction)
+            public void AddDeferredAction(ICodeElementInfo codeElement, int order, GallioAction deferredAction)
             {
                 throw new NotImplementedException();
             }
@@ -137,7 +137,7 @@ namespace Gallio.Framework.Pattern
                 set { throw new NotImplementedException(); }
             }
 
-            public Func<TimeSpan?> TimeoutFunc
+            public GallioFunc<TimeSpan?> TimeoutFunc
             {
                 get { throw new NotImplementedException(); }
                 set { throw new NotImplementedException(); }

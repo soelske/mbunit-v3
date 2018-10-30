@@ -63,7 +63,7 @@ namespace Gallio.Tests.Reports
                     Expect.Call(reportContainer.EncodeFileName(null))
                         .Repeat.Any()
                         .IgnoreArguments()
-                        .Do((Gallio.Common.Func<string, string>)delegate(string value) { return value; });
+                        .Do((Gallio.Common.GallioFunc<string, string>)delegate(string value) { return value; });
 
                     SetupResult.For(reportContainer.ReportName).Return("Foo");
                     Expect.Call(reportContainer.OpenWrite("Foo.mht", MimeTypes.MHtml, new UTF8Encoding(false)))

@@ -178,7 +178,7 @@ namespace MbUnit.Framework.ContractVerifiers
             });
         }
 
-        private void DoInsertCycle(Func<TList, int> getIndex)
+        private void DoInsertCycle(GallioFunc<TList, int> getIndex)
         {
             var list = GetSafeDefaultInstance();
             var handler = new ListHandler<TList, TItem>(list, Context);

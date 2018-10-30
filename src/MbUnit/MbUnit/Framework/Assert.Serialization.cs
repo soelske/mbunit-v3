@@ -212,7 +212,7 @@ namespace MbUnit.Framework
             return Deserialize<T>(stream, formatter, messageFormat, messageArgs, null);
         }
 
-        private static T Deserialize<T>(Stream stream, IFormatter formatter, string messageFormat, object[] messageArgs, Func<T> originalValueProvider)
+        private static T Deserialize<T>(Stream stream, IFormatter formatter, string messageFormat, object[] messageArgs, GallioFunc<T> originalValueProvider)
         {
             if (formatter == null)
                 throw new ArgumentNullException("formatter");
@@ -572,7 +572,7 @@ namespace MbUnit.Framework
             return XmlDeserialize<T>(typeof(T), xml, messageFormat, messageArgs, null);
         }
 
-        private static T XmlDeserialize<T>(Type type, string xml, string messageFormat, object[] messageArgs, Func<T> originalValueProvider)
+        private static T XmlDeserialize<T>(Type type, string xml, string messageFormat, object[] messageArgs, GallioFunc<T> originalValueProvider)
         {
             T deserializedValue = default(T);
 

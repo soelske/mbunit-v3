@@ -57,7 +57,7 @@ namespace Gallio.Framework.Assertions
         /// </remarks>
         /// <param name="assertionFunc">The assertion function to evaluate.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="assertionFunc"/> is null.</exception>
-        public static void Verify(Func<AssertionFailure> assertionFunc)
+        public static void Verify(GallioFunc<AssertionFailure> assertionFunc)
         {
             if (assertionFunc == null)
                 throw new ArgumentNullException("assertionFunc");
@@ -141,7 +141,7 @@ namespace Gallio.Framework.Assertions
         /// <param name="action">The action to invoke.</param>
         /// <returns>The array of failures, may be empty if none.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public static AssertionFailure[] Eval(Action action)
+        public static AssertionFailure[] Eval(GallioAction action)
         {
             return Eval(action, AssertionFailureBehavior.Throw);
         }
@@ -164,7 +164,7 @@ namespace Gallio.Framework.Assertions
         /// <returns>The array of failures, may be empty if none.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="InvalidOperationException">Thrown if there is no current assertion context.</exception>
-        public static AssertionFailure[] Eval(Action action, AssertionFailureBehavior assertionFailureBehavior)
+        public static AssertionFailure[] Eval(GallioAction action, AssertionFailureBehavior assertionFailureBehavior)
         {
             if (action == null)
                 throw new ArgumentNullException("action");
@@ -211,7 +211,7 @@ namespace Gallio.Framework.Assertions
         /// returns a single outer failure with a common explanation.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="explanation"/> is null.</exception>
-        public static void Explain(Action action, AssertionFailureExplanation explanation)
+        public static void Explain(GallioAction action, AssertionFailureExplanation explanation)
         {
             Explain(action, AssertionFailureBehavior.Throw, explanation);
         }
@@ -227,7 +227,7 @@ namespace Gallio.Framework.Assertions
         /// returns a single outer failure with a common explanation.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="explanation"/> is null.</exception>
-        public static void Explain(Action action, AssertionFailureBehavior assertionFailureBehavior, AssertionFailureExplanation explanation)
+        public static void Explain(GallioAction action, AssertionFailureBehavior assertionFailureBehavior, AssertionFailureExplanation explanation)
         {
             if (action == null)
                 throw new ArgumentNullException("action");

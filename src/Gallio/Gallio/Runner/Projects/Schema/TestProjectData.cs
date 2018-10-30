@@ -196,7 +196,7 @@ namespace Gallio.Runner.Projects.Schema
                 TestPackage.MakeAbsolutePaths(basePath);
         }
 
-        private void ApplyPathConversion(string basePath, Func<string, string, string> converter)
+        private void ApplyPathConversion(string basePath, GallioFunc<string, string, string> converter)
         {
             if (basePath == null)
                 throw new ArgumentNullException("basePath");

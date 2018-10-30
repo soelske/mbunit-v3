@@ -65,22 +65,22 @@ namespace MbUnit.Framework
         /// <summary>
         /// Gets or sets a delegate to run before each test case in the suite, or null if none.
         /// </summary>
-        public Action SetUp { get; set; }
+        public GallioAction SetUp { get; set; }
 
         /// <summary>
         /// Gets or sets a delegate to run after each test case in the suite, or null if none.
         /// </summary>
-        public Action TearDown { get; set; }
+        public GallioAction TearDown { get; set; }
 
         /// <summary>
         /// Gets or sets a delegate to run before all test cases in the suite, or null if none.
         /// </summary>
-        public Action SuiteSetUp { get; set; }
+        public GallioAction SuiteSetUp { get; set; }
 
         /// <summary>
         /// Gets or sets a delegate to run after all test cases in the suite, or null if none.
         /// </summary>
-        public Action SuiteTearDown { get; set; }
+        public GallioAction SuiteTearDown { get; set; }
 
         /// <inheritdoc />
         protected override bool IsTestCase

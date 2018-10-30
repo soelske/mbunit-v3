@@ -71,7 +71,7 @@ namespace Gallio.Framework.Pattern
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="value"/>
         /// represents a negative time span.</exception>
         /// <value>The timeout.  Default value is null.</value>
-        Func<TimeSpan?> TimeoutFunc { get; set; }
+        GallioFunc<TimeSpan?> TimeoutFunc { get; set; }
 
         /// <summary>
         /// Gets whether this test represents an individual test case

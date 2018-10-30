@@ -46,7 +46,7 @@ namespace Gallio.Common.Platform
         /// <returns>True if the action succeeded.</returns>
         /// <seealso cref="RegistryKey.OpenSubKey(string)"/>
         public static bool TryActionOnOpenSubKeyWithBitness(ProcessorArchitecture architecture,
-            RegistryHive hive, string keyName, Func<RegistryKey, bool> action)
+            RegistryHive hive, string keyName, GallioFunc<RegistryKey, bool> action)
         {
             if (keyName == null)
                 throw new ArgumentNullException("keyName");

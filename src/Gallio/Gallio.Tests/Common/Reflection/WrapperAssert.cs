@@ -26,7 +26,7 @@ using Gallio.Common.Reflection;
 using Gallio.Common.Reflection.Impl;
 using MbUnit.Framework;
 using System.Runtime.CompilerServices;
-using Action=Gallio.Common.Action;
+using GallioAction=Gallio.Common.GallioAction;
 
 namespace Gallio.Tests.Common.Reflection
 {
@@ -1195,7 +1195,7 @@ namespace Gallio.Tests.Common.Reflection
         /// This implementation assumes that the Equals methods are implemented correctly.
         /// If you're uncertain of this, you should disable memoization.
         /// </summary>
-        private void MemoizeEquivalence(object target, object wrapper, Action action)
+        private void MemoizeEquivalence(object target, object wrapper, GallioAction action)
         {
             if (!equivalenceCache.Contains(target, wrapper))
             {

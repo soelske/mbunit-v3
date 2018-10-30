@@ -18,7 +18,7 @@ using Gallio.Common;
 namespace Gallio.Framework.Assertions
 {
     /// <summary>
-    /// A delegate for the <see cref="AssertionHelper.Explain(Action, AssertionFailureExplanation)" /> decorator method which 
+    /// A delegate for the <see cref="AssertionHelper.Explain(GallioAction, AssertionFailureExplanation)" /> decorator method which 
     /// combines the specified inner failures into a single outer failure with a common explanation.
     /// </summary>
     /// <param name="innerFailures">The inner failures to combine together.</param>

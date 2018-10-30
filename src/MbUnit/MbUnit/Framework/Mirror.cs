@@ -362,7 +362,7 @@ namespace MbUnit.Framework
             return new MemberSet(type, instance, memberName, null, null, AnyBinding);
         }
 
-        private static Exception Eval<T>(Func<T> func, out T result)
+        private static Exception Eval<T>(GallioFunc<T> func, out T result)
         {
             try
             {

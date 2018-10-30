@@ -32,7 +32,7 @@ namespace Gallio.Framework.Pattern
     {
         private readonly PatternTestDataContext dataContext;
         private readonly PatternTestActions testActions;
-        private Func<TimeSpan?> timeoutFunc = () => null;
+        private GallioFunc<TimeSpan?> timeoutFunc = () => null;
         private ApartmentState apartmentState = ApartmentState.Unknown;
         private bool isParallelizable;
 
@@ -65,7 +65,7 @@ namespace Gallio.Framework.Pattern
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
         /// <value>The timeout.  Default value is null.</value>
-        public Func<TimeSpan?> TimeoutFunc
+        public GallioFunc<TimeSpan?> TimeoutFunc
         {
             get { return timeoutFunc; }
             set

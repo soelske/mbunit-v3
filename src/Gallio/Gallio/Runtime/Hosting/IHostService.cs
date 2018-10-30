@@ -55,7 +55,7 @@ namespace Gallio.Runtime.Hosting
         /// <typeparam name="TArg">The argument type.</typeparam>
         /// <typeparam name="TResult">The result type.</typeparam>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="func"/> is null.</exception>
-        TResult Do<TArg, TResult>(Func<TArg, TResult> func, TArg arg);
+        TResult Do<TArg, TResult>(GallioFunc<TArg, TResult> func, TArg arg);
 
         /// <summary>
         /// Creates an instance of a remote object given an assembly name and type name.

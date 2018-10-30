@@ -664,7 +664,7 @@ namespace Gallio.Tests.Common.Reflection
         }
 
         protected static void VerifyEqualityAndHashcodeContracts<TTarget, TWrapper>(
-            TTarget target1, TTarget target2, Gallio.Common.Func<TTarget, TWrapper> wrapperFactory)
+            TTarget target1, TTarget target2, Gallio.Common.GallioFunc<TTarget, TWrapper> wrapperFactory)
         {
             Assert.AreNotEqual(target1, target2, "Precondition for this method is that targets are different.");
 

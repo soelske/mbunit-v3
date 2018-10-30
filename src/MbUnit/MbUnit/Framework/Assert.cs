@@ -299,7 +299,7 @@ namespace MbUnit.Framework
         /// </remarks>
         /// <param name="action">The action to invoke.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public static void Multiple(Action action)
+        public static void Multiple(GallioAction action)
         {
             Multiple(action, null, null);
         }
@@ -327,7 +327,7 @@ namespace MbUnit.Framework
         /// <param name="messageFormat">The custom assertion message format, or null if none.</param>
         /// <param name="messageArgs">The custom assertion message arguments, or null if none.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public static void Multiple(Action action, string messageFormat, params object[] messageArgs)
+        public static void Multiple(GallioAction action, string messageFormat, params object[] messageArgs)
         {
             if (action == null)
                 throw new ArgumentNullException("action");
@@ -356,7 +356,7 @@ namespace MbUnit.Framework
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This property is used in conjuction with the <see cref="Assert.Multiple(Action)" />
+        /// This property is used in conjuction with the <see cref="Assert.Multiple(GallioAction)" />
         /// feature to determine whether there is a pending assertion failure yet
         /// to be reported within a multiple-assertion block.
         /// </para>

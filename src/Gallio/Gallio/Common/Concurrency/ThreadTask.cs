@@ -41,7 +41,7 @@ namespace Gallio.Common.Concurrency
         /// <param name="func">The function to perform within the thread.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="name"/> 
         /// or <paramref name="func"/> is null.</exception>
-        public ThreadTask(string name, Func<object> func)
+        public ThreadTask(string name, GallioFunc<object> func)
             : base(name)
         {
             if (func == null)
@@ -58,7 +58,7 @@ namespace Gallio.Common.Concurrency
         /// <param name="action">The action to perform within the thread.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="name"/> 
         /// or <paramref name="action"/> is null.</exception>
-        public ThreadTask(string name, Action action)
+        public ThreadTask(string name, GallioAction action)
             : base(name)
         {
             if (action == null)
@@ -207,12 +207,12 @@ namespace Gallio.Common.Concurrency
             private readonly Delegate @delegate;
             public object Result { get; set; }
 
-            public Invoker(Action action)
+            public Invoker(GallioAction action)
             {
                 @delegate = action;
             }
 
-            public Invoker(Func<object> action)
+            public Invoker(GallioFunc<object> action)
             {
                 @delegate = action;
             }
@@ -220,11 +220,11 @@ namespace Gallio.Common.Concurrency
             [DebuggerHidden, DebuggerStepThrough]
             public void Invoke()
             {
-                Action action = @delegate as Action;
+                GallioAction action = @delegate as GallioAction;
                 if (action != null)
                     action();
                 else
-                    Result = ((Func<object>)@delegate)();
+                    Result = ((GallioFunc<object>)@delegate)();
             }
         }
     }

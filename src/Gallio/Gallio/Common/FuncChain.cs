@@ -25,14 +25,14 @@ namespace Gallio.Common
     /// <typeparam name="TResult">The function result type.</typeparam>
     public class FuncChain<T, TResult>
     {
-        private Func<T, TResult> func;
+        private GallioFunc<T, TResult> func;
 
         /// <summary>
         /// Creates a function chain.
         /// </summary>
         /// <param name="func">The initial function.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="func"/> is null.</exception>
-        public FuncChain(Func<T, TResult> func)
+        public FuncChain(GallioFunc<T, TResult> func)
         {
             if (func == null)
                 throw new ArgumentNullException("func");
@@ -51,7 +51,7 @@ namespace Gallio.Common
         /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
-        public Func<T, TResult> Func
+        public GallioFunc<T, TResult> Func
         {
             get { return func; }
             set
@@ -83,7 +83,7 @@ namespace Gallio.Common
             if (decorator == null)
                 throw new ArgumentNullException("decorator");
 
-            Func<T, TResult> innerFunc = func;
+            GallioFunc<T, TResult> innerFunc = func;
             func = delegate(T obj)
             {
                 return decorator(obj, innerFunc);

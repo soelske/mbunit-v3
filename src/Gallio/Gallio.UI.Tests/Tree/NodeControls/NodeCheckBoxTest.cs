@@ -34,7 +34,7 @@ using Aga.Controls.Tree;
 using Gallio.UI.Tree.NodeControls;
 using Gallio.UI.Tree.Nodes;
 using MbUnit.Framework;
-using Action = Gallio.Common.Action;
+using GallioAction = Gallio.Common.GallioAction;
 
 namespace Gallio.UI.Tests.Tree.NodeControls
 {
@@ -112,7 +112,7 @@ namespace Gallio.UI.Tests.Tree.NodeControls
             Assert.GreaterThan(oldTime, newTime);
         }
 
-        private static TimeSpan Time(Action action)
+        private static TimeSpan Time(GallioAction action)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();

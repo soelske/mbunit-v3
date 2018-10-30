@@ -28,8 +28,8 @@ namespace Gallio.Tests.Common.Normalization
         public void NormalizeCollection_WhenCollectionIsNull_ReturnsNull()
         {
             List<string> collection = null;
-            Gallio.Common.Func<IList<string>> collectionFactory = () => new List<string>();
-            Gallio.Common.Func<string, string> normalize = x => x + "*";
+            Gallio.Common.GallioFunc<IList<string>> collectionFactory = () => new List<string>();
+            Gallio.Common.GallioFunc<string, string> normalize = x => x + "*";
             EqualityComparison<string> compare = ReferenceEquals;
 
             IList<string> normalizedCollection = NormalizationUtils.NormalizeCollection<IList<string>, string>(
@@ -42,8 +42,8 @@ namespace Gallio.Tests.Common.Normalization
         public void NormalizeCollection_WhenCollectionFactoryIsNull_Throws()
         {
             List<string> collection = null;
-            Gallio.Common.Func<IList<string>> collectionFactory = null;
-            Gallio.Common.Func<string, string> normalize = x => x + "*";
+            Gallio.Common.GallioFunc<IList<string>> collectionFactory = null;
+            Gallio.Common.GallioFunc<string, string> normalize = x => x + "*";
             EqualityComparison<string> compare = ReferenceEquals;
 
             Assert.Throws<ArgumentNullException>(() => NormalizationUtils.NormalizeCollection<IList<string>, string>(
@@ -54,8 +54,8 @@ namespace Gallio.Tests.Common.Normalization
         public void NormalizeCollection_WhenNormalizeIsNull_Throws()
         {
             List<string> collection = null;
-            Gallio.Common.Func<IList<string>> collectionFactory = () => new List<string>();
-            Gallio.Common.Func<string, string> normalize = null;
+            Gallio.Common.GallioFunc<IList<string>> collectionFactory = () => new List<string>();
+            Gallio.Common.GallioFunc<string, string> normalize = null;
             EqualityComparison<string> compare = ReferenceEquals;
 
             Assert.Throws<ArgumentNullException>(() => NormalizationUtils.NormalizeCollection<IList<string>, string>(
@@ -66,8 +66,8 @@ namespace Gallio.Tests.Common.Normalization
         public void NormalizeCollection_WhenCompareIsNull_Throws()
         {
             List<string> collection = null;
-            Gallio.Common.Func<IList<string>> collectionFactory = () => new List<string>();
-            Gallio.Common.Func<string, string> normalize = x => x + "*";
+            Gallio.Common.GallioFunc<IList<string>> collectionFactory = () => new List<string>();
+            Gallio.Common.GallioFunc<string, string> normalize = x => x + "*";
             EqualityComparison<string> compare = null;
 
             Assert.Throws<ArgumentNullException>(() => NormalizationUtils.NormalizeCollection<IList<string>, string>(
@@ -78,8 +78,8 @@ namespace Gallio.Tests.Common.Normalization
         public void NormalizeCollection_WhenAllNormalizedValuesAreUnchanged_ReturnsTheSameCollection()
         {
             IList<string> collection = new[] { "abc", "def", "ghi" };
-            Gallio.Common.Func<IList<string>> collectionFactory = () => new List<string>();
-            Gallio.Common.Func<string, string> normalize = x => x;
+            Gallio.Common.GallioFunc<IList<string>> collectionFactory = () => new List<string>();
+            Gallio.Common.GallioFunc<string, string> normalize = x => x;
             EqualityComparison<string> compare = ReferenceEquals;
 
             IList<string> normalizedCollection = NormalizationUtils.NormalizeCollection<IList<string>, string>(
@@ -92,8 +92,8 @@ namespace Gallio.Tests.Common.Normalization
         public void NormalizeCollection_WhenAllNormalizedValuesAreChanged_ReturnsANewCollectionOfNormalizedValues()
         {
             IList<string> collection = new[] { "abc", "def", "ghi" };
-            Gallio.Common.Func<IList<string>> collectionFactory = () => new List<string>();
-            Gallio.Common.Func<string, string> normalize = x => x + "*";
+            Gallio.Common.GallioFunc<IList<string>> collectionFactory = () => new List<string>();
+            Gallio.Common.GallioFunc<string, string> normalize = x => x + "*";
             EqualityComparison<string> compare = ReferenceEquals;
 
             IList<string> normalizedCollection = NormalizationUtils.NormalizeCollection<IList<string>, string>(
@@ -107,8 +107,8 @@ namespace Gallio.Tests.Common.Normalization
         public void NormalizeCollection_WhenSecondAndThirdNormalizedValuesAreChanged_ReturnsANewCollectionOfNormalizedValues()
         {
             IList<string> collection = new[] { "abc", "def", "ghi" };
-            Gallio.Common.Func<IList<string>> collectionFactory = () => new List<string>();
-            Gallio.Common.Func<string, string> normalize = x => x == "abc" ? x : x + "*";
+            Gallio.Common.GallioFunc<IList<string>> collectionFactory = () => new List<string>();
+            Gallio.Common.GallioFunc<string, string> normalize = x => x == "abc" ? x : x + "*";
             EqualityComparison<string> compare = ReferenceEquals;
 
             IList<string> normalizedCollection = NormalizationUtils.NormalizeCollection<IList<string>, string>(

@@ -162,7 +162,7 @@ namespace Gallio.Framework.Pattern
         /// <param name="assembly">The assembly.</param>
         protected virtual void PrepareToPopulateChildrenOnDemand(IPatternScope assemblyScope, IAssemblyInfo assembly)
         {
-            var populatedTypes = new HashSet<ITypeInfo>();
+            var populatedTypes = new GallioHashSet<ITypeInfo>();
             assemblyScope.AddDeferredComponentPopulator(childCodeElementHint =>
             {
                 ITypeInfo type = childCodeElementHint as ITypeInfo;

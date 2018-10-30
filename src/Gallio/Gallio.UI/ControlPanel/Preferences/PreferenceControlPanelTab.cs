@@ -39,7 +39,7 @@ namespace Gallio.UI.ControlPanel.Preferences
         /// <param name="icon">The preference pane icon, or null if none.</param>
         /// <param name="scope">The preference pane scope, or null if none.</param>
         /// <param name="paneFactory">The preference pane factory.</param>
-        public void AddPane(string path, Icon icon, PreferencePaneScope scope, Func<PreferencePane> paneFactory)
+        public void AddPane(string path, Icon icon, PreferencePaneScope scope, GallioFunc<PreferencePane> paneFactory)
         {
             string[] pathSegments = path.Split('/');
             if (pathSegments.Length == 0)
@@ -232,10 +232,10 @@ namespace Gallio.UI.ControlPanel.Preferences
 
         private sealed class PaneInfo
         {
-            public readonly Func<PreferencePane> Factory;
+            public readonly GallioFunc<PreferencePane> Factory;
             public readonly string Title;
 
-            public PaneInfo(Func<PreferencePane> factory, string title)
+            public PaneInfo(GallioFunc<PreferencePane> factory, string title)
             {
                 Factory = factory;
                 Title = title;

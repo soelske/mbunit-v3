@@ -68,7 +68,7 @@ namespace Gallio.Model.Tree
         private List<TestParameter> parameters;
         private List<Test> children;
         private List<Test> dependencies;
-        private HashSet<string> assignedChildLocalIds;
+        private GallioHashSet<string> assignedChildLocalIds;
         private Test parent;
         private bool isTestCase;
         private int order;
@@ -451,7 +451,7 @@ namespace Gallio.Model.Tree
 
             if (assignedChildLocalIds == null)
             {
-                assignedChildLocalIds = new HashSet<string>();
+                assignedChildLocalIds = new GallioHashSet<string>();
             }
             else
             {

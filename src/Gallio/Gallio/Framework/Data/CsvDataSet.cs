@@ -35,7 +35,7 @@ namespace Gallio.Framework.Data
     /// </remarks>
     public class CsvDataSet : BaseDataSet
     {
-        private readonly Func<TextReader> documentReaderProvider;
+        private readonly GallioFunc<TextReader> documentReaderProvider;
         private readonly bool isDynamic;
 
         private char fieldDelimiter = ',';
@@ -49,7 +49,7 @@ namespace Gallio.Framework.Data
         /// <param name="documentReaderProvider">A delegate that provides the text reader for reading the CSV document on demand.</param>
         /// <param name="isDynamic">True if the data set should be considered dynamic.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="documentReaderProvider"/> is null.</exception>
-        public CsvDataSet(Func<TextReader> documentReaderProvider, bool isDynamic)
+        public CsvDataSet(GallioFunc<TextReader> documentReaderProvider, bool isDynamic)
         {
             if (documentReaderProvider == null)
                 throw new ArgumentNullException("documentReaderProvider");

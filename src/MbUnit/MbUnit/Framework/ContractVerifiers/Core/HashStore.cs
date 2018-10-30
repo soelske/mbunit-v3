@@ -28,8 +28,8 @@ namespace MbUnit.Framework.ContractVerifiers.Core
     public class HashStore
     {
         private const int minimumHashCount = 2;
-        private readonly HashSet<int> one = new HashSet<int>();
-        private readonly HashSet<int> two = new HashSet<int>();
+        private readonly GallioHashSet<int> one = new GallioHashSet<int>();
+        private readonly GallioHashSet<int> two = new GallioHashSet<int>();
         private readonly IDictionary<int, int> more = new Dictionary<int, int>();
         private readonly HashStoreResult result;
 

@@ -43,7 +43,7 @@ namespace Gallio.Runner.Extensions
         /// <inheritdoc />
         protected override void Initialize()
         {
-            var testCaseSteps = new HashSet<string>();
+            var testCaseSteps = new GallioHashSet<string>();
 
             Events.AnnotationDiscovered += delegate(object sender, AnnotationDiscoveredEventArgs e)
             {

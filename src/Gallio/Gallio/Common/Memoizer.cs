@@ -57,7 +57,7 @@ namespace Gallio.Common
         /// </summary>
         /// <param name="populator">The populator.</param>
         /// <returns>The value returned by the populator, possibly memoized.</returns>
-        public T Memoize(Func<T> populator)
+        public T Memoize(GallioFunc<T> populator)
         {
             if (!isPopulated)
             {

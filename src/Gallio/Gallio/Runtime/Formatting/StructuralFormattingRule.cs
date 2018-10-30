@@ -86,17 +86,17 @@ namespace Gallio.Runtime.Formatting
             result.Append(objType);
             result.Append(": ");
 
-            var accessors = new List<KeyValuePair<string, Func<object, object>>>();
+            var accessors = new List<KeyValuePair<string, GallioFunc<object, object>>>();
             foreach (FieldInfo field in objType.GetFields(BindingFlags.Instance | BindingFlags.Public))
             {
-                accessors.Add(new KeyValuePair<string, Func<object, object>>(field.Name, field.GetValue));
+                accessors.Add(new KeyValuePair<string, GallioFunc<object, object>>(field.Name, field.GetValue));
             }
 
             foreach (PropertyInfo property in objType.GetProperties(BindingFlags.Instance | BindingFlags.Public))
             {
                 PropertyInfo capturedProperty = property; // avoid unintended variable capture in the lambda.
                 if (property.CanRead && property.GetIndexParameters().Length == 0)
-                    accessors.Add(new KeyValuePair<string, Func<object, object>>(property.Name,
+                    accessors.Add(new KeyValuePair<string, GallioFunc<object, object>>(property.Name,
                         x => capturedProperty.GetValue(x, null)));
             }
 
@@ -128,10 +128,10 @@ namespace Gallio.Runtime.Formatting
 
         private sealed class ReentranceState
         {
-            private readonly HashSet<object> visited = new HashSet<object>(ReferentialEqualityComparer<object>.Instance);
+            private readonly GallioHashSet<object> visited = new GallioHashSet<object>(ReferentialEqualityComparer<object>.Instance);
             private int currentReentranceCount;
 
-            public HashSet<object> Visited
+            public GallioHashSet<object> Visited
             {
                 get { return visited; }
             }

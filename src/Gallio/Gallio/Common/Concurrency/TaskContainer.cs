@@ -35,7 +35,7 @@ namespace Gallio.Common.Concurrency
     /// </remarks>
     public class TaskContainer
     {
-        private readonly HashSet<Task> activeTasks;
+        private readonly GallioHashSet<Task> activeTasks;
         private event EventHandler<TaskEventArgs> started;
         private event EventHandler<TaskEventArgs> aborted;
         private event EventHandler<TaskEventArgs> terminated;
@@ -45,7 +45,7 @@ namespace Gallio.Common.Concurrency
         /// </summary>
         public TaskContainer()
         {
-            activeTasks = new HashSet<Task>();
+            activeTasks = new GallioHashSet<Task>();
         }
 
         /// <summary>

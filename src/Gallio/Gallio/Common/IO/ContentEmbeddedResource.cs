@@ -79,7 +79,7 @@ namespace Gallio.Common.IO
             return new StreamReader(OpenStream());
         }
 
-        private static Stream Swallow(Func<Stream> func)
+        private static Stream Swallow(GallioFunc<Stream> func)
         {
             try
             {

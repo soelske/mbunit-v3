@@ -49,7 +49,7 @@ namespace Gallio.Common.Collections
         /// <returns>An enumeration of counting strategies applicable to the specified enumerable values.</returns>
         public IEnumerable<ICountingStrategy> Count()
         {
-            var methods = new Func<IEnumerable<ICountingStrategy>>[]
+            var methods = new GallioFunc<IEnumerable<ICountingStrategy>>[]
             {
                 ForArray,
                 ForGenericCollection,
@@ -178,7 +178,7 @@ namespace Gallio.Common.Collections
         private readonly CountingStrategyName name; 
         private readonly Lazy<int> lazyCount;
 
-        private CountingStrategy(CountingStrategyName name, string description, Func<int> counting)
+        private CountingStrategy(CountingStrategyName name, string description, GallioFunc<int> counting)
         {
             this.name = name;
             this.description = description;
@@ -214,7 +214,7 @@ namespace Gallio.Common.Collections
             return new CountingStrategy(CountingStrategyName.ByLengthGetter, "By Length Property", () => array.Length);
         }
 
-        public static ICountingStrategy ByCountGetter(Func<int> countReader)
+        public static ICountingStrategy ByCountGetter(GallioFunc<int> countReader)
         {
             return new CountingStrategy(CountingStrategyName.ByCountGetter, "By Count Property", countReader);
         }
@@ -233,7 +233,7 @@ namespace Gallio.Common.Collections
             });
         }
 
-        public static ICountingStrategy ByReflectedCountGetter(Func<int> countReader)
+        public static ICountingStrategy ByReflectedCountGetter(GallioFunc<int> countReader)
         {
             return new CountingStrategy(CountingStrategyName.ByReflectedCountGetter, "By Reflected Count Property", countReader);
         }

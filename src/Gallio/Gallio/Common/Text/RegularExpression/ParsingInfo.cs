@@ -28,7 +28,7 @@ namespace Gallio.Common.Text.RegularExpression
         private readonly char initiator;
         private readonly char terminator;
         private readonly Options options;
-        private readonly Func<string, Quantifier, IElement> parseToken;
+        private readonly GallioFunc<string, Quantifier, IElement> parseToken;
         
         /// <summary>
         /// Primary mode for parsing root expressions.
@@ -86,7 +86,7 @@ namespace Gallio.Common.Text.RegularExpression
             }
         }
 
-        private ParsingInfo(Options options, char initiator, char terminator, Func<string, Quantifier, IElement> parseToken)
+        private ParsingInfo(Options options, char initiator, char terminator, GallioFunc<string, Quantifier, IElement> parseToken)
         {
             this.options = options;
             this.initiator = initiator;

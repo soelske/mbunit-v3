@@ -607,7 +607,7 @@ namespace Gallio.Tests.Runtime.Extensibility
             }
         }
 
-        private static Gallio.Common.Func<T, bool> Enlist<T>(ICollection<T> list)
+        private static Gallio.Common.GallioFunc<T, bool> Enlist<T>(ICollection<T> list)
         {
             return value =>
             {

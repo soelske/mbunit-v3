@@ -157,9 +157,9 @@ namespace MbUnit.Framework
         private class SortOrderInfo
         {
             private readonly string description;
-            private readonly Func<int, bool> verifyDeltaSign;
+            private readonly GallioFunc<int, bool> verifyDeltaSign;
 
-            private SortOrderInfo(string description, Func<int, bool> verifyDeltaSign)
+            private SortOrderInfo(string description, GallioFunc<int, bool> verifyDeltaSign)
             {
                 this.description = description;
                 this.verifyDeltaSign = verifyDeltaSign;

@@ -168,7 +168,7 @@ namespace Gallio.Framework
         /// </remarks>
         /// <param name="triggerEvent">The trigger event.</param>
         /// <param name="attachmentName">The name to give the image attachment, or null to assign one automatically.</param>
-        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.Action)"/>
+        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.GallioAction)"/>
         public static void AutoEmbedScreenshot(TriggerEvent triggerEvent, string attachmentName)
         {
             AutoEmbedScreenshot(triggerEvent, attachmentName, new CaptureParameters());
@@ -186,7 +186,7 @@ namespace Gallio.Framework
         /// <param name="attachmentName">The name to give to the image attachment, or null to assign one automatically.</param>
         /// <param name="parameters">The capture parameters.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="parameters"/> is null.</exception>
-        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.Action)"/>
+        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.GallioAction)"/>
         public static void AutoEmbedScreenshot(TriggerEvent triggerEvent, string attachmentName, CaptureParameters parameters)
         {
             if (parameters == null)
@@ -227,7 +227,7 @@ namespace Gallio.Framework
         /// </remarks>
         /// <param name="triggerEvent">The trigger event.</param>
         /// <param name="attachmentName">The name to give the video attachment, or null to assign one automatically.</param>
-        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.Action)"/>
+        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.GallioAction)"/>
         public static void AutoEmbedRecording(TriggerEvent triggerEvent, string attachmentName)
         {
             AutoEmbedRecording(triggerEvent, attachmentName, new CaptureParameters(), 5);
@@ -253,7 +253,7 @@ namespace Gallio.Framework
         /// <param name="parameters">The capture parameters.</param>
         /// <param name="framesPerSecond">The number of frames per second to capture.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="parameters"/> is null.</exception>
-        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.Action)"/>
+        /// <seealso cref="TestContext.AutoExecute(TriggerEvent, Gallio.Common.GallioAction)"/>
         public static void AutoEmbedRecording(TriggerEvent triggerEvent, string attachmentName, CaptureParameters parameters, double framesPerSecond)
         {
             if (parameters == null)

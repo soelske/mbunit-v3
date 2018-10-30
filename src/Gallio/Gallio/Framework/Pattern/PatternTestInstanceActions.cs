@@ -49,7 +49,7 @@ namespace Gallio.Framework.Pattern
     /// <seealso cref="PatternTestActions"/> for actions on tests.
     public class PatternTestInstanceActions
     {
-        private static readonly Func<PatternTestInstanceState, TestOutcome> DefaultRunTestInstanceBodyFunc = PatternTestInstanceState.RunBody;
+        private static readonly GallioFunc<PatternTestInstanceState, TestOutcome> DefaultRunTestInstanceBodyFunc = PatternTestInstanceState.RunBody;
 
         private readonly ActionChain<PatternTestInstanceState> beforeTestInstanceChain;
         private readonly ActionChain<PatternTestInstanceState> initializeTestInstanceChain;

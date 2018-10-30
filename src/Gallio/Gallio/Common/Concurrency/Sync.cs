@@ -31,12 +31,12 @@ namespace Gallio.Common.Concurrency
         /// <param name="invoker">The invoker, such as a WinForms control.</param>
         /// <param name="action">The action.</param>
         /// <exception cref="Exception">The exception thrown by the action.</exception>
-        public static void Invoke(ISynchronizeInvoke invoker, Action action)
+        public static void Invoke(ISynchronizeInvoke invoker, GallioAction action)
         {
             if (invoker.InvokeRequired)
             {
                 Exception exception = (Exception)invoker.Invoke(
-                    new Func<Action, Exception>(InvokeAndCaptureException), new object[] { action });
+                    new GallioFunc<GallioAction, Exception>(InvokeAndCaptureException), new object[] { action });
 
                 if (exception != null)
                     ExceptionUtils.RethrowWithNoStackTraceLoss(exception);
@@ -55,12 +55,12 @@ namespace Gallio.Common.Concurrency
         /// <returns>The value returned by the function.</returns>
         /// <typeparam name="T">The function return type.</typeparam>
         /// <exception cref="Exception">The exception thrown by the function.</exception>
-        public static T Invoke<T>(ISynchronizeInvoke invoker, Func<T> func)
+        public static T Invoke<T>(ISynchronizeInvoke invoker, GallioFunc<T> func)
         {
             if (invoker.InvokeRequired)
             {
                 KeyValuePair<Exception, T> pair = (KeyValuePair<Exception, T>)invoker.Invoke(
-                    new Func<Func<T>, KeyValuePair<Exception, T>>(InvokeAndCaptureException), new object[] { func });
+                    new GallioFunc<GallioFunc<T>, KeyValuePair<Exception, T>>(InvokeAndCaptureException), new object[] { func });
 
                 if (pair.Key != null)
                     ExceptionUtils.RethrowWithNoStackTraceLoss(pair.Key);
@@ -72,7 +72,7 @@ namespace Gallio.Common.Concurrency
             }
         }
 
-        private static Exception InvokeAndCaptureException(Action action)
+        private static Exception InvokeAndCaptureException(GallioAction action)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace Gallio.Common.Concurrency
             }
         }
 
-        private static KeyValuePair<Exception, T> InvokeAndCaptureException<T>(Func<T> func)
+        private static KeyValuePair<Exception, T> InvokeAndCaptureException<T>(GallioFunc<T> func)
         {
             try
             {

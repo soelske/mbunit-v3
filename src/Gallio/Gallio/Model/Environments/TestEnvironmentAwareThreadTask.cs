@@ -40,7 +40,7 @@ namespace Gallio.Model.Environments
         /// <param name="environmentManager">The test environment manager, or null to use the default environment manager.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="name"/> 
         /// or <paramref name="func"/> is null.</exception>
-        public TestEnvironmentAwareThreadTask(string name, Func<object> func, ITestEnvironmentManager environmentManager)
+        public TestEnvironmentAwareThreadTask(string name, GallioFunc<object> func, ITestEnvironmentManager environmentManager)
             : base(name, func)
         {
             this.environmentManager = ResolveTestEnvironmentManager(environmentManager);
@@ -56,7 +56,7 @@ namespace Gallio.Model.Environments
         /// <param name="environmentManager">The test environment manager, or null to use the default environment manager.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="name"/> 
         /// or <paramref name="action"/> is null.</exception>
-        public TestEnvironmentAwareThreadTask(string name, Action action, ITestEnvironmentManager environmentManager)
+        public TestEnvironmentAwareThreadTask(string name, GallioAction action, ITestEnvironmentManager environmentManager)
             : base(name, action)
         {
             this.environmentManager = ResolveTestEnvironmentManager(environmentManager);

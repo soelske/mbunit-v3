@@ -34,7 +34,7 @@ namespace Gallio.Framework.Data
     /// </remarks>
     public class FactoryDataSet : BaseDataSet
     {
-        private readonly Func<IEnumerable> factory;
+        private readonly GallioFunc<IEnumerable> factory;
         private readonly FactoryKind factoryKind;
         private readonly int columnCount;
 
@@ -48,7 +48,7 @@ namespace Gallio.Framework.Data
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="factory"/> is null.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="factoryKind"/>
         /// is invalid or if <paramref name="columnCount"/> is less than 0.</exception>
-        public FactoryDataSet(Func<IEnumerable> factory, FactoryKind factoryKind, int columnCount)
+        public FactoryDataSet(GallioFunc<IEnumerable> factory, FactoryKind factoryKind, int columnCount)
         {
             if (factory == null)
                 throw new ArgumentNullException("factory");

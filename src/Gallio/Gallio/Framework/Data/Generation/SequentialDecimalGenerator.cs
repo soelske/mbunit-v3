@@ -90,7 +90,7 @@ namespace Gallio.Framework.Data.Generation
                 throw new GenerationException("The sequence direction specified by the 'Start' and 'End' properties " +
                     "must be consistent with the sign of the 'Step' property.");
 
-            Func<decimal, bool> stopCriterion;
+            GallioFunc<decimal, bool> stopCriterion;
 
             if (Math.Sign(Step.Value) >= 0)
                 stopCriterion = d => (d <= End.Value);

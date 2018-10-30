@@ -48,7 +48,7 @@ namespace Gallio.Common.Xml.Paths
                 (path, id) => path.Attribute(Int32.Parse(id)));
         }
 
-        private static T RunImpl<T, TClosed, TOpen>(string input, TOpen root, Func<TOpen, string, TOpen> extendElement, Func<TOpen, string, TClosed> extendAttribute)
+        private static T RunImpl<T, TClosed, TOpen>(string input, TOpen root, GallioFunc<TOpen, string, TOpen> extendElement, GallioFunc<TOpen, string, TClosed> extendAttribute)
             where T : IXmlPath
             where TClosed : T
             where TOpen : TClosed

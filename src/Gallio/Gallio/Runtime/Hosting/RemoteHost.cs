@@ -198,7 +198,7 @@ namespace Gallio.Runtime.Hosting
                 }
             }
 
-            protected override TResult DoImpl<TArg, TResult>(Func<TArg, TResult> func, TArg arg)
+            protected override TResult DoImpl<TArg, TResult>(GallioFunc<TArg, TResult> func, TArg arg)
             {
                 ThrowIfNotConnected();
 

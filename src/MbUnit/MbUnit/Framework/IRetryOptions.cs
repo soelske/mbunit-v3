@@ -29,7 +29,7 @@ namespace MbUnit.Framework
     public interface IRetryOptions
     {
         /// <summary>
-        /// Specifies the maximum number of evaluation attempts, before the <see cref="Retry.Until(Func{bool})"/>, or 
+        /// Specifies the maximum number of evaluation attempts, before the <see cref="Retry.Until(GallioFunc{bool})"/>, or 
         /// <see cref="Retry.Until(WaitHandle)"/> operation fails.
         /// </summary>
         /// <remarks>
@@ -114,7 +114,7 @@ namespace MbUnit.Framework
         /// <returns>An instance to specify other options for the retry operation.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the option was called more than once.</exception>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        IRetryOptions DoBetween(Action action);
+        IRetryOptions DoBetween(GallioAction action);
 
         /// <summary>
         /// Specifies a custom formatted message to be added to the text of the assertion raised when
@@ -136,7 +136,7 @@ namespace MbUnit.Framework
         /// <param name="condition">The condition to evaluate.</param>
         /// <exception cref="AssertionFailureException">Thrown when the condition is false, and a timeout occured, or the maximum
         /// number of evaluation attempts was reached.</exception>
-        void Until(Func<bool> condition);
+        void Until(GallioFunc<bool> condition);
 
         /// <summary>
         /// Specifies a <see cref="WaitHandle"/> instance to wait for being signaled, and starts the entire operation.

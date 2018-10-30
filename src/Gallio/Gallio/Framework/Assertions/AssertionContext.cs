@@ -142,7 +142,7 @@ namespace Gallio.Framework.Assertions
         /// <returns>The array of failures, may be empty if none.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         [SystemInternal]
-        public AssertionFailure[] CaptureFailures(Action action, AssertionFailureBehavior assertionFailureBehavior,
+        public AssertionFailure[] CaptureFailures(GallioAction action, AssertionFailureBehavior assertionFailureBehavior,
             bool captureExceptionAsAssertionFailure)
         {
             if (action == null)
@@ -195,7 +195,7 @@ namespace Gallio.Framework.Assertions
             }
 
             [SystemInternal]
-            public AssertionFailure[] CaptureFailures(Action action, bool captureExceptionAsAssertionFailure)
+            public AssertionFailure[] CaptureFailures(GallioAction action, bool captureExceptionAsAssertionFailure)
             {
                 try
                 {

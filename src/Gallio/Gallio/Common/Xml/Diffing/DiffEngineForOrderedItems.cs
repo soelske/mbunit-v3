@@ -114,7 +114,7 @@ namespace Gallio.Common.Xml.Diffing
     {
         private readonly DiffType diffTypeUnexpected;
         private readonly DiffType diffTypeMissing;
-        private readonly Func<IXmlPathStrict, int, IXmlPathStrict> pathExtender;
+        private readonly GallioFunc<IXmlPathStrict, int, IXmlPathStrict> pathExtender;
 
         public DiffType DiffTypeMissing
         {
@@ -131,7 +131,7 @@ namespace Gallio.Common.Xml.Diffing
             return pathExtender(path, childIndex);
         }
 
-        private OrderedItemType(DiffType diffTypeUnexpected, DiffType diffTypeMissing, Func<IXmlPathStrict, int, IXmlPathStrict> pathExtender)
+        private OrderedItemType(DiffType diffTypeUnexpected, DiffType diffTypeMissing, GallioFunc<IXmlPathStrict, int, IXmlPathStrict> pathExtender)
         {
             this.diffTypeUnexpected = diffTypeUnexpected;
             this.diffTypeMissing = diffTypeMissing;

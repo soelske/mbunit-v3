@@ -259,7 +259,7 @@ namespace Gallio.Common.Reflection.Impl
             BindingFlags inheritanceBindingFlags = GetInheritanceBindingFlags(bindingFlags);
             if (inheritanceBindingFlags != BindingFlags.Default)
             {
-                HashSet<StaticMethodWrapper> overrides = new HashSet<StaticMethodWrapper>();
+                GallioHashSet<StaticMethodWrapper> overrides = new GallioHashSet<StaticMethodWrapper>();
                 foreach (StaticMethodWrapper method in result)
                     AddAll(overrides, method.GetOverridenOrHiddenMethods(excludeOverridesOnly));
 
@@ -306,7 +306,7 @@ namespace Gallio.Common.Reflection.Impl
             BindingFlags inheritanceBindingFlags = GetInheritanceBindingFlags(bindingFlags);
             if (inheritanceBindingFlags != BindingFlags.Default)
             {
-                HashSet<StaticPropertyWrapper> overrides = new HashSet<StaticPropertyWrapper>();
+                GallioHashSet<StaticPropertyWrapper> overrides = new GallioHashSet<StaticPropertyWrapper>();
                 foreach (StaticPropertyWrapper property in result)
                     AddAll(overrides, property.GetOverridenOrHiddenProperties(false));
 
@@ -362,7 +362,7 @@ namespace Gallio.Common.Reflection.Impl
             BindingFlags inheritanceBindingFlags = GetInheritanceBindingFlags(bindingFlags);
             if (inheritanceBindingFlags != BindingFlags.Default)
             {
-                HashSet<StaticEventWrapper> overrides = new HashSet<StaticEventWrapper>();
+                GallioHashSet<StaticEventWrapper> overrides = new GallioHashSet<StaticEventWrapper>();
                 foreach (StaticEventWrapper @event in result)
                     AddAll(overrides, @event.GetOverridenOrHiddenEvents(false));
 

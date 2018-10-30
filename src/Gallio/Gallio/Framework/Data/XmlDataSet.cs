@@ -69,7 +69,7 @@ namespace Gallio.Framework.Data
     /// </remarks>
     public class XmlDataSet : BaseDataSet
     {
-        private readonly Func<IXPathNavigable> documentProvider;
+        private readonly GallioFunc<IXPathNavigable> documentProvider;
         private readonly string itemPath;
         private readonly bool isDynamic;
         private string dataLocationName;
@@ -81,7 +81,7 @@ namespace Gallio.Framework.Data
         /// <param name="itemPath">The XPath expression used to select items within the document.</param>
         /// <param name="isDynamic">True if the data set should be considered dynamic.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="documentProvider"/> or <paramref name="itemPath"/> is null.</exception>
-        public XmlDataSet(Func<IXPathNavigable> documentProvider, string itemPath, bool isDynamic)
+        public XmlDataSet(GallioFunc<IXPathNavigable> documentProvider, string itemPath, bool isDynamic)
         {
             if (documentProvider == null)
                 throw new ArgumentNullException("documentProvider");

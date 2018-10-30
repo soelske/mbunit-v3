@@ -56,7 +56,7 @@ namespace MbUnit.Framework
         internal static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
 
         /// <summary>
-        /// Specifies the maximum number of evaluation attempts, before the <see cref="Retry.Until(Func{bool})"/>, or 
+        /// Specifies the maximum number of evaluation attempts, before the <see cref="Retry.Until(GallioFunc{bool})"/>, or 
         /// <see cref="Retry.Until(WaitHandle)"/> operation fails.
         /// </summary>
         /// <remarks>
@@ -156,7 +156,7 @@ namespace MbUnit.Framework
         /// <returns>An instance to specify other options for the retry operation.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the option was called more than once.</exception>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public static IRetryOptions DoBetween(Action action)
+        public static IRetryOptions DoBetween(GallioAction action)
         {
             return GetDefaultOptions().DoBetween(action);
         }
@@ -189,7 +189,7 @@ namespace MbUnit.Framework
         /// <param name="condition">The condition to evaluate.</param>
         /// <exception cref="AssertionFailureException">Thrown when the condition is still false, and a timeout occured, or the maximum
         /// number of evaluation attempts was reached.</exception>
-        public static void Until(Func<bool> condition)
+        public static void Until(GallioFunc<bool> condition)
         {
             GetDefaultOptions().Until(condition);
         }
@@ -228,7 +228,7 @@ namespace MbUnit.Framework
             private int? repeat = null;
             private TimeSpan? polling = null;
             private TimeSpan? timeout = null;
-            private Action action;
+            private GallioAction action;
             private string messageFormat;
             private object[] messageArgs;
             private IClock clock;
@@ -278,7 +278,7 @@ namespace MbUnit.Framework
                 return this;
             }
 
-            public IRetryOptions DoBetween(Action action)
+            public IRetryOptions DoBetween(GallioAction action)
             {
                 if (this.action != null)
                     throw new InvalidOperationException("Expected the custom action to be specified only once.");
@@ -297,7 +297,7 @@ namespace MbUnit.Framework
                 return this;
             }
 
-            public void Until(Func<bool> condition)
+            public void Until(GallioFunc<bool> condition)
             {
                 if (condition == null)
                     throw new ArgumentNullException("condition");
@@ -321,7 +321,7 @@ namespace MbUnit.Framework
                 Run(() => thread.Join(0));
             }
 
-            private void Run(Func<bool> condition)
+            private void Run(GallioFunc<bool> condition)
             {
                 var runner = new RetryRunner(
                     repeat ?? Retry.DefaultRepeat, 
@@ -337,15 +337,15 @@ namespace MbUnit.Framework
             private readonly int repeat;
             private readonly TimeSpan polling;
             private readonly TimeSpan timeout;
-            private readonly Action action;
-            private readonly Func<bool> condition;
+            private readonly GallioAction action;
+            private readonly GallioFunc<bool> condition;
             private readonly string messageFormat;
             private readonly object[] messageArgs;
             private IClock clock;
             private int count;
 
-            public RetryRunner(int repeat, TimeSpan polling, TimeSpan timeout, Action action, 
-                Func<bool> condition, string messageFormat, object[] messageArgs, IClock clock)
+            public RetryRunner(int repeat, TimeSpan polling, TimeSpan timeout, GallioAction action, 
+                GallioFunc<bool> condition, string messageFormat, object[] messageArgs, IClock clock)
             {
                 this.repeat = repeat;
                 this.polling = polling;

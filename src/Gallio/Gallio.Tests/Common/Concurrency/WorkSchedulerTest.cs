@@ -22,7 +22,7 @@ using System.Threading;
 using Gallio.Common.Concurrency;
 using Gallio.Framework;
 using MbUnit.Framework;
-using Action=Gallio.Common.Action;
+using GallioAction=Gallio.Common.GallioAction;
 
 namespace Gallio.Tests.Common.Concurrency
 {
@@ -44,7 +44,7 @@ namespace Gallio.Tests.Common.Concurrency
             Stopwatch stopwatch = Stopwatch.StartNew();
 
             bool[] finished = new bool[numActions];
-            Action[] actions = new Action[numActions];
+            GallioAction[] actions = new GallioAction[numActions];
             for (int i = 0; i < numActions; i++)
             {
                 int actionIndex = i;
@@ -76,7 +76,7 @@ namespace Gallio.Tests.Common.Concurrency
                 return count;
 
             int sum = 0;
-            scheduler.Run(new Action[]
+            scheduler.Run(new GallioAction[]
             {
                 () => Interlocked.Add(ref sum, Fibonnaci(scheduler, count - 1)),
                 () => Interlocked.Add(ref sum, Fibonnaci(scheduler, count - 2))

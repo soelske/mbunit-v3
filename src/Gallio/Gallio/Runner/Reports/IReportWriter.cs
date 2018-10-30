@@ -119,6 +119,6 @@ namespace Gallio.Runner.Reports
         /// </summary>
         /// <param name="attachmentContentDisposition">The attachment content disposition to use.</param>
         /// <param name="action">The action to perform.</param>
-        void WithUpdatedContentPathsAndDisposition(AttachmentContentDisposition attachmentContentDisposition, Action action);
+        void WithUpdatedContentPathsAndDisposition(AttachmentContentDisposition attachmentContentDisposition, GallioAction action);
     }
 }

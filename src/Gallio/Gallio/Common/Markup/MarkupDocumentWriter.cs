@@ -67,7 +67,7 @@ namespace Gallio.Common.Markup
     [Serializable]
     public abstract class MarkupDocumentWriter : MarshalByRefObject
     {
-        private HashSet<string> attachmentNames;
+        private GallioHashSet<string> attachmentNames;
         private Dictionary<string, int> streamDepths;
         private bool isClosed;
 
@@ -539,7 +539,7 @@ namespace Gallio.Common.Markup
         private void RegisterAttachment(string attachmentName)
         {
             if (attachmentNames == null)
-                attachmentNames = new HashSet<string>();
+                attachmentNames = new GallioHashSet<string>();
             attachmentNames.Add(attachmentName);
         }
 

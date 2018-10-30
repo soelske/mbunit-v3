@@ -25,7 +25,7 @@ namespace Gallio.Common
     /// <typeparam name="T">The encapsulated type.</typeparam>
     public class Lazy<T>
     {
-        private readonly Func<T> func;
+        private readonly GallioFunc<T> func;
         private T result;
         private bool hasValue;
         
@@ -34,7 +34,7 @@ namespace Gallio.Common
         /// </summary>
         /// <param name="func">A function which computes the value on first request.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="func"/> is null.</exception>
-        public Lazy(Func<T> func)
+        public Lazy(GallioFunc<T> func)
         {
             if (func == null)
                 throw new ArgumentNullException("func");

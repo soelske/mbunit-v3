@@ -28,7 +28,7 @@ namespace Gallio.Common.Messaging.MessageSinks
     {
         private readonly IMessageSink messageSink;
         private readonly Queue<Message> queue;
-        private readonly Action asyncPublishLoop;
+        private readonly GallioAction asyncPublishLoop;
 
         private volatile IAsyncResult asyncResult;
 

@@ -25,5 +25,5 @@ namespace Gallio.Common
     /// <param name="obj">The object to act upon.</param>
     /// <param name="func">The function to decorate which should be called in
     /// the middle of applying the decoration.</param>
-    public delegate TResult FuncDecorator<T, TResult>(T obj, Func<T, TResult> func);
+    public delegate TResult FuncDecorator<T, TResult>(T obj, GallioFunc<T, TResult> func);
 }

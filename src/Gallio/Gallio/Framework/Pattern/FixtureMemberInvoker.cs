@@ -130,7 +130,7 @@ namespace Gallio.Framework.Pattern
             }
         }
 
-        private Func<object[], TOutput> TryGetMemberAsMethod(FixtureMemberInvokerTargets targets, ITypeInfo ownerInfo)
+        private GallioFunc<object[], TOutput> TryGetMemberAsMethod(FixtureMemberInvokerTargets targets, ITypeInfo ownerInfo)
         {
             if ((targets & FixtureMemberInvokerTargets.Method) != 0)
             {
@@ -192,7 +192,7 @@ namespace Gallio.Framework.Pattern
             return result;
         }
 
-        private Func<object[], TOutput> TryGetMemberAsProperty(FixtureMemberInvokerTargets targets, ITypeInfo ownerInfo)
+        private GallioFunc<object[], TOutput> TryGetMemberAsProperty(FixtureMemberInvokerTargets targets, ITypeInfo ownerInfo)
         {
             if ((targets & FixtureMemberInvokerTargets.Property) != 0)
             {
@@ -216,7 +216,7 @@ namespace Gallio.Framework.Pattern
             return null;
         }
 
-        private Func<object[], TOutput> TryGetMemberAsField(FixtureMemberInvokerTargets targets, ITypeInfo ownerInfo)
+        private GallioFunc<object[], TOutput> TryGetMemberAsField(FixtureMemberInvokerTargets targets, ITypeInfo ownerInfo)
         {
             if ((targets & FixtureMemberInvokerTargets.Field) != 0)
             {
@@ -240,9 +240,9 @@ namespace Gallio.Framework.Pattern
             return null;
         }
 
-        private TMemberInfo GetMemberInfo<TMemberInfo>(Func<Type, TMemberInfo> finder) where TMemberInfo : MemberInfo
+        private TMemberInfo GetMemberInfo<TMemberInfo>(GallioFunc<Type, TMemberInfo> finder) where TMemberInfo : MemberInfo
         {
-            var fixtureTypeProviders = new Func<Type>[] 
+            var fixtureTypeProviders = new GallioFunc<Type>[] 
             {
                 () => GetCurrentTestInstanceState().FixtureType,
                 () => ReflectionUtils.GetType(scope.CodeElement).Resolve(true) // Another way to find the test fixture type (http://code.google.com/p/mb-unit/issues/detail?id=559)

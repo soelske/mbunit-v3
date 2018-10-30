@@ -37,7 +37,7 @@ namespace Gallio.Runtime.Extensibility
 
         private readonly List<string> pluginPaths;
         private readonly List<Pair<string, DirectoryInfo>> pluginXmls;
-        private readonly HashSet<string> initialPreprocessorConstants;
+        private readonly GallioHashSet<string> initialPreprocessorConstants;
 
         /// <summary>
         /// The plugin callback type used by <see cref="LoadPlugins"/>.
@@ -51,7 +51,7 @@ namespace Gallio.Runtime.Extensibility
         {
             pluginPaths = new List<string>();
             pluginXmls = new List<Pair<string, DirectoryInfo>>();
-            initialPreprocessorConstants = new HashSet<string>();
+            initialPreprocessorConstants = new GallioHashSet<string>();
             InstallationId = Guid.Empty;
         }
 
@@ -151,7 +151,7 @@ namespace Gallio.Runtime.Extensibility
             if (pluginPaths.Count == 0)
                 return;
 
-            var uniquePluginFilePaths = new HashSet<string>();
+            var uniquePluginFilePaths = new GallioHashSet<string>();
 
             using (progressMonitor.BeginTask("Loading plugins", pluginPaths.Count))
             {

@@ -56,7 +56,7 @@ namespace Gallio.UI.ControlPanel.Preferences
             return controlPanelTab;
         }
 
-        private static Func<PreferencePane> GetPreferencePaneFactory(ComponentHandle<IPreferencePaneProvider, PreferencePaneProviderTraits> preferencePaneProviderHandle)
+        private static GallioFunc<PreferencePane> GetPreferencePaneFactory(ComponentHandle<IPreferencePaneProvider, PreferencePaneProviderTraits> preferencePaneProviderHandle)
         {
             return () => preferencePaneProviderHandle.GetComponent().CreatePreferencePane();
         }

@@ -39,14 +39,14 @@ namespace Gallio.Common.Xml
     /// </remarks>
     public class XmlPreprocessor
     {
-        private readonly HashSet<string> constants;
+        private readonly GallioHashSet<string> constants;
 
         /// <summary>
         /// Creates an Xml preprocessor.
         /// </summary>
         public XmlPreprocessor()
         {
-            constants = new HashSet<string>();
+            constants = new GallioHashSet<string>();
         }
 
         /// <summary>

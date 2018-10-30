@@ -66,7 +66,7 @@ namespace Gallio.UI.ProgressMonitoring
 
         /// <inheritdoc />
         [Obsolete("Use a named queue instead.")]
-        public void BackgroundTask(Action action)
+        public void BackgroundTask(GallioAction action)
         {
             ThreadPool.QueueUserWorkItem(cb => action());
         }

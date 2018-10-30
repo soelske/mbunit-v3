@@ -119,7 +119,7 @@ namespace Gallio.Runner.Reports
         }
 
         /// <inheritdoc />
-        public void WithUpdatedContentPathsAndDisposition(AttachmentContentDisposition attachmentContentDisposition, Action action)
+        public void WithUpdatedContentPathsAndDisposition(AttachmentContentDisposition attachmentContentDisposition, GallioAction action)
         {
             using (new UpdatedContentPathsAndDisposition(attachmentPathResolver, attachmentContentDisposition, report.TestPackageRun))
             {

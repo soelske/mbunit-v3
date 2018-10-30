@@ -39,7 +39,7 @@ namespace Gallio.Common.Normalization
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="collectionFactory"/>,
         /// <paramref name="normalize"/> or <paramref name="compare"/> is null.</exception>
         public static TCollection NormalizeCollection<TCollection, T>(TCollection collection,
-            Func<TCollection> collectionFactory, Func<T, T> normalize, EqualityComparison<T> compare)
+            GallioFunc<TCollection> collectionFactory, GallioFunc<T, T> normalize, EqualityComparison<T> compare)
             where TCollection : class, ICollection<T>
         {
             if (collectionFactory == null)

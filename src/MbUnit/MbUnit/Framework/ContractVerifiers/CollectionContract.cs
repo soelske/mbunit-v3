@@ -116,7 +116,7 @@ namespace MbUnit.Framework.ContractVerifiers
         /// };
         /// ]]></code>
         /// </example>
-        public Func<TCollection> DefaultInstance
+        public GallioFunc<TCollection> DefaultInstance
         {
             get;
             set;
@@ -393,7 +393,7 @@ namespace MbUnit.Framework.ContractVerifiers
             });
         }
 
-        private void AssertCopyToThrowException(Action action, string failureMessage, string label, object value)
+        private void AssertCopyToThrowException(GallioAction action, string failureMessage, string label, object value)
         {
             AssertionHelper.Explain(() =>
                 Assert.Throws<Exception>(() => action()),
@@ -406,7 +406,7 @@ namespace MbUnit.Framework.ContractVerifiers
                     .ToAssertionFailure());
         }
 
-        private void AssertCopyToNotThrowException(Action action, string failureMessage)
+        private void AssertCopyToNotThrowException(GallioAction action, string failureMessage)
         {
             AssertionHelper.Explain(() =>
                 Assert.DoesNotThrow(() => action()),

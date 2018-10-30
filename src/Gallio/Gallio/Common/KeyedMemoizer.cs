@@ -63,7 +63,7 @@ namespace Gallio.Common
         /// <param name="key">The key by which to look up a memoized result.</param>
         /// <param name="populator">The populator for the value associated with the key.</param>
         /// <returns>The value returned by the populator, possibly memoized.</returns>
-        public TValue Memoize(TKey key, Func<TValue> populator)
+        public TValue Memoize(TKey key, GallioFunc<TValue> populator)
         {
             TValue value;
             if (table != null)

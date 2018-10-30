@@ -27,7 +27,7 @@ namespace Gallio.UI.ProgressMonitoring
         /// No progress information will be displayed.
         ///</summary>
         ///<param name="action">The action to perform.</param>
-        void BackgroundTask(Action action);
+        void BackgroundTask(GallioAction action);
         
         ///<summary>
         /// Empty the queue of tasks.

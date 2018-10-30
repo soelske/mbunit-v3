@@ -46,7 +46,7 @@ namespace Gallio.UI.ControlPanel
         /// </summary>
         /// <param name="name">The tab name.</param>
         /// <param name="tabFactory">The tab factory.</param>
-        public void AddTab(string name, Func<ControlPanelTab> tabFactory)
+        public void AddTab(string name, GallioFunc<ControlPanelTab> tabFactory)
         {
             TabPage tabPage = new TabPage(name);
             tabPage.Tag = tabFactory;
@@ -71,7 +71,7 @@ namespace Gallio.UI.ControlPanel
             {
                 if (tabPage.Controls.Count == 0)
                 {
-                    Func<ControlPanelTab> tabFactory = (Func<ControlPanelTab>)tabPage.Tag;
+                    GallioFunc<ControlPanelTab> tabFactory = (GallioFunc<ControlPanelTab>)tabPage.Tag;
                     ControlPanelTab tab = tabFactory();
                     tab.Dock = DockStyle.Fill;
                     tab.Margin = new Padding(0, 0, 0, 0);

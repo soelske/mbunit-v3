@@ -25,7 +25,7 @@ using Gallio.Common.Reflection;
 using Gallio.Runner.Reports.Schema;
 using Gallio.Tests;
 using MbUnit.Framework;
-using Action=Gallio.Common.Action;
+using GallioAction=Gallio.Common.GallioAction;
 
 namespace MbUnit.Tests.Framework
 {
@@ -40,7 +40,7 @@ namespace MbUnit.Tests.Framework
             Assert.Throws<ArgumentNullException>(() => new TestCase(null, delegate { }));
             Assert.Throws<ArgumentNullException>(() => new TestCase("Foo", null));
 
-            Action execute = delegate { };
+            GallioAction execute = delegate { };
             TestCase testCase = new TestCase("Name", execute);
             Assert.AreEqual("Name", testCase.Name);
             Assert.AreSame(execute, testCase.Execute);

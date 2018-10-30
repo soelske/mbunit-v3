@@ -30,7 +30,7 @@ namespace MbUnit.Tests.Framework
     [TestsOn(typeof(Retry))]
     public class RetryTest : BaseAssertTest
     {
-        private void DoRetry(bool expectedSucceeded, Gallio.Common.Action action)
+        private void DoRetry(bool expectedSucceeded, Gallio.Common.GallioAction action)
         {
             AssertionFailure[] failures = Capture(action);
 

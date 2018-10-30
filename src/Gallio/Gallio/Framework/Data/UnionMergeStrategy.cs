@@ -43,7 +43,7 @@ namespace Gallio.Framework.Data
         public IEnumerable<IDataItem> Merge(IList<IDataProvider> providers, ICollection<DataBinding> bindings,
             bool includeDynamicItems)
         {
-            var previousValues = new HashSet<object[]>(new ArrayEqualityComparer<object>());
+            var previousValues = new GallioHashSet<object[]>(new ArrayEqualityComparer<object>());
 
             foreach (IDataProvider provider in providers)
             {

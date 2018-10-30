@@ -30,7 +30,7 @@ namespace Gallio.Reports.Vtl
         private readonly int pageIndex;
         private readonly int pageCount;
         private readonly int visiblePages;
-        private readonly Func<int, string> linkMaker;
+        private readonly GallioFunc<int, string> linkMaker;
         private XmlTextWriter writer;
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Gallio.Reports.Vtl
         /// <param name="pageCount">The number of pages.</param>
         /// <param name="visiblePages">The number of visible pages shown near the current page.</param>
         /// <param name="linkMaker">A function that creates a link reference to a particular page.</param>
-        public PagerRenderer(int pageIndex, int pageCount, int visiblePages, Func<int, string> linkMaker)
+        public PagerRenderer(int pageIndex, int pageCount, int visiblePages, GallioFunc<int, string> linkMaker)
         {
             this.pageIndex = pageIndex;
             this.pageCount = pageCount;

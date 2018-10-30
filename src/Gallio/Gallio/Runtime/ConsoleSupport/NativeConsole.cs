@@ -65,8 +65,8 @@ namespace Gallio.Runtime.ConsoleSupport
         private int repeatCount;
 
         private bool footerVisible = true;
-        private Action showFooter;
-        private Action hideFooter;
+        private GallioAction showFooter;
+        private GallioAction hideFooter;
 
         private int redirectedFlag;
 
@@ -288,7 +288,7 @@ namespace Gallio.Runtime.ConsoleSupport
         }
 
         /// <inheritdoc />
-        public void SetFooter(Action showFooter, Action hideFooter)
+        public void SetFooter(GallioAction showFooter, GallioAction hideFooter)
         {
             lock (syncRoot)
             {

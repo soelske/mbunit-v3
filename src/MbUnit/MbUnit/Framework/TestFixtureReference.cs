@@ -70,7 +70,7 @@ namespace MbUnit.Framework
         }
 
         /// <inheritdoc />
-        protected override TestOutcome RunDynamicTest(ICodeElementInfo declaringCodeElement, Action setUp, Action tearDown)
+        protected override TestOutcome RunDynamicTest(ICodeElementInfo declaringCodeElement, GallioAction setUp, GallioAction tearDown)
         {
             throw new NotSupportedException("MbUnit does not currently support running a referenced test dynamically.");
         }

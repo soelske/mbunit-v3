@@ -53,7 +53,7 @@ namespace Gallio.Model.Environments
         {
             private readonly List<IDisposable> innerStates = new List<IDisposable>();
 
-            public State(ITestEnvironment[] environments, Func<ITestEnvironment, IDisposable> setUp)
+            public State(ITestEnvironment[] environments, GallioFunc<ITestEnvironment, IDisposable> setUp)
             {
                 foreach (ITestEnvironment environment in environments)
                 {

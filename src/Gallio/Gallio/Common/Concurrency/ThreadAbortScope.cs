@@ -90,7 +90,7 @@ namespace Gallio.Common.Concurrency
         /// <exception cref="InvalidOperationException">Thrown if an action is already running in this scope.</exception>
         /// <exception cref="Exception">Any other exception thrown by <paramref name="action"/> itself.</exception>
         [DebuggerHidden, DebuggerStepThrough]
-        public ThreadAbortException Run(Action action)
+        public ThreadAbortException Run(GallioAction action)
         {
             // NOTE: This method has been optimized to minimize the total stack depth of the action
             //       by inlining blocks on the critical path that had previously been factored out.

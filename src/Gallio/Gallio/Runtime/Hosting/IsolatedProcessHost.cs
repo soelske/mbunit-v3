@@ -104,8 +104,8 @@ namespace Gallio.Runtime.Hosting
             try
             {
                 string hostConnectionArguments;
-                Func<IClientChannel> clientChannelFactory;
-                Func<IServerChannel> callbackChannelFactory;
+                GallioFunc<IClientChannel> clientChannelFactory;
+                GallioFunc<IServerChannel> callbackChannelFactory;
                 PrepareConnection(uniqueId, out hostConnectionArguments, out clientChannelFactory, out callbackChannelFactory);
 
                 StartProcess(hostConnectionArguments);
@@ -159,7 +159,7 @@ namespace Gallio.Runtime.Hosting
         /// <param name="clientChannelFactory">Set to a factory used to create the local client channel.</param>
         /// <param name="callbackChannelFactory">Set to a factory used to create the local server channel to allow the remote host to call back to this one.</param>
         protected virtual void PrepareConnection(string uniqueId, out string hostConnectionArguments,
-            out Func<IClientChannel> clientChannelFactory, out Func<IServerChannel> callbackChannelFactory)
+            out GallioFunc<IClientChannel> clientChannelFactory, out GallioFunc<IServerChannel> callbackChannelFactory)
         {
 #if USE_IPC
             string portName = @"IsolatedProcessHost." + uniqueId;

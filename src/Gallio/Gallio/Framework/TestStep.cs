@@ -135,7 +135,7 @@ namespace Gallio.Framework
         /// </para>
         /// <para>
         /// This method does not verify that the test step completed successfully.  Check the
-        /// <see cref="TestContext.Outcome" /> of the test step or call <see cref="RunStepAndVerifyOutcome(string, Action, TestOutcome)"/>
+        /// <see cref="TestContext.Outcome" /> of the test step or call <see cref="RunStepAndVerifyOutcome(string, GallioAction, TestOutcome)"/>
         /// to ensure that the expected outcome was obtained.
         /// </para>
         /// </remarks>
@@ -147,7 +147,7 @@ namespace Gallio.Framework
         /// <exception cref="ArgumentException">Thrown if <paramref name="name"/> is the empty string.</exception>
         /// <exception cref="InvalidOperationException">Thrown if there is no current test context.</exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static TestContext RunStep(string name, Action action)
+        public static TestContext RunStep(string name, GallioAction action)
         {
             return TestContext.GetCurrentContextOrThrow().RunStep(name, action, null, false, Reflector.GetCallingFunction());
         }
@@ -167,7 +167,7 @@ namespace Gallio.Framework
         /// </para>
         /// <para>
         /// This method does not verify that the test step completed successfully.  Check the
-        /// <see cref="TestContext.Outcome" /> of the test step or call <see cref="RunStepAndVerifyOutcome(string, Action, TimeSpan?, TestOutcome)"/>
+        /// <see cref="TestContext.Outcome" /> of the test step or call <see cref="RunStepAndVerifyOutcome(string, GallioAction, TimeSpan?, TestOutcome)"/>
         /// to ensure that the expected outcome was obtained.
         /// </para>
         /// </remarks>
@@ -181,7 +181,7 @@ namespace Gallio.Framework
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
         /// <exception cref="InvalidOperationException">Thrown if there is no current test context.</exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static TestContext RunStep(string name, Action action, TimeSpan? timeout)
+        public static TestContext RunStep(string name, GallioAction action, TimeSpan? timeout)
         {
             return TestContext.GetCurrentContextOrThrow().RunStep(name, action, timeout, false, Reflector.GetCallingFunction());
         }
@@ -201,7 +201,7 @@ namespace Gallio.Framework
         /// </para>
         /// <para>
         /// This method does not verify that the test step completed successfully.  Check the
-        /// <see cref="TestContext.Outcome" /> of the test step or call <see cref="RunStepAndVerifyOutcome(string, Action, TimeSpan?, bool, ICodeElementInfo, TestOutcome)"/>
+        /// <see cref="TestContext.Outcome" /> of the test step or call <see cref="RunStepAndVerifyOutcome(string, GallioAction, TimeSpan?, bool, ICodeElementInfo, TestOutcome)"/>
         /// to ensure that the expected outcome was obtained.
         /// </para>
         /// </remarks>
@@ -216,7 +216,7 @@ namespace Gallio.Framework
         /// <exception cref="ArgumentException">Thrown if <paramref name="name"/> is the empty string.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
         /// <exception cref="InvalidOperationException">Thrown if there is no current test context.</exception>
-        public static TestContext RunStep(string name, Action action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement)
+        public static TestContext RunStep(string name, GallioAction action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement)
         {
             return TestContext.GetCurrentContextOrThrow().RunStep(name, action, timeout, isTestCase, codeElement);
         }
@@ -249,7 +249,7 @@ namespace Gallio.Framework
         /// <exception cref="AssertionFailureException">Thrown if the expected outcome was not obtained.</exception>
         /// <exception cref="InvalidOperationException">Thrown if there is no current test context.</exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static TestContext RunStepAndVerifyOutcome(string name, Action action, TestOutcome expectedOutcome)
+        public static TestContext RunStepAndVerifyOutcome(string name, GallioAction action, TestOutcome expectedOutcome)
         {
             return TestContext.GetCurrentContextOrThrow().RunStepAndVerifyOutcome(name, action, null, false, Reflector.GetCallingFunction(), expectedOutcome);
         }
@@ -284,7 +284,7 @@ namespace Gallio.Framework
         /// <exception cref="AssertionFailureException">Thrown if the expected outcome was not obtained.</exception>
         /// <exception cref="InvalidOperationException">Thrown if there is no current test context.</exception>
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public static TestContext RunStepAndVerifyOutcome(string name, Action action, TimeSpan? timeout, TestOutcome expectedOutcome)
+        public static TestContext RunStepAndVerifyOutcome(string name, GallioAction action, TimeSpan? timeout, TestOutcome expectedOutcome)
         {
             return TestContext.GetCurrentContextOrThrow().RunStepAndVerifyOutcome(name, action, timeout, false, Reflector.GetCallingFunction(), expectedOutcome);
         }
@@ -320,7 +320,7 @@ namespace Gallio.Framework
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
         /// <exception cref="AssertionFailureException">Thrown if the expected outcome was not obtained.</exception>
         /// <exception cref="InvalidOperationException">Thrown if there is no current test context.</exception>
-        public static TestContext RunStepAndVerifyOutcome(string name, Action action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement, TestOutcome expectedOutcome)
+        public static TestContext RunStepAndVerifyOutcome(string name, GallioAction action, TimeSpan? timeout, bool isTestCase, ICodeElementInfo codeElement, TestOutcome expectedOutcome)
         {
             return TestContext.GetCurrentContextOrThrow().RunStepAndVerifyOutcome(name, action, timeout, isTestCase, codeElement, expectedOutcome);
         }

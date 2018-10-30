@@ -42,7 +42,7 @@ namespace Gallio.Runtime.Hosting
         }
 
         /// <inheritdoc cref="IHostService.Do" />
-        public TResult Do<TArg, TResult>(Func<TArg, TResult> func, TArg arg)
+        public TResult Do<TArg, TResult>(GallioFunc<TArg, TResult> func, TArg arg)
         {
             if (func == null)
                 throw new ArgumentNullException("func");
@@ -83,7 +83,7 @@ namespace Gallio.Runtime.Hosting
         /// <returns>The result value, if any.</returns>
         /// <typeparam name="TArg">The argument type.</typeparam>
         /// <typeparam name="TResult">The result type.</typeparam>
-        protected virtual TResult DoImpl<TArg, TResult>(Func<TArg, TResult> func, TArg arg)
+        protected virtual TResult DoImpl<TArg, TResult>(GallioFunc<TArg, TResult> func, TArg arg)
         {
             return func(arg);
         }

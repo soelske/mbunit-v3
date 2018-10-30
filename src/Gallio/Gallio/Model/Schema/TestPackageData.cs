@@ -236,7 +236,7 @@ namespace Gallio.Model.Schema
             ApplyPathConversion(basePath, FileUtils.MakeAbsolutePath);
         }
 
-        private void ApplyPathConversion(string basePath, Func<string, string, string> converter)
+        private void ApplyPathConversion(string basePath, GallioFunc<string, string, string> converter)
         {
             if (basePath == null)
                 throw new ArgumentNullException("basePath");

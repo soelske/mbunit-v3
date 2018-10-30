@@ -23,7 +23,7 @@ using Gallio.Common.Reflection;
 namespace MbUnit.Framework
 {
     /// <summary>
-    /// Runs the test as if it were surrounded by <see cref="Assert.Multiple(Action)" /> so that
+    /// Runs the test as if it were surrounded by <see cref="Assert.Multiple(GallioAction)" /> so that
     /// multiple assertion failures within the test are tolerated.
     /// </summary>
     /// <remarks>

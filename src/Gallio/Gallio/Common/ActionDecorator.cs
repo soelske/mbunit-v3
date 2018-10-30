@@ -22,7 +22,7 @@ namespace Gallio.Common
     /// </summary>
     /// <param name="action">The action to decorate which should be called in
     /// the middle of applying the decoration.</param>
-    public delegate void ActionDecorator(Action action);
+    public delegate void ActionDecorator(GallioAction action);
 
     /// <summary>
     /// Represents a delegate that decorates an action.

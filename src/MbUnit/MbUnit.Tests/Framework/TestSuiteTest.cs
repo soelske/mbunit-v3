@@ -24,7 +24,7 @@ using Gallio.Common.Reflection;
 using Gallio.Runner.Reports.Schema;
 using Gallio.Tests;
 using MbUnit.Framework;
-using Action=Gallio.Common.Action;
+using GallioAction=Gallio.Common.GallioAction;
 
 namespace MbUnit.Tests.Framework
 {
@@ -91,7 +91,7 @@ namespace MbUnit.Tests.Framework
             TestSuite testSuite = new TestSuite("Name");
             Assert.IsNull(testSuite.SetUp);
 
-            Action action = delegate { };
+            GallioAction action = delegate { };
             testSuite.SetUp = action;
             Assert.AreSame(action, testSuite.SetUp);
         }
@@ -102,7 +102,7 @@ namespace MbUnit.Tests.Framework
             TestSuite testSuite = new TestSuite("Name");
             Assert.IsNull(testSuite.TearDown);
 
-            Action action = delegate { };
+            GallioAction action = delegate { };
             testSuite.TearDown = action;
             Assert.AreSame(action, testSuite.TearDown);
         }
@@ -113,7 +113,7 @@ namespace MbUnit.Tests.Framework
             TestSuite testSuite = new TestSuite("Name");
             Assert.IsNull(testSuite.SuiteSetUp);
 
-            Action action = delegate { };
+            GallioAction action = delegate { };
             testSuite.SuiteSetUp = action;
             Assert.AreSame(action, testSuite.SuiteSetUp);
         }
@@ -124,7 +124,7 @@ namespace MbUnit.Tests.Framework
             TestSuite testSuite = new TestSuite("Name");
             Assert.IsNull(testSuite.SuiteTearDown);
 
-            Action action = delegate { };
+            GallioAction action = delegate { };
             testSuite.SuiteTearDown = action;
             Assert.AreSame(action, testSuite.SuiteTearDown);
         }

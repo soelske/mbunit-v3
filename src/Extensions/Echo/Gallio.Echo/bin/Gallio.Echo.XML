@@ -41,6 +41,11 @@
               Looks up a localized string similar to Gallio Echo.
             </summary>
         </member>
+        <member name="P:Gallio.Echo.Properties.Resources.GallioEcho">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
         <member name="P:Gallio.Echo.Properties.Resources.MainClass_AvailableOptionsHeader">
             <summary>
               Looks up a localized string similar to Available options:.

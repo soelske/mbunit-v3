@@ -39,7 +39,7 @@ namespace Gallio.Tests.Common
         {
             Assert.AreEqual(ActionChain<string, int>.NoOp, chain.Action);
 
-            Gallio.Common.Action<string, int> action = CreateAction("", 0);
+            Gallio.Common.GallioAction<string, int> action = CreateAction("", 0);
             chain.Action = action;
             Assert.AreEqual(action, chain.Action);
         }
@@ -125,7 +125,7 @@ namespace Gallio.Tests.Common
             trace.Add(arg1 + "," + arg2 + ": " + token + "," + value);
         }
 
-        private Gallio.Common.Action<string, int> CreateAction(string token, int value)
+        private Gallio.Common.GallioAction<string, int> CreateAction(string token, int value)
         {
             return delegate(string arg1, int arg2)
             {
@@ -135,7 +135,7 @@ namespace Gallio.Tests.Common
 
         private ActionDecorator<string, int> CreateActionDecorator(string beforeToken, string afterToken, int value)
         {
-            return delegate(string arg1, int arg2, Gallio.Common.Action<string, int> action)
+            return delegate(string arg1, int arg2, Gallio.Common.GallioAction<string, int> action)
             {
                 Trace(arg1, arg2, beforeToken, value);
                 action(arg1, arg2);

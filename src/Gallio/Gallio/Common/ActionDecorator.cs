@@ -42,5 +42,5 @@ namespace Gallio.Common
     /// <param name="arg2">The second argument.</param>
     /// <param name="action">The action to decorate which should be called in
     /// the middle of applying the decoration.</param>
-    public delegate void ActionDecorator<T1, T2>(T1 arg1, T2 arg2, Action<T1, T2> action);
+    public delegate void ActionDecorator<T1, T2>(T1 arg1, T2 arg2, GallioAction<T1, T2> action);
 }

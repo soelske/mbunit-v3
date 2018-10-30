@@ -289,12 +289,12 @@ namespace Gallio.Common
     /// <typeparam name="T2">The second argument type.</typeparam>
     public class ActionChain<T1, T2>
     {
-        private Action<T1, T2> action;
+        private GallioAction<T1, T2> action;
 
         /// <summary>
         /// Gets a singleton action that does nothing when invoked.
         /// </summary>
-        public static readonly Action<T1, T2> NoOp = delegate { };
+        public static readonly GallioAction<T1, T2> NoOp = delegate { };
 
         /// <summary>
         /// Gets or sets a representation of the chain as a single action.
@@ -307,7 +307,7 @@ namespace Gallio.Common
         /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
-        public Action<T1, T2> Action
+        public GallioAction<T1, T2> Action
         {
             get
             {
@@ -335,7 +335,7 @@ namespace Gallio.Common
         /// </remarks>
         /// <param name="action">The action to register.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public void Before(Action<T1, T2> action)
+        public void Before(GallioAction<T1, T2> action)
         {
             if (action == null)
                 throw new ArgumentNullException("action");
@@ -343,7 +343,7 @@ namespace Gallio.Common
             if (this.action == null)
                 this.action = action;
             else
-                this.action = (Action<T1, T2>)Delegate.Combine(action, this.action);
+                this.action = (GallioAction<T1, T2>)Delegate.Combine(action, this.action);
         }
 
         /// <summary>
@@ -359,7 +359,7 @@ namespace Gallio.Common
         /// </remarks>
         /// <param name="action">The action to register.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
-        public void After(Action<T1, T2> action)
+        public void After(GallioAction<T1, T2> action)
         {
             if (action == null)
                 throw new ArgumentNullException("action");
@@ -367,7 +367,7 @@ namespace Gallio.Common
             if (this.action == null)
                 this.action = action;
             else
-                this.action = (Action<T1, T2>)Delegate.Combine(this.action, action);
+                this.action = (GallioAction<T1, T2>)Delegate.Combine(this.action, action);
         }
 
         /// <summary>
@@ -390,7 +390,7 @@ namespace Gallio.Common
             if (decorator == null)
                 throw new ArgumentNullException("decorator");
 
-            Action<T1, T2> innerAction = Action;
+            GallioAction<T1, T2> innerAction = Action;
             action = delegate(T1 arg1, T2 arg2)
             {
                 decorator(arg1, arg2, innerAction);

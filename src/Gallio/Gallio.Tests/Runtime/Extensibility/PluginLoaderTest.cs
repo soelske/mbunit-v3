@@ -101,7 +101,7 @@ namespace Gallio.Tests.Runtime.Extensibility
                 Plugin plugin = null;
                 DirectoryInfo baseDirectory = null;
                 catalog.Expect(x => x.AddPlugin(null, null)).IgnoreArguments()
-                    .Do((Gallio.Common.Action<Plugin, DirectoryInfo>) delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
+                    .Do((Gallio.Common.GallioAction<Plugin, DirectoryInfo>) delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
                 {
                     plugin = pluginArg;
                     baseDirectory = baseDirectoryArg;
@@ -139,7 +139,7 @@ namespace Gallio.Tests.Runtime.Extensibility
                 Plugin plugin = null;
                 DirectoryInfo baseDirectory = null;
                 catalog.Expect(x => x.AddPlugin(null, null)).IgnoreArguments()
-                    .Do((Gallio.Common.Action<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
+                    .Do((Gallio.Common.GallioAction<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
                     {
                         plugin = pluginArg;
                         baseDirectory = baseDirectoryArg;
@@ -175,7 +175,7 @@ namespace Gallio.Tests.Runtime.Extensibility
             Plugin plugin = null;
             DirectoryInfo baseDirectory = null;
             catalog.Expect(x => x.AddPlugin(null, null)).IgnoreArguments()
-                .Do((Gallio.Common.Action<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
+                .Do((Gallio.Common.GallioAction<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
                 {
                     plugin = pluginArg;
                     baseDirectory = baseDirectoryArg;
@@ -278,7 +278,7 @@ namespace Gallio.Tests.Runtime.Extensibility
 
                 Plugin plugin = null;
                 catalog.Expect(x => x.AddPlugin(null, null)).IgnoreArguments()
-                    .Do((Gallio.Common.Action<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
+                    .Do((Gallio.Common.GallioAction<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
                     {
                         plugin = pluginArg;
                     });
@@ -303,7 +303,7 @@ namespace Gallio.Tests.Runtime.Extensibility
 
             Plugin plugin = null;
             catalog.Expect(x => x.AddPlugin(null, null)).IgnoreArguments()
-                .Do((Gallio.Common.Action<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
+                .Do((Gallio.Common.GallioAction<Plugin, DirectoryInfo>)delegate(Plugin pluginArg, DirectoryInfo baseDirectoryArg)
                 {
                     plugin = pluginArg;
                 });
@@ -328,7 +328,7 @@ namespace Gallio.Tests.Runtime.Extensibility
             Assert.AreEqual(guid, loader.InstallationId);
         }
 
-        internal static void RunWithTemporaryPluginFile(Gallio.Common.Action<string, string> action, string pluginFileContents)
+        internal static void RunWithTemporaryPluginFile(Gallio.Common.GallioAction<string, string> action, string pluginFileContents)
         {
             var pluginDir = SpecialPathPolicy.For<PluginLoaderTest>().GetTempDirectory().FullName;
             if (Directory.Exists(pluginDir))

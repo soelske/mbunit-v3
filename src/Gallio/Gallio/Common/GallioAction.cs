@@ -27,7 +27,7 @@ namespace Gallio.Common
     /// <typeparam name="T2">The second argument type.</typeparam>
     /// <param name="arg1">The first argument.</param>
     /// <param name="arg2">The second argument.</param>
-    public delegate void Action<T1, T2>(T1 arg1, T2 arg2);
+    public delegate void GallioAction<T1, T2>(T1 arg1, T2 arg2);
 
     /// <summary>
     /// An action with three arguments.
@@ -38,7 +38,7 @@ namespace Gallio.Common
     /// <param name="arg1">The first argument.</param>
     /// <param name="arg2">The second argument.</param>
     /// <param name="arg3">The third argument.</param>
-    public delegate void Action<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3);
+    public delegate void GallioAction<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3);
 
     /// <summary>
     /// An action with four arguments.
@@ -51,7 +51,7 @@ namespace Gallio.Common
     /// <param name="arg2">The second argument.</param>
     /// <param name="arg3">The third argument.</param>
     /// <param name="arg4">The fourth argument.</param>
-    public delegate void Action<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    public delegate void GallioAction<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
 
     /// <summary>
     /// An action with five arguments.
@@ -66,5 +66,5 @@ namespace Gallio.Common
     /// <param name="arg3">The third argument.</param>
     /// <param name="arg4">The fourth argument.</param>
     /// <param name="arg5">The fifth argument.</param>
-    public delegate void Action<T1, T2, T3, T4, T5>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    public delegate void GallioAction<T1, T2, T3, T4, T5>(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
 }

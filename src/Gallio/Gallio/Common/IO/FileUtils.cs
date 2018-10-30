@@ -82,7 +82,7 @@ namespace Gallio.Common.IO
         /// <param name="copyFileAction">A delegate used to copy a source file to a given destination file path, or null to do nothing.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="sourcePath"/> or <paramref name="destPath"/> is null.</exception>
         public static void CopyAllIndirect(string sourcePath, string destPath,
-            Action<string> createDirectoryAction, Action<string, string> copyFileAction)
+            Action<string> createDirectoryAction, GallioAction<string, string> copyFileAction)
         {
             if (sourcePath == null)
                 throw new ArgumentNullException(@"sourcePath");

@@ -268,7 +268,7 @@ namespace Gallio.Echo
         //[LoaderOptimization(LoaderOptimization.MultiDomain)] // Disabled due to bug: http://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=95157
         internal static int Main(string[] args)
         {
-            System.Diagnostics.Debugger.Launch();
+            //System.Diagnostics.Debugger.Launch();
             return new EchoProgram().Run(NativeConsole.Instance, args);
         }
     }

@@ -21,6 +21,7 @@ using Gallio.Common.Messaging.MessageSinks;
 using Gallio.Model.Isolation.Messages;
 using Gallio.Common.Messaging;
 using Gallio.Common.Remoting;
+using System.Linq;
 
 namespace Gallio.Model.Isolation
 {
@@ -93,12 +94,13 @@ namespace Gallio.Model.Isolation
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="isolatedTaskType"/> is null.</exception>
         public object RunIsolatedTaskOnClient(Type isolatedTaskType, object[] args)
         {
+            //System.Diagnostics.Debugger.Launch();
             if (isolatedTaskType == null)
                 throw new ArgumentNullException("isolatedTaskType");
 
             Guid id = Guid.NewGuid();
             IsolatedTaskState state = new IsolatedTaskState();
-
+            
             try
             {
                 lock (activeTasks)
@@ -161,8 +163,8 @@ namespace Gallio.Model.Isolation
 
             public object WaitForCompletion()
             {
-                finish.WaitOne();
-
+                TimeSpan timeSpan = new TimeSpan(0, 5, 0);
+                finish.WaitOne(timeSpan,true );
                 if (exception != null)
                     throw new TestIsolationException(string.Format("The isolated task thread an exception: {0}", exception));
                 return result;

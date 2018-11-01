@@ -831,6 +831,11 @@ namespace Gallio.Common.Reflection.Impl
                 hintDirectories.Add(path);
             }
 
+            public void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+
             public string GetAssemblyPath(AssemblyDefinition assemblyDefn)
             {
                 string path;
@@ -884,6 +889,11 @@ namespace Gallio.Common.Reflection.Impl
                 }
 
                 return assemblyDefn;
+            }
+
+            public AssemblyDefinition Resolve(AssemblyNameReference name, ReaderParameters parameters)
+            {
+                throw new NotImplementedException();
             }
 
             private string FindAssemblyByPartialName(string partialName)

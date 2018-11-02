@@ -94,7 +94,6 @@ namespace Gallio.Model.Isolation
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="isolatedTaskType"/> is null.</exception>
         public object RunIsolatedTaskOnClient(Type isolatedTaskType, object[] args)
         {
-            //System.Diagnostics.Debugger.Launch();
             if (isolatedTaskType == null)
                 throw new ArgumentNullException("isolatedTaskType");
 

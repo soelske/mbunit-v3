@@ -40,7 +40,6 @@ namespace Gallio.Common.Reflection.Impl
         /// <param name="assemblyPath">The path of the assembly to scan.</param>
         public CciModuleCache(IFileSystem fileSystem, string assemblyPath)
         {
-            System.Diagnostics.Debugger.Launch();
             if (fileSystem == null)
                 throw new ArgumentNullException("fileSystem");
             if (assemblyPath == null)
@@ -71,7 +70,6 @@ namespace Gallio.Common.Reflection.Impl
 
         private void FeedMap()
         {
-            System.Diagnostics.Debugger.Launch();
             var host = new PeReader.DefaultHost();
             var module = host.LoadUnitFrom(assemblyPath) as IModule;
 

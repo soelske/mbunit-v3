@@ -21,3 +21,4 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio35\obj\x64\Debug\Gallio35.vs
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio35\obj\x64\Debug\Gallio35.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio35\obj\x64\Debug\Gallio35.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio35\bin\Gallio.xml
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio35\obj\x64\Debug\Gallio35.vs2010.csprojAssemblyReference.cache

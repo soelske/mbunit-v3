@@ -1,5 +1,3 @@
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\obj\Debug\Gallio.AutoCAD.Tests.vs2010.csprojAssemblyReference.cache
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\obj\Debug\Gallio.AutoCAD.Tests.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\bin\Gallio.Tests.dll.config
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\bin\Gallio.Host.exe.config
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\bin\Gallio.AutoCAD.Tests.XML
@@ -49,7 +47,8 @@ C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\b
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\bin\Gallio.XmlSerializers.dll
+C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\obj\Debug\Gallio.AutoCAD.Tests.vs2010.csprojAssemblyReference.cache
+C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\obj\Debug\Gallio.AutoCAD.Tests.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\obj\Debug\Gallio.AutoCAD.Tests.vs2010.csproj.CopyComplete
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\obj\Debug\Gallio.AutoCAD.Tests.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Tests\obj\Debug\Gallio.AutoCAD.Tests.pdb

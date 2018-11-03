@@ -5,10 +5,8 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\obj\x64\Debug\Gallio.vs2010
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\obj\x64\Debug\Gallio.vs2010.csproj.CopyComplete
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\obj\x64\Debug\Gallio.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\obj\x64\Debug\Gallio.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\obj\x64\Debug\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Gallio.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Gallio.dll
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Gallio.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Gallio.ReflectionShim.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\ICSharpCode.SharpZipLib.dll
@@ -23,3 +21,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Microsoft.Cci.MetadataM
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Microsoft.Cci.PeReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Microsoft.Cci.SourceModel.xml
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Mono.Cecil.Mdb.dll
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Mono.Cecil.Pdb.dll
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio\bin\Mono.Cecil.Rocks.dll

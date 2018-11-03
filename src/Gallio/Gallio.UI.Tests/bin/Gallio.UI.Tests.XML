@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gallio.UI.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:Gallio.UI.Tests.DataBinding.TestSynchronizationContext">
+            <summary>
+            Impl of SynchronizationContext that just executes the delegate.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -28,7 +28,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\bin\Micro
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\bin\Gallio.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\bin\Gallio.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\bin\Microsoft.Cci.MetadataModel.xml
-C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\obj\Debug\MbUnit.TestResources.x64.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x64\obj\Debug\MbUnit.TestResources.x64.vs2010.csproj.CopyComplete

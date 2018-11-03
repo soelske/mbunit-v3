@@ -21,7 +21,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\bin\Microsoft
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\bin\Microsoft.Cci.MetadataHelper.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\bin\NHamcrest.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\obj\x64\Debug\MbUnit.TestResources.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\obj\x64\Debug\MbUnit.TestResources.Properties.Resources.resources
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources\obj\x64\Debug\MbUnit.TestResources.vs2010.csproj.GenerateResource.cache

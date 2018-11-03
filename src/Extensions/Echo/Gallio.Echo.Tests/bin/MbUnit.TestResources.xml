@@ -179,6 +179,11 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:MbUnit.TestResources.Properties.Resources.MbUnitLogo">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="T:MbUnit.TestResources.ParameterizedTest">
             <summary>
             A simple parameterized test.

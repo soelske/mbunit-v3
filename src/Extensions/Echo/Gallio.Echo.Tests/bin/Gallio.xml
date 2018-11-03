@@ -18,12 +18,12 @@
             <param name="obj">The object to get the value from.</param>
             <returns>The returned value.</returns>
         </member>
-        <member name="T:Gallio.Common.Action">
+        <member name="T:Gallio.Common.GallioAction">
             <summary>
             An action with no arguments.
             </summary>
         </member>
-        <member name="T:Gallio.Common.Action`2">
+        <member name="T:Gallio.Common.GallioAction`2">
             <summary>
             An action with two arguments.
             </summary>
@@ -32,7 +32,7 @@
             <param name="arg1">The first argument.</param>
             <param name="arg2">The second argument.</param>
         </member>
-        <member name="T:Gallio.Common.Action`3">
+        <member name="T:Gallio.Common.GallioAction`3">
             <summary>
             An action with three arguments.
             </summary>
@@ -43,7 +43,7 @@
             <param name="arg2">The second argument.</param>
             <param name="arg3">The third argument.</param>
         </member>
-        <member name="T:Gallio.Common.Action`4">
+        <member name="T:Gallio.Common.GallioAction`4">
             <summary>
             An action with four arguments.
             </summary>
@@ -56,7 +56,7 @@
             <param name="arg3">The third argument.</param>
             <param name="arg4">The fourth argument.</param>
         </member>
-        <member name="T:Gallio.Common.Action`5">
+        <member name="T:Gallio.Common.GallioAction`5">
             <summary>
             An action with five arguments.
             </summary>
@@ -479,7 +479,7 @@
             <param name="b">The second collection.</param>
             <returns>True if the elements are equal.</returns>
         </member>
-        <member name="M:Gallio.Common.Collections.GenericCollectionUtils.Select``2(System.Collections.Generic.IEnumerable{``0},Gallio.Common.Func{``0,``1})">
+        <member name="M:Gallio.Common.Collections.GenericCollectionUtils.Select``2(System.Collections.Generic.IEnumerable{``0},Gallio.Common.GallioFunc{``0,``1})">
             <summary>
             Projects each element of a sequence into a new form.
             </summary>
@@ -490,7 +490,7 @@
             <returns>The output sequence</returns>
             <exception cref="T:System.ArgumentNullException">Thrown if any argument is null.</exception>
         </member>
-        <member name="T:Gallio.Common.Collections.HashSet`1">
+        <member name="T:Gallio.Common.Collections.GallioHashSet`1">
             <summary>
             A hashtable-based set implementation.
             </summary>
@@ -501,39 +501,39 @@
             </para>
             </remarks>
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.#ctor">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.#ctor">
             <summary>
             Creates an empty set.
             </summary>
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
             <summary>
             Creates an empty set using the specified comparer.
             </summary>
             <param name="comparer">The comparer, or null to use the default comparer.</param>
         </member>
-        <member name="P:Gallio.Common.Collections.HashSet`1.Count">
+        <member name="P:Gallio.Common.Collections.GallioHashSet`1.Count">
             <inheritdoc />
         </member>
-        <member name="P:Gallio.Common.Collections.HashSet`1.IsReadOnly">
+        <member name="P:Gallio.Common.Collections.GallioHashSet`1.IsReadOnly">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.Add(`0)">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.Add(`0)">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.Clear">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.Clear">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.Contains(`0)">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.Contains(`0)">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.CopyTo(`0[],System.Int32)">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.CopyTo(`0[],System.Int32)">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.Remove(`0)">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.Remove(`0)">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Common.Collections.HashSet`1.GetEnumerator">
+        <member name="M:Gallio.Common.Collections.GallioHashSet`1.GetEnumerator">
             <inheritdoc />
         </member>
         <member name="T:Gallio.Common.Collections.IMultiMap`2">
@@ -627,7 +627,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:Gallio.Common.Collections.LazyCache`2.#ctor(Gallio.Common.Func{`0,`1})">
+        <member name="M:Gallio.Common.Collections.LazyCache`2.#ctor(Gallio.Common.GallioFunc{`0,`1})">
             <summary>
             Creates a cache with the specified populator function.
             </summary>
@@ -1404,7 +1404,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="degreeOfParallelismProvider"/>
             is null.</exception>
         </member>
-        <member name="M:Gallio.Common.Concurrency.WorkScheduler.Run(System.Collections.Generic.IEnumerable{Gallio.Common.Action})">
+        <member name="M:Gallio.Common.Concurrency.WorkScheduler.Run(System.Collections.Generic.IEnumerable{Gallio.Common.GallioAction})">
             <summary>
             Runs a set of actions in parallel up to the current degree of parallelism.
             </summary>
@@ -2076,7 +2076,7 @@
             has already been issued if needed.
             </summary>
         </member>
-        <member name="M:Gallio.Common.Concurrency.ThreadAbortScope.Run(Gallio.Common.Action)">
+        <member name="M:Gallio.Common.Concurrency.ThreadAbortScope.Run(Gallio.Common.GallioAction)">
             <summary>
             Runs an action inside of the scope.
             </summary>
@@ -2124,7 +2124,7 @@
             An implementation of <see cref="T:Gallio.Common.Concurrency.Task" /> based on a locally running thread.
             </summary>
         </member>
-        <member name="M:Gallio.Common.Concurrency.ThreadTask.#ctor(System.String,Gallio.Common.Func{System.Object})">
+        <member name="M:Gallio.Common.Concurrency.ThreadTask.#ctor(System.String,Gallio.Common.GallioFunc{System.Object})">
             <summary>
             Creates a task that will execute code within a new locally running thread.
             When the task terminates successfully, its result will contain the value
@@ -2135,7 +2135,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="name"/> 
             or <paramref name="func"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Common.Concurrency.ThreadTask.#ctor(System.String,Gallio.Common.Action)">
+        <member name="M:Gallio.Common.Concurrency.ThreadTask.#ctor(System.String,Gallio.Common.GallioAction)">
             <summary>
             Creates a task that will execute code within a new locally running thread.
             When the task terminates successfully, its result will contain the value <c>null</c>.
@@ -2214,7 +2214,7 @@
             Provides helpers for cross-thread synchronization.
             </summary>
         </member>
-        <member name="M:Gallio.Common.Concurrency.Sync.Invoke(System.ComponentModel.ISynchronizeInvoke,Gallio.Common.Action)">
+        <member name="M:Gallio.Common.Concurrency.Sync.Invoke(System.ComponentModel.ISynchronizeInvoke,Gallio.Common.GallioAction)">
             <summary>
             Synchronizes an action.
             </summary>
@@ -2222,7 +2222,7 @@
             <param name="action">The action.</param>
             <exception cref="T:System.Exception">The exception thrown by the action.</exception>
         </member>
-        <member name="M:Gallio.Common.Concurrency.Sync.Invoke``1(System.ComponentModel.ISynchronizeInvoke,Gallio.Common.Func{``0})">
+        <member name="M:Gallio.Common.Concurrency.Sync.Invoke``1(System.ComponentModel.ISynchronizeInvoke,Gallio.Common.GallioFunc{``0})">
             <summary>
             Synchronizes a function that returns a value.
             </summary>
@@ -2567,7 +2567,7 @@
             <param name="overwrite">If true, overwrites existing files in the destination.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="sourcePath"/> or <paramref name="destPath"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Common.IO.FileUtils.CopyAllIndirect(System.String,System.String,System.Action{System.String},Gallio.Common.Action{System.String,System.String})">
+        <member name="M:Gallio.Common.IO.FileUtils.CopyAllIndirect(System.String,System.String,System.Action{System.String},Gallio.Common.GallioAction{System.String,System.String})">
             <summary>
             Recursively copies files and folders from the source path to the destination
             using an indirect mechanism to actually create a file or folder.
@@ -2645,7 +2645,7 @@
             </summary>
             <typeparam name="T">The encapsulated type.</typeparam>
         </member>
-        <member name="M:Gallio.Common.Lazy`1.#ctor(Gallio.Common.Func{`0})">
+        <member name="M:Gallio.Common.Lazy`1.#ctor(Gallio.Common.GallioFunc{`0})">
             <summary>
             Constructor.
             </summary>
@@ -6927,7 +6927,7 @@
             Normalization utilities.
             </summary>
         </member>
-        <member name="M:Gallio.Common.Normalization.NormalizationUtils.NormalizeCollection``2(``0,Gallio.Common.Func{``0},Gallio.Common.Func{``1,``1},Gallio.Common.EqualityComparison{``1})">
+        <member name="M:Gallio.Common.Normalization.NormalizationUtils.NormalizeCollection``2(``0,Gallio.Common.GallioFunc{``0},Gallio.Common.GallioFunc{``1,``1},Gallio.Common.EqualityComparison{``1})">
             <summary>
             Normalizes a collection of normalizable values.
             </summary>
@@ -7047,7 +7047,7 @@
             to take care of differences on 32bit and 64bit platforms.
             </summary>
         </member>
-        <member name="M:Gallio.Common.Platform.RegistryUtils.TryActionOnOpenSubKeyWithBitness(System.Reflection.ProcessorArchitecture,Microsoft.Win32.RegistryHive,System.String,Gallio.Common.Func{Microsoft.Win32.RegistryKey,System.Boolean})">
+        <member name="M:Gallio.Common.Platform.RegistryUtils.TryActionOnOpenSubKeyWithBitness(System.Reflection.ProcessorArchitecture,Microsoft.Win32.RegistryHive,System.String,Gallio.Common.GallioFunc{Microsoft.Win32.RegistryKey,System.Boolean})">
             <summary>
             Opens a registry subkey taking into account the bitness of the platform
             and the requested processor architecture affinity.
@@ -15679,7 +15679,7 @@
             <typeparam name="T">The function argument type.</typeparam>
             <typeparam name="TResult">The function result type.</typeparam>
         </member>
-        <member name="M:Gallio.Common.FuncChain`2.#ctor(Gallio.Common.Func{`0,`1})">
+        <member name="M:Gallio.Common.FuncChain`2.#ctor(Gallio.Common.GallioFunc{`0,`1})">
             <summary>
             Creates a function chain.
             </summary>
@@ -15762,14 +15762,14 @@
             Gets the second value.
             </summary>
         </member>
-        <member name="T:Gallio.Common.Func`1">
+        <member name="T:Gallio.Common.GallioFunc`1">
             <summary>
             A function with zero arguments.
             </summary>
             <typeparam name="TResult">The result type.</typeparam>
             <returns>The function result.</returns>
         </member>
-        <member name="T:Gallio.Common.Func`2">
+        <member name="T:Gallio.Common.GallioFunc`2">
             <summary>
             A function with one argument.
             </summary>
@@ -15778,7 +15778,7 @@
             <param name="arg1">The first argument.</param>
             <returns>The function result.</returns>
         </member>
-        <member name="T:Gallio.Common.Func`3">
+        <member name="T:Gallio.Common.GallioFunc`3">
             <summary>
             A function with two arguments.
             </summary>
@@ -15789,7 +15789,7 @@
             <param name="arg2">The second argument.</param>
             <returns>The function result.</returns>
         </member>
-        <member name="T:Gallio.Common.Func`4">
+        <member name="T:Gallio.Common.GallioFunc`4">
             <summary>
             A function with three arguments.
             </summary>
@@ -15802,7 +15802,7 @@
             <param name="arg3">The third argument.</param>
             <returns>The function result.</returns>
         </member>
-        <member name="T:Gallio.Common.Func`5">
+        <member name="T:Gallio.Common.GallioFunc`5">
             <summary>
             A function with four arguments.
             </summary>
@@ -15888,7 +15888,7 @@
             ]]></code>
             </example>
         </member>
-        <member name="M:Gallio.Common.Memoizer`1.Memoize(Gallio.Common.Func{`0})">
+        <member name="M:Gallio.Common.Memoizer`1.Memoize(Gallio.Common.GallioFunc{`0})">
             <summary>
             Gets the memoized value if available, otherwise populates it
             using the specified populator function and stores it for later reuse.
@@ -15928,7 +15928,7 @@
             ]]></code>
             </example>
         </member>
-        <member name="M:Gallio.Common.KeyedMemoizer`2.Memoize(`0,Gallio.Common.Func{`1})">
+        <member name="M:Gallio.Common.KeyedMemoizer`2.Memoize(`0,Gallio.Common.GallioFunc{`1})">
             <summary>
             Gets the memoized value for the given key if available, otherwise populates it
             using the specified populator function and stores it in association with its keys
@@ -16003,13 +16003,13 @@
             <remarks>
             <para>
             The action is progressively augmented as new contributions are
-            registered using <see cref="M:Gallio.Common.ActionChain.Before(Gallio.Common.Action)" />, <see cref="M:Gallio.Common.ActionChain.After(Gallio.Common.Action)" /> and
+            registered using <see cref="M:Gallio.Common.ActionChain.Before(Gallio.Common.GallioAction)" />, <see cref="M:Gallio.Common.ActionChain.After(Gallio.Common.GallioAction)" /> and
             <see cref="M:Gallio.Common.ActionChain.Around(Gallio.Common.ActionDecorator)" />.  By default the action is <see cref="F:Gallio.Common.ActionChain.NoOp" />.
             </para>
             </remarks>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Common.ActionChain.Before(Gallio.Common.Action)">
+        <member name="M:Gallio.Common.ActionChain.Before(Gallio.Common.GallioAction)">
             <summary>
             Registers an action to perform before all other actions
             currently in the chain.
@@ -16024,7 +16024,7 @@
             <param name="action">The action to register.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Common.ActionChain.After(Gallio.Common.Action)">
+        <member name="M:Gallio.Common.ActionChain.After(Gallio.Common.GallioAction)">
             <summary>
             Registers an action to perform after all other actions
             currently in the chain.
@@ -16172,13 +16172,13 @@
             <remarks>
             <para>
             The action is progressively augmented as new contributions are
-            registered using <see cref="M:Gallio.Common.ActionChain`2.Before(Gallio.Common.Action{`0,`1})" />, <see cref="M:Gallio.Common.ActionChain`2.After(Gallio.Common.Action{`0,`1})" /> and
+            registered using <see cref="M:Gallio.Common.ActionChain`2.Before(Gallio.Common.GallioAction{`0,`1})" />, <see cref="M:Gallio.Common.ActionChain`2.After(Gallio.Common.GallioAction{`0,`1})" /> and
             <see cref="M:Gallio.Common.ActionChain`2.Around(Gallio.Common.ActionDecorator{`0,`1})" />.  By default the action is <see cref="F:Gallio.Common.ActionChain`2.NoOp" />.
             </para>
             </remarks>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Common.ActionChain`2.Before(Gallio.Common.Action{`0,`1})">
+        <member name="M:Gallio.Common.ActionChain`2.Before(Gallio.Common.GallioAction{`0,`1})">
             <summary>
             Registers an action to perform before all other actions
             currently in the chain.
@@ -16193,7 +16193,7 @@
             <param name="action">The action to register.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Common.ActionChain`2.After(Gallio.Common.Action{`0,`1})">
+        <member name="M:Gallio.Common.ActionChain`2.After(Gallio.Common.GallioAction{`0,`1})">
             <summary>
             Registers an action to perform after all other actions
             currently in the chain.
@@ -16259,7 +16259,7 @@
         </member>
         <member name="T:Gallio.Framework.Assertions.AssertionFailureExplanation">
             <summary>
-            A delegate for the <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Explain(Gallio.Common.Action,Gallio.Framework.Assertions.AssertionFailureExplanation)" /> decorator method which 
+            A delegate for the <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Explain(Gallio.Common.GallioAction,Gallio.Framework.Assertions.AssertionFailureExplanation)" /> decorator method which 
             combines the specified inner failures into a single outer failure with a common explanation.
             </summary>
             <param name="innerFailures">The inner failures to combine together.</param>
@@ -16291,7 +16291,7 @@
             </summary>
             <remarks>
             <para>
-            The value of this property may change during invocations of <see cref="M:Gallio.Framework.Assertions.AssertionContext.CaptureFailures(Gallio.Common.Action,Gallio.Framework.Assertions.AssertionFailureBehavior,System.Boolean)" />.
+            The value of this property may change during invocations of <see cref="M:Gallio.Framework.Assertions.AssertionContext.CaptureFailures(Gallio.Common.GallioAction,Gallio.Framework.Assertions.AssertionFailureBehavior,System.Boolean)" />.
             </para>
             </remarks>
         </member>
@@ -16311,7 +16311,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="failure"/>
             is null.</exception>
         </member>
-        <member name="M:Gallio.Framework.Assertions.AssertionContext.CaptureFailures(Gallio.Common.Action,Gallio.Framework.Assertions.AssertionFailureBehavior,System.Boolean)">
+        <member name="M:Gallio.Framework.Assertions.AssertionContext.CaptureFailures(Gallio.Common.GallioAction,Gallio.Framework.Assertions.AssertionFailureBehavior,System.Boolean)">
             <summary>
             Performs an action and returns an array containing the assertion failures
             that were observed within the block.
@@ -16872,7 +16872,7 @@
             Provides utilities to assist with the implementation of new asserts.
             </summary>
         </member>
-        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Verify(Gallio.Common.Func{Gallio.Framework.Assertions.AssertionFailure})">
+        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Verify(Gallio.Common.GallioFunc{Gallio.Framework.Assertions.AssertionFailure})">
             <summary>
             Verifies that an assertion succeeded.
             </summary>
@@ -16910,7 +16910,7 @@
             </summary>
             <param name="failure">Failure to be submited, or null if none.</param>
         </member>
-        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Eval(Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Eval(Gallio.Common.GallioAction)">
             <summary>
             Performs an action and returns an array containing the assertion failures
             that were observed within the block.  If the block throws an exception, it
@@ -16940,7 +16940,7 @@
             <returns>The array of failures, may be empty if none.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Eval(Gallio.Common.Action,Gallio.Framework.Assertions.AssertionFailureBehavior)">
+        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Eval(Gallio.Common.GallioAction,Gallio.Framework.Assertions.AssertionFailureBehavior)">
             <summary>
             Performs an action and returns an array containing the assertion failures
             that were observed within the block.
@@ -16960,7 +16960,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
             <exception cref="T:System.InvalidOperationException">Thrown if there is no current assertion context.</exception>
         </member>
-        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Explain(Gallio.Common.Action,Gallio.Framework.Assertions.AssertionFailureExplanation)">
+        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Explain(Gallio.Common.GallioAction,Gallio.Framework.Assertions.AssertionFailureExplanation)">
             <summary>
             Performs an action and combines the possible assertion failures
             that were observed within the block, into a single outer failure with
@@ -16972,7 +16972,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="explanation"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Explain(Gallio.Common.Action,Gallio.Framework.Assertions.AssertionFailureBehavior,Gallio.Framework.Assertions.AssertionFailureExplanation)">
+        <member name="M:Gallio.Framework.Assertions.AssertionHelper.Explain(Gallio.Common.GallioAction,Gallio.Framework.Assertions.AssertionFailureBehavior,Gallio.Framework.Assertions.AssertionFailureExplanation)">
             <summary>
             Performs an action and combines the possible assertion failures
             that were observed within the block, into a single outer failure with
@@ -17078,7 +17078,7 @@
             </remarks>
             <param name="triggerEvent">The trigger event.</param>
             <param name="attachmentName">The name to give the image attachment, or null to assign one automatically.</param>
-            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.Action)"/>
+            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.GallioAction)"/>
         </member>
         <member name="M:Gallio.Framework.Capture.AutoEmbedScreenshot(Gallio.Framework.TriggerEvent,System.String,Gallio.Common.Media.CaptureParameters)">
             <summary>
@@ -17093,7 +17093,7 @@
             <param name="attachmentName">The name to give to the image attachment, or null to assign one automatically.</param>
             <param name="parameters">The capture parameters.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="parameters"/> is null.</exception>
-            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.Action)"/>
+            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.GallioAction)"/>
         </member>
         <member name="M:Gallio.Framework.Capture.AutoEmbedRecording(Gallio.Framework.TriggerEvent,System.String)">
             <summary>
@@ -17113,7 +17113,7 @@
             </remarks>
             <param name="triggerEvent">The trigger event.</param>
             <param name="attachmentName">The name to give the video attachment, or null to assign one automatically.</param>
-            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.Action)"/>
+            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.GallioAction)"/>
         </member>
         <member name="M:Gallio.Framework.Capture.AutoEmbedRecording(Gallio.Framework.TriggerEvent,System.String,Gallio.Common.Media.CaptureParameters,System.Double)">
             <summary>
@@ -17136,7 +17136,7 @@
             <param name="parameters">The capture parameters.</param>
             <param name="framesPerSecond">The number of frames per second to capture.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="parameters"/> is null.</exception>
-            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.Action)"/>
+            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.GallioAction)"/>
         </member>
         <member name="M:Gallio.Framework.Capture.GetOverlayManager">
             <summary>
@@ -17910,7 +17910,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:Gallio.Framework.Data.FactoryDataSet.#ctor(Gallio.Common.Func{System.Collections.IEnumerable},Gallio.Framework.Data.FactoryKind,System.Int32)">
+        <member name="M:Gallio.Framework.Data.FactoryDataSet.#ctor(Gallio.Common.GallioFunc{System.Collections.IEnumerable},Gallio.Framework.Data.FactoryKind,System.Int32)">
             <summary>
             Creates a factory data set.
             </summary>
@@ -18363,7 +18363,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:Gallio.Framework.Data.CsvDataSet.#ctor(Gallio.Common.Func{System.IO.TextReader},System.Boolean)">
+        <member name="M:Gallio.Framework.Data.CsvDataSet.#ctor(Gallio.Common.GallioFunc{System.IO.TextReader},System.Boolean)">
             <summary>
             Creates a CSV data set.
             </summary>
@@ -19434,7 +19434,7 @@
             </example>
             </remarks>
         </member>
-        <member name="M:Gallio.Framework.Data.XmlDataSet.#ctor(Gallio.Common.Func{System.Xml.XPath.IXPathNavigable},System.String,System.Boolean)">
+        <member name="M:Gallio.Framework.Data.XmlDataSet.#ctor(Gallio.Common.GallioFunc{System.Xml.XPath.IXPathNavigable},System.String,System.Boolean)">
             <summary>
             Creates an XML data set.
             </summary>
@@ -20110,7 +20110,7 @@
             Abstract base class for typical builder implementations.
             </summary>
         </member>
-        <member name="M:Gallio.Framework.Pattern.BaseBuilder.AddDeferredAction(Gallio.Common.Reflection.ICodeElementInfo,System.Int32,Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.Pattern.BaseBuilder.AddDeferredAction(Gallio.Common.Reflection.ICodeElementInfo,System.Int32,Gallio.Common.GallioAction)">
             <inheritdoc />
         </member>
         <member name="M:Gallio.Framework.Pattern.BaseBuilder.ApplyDeferredActions">
@@ -20403,7 +20403,7 @@
             Provides support for performing deferred build actions.
             </summary>
         </member>
-        <member name="M:Gallio.Framework.Pattern.ISupportDeferredActions.AddDeferredAction(Gallio.Common.Reflection.ICodeElementInfo,System.Int32,Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.Pattern.ISupportDeferredActions.AddDeferredAction(Gallio.Common.Reflection.ICodeElementInfo,System.Int32,Gallio.Common.GallioAction)">
             <summary>
             Registers a deferred action to be performed when <see cref="M:Gallio.Framework.Pattern.ISupportDeferredActions.ApplyDeferredActions" /> is called.
             </summary>
@@ -23859,7 +23859,7 @@
             <summary>
             Specifies a trigger condition for automatic execution of an action.
             </summary>
-            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.Action)"/>
+            <seealso cref="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.GallioAction)"/>
         </member>
         <member name="F:Gallio.Framework.TriggerEvent.Never">
             <summary>
@@ -24373,7 +24373,7 @@
             <exception cref="T:System.ObjectDisposedException">Thrown if the sandbox was disposed.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
         </member>
-        <member name="M:Gallio.Framework.Sandbox.Run(Gallio.Common.Markup.MarkupDocumentWriter,Gallio.Common.Action,System.String)">
+        <member name="M:Gallio.Framework.Sandbox.Run(Gallio.Common.Markup.MarkupDocumentWriter,Gallio.Common.GallioAction,System.String)">
             <summary>
             Runs a test action.
             </summary>
@@ -24543,7 +24543,7 @@
             </summary>
             <exception cref="T:System.InvalidOperationException">Thrown if there is no current test context.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestStep.RunStep(System.String,Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.TestStep.RunStep(System.String,Gallio.Common.GallioAction)">
             <summary>
             Performs an action as a new step within the current context and associates
             it with the calling function.  Does not verify the outcome of the step.
@@ -24559,7 +24559,7 @@
             </para>
             <para>
             This method does not verify that the test step completed successfully.  Check the
-            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,Gallio.Model.TestOutcome)"/>
+            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,Gallio.Model.TestOutcome)"/>
             to ensure that the expected outcome was obtained.
             </para>
             </remarks>
@@ -24571,7 +24571,7 @@
             <exception cref="T:System.ArgumentException">Thrown if <paramref name="name"/> is the empty string.</exception>
             <exception cref="T:System.InvalidOperationException">Thrown if there is no current test context.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestStep.RunStep(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan})">
+        <member name="M:Gallio.Framework.TestStep.RunStep(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan})">
             <summary>
             Performs an action as a new step within the current context and associates
             it with the calling function.  Does not verify the outcome of the step.
@@ -24587,7 +24587,7 @@
             </para>
             <para>
             This method does not verify that the test step completed successfully.  Check the
-            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},Gallio.Model.TestOutcome)"/>
+            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},Gallio.Model.TestOutcome)"/>
             to ensure that the expected outcome was obtained.
             </para>
             </remarks>
@@ -24601,7 +24601,7 @@
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
             <exception cref="T:System.InvalidOperationException">Thrown if there is no current test context.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestStep.RunStep(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo)">
+        <member name="M:Gallio.Framework.TestStep.RunStep(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo)">
             <summary>
             Performs an action as a new step within the current context and associates it
             with the specified code reference.  Does not verify the outcome of the step.
@@ -24617,7 +24617,7 @@
             </para>
             <para>
             This method does not verify that the test step completed successfully.  Check the
-            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)"/>
+            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)"/>
             to ensure that the expected outcome was obtained.
             </para>
             </remarks>
@@ -24633,7 +24633,7 @@
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
             <exception cref="T:System.InvalidOperationException">Thrown if there is no current test context.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,Gallio.Model.TestOutcome)">
+        <member name="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,Gallio.Model.TestOutcome)">
             <summary>
             Performs an action as a new step within the current context and associates
             it with the calling function.  Verifies that the step produced the expected outcome.
@@ -24662,7 +24662,7 @@
             <exception cref="T:Gallio.Framework.Assertions.AssertionFailureException">Thrown if the expected outcome was not obtained.</exception>
             <exception cref="T:System.InvalidOperationException">Thrown if there is no current test context.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},Gallio.Model.TestOutcome)">
+        <member name="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},Gallio.Model.TestOutcome)">
             <summary>
             Performs an action as a new step within the current context and associates
             it with the calling function.  Verifies that the step produced the expected outcome.
@@ -24693,7 +24693,7 @@
             <exception cref="T:Gallio.Framework.Assertions.AssertionFailureException">Thrown if the expected outcome was not obtained.</exception>
             <exception cref="T:System.InvalidOperationException">Thrown if there is no current test context.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)">
+        <member name="M:Gallio.Framework.TestStep.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)">
             <summary>
             Performs an action as a new step within the current context and associates it
             with the specified code reference.  Verifies that the step produced the expected outcome.
@@ -24768,7 +24768,7 @@
             <param name="task">The task to watch.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="task"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Framework.Tasks.CreateThreadTask(System.String,Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.Tasks.CreateThreadTask(System.String,Gallio.Common.GallioAction)">
             <summary>
             Creates a new thread task but does not start it.
             </summary>
@@ -24783,7 +24783,7 @@
             <returns>The new thread task.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Framework.Tasks.StartThreadTask(System.String,Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.Tasks.StartThreadTask(System.String,Gallio.Common.GallioAction)">
             <summary>
             Starts a new thread task.
             </summary>
@@ -25201,7 +25201,7 @@
             test processing is finished.
             </summary>
         </member>
-        <member name="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.GallioAction)">
             <summary>
             Automatically executes an action when a triggering event occurs.
             </summary>
@@ -25209,7 +25209,7 @@
             <param name="triggerAction">The action to execute when triggered.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="triggerAction"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.Action,Gallio.Common.Action)">
+        <member name="M:Gallio.Framework.TestContext.AutoExecute(Gallio.Framework.TriggerEvent,Gallio.Common.GallioAction,Gallio.Common.GallioAction)">
             <summary>
             Automatically executes an action when a triggering event occurs.
             </summary>
@@ -25231,7 +25231,7 @@
             <param name="triggerEvent">The trigger event.</param>
             <returns>True if the trigger event is satisfied.</returns>
         </member>
-        <member name="M:Gallio.Framework.TestContext.RunStep(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo)">
+        <member name="M:Gallio.Framework.TestContext.RunStep(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo)">
             <summary>
             Performs an action as a new step within the current context and associates it
             with the specified code reference.  Does not verify the outcome of the step.
@@ -25247,7 +25247,7 @@
             </para>
             <para>
             This method does not verify that the test step completed successfully.  Check the
-            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestContext.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)"/>
+            <see cref="P:Gallio.Framework.TestContext.Outcome" /> of the test step or call <see cref="M:Gallio.Framework.TestContext.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)"/>
             to ensure that the expected outcome was obtained.
             </para>
             </remarks>
@@ -25262,7 +25262,7 @@
             <exception cref="T:System.ArgumentException">Thrown if <paramref name="name"/> is the empty string.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="timeout"/> is negative.</exception>
         </member>
-        <member name="M:Gallio.Framework.TestContext.RunStepAndVerifyOutcome(System.String,Gallio.Common.Action,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)">
+        <member name="M:Gallio.Framework.TestContext.RunStepAndVerifyOutcome(System.String,Gallio.Common.GallioAction,System.Nullable{System.TimeSpan},System.Boolean,Gallio.Common.Reflection.ICodeElementInfo,Gallio.Model.TestOutcome)">
             <summary>
             Performs an action as a new step within the current context and associates it
             with the specified code reference.  Verifies that the step produced the expected outcome.
@@ -27303,7 +27303,7 @@
             the test environment for the thread.
             </summary>
         </member>
-        <member name="M:Gallio.Model.Environments.TestEnvironmentAwareThreadTask.#ctor(System.String,Gallio.Common.Func{System.Object},Gallio.Model.Environments.ITestEnvironmentManager)">
+        <member name="M:Gallio.Model.Environments.TestEnvironmentAwareThreadTask.#ctor(System.String,Gallio.Common.GallioFunc{System.Object},Gallio.Model.Environments.ITestEnvironmentManager)">
             <summary>
             Creates a task that will execute code within a new locally running thread
             test thread and a configured test environemnt.
@@ -27316,7 +27316,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="name"/> 
             or <paramref name="func"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Model.Environments.TestEnvironmentAwareThreadTask.#ctor(System.String,Gallio.Common.Action,Gallio.Model.Environments.ITestEnvironmentManager)">
+        <member name="M:Gallio.Model.Environments.TestEnvironmentAwareThreadTask.#ctor(System.String,Gallio.Common.GallioAction,Gallio.Model.Environments.ITestEnvironmentManager)">
             <summary>
             Creates a task that will execute code within a new locally running thread
             test thread and a configured test environemnt.
@@ -34249,7 +34249,7 @@
         <member name="M:Gallio.Runner.Reports.DefaultReportWriter.SerializeReport(System.Xml.XmlWriter,Gallio.Common.Markup.AttachmentContentDisposition)">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Runner.Reports.DefaultReportWriter.WithUpdatedContentPathsAndDisposition(Gallio.Common.Markup.AttachmentContentDisposition,Gallio.Common.Action)">
+        <member name="M:Gallio.Runner.Reports.DefaultReportWriter.WithUpdatedContentPathsAndDisposition(Gallio.Common.Markup.AttachmentContentDisposition,Gallio.Common.GallioAction)">
             <inheritdoc />
         </member>
         <member name="M:Gallio.Runner.Reports.DefaultReportWriter.SaveReport(Gallio.Common.Markup.AttachmentContentDisposition,Gallio.Runtime.ProgressMonitoring.IProgressMonitor)">
@@ -34469,7 +34469,7 @@
             <param name="progressMonitor">The progress monitor.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="progressMonitor"/> is null.</exception>
         </member>
-        <member name="M:Gallio.Runner.Reports.IReportWriter.WithUpdatedContentPathsAndDisposition(Gallio.Common.Markup.AttachmentContentDisposition,Gallio.Common.Action)">
+        <member name="M:Gallio.Runner.Reports.IReportWriter.WithUpdatedContentPathsAndDisposition(Gallio.Common.Markup.AttachmentContentDisposition,Gallio.Common.GallioAction)">
             <summary>
             Perform an action with updated content paths and dispositions
             </summary>
@@ -39825,7 +39825,7 @@
             Resets the console colors.
             </summary>
         </member>
-        <member name="M:Gallio.Runtime.ConsoleSupport.IRichConsole.SetFooter(Gallio.Common.Action,Gallio.Common.Action)">
+        <member name="M:Gallio.Runtime.ConsoleSupport.IRichConsole.SetFooter(Gallio.Common.GallioAction,Gallio.Common.GallioAction)">
             <summary>
             Sets a pair of delegates that together display a footer at the bottom
             of the console.
@@ -39938,7 +39938,7 @@
         <member name="M:Gallio.Runtime.ConsoleSupport.NativeConsole.ResetColor">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Runtime.ConsoleSupport.NativeConsole.SetFooter(Gallio.Common.Action,Gallio.Common.Action)">
+        <member name="M:Gallio.Runtime.ConsoleSupport.NativeConsole.SetFooter(Gallio.Common.GallioAction,Gallio.Common.GallioAction)">
             <inheritdoc />
         </member>
         <member name="M:Gallio.Runtime.ConsoleSupport.NativeConsole.Write(System.Char)">
@@ -40622,8 +40622,8 @@
         <member name="M:Gallio.Runtime.Hosting.BaseHostService.Ping">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Runtime.Hosting.BaseHostService.Do``2(Gallio.Common.Func{``0,``1},``0)">
-            <inheritdoc cref="M:Gallio.Runtime.Hosting.IHostService.Do``2(Gallio.Common.Func{``0,``1},``0)" />
+        <member name="M:Gallio.Runtime.Hosting.BaseHostService.Do``2(Gallio.Common.GallioFunc{``0,``1},``0)">
+            <inheritdoc cref="M:Gallio.Runtime.Hosting.IHostService.Do``2(Gallio.Common.GallioFunc{``0,``1},``0)" />
         </member>
         <member name="M:Gallio.Runtime.Hosting.BaseHostService.CreateInstance(System.String,System.String)">
             <inheritdoc />
@@ -40631,9 +40631,9 @@
         <member name="M:Gallio.Runtime.Hosting.BaseHostService.CreateInstanceFrom(System.String,System.String)">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.Runtime.Hosting.BaseHostService.DoImpl``2(Gallio.Common.Func{``0,``1},``0)">
+        <member name="M:Gallio.Runtime.Hosting.BaseHostService.DoImpl``2(Gallio.Common.GallioFunc{``0,``1},``0)">
             <summary>
-            Internal implementation of <see cref="M:Gallio.Runtime.Hosting.BaseHostService.Do``2(Gallio.Common.Func{``0,``1},``0)"/>.
+            Internal implementation of <see cref="M:Gallio.Runtime.Hosting.BaseHostService.Do``2(Gallio.Common.GallioFunc{``0,``1},``0)"/>.
             </summary>
             <param name="func">The action to perform, not null.</param>
             <param name="arg">The argument value, if any.</param>
@@ -40876,7 +40876,7 @@
             <param name="workingDirectory">The working directory.</param>
             <returns>The process task.</returns>
         </member>
-        <member name="M:Gallio.Runtime.Hosting.IsolatedProcessHost.PrepareConnection(System.String,System.String@,Gallio.Common.Func{Gallio.Common.Remoting.IClientChannel}@,Gallio.Common.Func{Gallio.Common.Remoting.IServerChannel}@)">
+        <member name="M:Gallio.Runtime.Hosting.IsolatedProcessHost.PrepareConnection(System.String,System.String@,Gallio.Common.GallioFunc{Gallio.Common.Remoting.IClientChannel}@,Gallio.Common.GallioFunc{Gallio.Common.Remoting.IServerChannel}@)">
             <summary>
             Prepares the parameters for the remote connection.
             </summary>
@@ -41588,7 +41588,7 @@
             </summary>
             <exception cref="T:Gallio.Runtime.Hosting.HostException">Thrown if the remote host is unreachable.</exception>
         </member>
-        <member name="M:Gallio.Runtime.Hosting.IHostService.Do``2(Gallio.Common.Func{``0,``1},``0)">
+        <member name="M:Gallio.Runtime.Hosting.IHostService.Do``2(Gallio.Common.GallioFunc{``0,``1},``0)">
             <summary>
             Asks the host to perform the specified action remotely.
             </summary>
@@ -44121,7 +44121,7 @@
             <param name="report"></param>
             <returns></returns>
         </member>
-        <member name="M:Gallio.Runtime.UtilityCommands.BaseReportTransformationUtilityCommand`1.SaveReport(Gallio.Runner.Reports.Schema.Report,Gallio.Runner.Reports.ReportArchive,System.String,System.String,Gallio.Common.Func{System.String},Gallio.Runner.Reports.ReportFormatterOptions)">
+        <member name="M:Gallio.Runtime.UtilityCommands.BaseReportTransformationUtilityCommand`1.SaveReport(Gallio.Runner.Reports.Schema.Report,Gallio.Runner.Reports.ReportArchive,System.String,System.String,Gallio.Common.GallioFunc{System.String},Gallio.Runner.Reports.ReportFormatterOptions)">
             <summary>
             Saves the specified report.
             </summary>
@@ -44140,7 +44140,7 @@
             <param name="properties">Key/value array of property strings</param>
             <returns>The report formatter options.</returns>
         </member>
-        <member name="M:Gallio.Runtime.UtilityCommands.BaseReportTransformationUtilityCommand`1.CaptureFileException``1(Gallio.Common.Func{System.String},Gallio.Common.Func{``0})">
+        <member name="M:Gallio.Runtime.UtilityCommands.BaseReportTransformationUtilityCommand`1.CaptureFileException``1(Gallio.Common.GallioFunc{System.String},Gallio.Common.GallioFunc{``0})">
             <summary>
             Try-function which executes the specified action and catch any file-related exception.
             </summary>

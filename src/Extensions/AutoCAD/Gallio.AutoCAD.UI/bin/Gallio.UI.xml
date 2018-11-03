@@ -154,7 +154,7 @@
             Creates a control panel dialog.
             </summary>
         </member>
-        <member name="M:Gallio.UI.ControlPanel.ControlPanelDialog.AddTab(System.String,Gallio.Common.Func{Gallio.UI.ControlPanel.ControlPanelTab})">
+        <member name="M:Gallio.UI.ControlPanel.ControlPanelDialog.AddTab(System.String,Gallio.Common.GallioFunc{Gallio.UI.ControlPanel.ControlPanelTab})">
             <summary>
             Adds a tab.
             </summary>
@@ -348,7 +348,7 @@
             </summary>
             <returns>The preference pane.</returns>
         </member>
-        <member name="M:Gallio.UI.ControlPanel.Preferences.PreferenceControlPanelTab.AddPane(System.String,System.Drawing.Icon,Gallio.UI.ControlPanel.Preferences.PreferencePaneScope,Gallio.Common.Func{Gallio.UI.ControlPanel.Preferences.PreferencePane})">
+        <member name="M:Gallio.UI.ControlPanel.Preferences.PreferenceControlPanelTab.AddPane(System.String,System.Drawing.Icon,Gallio.UI.ControlPanel.Preferences.PreferencePaneScope,Gallio.Common.GallioFunc{Gallio.UI.ControlPanel.Preferences.PreferencePane})">
             <summary>
             Adds a preference pane.
             </summary>
@@ -1078,7 +1078,7 @@
              A task manager for UI applications.
             </summary>
         </member>
-        <member name="M:Gallio.UI.ProgressMonitoring.ITaskManager.BackgroundTask(Gallio.Common.Action)">
+        <member name="M:Gallio.UI.ProgressMonitoring.ITaskManager.BackgroundTask(Gallio.Common.GallioAction)">
             <summary>
              Run a task as a background action (uses ThreadPool). 
              No progress information will be displayed.
@@ -1153,7 +1153,7 @@
         <member name="M:Gallio.UI.ProgressMonitoring.TaskManager.QueueTask(System.String,Gallio.UI.ProgressMonitoring.ICommand)">
             <inheritdoc />
         </member>
-        <member name="M:Gallio.UI.ProgressMonitoring.TaskManager.BackgroundTask(Gallio.Common.Action)">
+        <member name="M:Gallio.UI.ProgressMonitoring.TaskManager.BackgroundTask(Gallio.Common.GallioAction)">
             <inheritdoc />
         </member>
         <member name="M:Gallio.UI.ProgressMonitoring.TaskManager.ClearQueue">
@@ -1354,6 +1354,16 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Gallio.UI.Properties.Resources.DefaultPluginIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:Gallio.UI.Properties.Resources.Pillar">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
         <member name="T:Gallio.UI.Tree.NodeControls.NodeCheckBox">

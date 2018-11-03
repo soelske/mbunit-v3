@@ -20,7 +20,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\bin\v19.0\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\bin\v19.0\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\bin\v19.0\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\bin\v19.0\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\Debug\Gallio.AutoCAD.Plugin190.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\Debug\Gallio.AutoCAD.Plugin190.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\Debug\Gallio.AutoCAD.Plugin190.vs2010.csproj.CopyComplete

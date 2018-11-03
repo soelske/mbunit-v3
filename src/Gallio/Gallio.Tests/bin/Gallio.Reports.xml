@@ -252,7 +252,7 @@
             Render an HTML pager control.
             </summary>
         </member>
-        <member name="M:Gallio.Reports.Vtl.PagerRenderer.#ctor(System.Int32,System.Int32,System.Int32,Gallio.Common.Func{System.Int32,System.String})">
+        <member name="M:Gallio.Reports.Vtl.PagerRenderer.#ctor(System.Int32,System.Int32,System.Int32,Gallio.Common.GallioFunc{System.Int32,System.String})">
             <summary>
             Constructor.
             </summary>

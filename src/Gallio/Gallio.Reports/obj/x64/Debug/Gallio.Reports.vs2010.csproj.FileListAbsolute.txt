@@ -19,7 +19,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\bin\Microsoft.Cci.M
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\obj\x64\Debug\Gallio.Reports.Properties.Resources.resources
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\obj\x64\Debug\Gallio.Reports.vs2010.csproj.GenerateResource.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Reports\obj\x64\Debug\Gallio.Reports.vs2010.csproj.CoreCompileInputs.cache

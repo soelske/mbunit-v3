@@ -94,7 +94,7 @@
             that contains another generic type nested within.
             </summary>
         </member>
-        <member name="M:Gallio.Tests.Common.Reflection.WrapperAssert.MemoizeEquivalence(System.Object,System.Object,Gallio.Common.Action)">
+        <member name="M:Gallio.Tests.Common.Reflection.WrapperAssert.MemoizeEquivalence(System.Object,System.Object,Gallio.Common.GallioAction)">
             <summary>
             We memoize results from comparing for equivalence of certain members to help
             the exhaustive recursive reflection tests run in a more reasonable period of time.

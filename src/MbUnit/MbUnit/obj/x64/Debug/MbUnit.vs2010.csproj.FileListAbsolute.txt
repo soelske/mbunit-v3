@@ -18,7 +18,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\bin\Microsoft.Cci.MetadataM
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.Properties.Resources.resources
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.vs2010.csproj.GenerateResource.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit\obj\x64\Debug\MbUnit.vs2010.csproj.CoreCompileInputs.cache

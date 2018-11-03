@@ -6,7 +6,7 @@
     <members>
         <member name="T:Gallio.Common.Linq.ActionExtensions">
             <summary>
-            Extension methods for <see cref="T:Gallio.Common.Action" /> delegates.
+            Extension methods for <see cref="T:Gallio.Common.GallioAction" /> delegates.
             </summary>
         </member>
         <member name="M:Gallio.Common.Linq.ActionExtensions.AsUnitFunc(System.Action)">

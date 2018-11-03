@@ -18,11 +18,10 @@ C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\bin\Microsoft
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\bin\Gallio.XmlSerializers.dll
+C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.Properties.Resources.resources
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.vs2010.csproj.GenerateResource.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.vs2010.csproj.CopyComplete
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.exe
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo\obj\Debug\Gallio.Echo.vs2010.csprojAssemblyReference.cache

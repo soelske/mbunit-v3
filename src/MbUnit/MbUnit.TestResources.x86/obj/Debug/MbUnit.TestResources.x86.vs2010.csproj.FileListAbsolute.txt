@@ -1,3 +1,4 @@
+C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Gallio.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\MbUnit.TestResources.x86.XML
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\MbUnit.TestResources.x86.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\MbUnit.TestResources.x86.pdb
@@ -16,7 +17,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Micro
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\NHamcrest.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Gallio35.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Gallio35.xml
-C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Gallio.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Gallio.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\MbUnit35.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\MbUnit35.xml
@@ -28,7 +28,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Micro
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Microsoft.Cci.MetadataHelper.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\NHamcrest.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\obj\Debug\MbUnit.TestResources.x86.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\obj\Debug\MbUnit.TestResources.x86.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit.TestResources.x86\obj\Debug\MbUnit.TestResources.x86.vs2010.csproj.CopyComplete

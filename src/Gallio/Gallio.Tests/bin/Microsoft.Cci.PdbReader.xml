@@ -20,15 +20,32 @@
             Closes all of the source files that have been opened to provide the contents source locations corresponding to IL offsets.
             </summary>
         </member>
+        <member name="M:Microsoft.Cci.PdbReader.Finalize">
+            <summary>
+            Closes all of the source files that have been opened to provide the contents source locations corresponding to IL offsets.
+            </summary>
+        </member>
         <member name="M:Microsoft.Cci.PdbReader.GetPrimarySourceLocationsFor(System.Collections.Generic.IEnumerable{Microsoft.Cci.ILocation})">
             <summary>
             Return zero or more locations in primary source documents that correspond to one or more of the given derived (non primary) document locations.
             </summary>
             <param name="locations">Zero or more locations in documents that have been derived from one or more source documents.</param>
         </member>
+        <member name="M:Microsoft.Cci.PdbReader.GetClosestPrimarySourceLocationsFor(System.Collections.Generic.IEnumerable{Microsoft.Cci.ILocation})">
+            <summary>
+            Return zero or more locations in primary source documents that are the closest to corresponding to one or more of the given derived (non primary) document locations.
+            </summary>
+            <param name="locations">Zero or more locations in documents that have been derived from one or more source documents.</param>
+        </member>
         <member name="M:Microsoft.Cci.PdbReader.GetPrimarySourceLocationsFor(Microsoft.Cci.ILocation)">
             <summary>
             Return zero or more locations in primary source documents that correspond to the given derived (non primary) document location.
+            </summary>
+            <param name="location">A location in a document that have been derived from one or more source documents.</param>
+        </member>
+        <member name="M:Microsoft.Cci.PdbReader.GetClosestPrimarySourceLocationsFor(Microsoft.Cci.ILocation)">
+            <summary>
+            Return zero or more locations in primary source documents that are the closest to corresponding to the given derived (non primary) document location.
             </summary>
             <param name="location">A location in a document that have been derived from one or more source documents.</param>
         </member>

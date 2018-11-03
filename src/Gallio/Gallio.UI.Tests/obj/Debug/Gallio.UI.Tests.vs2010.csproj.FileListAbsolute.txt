@@ -28,7 +28,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\bin\Microsoft.Cci.
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\bin\Microsoft.Cci.MetadataHelper.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\bin\NHamcrest.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\obj\Debug\Gallio.UI.Tests.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\obj\Debug\Gallio.UI.Tests.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI.Tests\obj\Debug\Gallio.UI.Tests.vs2010.csproj.CopyComplete

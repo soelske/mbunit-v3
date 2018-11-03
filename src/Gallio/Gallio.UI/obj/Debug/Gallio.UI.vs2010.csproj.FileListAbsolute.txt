@@ -18,7 +18,7 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\bin\Microsoft.Cci.Metada
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\bin\Gallio.XmlSerializers.dll
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.ControlPanel.ControlPanelDialog.resources
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.ControlPanel.ControlPanelTab.resources
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.ControlPanel.Plugins.PluginControlPanelTab.resources
@@ -37,4 +37,3 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.vs20
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.vs2010.csproj.CopyComplete
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.UI\obj\Debug\Gallio.UI.vs2010.csprojAssemblyReference.cache

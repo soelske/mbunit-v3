@@ -162,7 +162,7 @@ namespace Gallio.Model.Isolation
 
             public object WaitForCompletion()
             {
-                TimeSpan timeSpan = new TimeSpan(0, 5, 0);
+                TimeSpan timeSpan = new TimeSpan(0, 0, 5);
                 finish.WaitOne(timeSpan,true );
                 if (exception != null)
                     throw new TestIsolationException(string.Format("The isolated task thread an exception: {0}", exception));

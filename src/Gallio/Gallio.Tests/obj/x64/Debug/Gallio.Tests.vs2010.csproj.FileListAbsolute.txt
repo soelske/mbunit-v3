@@ -49,7 +49,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.Met
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\x64\Debug\Gallio.Tests.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\x64\Debug\Gallio.Tests.Properties.Resources.resources
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\x64\Debug\Gallio.Tests.vs2010.csproj.GenerateResource.cache

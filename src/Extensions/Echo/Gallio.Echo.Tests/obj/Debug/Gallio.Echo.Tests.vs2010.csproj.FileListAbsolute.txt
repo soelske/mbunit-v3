@@ -1,3 +1,4 @@
+C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.Tests.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.Tests.dll.config
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.Host.exe.config
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.Echo.exe.config
@@ -23,7 +24,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Mic
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Microsoft.Cci.SourceModel.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.ReflectionShim.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Microsoft.Cci.MetadataHelper.dll
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.Tests.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.Tests.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio35.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio35.xml
@@ -48,7 +48,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Mic
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\obj\Debug\Gallio.Echo.Tests.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\obj\Debug\Gallio.Echo.Tests.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\Echo\Gallio.Echo.Tests\obj\Debug\Gallio.Echo.Tests.vs2010.csproj.CopyComplete

@@ -4,6 +4,7 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Tests.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Tests.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Tests.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.dll
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Host.exe
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Reports.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio35.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\MbUnit.dll
@@ -32,6 +33,8 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\MbUnit35.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\MbUnit35.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\MbUnit.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\MbUnit.xml
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Host.pdb
+C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Host.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Reports.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Reports.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio35.pdb
@@ -47,7 +50,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.Met
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.PdbReader.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Microsoft.Cci.MetadataHelper.xml
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\Debug\Gallio.Tests.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\Debug\Gallio.Tests.Properties.Resources.resources
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\Debug\Gallio.Tests.vs2010.csproj.GenerateResource.cache
@@ -55,6 +57,3 @@ C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\Debug\Gallio.Test
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\Debug\Gallio.Tests.vs2010.csproj.CopyComplete
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\Debug\Gallio.Tests.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\obj\Debug\Gallio.Tests.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Host.exe
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Host.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\Gallio\Gallio.Tests\bin\Gallio.Host.xml

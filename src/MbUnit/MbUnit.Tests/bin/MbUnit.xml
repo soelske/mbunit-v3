@@ -1124,7 +1124,7 @@
             Asserts that the collection of distinct instances specified by the user is not empty.
             </summary>
         </member>
-        <member name="M:MbUnit.Framework.ContractVerifiers.CollectionContract`2.CreateNotSupportedWriteTest(System.String,Gallio.Common.Action{`0,`1})">
+        <member name="M:MbUnit.Framework.ContractVerifiers.CollectionContract`2.CreateNotSupportedWriteTest(System.String,System.Action{`0,`1})">
             <summary>
             Creates a test that invokes an action over the collection, which
             is supposed to not be supported. The test expects that an exception be thrown.
@@ -2316,7 +2316,7 @@
             </summary>
             <remarks>
             <para>
-            Use <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Verify(Gallio.Common.Func{Gallio.Framework.Assertions.AssertionFailure})" /> and <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Fail(Gallio.Framework.Assertions.AssertionFailure)" />
+            Use <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Verify(Gallio.Common.GallioFunc{Gallio.Framework.Assertions.AssertionFailure})" /> and <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Fail(Gallio.Framework.Assertions.AssertionFailure)" />
             instead when implementing custom assertions.
             </para>
             </remarks>
@@ -2328,7 +2328,7 @@
             </summary>
             <remarks>
             <para>
-            Use <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Verify(Gallio.Common.Func{Gallio.Framework.Assertions.AssertionFailure})" /> and <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Fail(Gallio.Framework.Assertions.AssertionFailure)" />
+            Use <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Verify(Gallio.Common.GallioFunc{Gallio.Framework.Assertions.AssertionFailure})" /> and <see cref="M:Gallio.Framework.Assertions.AssertionHelper.Fail(Gallio.Framework.Assertions.AssertionFailure)" />
             instead when implementing custom assertions.
             </para>
             </remarks>
@@ -2434,7 +2434,7 @@
             <param name="messageArgs">The custom message arguments, or null if none.</param>
             <exception cref="T:Gallio.Framework.SilentTestException">Thrown always.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.GallioAction)">
             <summary>
             Evaluates a block of code that contains multiple related assertions.
             </summary>
@@ -2457,7 +2457,7 @@
             <param name="action">The action to invoke.</param>
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.Action,System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.GallioAction,System.String,System.Object[])">
             <summary>
             Evaluates a block of code that contains multiple related assertions.
             </summary>
@@ -2488,7 +2488,7 @@
             </summary>
             <remarks>
             <para>
-            This property is used in conjuction with the <see cref="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.Action)" />
+            This property is used in conjuction with the <see cref="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.GallioAction)" />
             feature to determine whether there is a pending assertion failure yet
             to be reported within a multiple-assertion block.
             </para>
@@ -3517,7 +3517,7 @@
             <param name="messageArgs">The custom assertion message arguments, or null if none.</param>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.ForAll``1(System.Collections.Generic.IEnumerable{``0},Gallio.Common.Action{``0,System.Int32})">
+        <member name="M:MbUnit.Framework.Assert.ForAll``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
             <summary>
             Verifies that all the elements of the sequence pass the validation.
             </summary>
@@ -3526,7 +3526,7 @@
             <param name="action">The assertion block that validates each element of the sequence based on the element's value and index.</param>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.ForAll``1(System.Collections.Generic.IEnumerable{``0},Gallio.Common.Action{``0,System.Int32},System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.Assert.ForAll``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32},System.String,System.Object[])">
             <summary>
             Verifies that all the elements of the sequence pass the validation.
             </summary>
@@ -3918,7 +3918,7 @@
             <param name="messageArgs">The custom assertion message arguments, or null if none.</param>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws``1(Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Assert.Throws``1(Gallio.Common.GallioAction)">
             <summary>
             Verifies that a block of code throws an exception of a particular type.
             </summary>
@@ -3940,7 +3940,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws``2(Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Assert.Throws``2(Gallio.Common.GallioAction)">
             <summary>
             Verifies that a block of code throws an exception of a particular type; and that 
             the exception has an inner exception of a particular type.
@@ -3964,7 +3964,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws``1(Gallio.Common.Action,System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.Assert.Throws``1(Gallio.Common.GallioAction,System.String,System.Object[])">
             <summary>
             Verifies that a block of code throws an exception of a particular type.
             </summary>
@@ -3988,7 +3988,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws``2(Gallio.Common.Action,System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.Assert.Throws``2(Gallio.Common.GallioAction,System.String,System.Object[])">
             <summary>
             Verifies that a block of code throws an exception of a particular type; and that 
             the exception has an inner exception of a particular type.
@@ -4014,7 +4014,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,Gallio.Common.GallioAction)">
             <summary>
             Verifies that a block of code throws an exception of a particular type.
             </summary>
@@ -4037,7 +4037,7 @@
             or <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,System.Type,Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,System.Type,Gallio.Common.GallioAction)">
             <summary>
             Verifies that a block of code throws an exception of a particular type; and that 
             the exception has an inner exception of a particular type.
@@ -4062,7 +4062,7 @@
             or <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,Gallio.Common.Action,System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,Gallio.Common.GallioAction,System.String,System.Object[])">
             <summary>
             Verifies that a block of code throws an exception of a particular type.
             </summary>
@@ -4087,7 +4087,7 @@
             or <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,System.Type,Gallio.Common.Action,System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.Assert.Throws(System.Type,System.Type,Gallio.Common.GallioAction,System.String,System.Object[])">
             <summary>
             Verifies that a block of code throws an exception of a particular type; and that 
             the exception has an inner exception of a particular type.
@@ -4114,7 +4114,7 @@
             or <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.DoesNotThrow(Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Assert.DoesNotThrow(Gallio.Common.GallioAction)">
             <summary>
             Verifies that a block of code does not throw an exception of any type.
             </summary>
@@ -4130,7 +4130,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="action"/> is null.</exception>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Assert.DoesNotThrow(Gallio.Common.Action,System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.Assert.DoesNotThrow(Gallio.Common.GallioAction,System.String,System.Object[])">
             <summary>
             Verifies that a block of code does not throw an exception of any type.
             </summary>
@@ -7468,7 +7468,7 @@
         </member>
         <member name="M:MbUnit.Framework.IRetryOptions.Repeat(System.Int32)">
             <summary>
-            Specifies the maximum number of evaluation attempts, before the <see cref="M:MbUnit.Framework.Retry.Until(Gallio.Common.Func{System.Boolean})"/>, or 
+            Specifies the maximum number of evaluation attempts, before the <see cref="M:MbUnit.Framework.Retry.Until(Gallio.Common.GallioFunc{System.Boolean})"/>, or 
             <see cref="M:MbUnit.Framework.Retry.Until(System.Threading.WaitHandle)"/> operation fails.
             </summary>
             <remarks>
@@ -7545,7 +7545,7 @@
             <returns>An instance to specify other options for the retry operation.</returns>
             <exception cref="T:System.InvalidOperationException">Thrown if the option was called more than once.</exception>
         </member>
-        <member name="M:MbUnit.Framework.IRetryOptions.DoBetween(Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.IRetryOptions.DoBetween(Gallio.Common.GallioAction)">
             <summary>
             Specifies a custom action to be executed between each consecutive attempt, but not before the first one.
             </summary>
@@ -7563,7 +7563,7 @@
             <param name="messageArgs">The format arguments, or null or empty if none.</param>
             <returns></returns>
         </member>
-        <member name="M:MbUnit.Framework.IRetryOptions.Until(Gallio.Common.Func{System.Boolean})">
+        <member name="M:MbUnit.Framework.IRetryOptions.Until(Gallio.Common.GallioFunc{System.Boolean})">
             <summary>
             Specifies the condition to evaluate repeatedly, and starts the entire operation.
             </summary>
@@ -8167,7 +8167,7 @@
         </member>
         <member name="T:MbUnit.Framework.MultipleAssertsAttribute">
             <summary>
-            Runs the test as if it were surrounded by <see cref="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.Action)" /> so that
+            Runs the test as if it were surrounded by <see cref="M:MbUnit.Framework.Assert.Multiple(Gallio.Common.GallioAction)" /> so that
             multiple assertion failures within the test are tolerated.
             </summary>
             <remarks>
@@ -8223,7 +8223,7 @@
             assertions over complex data structures.
             </summary>
         </member>
-        <member name="M:MbUnit.Framework.AssertOverSyntax.Pairs``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},Gallio.Common.Action{``0,``1})">
+        <member name="M:MbUnit.Framework.AssertOverSyntax.Pairs``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Action{``0,``1})">
             <summary>
             Evaluates an assertion over pairs of values taken from two sequences.
             </summary>
@@ -8238,7 +8238,7 @@
             <param name="rightSequence">The right sequence, or null.</param>
             <param name="assertion">The assertion to evaluate given a left value and a right value.</param>
         </member>
-        <member name="M:MbUnit.Framework.AssertOverSyntax.Pairs``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},Gallio.Common.Action{``0,``1},System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.AssertOverSyntax.Pairs``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Action{``0,``1},System.String,System.Object[])">
             <summary>
             Evaluates an assertion over pairs of values taken from two sequence.
             </summary>
@@ -8255,7 +8255,7 @@
             <param name="messageFormat">The custom assertion message format, or null if none.</param>
             <param name="messageArgs">The custom assertion message arguments, or null if none.</param>
         </member>
-        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},Gallio.Common.Action{``1,``2})">
+        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},System.Action{``1,``2})">
             <summary>
             Evaluates an assertion over key/value pairs with identical keys drawn from two dictionaries.
             </summary>
@@ -8273,7 +8273,7 @@
             argument, and right value as second.</param>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},Gallio.Common.Action{``0,``1,``2})">
+        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},System.Action{``0,``1,``2})">
             <summary>
             Evaluates an assertion over key/value pairs with identical keys drawn from two dictionaries.
             </summary>
@@ -8291,7 +8291,7 @@
             argument, left value as second, and right value as third.</param>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},Gallio.Common.Action{``1,``2},System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},System.Action{``1,``2},System.String,System.Object[])">
             <summary>
             Evaluates an assertion over key/value pairs with identical keys drawn from two dictionaries.
             </summary>
@@ -8311,7 +8311,7 @@
             <param name="messageArgs">The custom assertion message arguments, or null if none.</param>
             <exception cref="T:Gallio.Framework.Assertions.AssertionException">Thrown if the verification failed unless the current <see cref="P:Gallio.Framework.Assertions.AssertionContext.AssertionFailureBehavior" /> indicates otherwise.</exception>
         </member>
-        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},Gallio.Common.Action{``0,``1,``2},System.String,System.Object[])">
+        <member name="M:MbUnit.Framework.AssertOverSyntax.KeyedPairs``3(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``2},System.Action{``0,``1,``2},System.String,System.Object[])">
             <summary>
             Evaluates an assertion over key/value pairs with identical keys drawn from two dictionaries.
             </summary>
@@ -8464,7 +8464,7 @@
         </member>
         <member name="M:MbUnit.Framework.Retry.Repeat(System.Int32)">
             <summary>
-            Specifies the maximum number of evaluation attempts, before the <see cref="M:MbUnit.Framework.Retry.Until(Gallio.Common.Func{System.Boolean})"/>, or 
+            Specifies the maximum number of evaluation attempts, before the <see cref="M:MbUnit.Framework.Retry.Until(Gallio.Common.GallioFunc{System.Boolean})"/>, or 
             <see cref="M:MbUnit.Framework.Retry.Until(System.Threading.WaitHandle)"/> operation fails.
             </summary>
             <remarks>
@@ -8541,7 +8541,7 @@
             <returns>An instance to specify other options for the retry operation.</returns>
             <exception cref="T:System.InvalidOperationException">Thrown if the option was called more than once.</exception>
         </member>
-        <member name="M:MbUnit.Framework.Retry.DoBetween(Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Retry.DoBetween(Gallio.Common.GallioAction)">
             <summary>
             Specifies a custom action to be executed between each consecutive attempt, but not before the first one.
             </summary>
@@ -8559,7 +8559,7 @@
             <param name="messageArgs">The format arguments, or null or empty if none.</param>
             <returns></returns>
         </member>
-        <member name="M:MbUnit.Framework.Retry.Until(Gallio.Common.Func{System.Boolean})">
+        <member name="M:MbUnit.Framework.Retry.Until(Gallio.Common.GallioFunc{System.Boolean})">
             <summary>
             Specifies the condition to evaluate repeatedly, and starts the entire operation.
             </summary>
@@ -9693,7 +9693,7 @@
         <member name="M:MbUnit.Framework.AbstractComparerAttribute.DecorateContainingScope(Gallio.Framework.Pattern.IPatternScope,Gallio.Common.Reflection.IMethodInfo)">
             <inheritdoc />
         </member>
-        <member name="M:MbUnit.Framework.AbstractComparerAttribute.Register(System.Type,Gallio.Common.Func{System.Object,System.Object,System.Object})">
+        <member name="M:MbUnit.Framework.AbstractComparerAttribute.Register(System.Type,Gallio.Common.GallioFunc{System.Object,System.Object,System.Object})">
             <summary>
             Registers a custom comparison operation for the specified type.
             </summary>
@@ -10232,7 +10232,7 @@
         <member name="M:MbUnit.Framework.EqualityComparerAttribute.Validate(Gallio.Framework.Pattern.IPatternScope,Gallio.Common.Reflection.IMethodInfo)">
             <inheritdoc />
         </member>
-        <member name="M:MbUnit.Framework.EqualityComparerAttribute.Register(System.Type,Gallio.Common.Func{System.Object,System.Object,System.Object})">
+        <member name="M:MbUnit.Framework.EqualityComparerAttribute.Register(System.Type,Gallio.Common.GallioFunc{System.Object,System.Object,System.Object})">
             <inheritdoc />
         </member>
         <member name="M:MbUnit.Framework.EqualityComparerAttribute.Unregister(System.Type)">
@@ -10264,7 +10264,7 @@
         <member name="M:MbUnit.Framework.ComparerAttribute.Validate(Gallio.Framework.Pattern.IPatternScope,Gallio.Common.Reflection.IMethodInfo)">
             <inheritdoc />
         </member>
-        <member name="M:MbUnit.Framework.ComparerAttribute.Register(System.Type,Gallio.Common.Func{System.Object,System.Object,System.Object})">
+        <member name="M:MbUnit.Framework.ComparerAttribute.Register(System.Type,Gallio.Common.GallioFunc{System.Object,System.Object,System.Object})">
             <inheritdoc />
         </member>
         <member name="M:MbUnit.Framework.ComparerAttribute.Unregister(System.Type)">
@@ -12021,7 +12021,7 @@
             or <paramref name="tests"/> is null or contains a null.</exception>
             <seealso cref="T:MbUnit.Framework.StaticTestFactoryAttribute" />
         </member>
-        <member name="M:MbUnit.Framework.Test.RunDynamicTests(System.Collections.Generic.IEnumerable{MbUnit.Framework.Test},Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.Action,Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Test.RunDynamicTests(System.Collections.Generic.IEnumerable{MbUnit.Framework.Test},Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.GallioAction,Gallio.Common.GallioAction)">
             <summary>
             Runs a collection of dynamic tests during test execution.
             </summary>
@@ -12047,7 +12047,7 @@
             <param name="declaringCodeElement">The code element that represents the scope in which the test was defined.</param>
             <seealso cref="T:MbUnit.Framework.StaticTestFactoryAttribute" />
         </member>
-        <member name="M:MbUnit.Framework.Test.RunDynamicTest(Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.Action,Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.Test.RunDynamicTest(Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.GallioAction,Gallio.Common.GallioAction)">
             <summary>
             Runs a dynamic test during test execution.
             </summary>
@@ -12098,7 +12098,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:MbUnit.Framework.TestCase.#ctor(System.String,Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.TestCase.#ctor(System.String,Gallio.Common.GallioAction)">
             <summary>
             Creates a test case with a delegate to execute as its main body.
             </summary>
@@ -12339,7 +12339,7 @@
         <member name="M:MbUnit.Framework.TestDefinition.BuildStaticTest(Gallio.Framework.Pattern.IPatternScope,Gallio.Common.Reflection.ICodeElementInfo)">
             <inheritdoc />
         </member>
-        <member name="M:MbUnit.Framework.TestDefinition.RunDynamicTest(Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.Action,Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.TestDefinition.RunDynamicTest(Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.GallioAction,Gallio.Common.GallioAction)">
             <inheritdoc />
         </member>
         <member name="P:MbUnit.Framework.TestDefinition.Kind">
@@ -12475,7 +12475,7 @@
         <member name="M:MbUnit.Framework.TestFixtureReference.BuildStaticTest(Gallio.Framework.Pattern.IPatternScope,Gallio.Common.Reflection.ICodeElementInfo)">
             <inheritdoc />
         </member>
-        <member name="M:MbUnit.Framework.TestFixtureReference.RunDynamicTest(Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.Action,Gallio.Common.Action)">
+        <member name="M:MbUnit.Framework.TestFixtureReference.RunDynamicTest(Gallio.Common.Reflection.ICodeElementInfo,Gallio.Common.GallioAction,Gallio.Common.GallioAction)">
             <inheritdoc />
         </member>
         <member name="T:MbUnit.Framework.TestSuite">

@@ -24,7 +24,6 @@ C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\bin\Microsoft.Cci.PdbRead
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\bin\Microsoft.Cci.SourceModel.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\bin\Microsoft.Cci.MetadataHelper.xml
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\bin\NHamcrest.pdb
-C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\bin\Gallio.XmlSerializers.dll
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\obj\x64\Debug\MbUnit35.vs2010.csprojAssemblyReference.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\obj\x64\Debug\MbUnit35.vs2010.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\mbunit-v3\src\MbUnit\MbUnit35\obj\x64\Debug\MbUnit35.vs2010.csproj.CopyComplete

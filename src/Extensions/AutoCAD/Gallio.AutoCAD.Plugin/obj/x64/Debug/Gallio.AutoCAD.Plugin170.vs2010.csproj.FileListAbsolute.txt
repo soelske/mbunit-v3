@@ -47,3 +47,4 @@ C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\x64\Debug\Gallio.AutoCAD.Plugin170.dll
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\x64\Debug\Gallio.AutoCAD.Plugin170.pdb
 C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\bin\v17.0\Gallio.xml
+C:\Users\PC\source\repos\mbunit-v3\src\Extensions\AutoCAD\Gallio.AutoCAD.Plugin\obj\x64\Debug\Gallio.AutoCAD.Plugin170.vs2010.csprojAssemblyReference.cache

@@ -19,6 +19,7 @@
     <file path="Gallio.AutoCAD.Plugin170.dll" />
     <file path="Gallio.AutoCAD.Plugin180.dll" />
     <file path="Gallio.AutoCAD.Plugin190.dll" />
+    <file path="Gallio.AutoCAD.Plugin210.dll" />
     <file path="Gallio.AutoCAD.Plugin220.dll" />
     <file path="Resources\Gallio.AutoCAD.ico" />
   </files>

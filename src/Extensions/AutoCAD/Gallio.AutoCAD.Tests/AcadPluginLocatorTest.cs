@@ -50,15 +50,15 @@ namespace Gallio.AutoCAD.Tests
         [ExpectedException(typeof(FileNotFoundException))]
         public void GetPluginPath_WhenOnlyHigherVersionsAvailable_ThrowsFileNotFoundException(string version)
         {
-            StubAvailablePlugins(181, 190);
+            StubAvailablePlugins(181, 190, 210, 220);
             pluginLocator.GetPluginPath(version);
         }
 
         [Test]
-        [Row("17.0s (LMS Tech)", "Gallio.AutoCAD.Plugin170.dll")]
+        [Row("22.0s (LMS Tech)", "Gallio.AutoCAD.Plugin220.dll")]
         public void GetPluginPath_WhenExactVersionAvailable_ReturnsExactVersion(string version, string exactPlugin)
         {
-            StubAvailablePlugins(160, 161, 162, 170, 171, 172, 180, 181, 182, 190);
+            StubAvailablePlugins(160, 161, 162, 170, 171, 172, 180, 181, 182, 190, 210, 220);
             Assert.AreEqual(exactPlugin, pluginLocator.GetPluginPath(version));
         }
 
@@ -74,7 +74,7 @@ namespace Gallio.AutoCAD.Tests
         [Row(null, "Gallio.AutoCAD.Plugin220.dll")]
         public void GetPluginPath_WhenSpecifiedVersionIsNull_ReturnsHighestAvailableVersion(string version, string highestPlugin)
         {
-            StubAvailablePlugins(180, 181, 190, 220);
+            StubAvailablePlugins(180, 181, 190, 210, 220);
             Assert.AreEqual(highestPlugin, pluginLocator.GetPluginPath(null));
         }
 

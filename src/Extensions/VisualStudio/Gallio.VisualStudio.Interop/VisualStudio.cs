@@ -80,7 +80,7 @@ namespace Gallio.VisualStudio.Interop
             Protect(() => action(dte));
         }
 
-        private static void Protect(Action action)
+        private static void Protect(GallioAction action)
         {
             Exception exception = null;
 
@@ -100,7 +100,7 @@ namespace Gallio.VisualStudio.Interop
                 throw new VisualStudioException("Could not perform the requested Visual Studio operation.", exception);
         }
 
-        private static void Protect(Action action, out Exception exception)
+        private static void Protect(GallioAction action, out Exception exception)
         {
             exception = null;
 

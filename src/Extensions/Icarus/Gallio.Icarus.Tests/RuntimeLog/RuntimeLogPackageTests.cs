@@ -21,13 +21,13 @@ namespace Gallio.Icarus.Tests.RuntimeLog
         public void SetUp()
         {
             windowManager = MockRepository.GenerateStub<IWindowManager>();
-            windowManager.Stub(wm => wm.Register(Arg<string>.Is.Anything, Arg<Action>.Is.Anything, Arg<Location>.Is.Anything))
-                .Do((Action<string, Action, Location>)((i, a, l) => a()));
+            windowManager.Stub(wm => wm.Register(Arg<string>.Is.Anything, Arg<GallioAction>.Is.Anything, Arg<Location>.Is.Anything))
+                .Do((GallioAction<string, GallioAction, Location>)((i, a, l) => a()));
 
             menuManager = MockRepository.GenerateStub<IMenuManager>();
             windowManager.Stub(wm => wm.MenuManager).Return(menuManager);
-            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<Func<MenuCommand>>.Is.Anything))
-                .Do((Action<string, Func<MenuCommand>>)((m, f) => menuCommand = f()));
+            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<GallioFunc<MenuCommand>>.Is.Anything))
+                .Do((GallioAction<string, GallioFunc<MenuCommand>>)((m, f) => menuCommand = f()));
 
             var runtimeLogController = MockRepository.GenerateStub<IRuntimeLogController>();
 
@@ -40,7 +40,7 @@ namespace Gallio.Icarus.Tests.RuntimeLog
             runtimeLogPackage.Load();
 
             windowManager.AssertWasCalled(wm => wm.Register(Arg.Is(RuntimeLogPackage.WindowId), 
-                Arg<Action>.Is.Anything, Arg<Location>.Is.Anything));
+                Arg<GallioAction>.Is.Anything, Arg<Location>.Is.Anything));
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace Gallio.Icarus.Tests.RuntimeLog
         {
             runtimeLogPackage.Load();
 
-            windowManager.AssertWasCalled(wm => wm.Register(Arg<string>.Is.Anything, Arg<Action>.Is.Anything, Arg.Is(Location.Bottom)));
+            windowManager.AssertWasCalled(wm => wm.Register(Arg<string>.Is.Anything, Arg<GallioAction>.Is.Anything, Arg.Is(Location.Bottom)));
         }
 
         [Test]
@@ -65,7 +65,7 @@ namespace Gallio.Icarus.Tests.RuntimeLog
         {
             runtimeLogPackage.Load();
 
-            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<Func<MenuCommand>>.Is.Anything));
+            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<GallioFunc<MenuCommand>>.Is.Anything));
         }
 
         [Test]

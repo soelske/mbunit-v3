@@ -8,7 +8,7 @@ using Gallio.UI.Menus;
 using MbUnit.Framework;
 using NHamcrest.Core;
 using Rhino.Mocks;
-using Action = Gallio.Common.Action;
+using Action = Gallio.Common.GallioAction;
 
 namespace Gallio.Icarus.Tests.TestResults
 {
@@ -26,8 +26,8 @@ namespace Gallio.Icarus.Tests.TestResults
 
             menuManager = MockRepository.GenerateStub<IMenuManager>();
             windowManager.Stub(wm => wm.MenuManager).Return(menuManager);
-            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<Common.Func<MenuCommand>>.Is.Anything))
-                .Do((Common.Action<string, Common.Func<MenuCommand>>)((m, f) => menuCommand = f()));
+            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<Common.GallioFunc<MenuCommand>>.Is.Anything))
+                .Do((Common.GallioAction<string, Common.GallioFunc<MenuCommand>>)((m, f) => menuCommand = f()));
 
             var testResultsController = MockRepository.GenerateStub<ITestResultsController>();
             var optionsController = MockRepository.GenerateStub<IOptionsController>();
@@ -69,7 +69,7 @@ namespace Gallio.Icarus.Tests.TestResults
         {
             package.Load();
 
-            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<Common.Func<MenuCommand>>.Is.Anything));
+            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<Common.GallioFunc<MenuCommand>>.Is.Anything));
         }
 
         [Test]

@@ -21,9 +21,9 @@ namespace Gallio.Icarus.Controls
 {
     public class NodeTextBox<T> : NodeTextBox where T : Node
     {
-        private readonly Func<T, object> getValue;
+        private readonly GallioFunc<T, object> getValue;
 
-        public NodeTextBox(Func<T, object> getValue)
+        public NodeTextBox(GallioFunc<T, object> getValue)
         {
             this.getValue = getValue;
         }

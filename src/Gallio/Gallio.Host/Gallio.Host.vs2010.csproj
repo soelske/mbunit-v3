@@ -105,6 +105,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Revision.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gallio\Gallio.vs2010.csproj">
@@ -114,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Gallio.Host.targets" />
     <None Include="Standard.manifest" />
     <None Include="Gallio.Host.exe.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

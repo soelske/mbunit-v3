@@ -489,6 +489,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Isolation\NamespaceDoc.cs" />
+    <Compile Include="Revision.cs" />
     <Compile Include="Runner\Events\RunStartedEventArgs.cs" />
     <Compile Include="Runner\Events\NamespaceDoc.cs" />
     <Compile Include="Runner\Reports\AbstractReportContainer.cs" />

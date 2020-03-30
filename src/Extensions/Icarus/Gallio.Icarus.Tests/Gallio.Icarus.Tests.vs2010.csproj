@@ -88,6 +88,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Annotations\AnnotationsPackageTests.cs" />
     <Compile Include="Commands\AddFilesCommandTest.cs" />
     <Compile Include="Commands\ApplyFilterCommandTest.cs" />

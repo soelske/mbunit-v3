@@ -82,6 +82,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Controls\CommandToolStripMenuItemTest.cs" />
     <Compile Include="Controls\KeysParserTest.cs" />
     <Compile Include="DataBinding\ObservableListTest.cs" />

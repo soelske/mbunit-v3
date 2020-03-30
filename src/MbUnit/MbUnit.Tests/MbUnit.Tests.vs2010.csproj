@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Framework\AssertTest_Count.cs" />
     <Compile Include="Framework\ContractVerifiers\Core\HashStoreResultTest.cs" />
     <Compile Include="Framework\ContractVerifiers\Core\HashStoreTest.cs" />

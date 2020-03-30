@@ -102,6 +102,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="..\Gallio\Common\Reflection\Impl\UnresolvedAssembly.cs">
       <Link>Common\Reflection\Impl\UnresolvedAssembly.cs</Link>
     </Compile>

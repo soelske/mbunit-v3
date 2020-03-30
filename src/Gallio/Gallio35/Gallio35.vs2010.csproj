@@ -90,6 +90,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Common\Linq\ActionExtensions.cs" />
     <Compile Include="Common\Linq\ExpressionExtensions.cs" />
     <Compile Include="Common\Linq\ExpressionInstrumentor.cs" />

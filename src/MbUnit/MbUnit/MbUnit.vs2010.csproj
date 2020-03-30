@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Framework\ContractVerifiers\Core\NotEnoughHashesException.cs" />
     <Compile Include="Framework\Assert.HasAttribute.cs" />
     <Compile Include="Framework\ExpectedInvalidOperationExceptionAttribute.cs" />

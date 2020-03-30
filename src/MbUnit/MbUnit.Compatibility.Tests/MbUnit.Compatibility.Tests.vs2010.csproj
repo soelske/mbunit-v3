@@ -69,6 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Framework\OldArrayAssertTest.cs" />
     <Compile Include="Framework\OldAssertTest.cs" />
     <Compile Include="Framework\OldAssertWithReflectionTest.cs" />

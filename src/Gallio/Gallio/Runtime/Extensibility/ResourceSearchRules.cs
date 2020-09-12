@@ -36,6 +36,10 @@ namespace Gallio.Runtime.Extensibility
             string baseDirectoryBinPath = Path.Combine(baseDirectoryPath, "bin");
             yield return CombineWithResourcePathIfNotNull(baseDirectoryBinPath, resourcePath);
 
+            //[BSE 12.09.20]Added parent directory as extra probing path.
+            string baseDirectoryParentPath = Path.Combine(baseDirectoryPath, "..");
+            yield return CombineWithResourcePathIfNotNull(baseDirectoryParentPath, resourcePath);
+
             foreach (string probingPath in probingPaths)
             {
                 yield return CombineWithResourcePathIfNotNull(Path.Combine(baseDirectoryPath, probingPath), resourcePath);

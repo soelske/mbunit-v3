@@ -578,8 +578,11 @@ namespace Gallio.Runtime
 
         private void AddPluginDirectory(string pluginDirectory)
         {
-            if (!pluginDirectories.Contains(pluginDirectory))
-                pluginDirectories.Add(pluginDirectory);
+            //[BSE 12.09.20]Only add valid directories.
+            if(!string.IsNullOrEmpty(pluginDirectory))
+                if(Directory.Exists(pluginDirectory))
+                    if (!pluginDirectories.Contains(pluginDirectory))
+                        pluginDirectories.Add(pluginDirectory);
         }
 
         private void SetRuntimePath()
@@ -651,11 +654,20 @@ namespace Gallio.Runtime
 
             // Force the runtime path to be set to where the primary Gallio assemblies and Gallio.Host.exe
             // are located.
-            runtimeSetup.RuntimePath = Path.Combine(srcDir, @"Gallio\Gallio\bin");
+            string runtimePath = Path.Combine(srcDir, @"Gallio\Gallio\bin");
+            if (!Directory.Exists(runtimePath))
+                runtimePath = srcDir;
+            runtimeSetup.RuntimePath = runtimePath;
 
             // Add the solution folder to the list of plugin directories so that we can resolve
             // all plugins that have been compiled within the solution. 
             AddPluginDirectory(srcDir);
+
+            //[BSE 07.08.20] extra "plugins" folder?
+            foreach (string extraPluginFolder in Directory.GetDirectories(srcDir, "plugins", SearchOption.AllDirectories))
+            {
+                AddPluginDirectory(extraPluginFolder);
+            }
 
             // Remember we are in debug mode.
             debugMode = true;

@@ -6,6 +6,7 @@ Ignore:
 .vs/
 obj/
 bin/
+packages/
 /src/Extensions/Echo/Gallio.Echo/bin/
 /src/Extensions/Echo/Gallio.Echo.Tests/bin/
 /src/Gallio/Gallio/bin/

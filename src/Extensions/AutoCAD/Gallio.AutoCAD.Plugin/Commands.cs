@@ -42,7 +42,9 @@ namespace Gallio.AutoCAD.Plugin
       DocumentCollection docs = Application.DocumentManager;
       foreach (Document doc in docs)
       {
-        if (doc.IsNamedDrawing)
+#if !R17 && !R18
+                if (doc.IsNamedDrawing)
+#endif
         {
           // First cancel any running command
           if (doc.CommandInProgress != "" && doc.CommandInProgress != "CLOSEALLNAMEDDRAWINGS")

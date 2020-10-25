@@ -2,15 +2,15 @@
 <package >
   <metadata>
     <id>i-theses.gallio</id>
-    <version>1.0.0</version>
+    <version>4.0.0</version>
     <authors>Bart</authors>
     <owners>Bart</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>http://halen.i-theses.com/ftp/MbUnit/Gallio.png?raw=true</iconUrl>
-    <description>i-theses - gallio and mbunit</description>
+    <description>i-theses - gallio and mbunit and echo framework</description>
     <releaseNotes>i-theses - test framework for autocad development.</releaseNotes>
     <copyright>copyright 2020</copyright>
-    <tags>gallio mbunit i-theses</tags>
+    <tags>gallio mbunit echo i-theses</tags>
 	<references>
     <reference file="mbunit.dll" />
     <reference file="gallio.dll" />

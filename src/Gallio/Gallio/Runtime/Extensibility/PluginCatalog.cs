@@ -248,6 +248,8 @@ namespace Gallio.Runtime.Extensibility
 
         private static string ProbeForCodeBase(DirectoryInfo baseDirectory, IList<string> probingPaths, string codeBase, ICollection<string> attemptedPaths)
         {
+            /*if (codeBase.ToLower().Contains("autocad"))
+                System.Windows.Forms.MessageBox.Show("ProbeForCodeBase autocad");*/
             foreach (string searchPath in ResourceSearchRules.GetSearchPaths(baseDirectory, probingPaths, codeBase))
             {
                 attemptedPaths.Add(searchPath);

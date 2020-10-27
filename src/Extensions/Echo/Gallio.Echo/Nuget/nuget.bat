@@ -39,4 +39,5 @@ cd %nugetDir%
 
 %cd%\..\..\Nuget\nuget.exe pack package.nuspec
 
+del "Package.nuspec"
 rmdir /s /q "lib"

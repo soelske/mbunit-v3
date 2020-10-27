@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>i-theses.gallio</id>
+    <id>i-theses.gallio.echo</id>
     <version>4.0.0</version>
     <authors>Bart</authors>
     <owners>Bart</owners>
@@ -14,6 +14,6 @@
 	<references>
     <reference file="mbunit.dll" />
     <reference file="gallio.dll" />
-</references>
+  </references>
   </metadata>
 </package>

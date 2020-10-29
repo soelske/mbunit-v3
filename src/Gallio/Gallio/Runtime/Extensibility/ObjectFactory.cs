@@ -153,7 +153,7 @@ namespace Gallio.Runtime.Extensibility
 
         private DependencyResolution ResolveDependency(string parameterName, Type parameterType, bool isOptional)
         {
-            DependencyResolution resolution;
+            DependencyResolution resolution = new DependencyResolution();
             try
             {
                 string propertyValue;
@@ -163,11 +163,12 @@ namespace Gallio.Runtime.Extensibility
             }
             catch (Exception ex)
             {
-                throw new RuntimeException(string.Format("Could not resolve {2} dependency '{0}' of type '{1}' due to an exception.", parameterName, parameterType,
-                    isOptional ? "optional" : "required"), ex);
+                //[BSE 12.09.20]If this dependency is optional, dont throw exception.
+                if (!isOptional)
+                    throw new RuntimeException(string.Format("Could not resolve {2} dependency '{0}' of type '{1}' due to an exception.", parameterName, parameterType, isOptional ? "optional" : "required"), ex);
             }
 
-            if (! resolution.IsSatisfied && !isOptional)
+            if (!resolution.IsSatisfied && !isOptional)
                 throw new RuntimeException(string.Format("Could not resolve required dependency '{0}' of type '{1}'.", parameterName, parameterType));
 
             return resolution;

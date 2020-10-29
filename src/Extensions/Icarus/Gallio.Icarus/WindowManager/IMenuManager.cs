@@ -20,6 +20,6 @@ namespace Gallio.Icarus.WindowManager
 {
     public interface IMenuManager
     {
-        void Add(string menuId, Func<MenuCommand> commandFactory);
+        void Add(string menuId, GallioFunc<MenuCommand> commandFactory);
     }
 }

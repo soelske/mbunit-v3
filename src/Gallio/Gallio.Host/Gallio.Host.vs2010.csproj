@@ -95,6 +95,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="HostArguments.cs" />
     <Compile Include="HostEndpoint.cs" />
     <Compile Include="HostProgram.cs" />
@@ -114,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Gallio.Host.targets" />
     <None Include="Standard.manifest" />
     <None Include="Gallio.Host.exe.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

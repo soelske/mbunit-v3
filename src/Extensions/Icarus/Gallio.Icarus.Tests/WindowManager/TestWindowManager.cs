@@ -9,8 +9,8 @@ namespace Gallio.Icarus.Tests.WindowManager
         public static IWindowManager Create()
         {
             var windowManager = MockRepository.GenerateStub<IWindowManager>();
-            windowManager.Stub(wm => wm.Register(Arg<string>.Is.Anything, Arg<Action>.Is.Anything, Arg<Location>.Is.Anything))
-                .Do((Action<string, Action, Location>)((i, a, l) => a()));
+            windowManager.Stub(wm => wm.Register(Arg<string>.Is.Anything, Arg<GallioAction>.Is.Anything, Arg<Location>.Is.Anything))
+                .Do((GallioAction<string, GallioAction, Location>)((i, a, l) => a()));
             return windowManager;
         }
     }

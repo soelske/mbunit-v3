@@ -21,9 +21,9 @@ namespace Gallio.Icarus.Controls
 {
     public class NodeIcon<T> : NodeIcon where T : Node
     {
-        private readonly Func<T, object> getValue;
+        private readonly GallioFunc<T, object> getValue;
 
-        public NodeIcon(Func<T, object> getValue)
+        public NodeIcon(GallioFunc<T, object> getValue)
         {
             this.getValue = getValue;
         }

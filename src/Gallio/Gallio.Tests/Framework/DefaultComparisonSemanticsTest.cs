@@ -126,11 +126,11 @@ namespace Gallio.Tests.Framework
         public void Equals_WhenObjectsAreOfTypeAssemblyName_ComparesByFullName()
         {
             Assert.IsTrue(comparisonSemantics.Equals(
-                new AssemblyName("Gallio, Version=0.0.0.0"),
-                new AssemblyName("Gallio, Version=0.0.0.0")));
+                new AssemblyName("Gallio, Version=4.0.0.0"),
+                new AssemblyName("Gallio, Version=4.0.0.0")));
 
             Assert.IsFalse(comparisonSemantics.Equals(
-                new AssemblyName("Gallio, Version=0.0.0.0"),
+                new AssemblyName("Gallio, Version=4.0.0.0"),
                 new AssemblyName("Gallio")));
         }
 

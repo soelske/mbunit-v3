@@ -25,8 +25,8 @@ namespace Gallio.Icarus.Tests.TestExplorer
 
             menuManager = MockRepository.GenerateStub<IMenuManager>();
             windowManager.Stub(wm => wm.MenuManager).Return(menuManager);
-            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<Func<MenuCommand>>.Is.Anything))
-                .Do((Action<string, Func<MenuCommand>>)((m, f) => menuCommand = f()));
+            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<GallioFunc<MenuCommand>>.Is.Anything))
+                .Do((GallioAction<string, GallioFunc<MenuCommand>>)((m, f) => menuCommand = f()));
 
         	var testExplorerController = MockRepository.GenerateStub<ITestExplorerController>();
         	var testExplorerModel = MockRepository.GenerateStub<ITestExplorerModel>();
@@ -40,7 +40,7 @@ namespace Gallio.Icarus.Tests.TestExplorer
             package.Load();
 
 			windowManager.AssertWasCalled(wm => wm.Register(Arg.Is(TestExplorerPackage.WindowId), 
-                Arg<Action>.Is.Anything, Arg<Location>.Is.Anything));
+                Arg<GallioAction>.Is.Anything, Arg<Location>.Is.Anything));
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace Gallio.Icarus.Tests.TestExplorer
             package.Load();
 
             windowManager.AssertWasCalled(wm => wm.Register(Arg<string>.Is.Anything, 
-                Arg<Action>.Is.Anything, Arg.Is(Location.Left)));
+                Arg<GallioAction>.Is.Anything, Arg.Is(Location.Left)));
         }
 
         [Test]
@@ -66,7 +66,7 @@ namespace Gallio.Icarus.Tests.TestExplorer
         {
             package.Load();
 
-            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<Func<MenuCommand>>.Is.Anything));
+            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<GallioFunc<MenuCommand>>.Is.Anything));
         }
 
         [Test]

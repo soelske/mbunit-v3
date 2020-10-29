@@ -139,6 +139,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Common\Accessor.cs" />
     <Compile Include="Common\GallioAction.cs" />
     <Compile Include="Common\Collections\EnumerableCounter.cs" />

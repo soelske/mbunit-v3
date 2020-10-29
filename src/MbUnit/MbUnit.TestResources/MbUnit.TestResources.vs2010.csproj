@@ -89,6 +89,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="AnnotatedTests.cs" />
     <Compile Include="AssemblyApartmentStateSample.cs" />
     <Compile Include="MultipleStatuses.cs" />

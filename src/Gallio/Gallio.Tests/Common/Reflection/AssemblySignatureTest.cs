@@ -118,7 +118,7 @@ namespace Gallio.Tests.Common.Reflection
         [Row("Name, Version=1.0.0.0-1.2.65535.65535", "Name, Version=1.2.3.4", true)]
         [Row("Name, Version=1.0.0.0-1.2.65535.65535", "Name, Version=1.0.0.0", true)]
         [Row("Name, Version=1.0.0.0-1.2.65535.65535", "Name, Version=1.2.65535.65535", true)]
-        [Row("Name, Version=1.0.0.0-1.2.65535.65535", "Name, Version=0.0.0.0", false)]
+        [Row("Name, Version=1.0.0.0-1.2.65535.65535", "Name, Version=4.0.0.0", false)]
         [Row("Name, Version=1.0.0.0-1.2.65535.65535", "Name, Version=2.0.0.0", false)]
         public void IsMatch_WhenAssemblyNameIsValid_ReturnsExpectedResult(string signature, string name, bool expectedResult)
         {

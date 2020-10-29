@@ -24,7 +24,7 @@ namespace Gallio.Icarus.WindowManager
     public class MenuManager : IMenuManager
     {
         private readonly Dictionary<string, IMenuList> menus = new Dictionary<string, IMenuList>();
-        private readonly IDictionary<string, IList<Func<MenuCommand>>> commandFactories = new Dictionary<string, IList<Func<MenuCommand>>>();
+        private readonly IDictionary<string, IList<GallioFunc<MenuCommand>>> commandFactories = new Dictionary<string, IList<GallioFunc<MenuCommand>>>();
         private IList items;
 
         internal void SetToolstrip(IList toolStrip)
@@ -65,7 +65,7 @@ namespace Gallio.Icarus.WindowManager
             return menus[menuId];
         }
 
-        public void Add(string menuId, Func<MenuCommand> commandFactory)
+        public void Add(string menuId, GallioFunc<MenuCommand> commandFactory)
         {
             if (items == null)
             {
@@ -77,16 +77,16 @@ namespace Gallio.Icarus.WindowManager
             }
         }
 
-        private void QueueMenuItem(string menuId, Func<MenuCommand> commandFactory)
+        private void QueueMenuItem(string menuId, GallioFunc<MenuCommand> commandFactory)
         {
             if (commandFactories.ContainsKey(menuId) == false)
             {
-                commandFactories.Add(menuId, new List<Func<MenuCommand>>());
+                commandFactories.Add(menuId, new List<GallioFunc<MenuCommand>>());
             }
             commandFactories[menuId].Add(commandFactory);
         }
 
-        private void AddMenuItem(string menuId, Func<MenuCommand> commandFactory)
+        private void AddMenuItem(string menuId, GallioFunc<MenuCommand> commandFactory)
         {
             var menuList = GetMenu(menuId);
             var menuCommand = commandFactory();

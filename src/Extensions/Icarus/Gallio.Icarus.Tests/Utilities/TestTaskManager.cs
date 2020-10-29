@@ -16,7 +16,7 @@
 using System.Collections.Generic;
 using Gallio.Runtime.ProgressMonitoring;
 using Gallio.UI.ProgressMonitoring;
-using Action=Gallio.Common.Action;
+using Action=Gallio.Common.GallioAction;
 
 namespace Gallio.Icarus.Tests.Utilities
 {

@@ -176,7 +176,7 @@ namespace Gallio.Runtime.Loader
             if (name.FullName == name.Name)
                 return true;
 
-            // On Mono, the Version is set to 0.0.0.0 but there's no public key token
+            // On Mono, the Version is set to 4.0.0.0 but there's no public key token
             // during partial name resolution.
             if (DotNetRuntimeSupport.IsUsingMono
                 && name.Version == new Version(0, 0, 0, 0)

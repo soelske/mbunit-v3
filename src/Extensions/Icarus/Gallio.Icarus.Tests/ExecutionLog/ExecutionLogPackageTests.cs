@@ -23,8 +23,8 @@ namespace Gallio.Icarus.Tests.ExecutionLog
         public void SetUp()
         {
             windowManager = MockRepository.GenerateStub<IWindowManager>();
-            windowManager.Stub(wm => wm.Register(Arg<string>.Is.Anything, Arg<Action>.Is.Anything, Arg<Location>.Is.Anything))
-                .Do((Action<string, Action, Location>)((i, a, l) => a()));
+            windowManager.Stub(wm => wm.Register(Arg<string>.Is.Anything, Arg<GallioAction>.Is.Anything, Arg<Location>.Is.Anything))
+                .Do((GallioAction<string, GallioAction, Location>)((i, a, l) => a()));
 
             menuManager = MockRepository.GenerateStub<IMenuManager>();
             windowManager.Stub(wm => wm.MenuManager).Return(menuManager);
@@ -40,7 +40,7 @@ namespace Gallio.Icarus.Tests.ExecutionLog
         {
             executionLogPackage.Load();
 
-            windowManager.AssertWasCalled(wm => wm.Register(Arg.Is(ExecutionLogPackage.WindowId), Arg<Action>.Is.Anything, Arg<Location>.Is.Anything));
+            windowManager.AssertWasCalled(wm => wm.Register(Arg.Is(ExecutionLogPackage.WindowId), Arg<GallioAction>.Is.Anything, Arg<Location>.Is.Anything));
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace Gallio.Icarus.Tests.ExecutionLog
         {
             executionLogPackage.Load();
 
-            windowManager.AssertWasCalled(wm => wm.Register(Arg<string>.Is.Anything, Arg<Action>.Is.Anything, Arg.Is(Location.Centre)));
+            windowManager.AssertWasCalled(wm => wm.Register(Arg<string>.Is.Anything, Arg<GallioAction>.Is.Anything, Arg.Is(Location.Centre)));
         }
 
         [Test]
@@ -65,15 +65,15 @@ namespace Gallio.Icarus.Tests.ExecutionLog
         {
             executionLogPackage.Load();
 
-            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<Func<MenuCommand>>.Is.Anything));
+            menuManager.AssertWasCalled(mm => mm.Add(Arg.Is("View"), Arg<GallioFunc<MenuCommand>>.Is.Anything));
         }
 
         [Test]
         public void Load_adds_menu_item_with_correct_text()
         {
             MenuCommand menuCommand = null;
-            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<Func<MenuCommand>>.Is.Anything))
-                .Do((Action<string, Func<MenuCommand>>)((m, f) => menuCommand = f()));
+            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<GallioFunc<MenuCommand>>.Is.Anything))
+                .Do((GallioAction<string, GallioFunc<MenuCommand>>)((m, f) => menuCommand = f()));
 
             executionLogPackage.Load();
 
@@ -85,8 +85,8 @@ namespace Gallio.Icarus.Tests.ExecutionLog
         public void Load_adds_menu_item_with_correct_command()
         {
             MenuCommand menuCommand = null;
-            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<Func<MenuCommand>>.Is.Anything))
-                .Do((Action<string, Func<MenuCommand>>)((m, f) => menuCommand = f()));
+            menuManager.Stub(mm => mm.Add(Arg<string>.Is.Anything, Arg<GallioFunc<MenuCommand>>.Is.Anything))
+                .Do((GallioAction<string, GallioFunc<MenuCommand>>)((m, f) => menuCommand = f()));
 
             executionLogPackage.Load();
 

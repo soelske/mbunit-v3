@@ -61,11 +61,11 @@ namespace Gallio.Icarus.Tests.Controls
 
         private class TestTestKindIcon : TestKindIcon
         {
-            private readonly Func<TreeNodeAdv, object> getValue;
-            private readonly Func<string, Image> getNodeTypeImage;
+            private readonly GallioFunc<TreeNodeAdv, object> getValue;
+            private readonly GallioFunc<string, Image> getNodeTypeImage;
 
-            public TestTestKindIcon(Func<TreeNodeAdv, object> getValue, 
-                Func<string, Image> getNodeTypeImage) {
+            public TestTestKindIcon(GallioFunc<TreeNodeAdv, object> getValue,
+                GallioFunc<string, Image> getNodeTypeImage) {
                 this.getValue = getValue;
                 this.getNodeTypeImage = getNodeTypeImage;
             }

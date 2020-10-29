@@ -112,6 +112,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Common\Reflection\Impl\UnresolvedCodeElementFactoryTest.cs" />
     <Compile Include="Framework\Data\DataObjects\TabularDataHeaderNameTranslationTests.cs" />
     <Compile Include="Framework\Data\DataObjects\TabularFactoryDataTests.cs" />

@@ -19,7 +19,9 @@
     <file path="Gallio.AutoCAD.Plugin170.dll" />
     <file path="Gallio.AutoCAD.Plugin180.dll" />
     <file path="Gallio.AutoCAD.Plugin190.dll" />
+    <file path="Gallio.AutoCAD.Plugin210.dll" />
     <file path="Gallio.AutoCAD.Plugin220.dll" />
+    <file path="Gallio.AutoCAD.Plugin230.dll" />
     <file path="Resources\Gallio.AutoCAD.ico" />
   </files>
 
@@ -72,8 +74,8 @@
           Runs tests within an AutoCAD process.
 
           Supported test runner properties:
-          - AcadAttachToExisting: If "true" attaches to an existing AutoCAD process, otherwise starts a new one.
-          - AcadExePath: Specifies the full path of the "acad.exe" program.
+          /rp:AcadAttachToExisting=true attaches to an existing AutoCAD process, otherwise starts a new one.
+          /rp:AcadExePath="C:\Program Files\Autodesk\AutoCAD 2018\acad.exe" Specifies the full path of the "acad.exe" program.
         </description>
       </traits>
     </component>

@@ -73,7 +73,7 @@ namespace Gallio.Icarus.WindowManager
         /// </summary>
         /// <param name="identifer">The unique id of the window.</param>
         /// <param name="action">An action that creates the window.</param>
-        void Register(string identifer, Action action);
+        void Register(string identifer, GallioAction action);
 
         /// <summary>
         /// Registers an action to create the window when required.
@@ -81,7 +81,7 @@ namespace Gallio.Icarus.WindowManager
         /// <param name="identifer">The unique id of the window.</param>
         /// <param name="action">An action that creates the window.</param>
         /// <param name="defaultLocation">The default location to display the window.</param>
-        void Register(string identifer, Action action, Location defaultLocation);
+        void Register(string identifer, GallioAction action, Location defaultLocation);
 
         /// <summary>
         /// Removes a window.

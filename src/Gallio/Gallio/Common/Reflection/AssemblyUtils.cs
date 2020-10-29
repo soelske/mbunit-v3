@@ -48,6 +48,28 @@ namespace Gallio.Common.Reflection
         }
 
         /// <summary>
+        /// Gets the directory of the assembly, or null if it is dynamic.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <returns>The assembly directory as returned by <see cref="GetAssemblyLocation(Assembly)" /> or
+        /// null if the assembly is dynamic and does not have a directory.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="assembly"/> is null.</exception>
+        public static string GetAssemblyDirectory(Assembly assembly)
+        {
+            if (assembly == null)
+                throw new ArgumentNullException(@"assembly");
+
+            try
+            {
+                return Path.GetDirectoryName(GetAssemblyLocation(assembly));
+            }
+            catch (NotSupportedException)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Gets the local path of the assembly prior to shadow copying.
         /// Returns null if the original location of the assembly is not local.
         /// </summary>

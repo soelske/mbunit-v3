@@ -23,100 +23,147 @@ using Gallio.Model.Isolation;
 
 namespace Gallio.AutoCAD.Plugin
 {
+  /// <summary>
+  /// Contains commands for performing Gallio operations inside the AutoCAD process.
+  /// </summary>
+  /// <remarks>
+  /// <para>
+  /// This class assumes that the Gallio.Loader.dll assembly is registered in the GAC.
+  /// </para>
+  /// </remarks>
+  public static class Commands
+  {
     /// <summary>
-    /// Contains commands for performing Gallio operations inside the AutoCAD process.
+    /// 
+    /// </summary>
+    [CommandMethod("CLOSEALLNAMEDDRAWINGS", CommandFlags.Session)]
+    public static void CloseAllNamedDrawings()
+    {
+      DocumentCollection docs = Application.DocumentManager;
+      foreach (Document doc in docs)
+      {
+#if !R17 && !R18
+                if (doc.IsNamedDrawing)
+#endif
+        {
+          // First cancel any running command
+          if (doc.CommandInProgress != "" && doc.CommandInProgress != "CLOSEALLNAMEDDRAWINGS")
+          {
+            doc.SendStringToExecute("\x03\x03 ", true, false, false);
+          }
+          if (doc.IsReadOnly)
+          {
+            doc.CloseAndDiscard();
+          }
+          else
+          {
+            // Activate the document, so we can check DBMOD
+            if (docs.MdiActiveDocument != doc)
+            {
+              docs.MdiActiveDocument = doc;
+            }
+            int isModified = System.Convert.ToInt32(Application.GetSystemVariable("DBMOD"));
+
+            // No need to save if not modified
+
+            if (isModified == 0)
+            {
+              doc.CloseAndDiscard();
+            }
+            else
+            {
+              // This may create documents in strange places
+              doc.CloseAndSave(doc.Name);
+            }
+          }
+        }
+      }
+    }
+
+    /// <summary>
+    /// Creates an <c>AcadTestDriver</c> instance and registers it as a service.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This class assumes that the Gallio.Loader.dll assembly is registered in the GAC.
+    /// This command blocks on the calling thread until <c>Shutdown</c> is called.
     /// </para>
     /// </remarks>
-    public static class Commands
+    [CommandMethod("CREATEENDPOINTANDWAIT")]
+    public static void CreateEndPointAndWait()
     {
-        /// <summary>
-        /// Creates an <c>AcadTestDriver</c> instance and registers it as a service.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// This command blocks on the calling thread until <c>Shutdown</c> is called.
-        /// </para>
-        /// </remarks>
-        [CommandMethod("CREATEENDPOINTANDWAIT")]
-        public static void CreateEndPointAndWait()
-        {
-            string ipcPortName;
-            if (!GetIpcPortName(out ipcPortName))
-                return;
+      string ipcPortName;
+      if (!GetIpcPortName(out ipcPortName))
+        return;
 
-            Guid linkId;
-            if (!GetLinkId(out linkId))
-                return;
+      Guid linkId;
+      if (!GetLinkId(out linkId))
+        return;
 
-            ShimWithLoader.Run(ipcPortName, linkId);
-        }
-
-        private static bool GetIpcPortName(out string ipcPortName)
-        {
-            return Prompt("IPC port name:", out ipcPortName);
-        }
-
-        private static bool GetLinkId(out Guid linkId)
-        {
-            string result;
-            if (! Prompt("Link Id:", out result))
-            {
-                linkId = Guid.Empty;
-                return false;
-            }
-
-            linkId = new Guid(result);
-            return true;
-        }
-
-        private static bool Prompt(string promptMessage, out string result)
-        {
-            PromptResult prompt = ActiveEditor.GetString(promptMessage);
-            if (prompt.Status != PromptStatus.OK)
-            {
-                result = String.Empty;
-                return false;
-            }
-
-            result = prompt.StringResult;
-            return true;
-        }
-
-        private static Editor ActiveEditor
-        {
-            get { return Application.DocumentManager.MdiActiveDocument.Editor; }
-        }
-
-        /// <summary>
-        /// Within this class we can access Gallio.Loader types because the loader has been loaded.
-        /// </summary>
-        private static class ShimWithLoader
-        {
-            public static void Run(string ipcPortName, Guid linkId)
-            {
-                LoaderManager.InitializeAndSetupRuntimeIfNeeded();
-                // note: after this point we can reference Gallio types.
-
-                ShimWithRuntime.Run(ipcPortName, linkId);
-            }
-        }
-
-        /// <summary>
-        /// Within this class we can access Gallio types because the runtime has been initialized.
-        /// </summary>
-        private static class ShimWithRuntime
-        {
-            public static void Run(string ipcPortName, Guid linkId)
-            {
-                using (var client = new TestIsolationClient(ipcPortName, linkId))
-                {
-                    client.Run();
-                }
-            }
-        }
+      ShimWithLoader.Run(ipcPortName, linkId);
     }
+
+    private static bool GetIpcPortName(out string ipcPortName)
+    {
+      return Prompt("IPC port name:", out ipcPortName);
+    }
+
+    private static bool GetLinkId(out Guid linkId)
+    {
+      string result;
+      if (!Prompt("Link Id:", out result))
+      {
+        linkId = Guid.Empty;
+        return false;
+      }
+
+      linkId = new Guid(result);
+      return true;
+    }
+
+    private static bool Prompt(string promptMessage, out string result)
+    {
+      PromptResult prompt = ActiveEditor.GetString(promptMessage);
+      if (prompt.Status != PromptStatus.OK)
+      {
+        result = String.Empty;
+        return false;
+      }
+
+      result = prompt.StringResult;
+      return true;
+    }
+
+    private static Editor ActiveEditor
+    {
+      get { return Application.DocumentManager.MdiActiveDocument.Editor; }
+    }
+
+    /// <summary>
+    /// Within this class we can access Gallio.Loader types because the loader has been loaded.
+    /// </summary>
+    private static class ShimWithLoader
+    {
+      public static void Run(string ipcPortName, Guid linkId)
+      {
+        LoaderManager.InitializeAndSetupRuntimeIfNeeded();
+        // note: after this point we can reference Gallio types.
+
+        ShimWithRuntime.Run(ipcPortName, linkId);
+      }
+    }
+
+    /// <summary>
+    /// Within this class we can access Gallio types because the runtime has been initialized.
+    /// </summary>
+    private static class ShimWithRuntime
+    {
+      public static void Run(string ipcPortName, Guid linkId)
+      {
+        using (var client = new TestIsolationClient(ipcPortName, linkId))
+        {
+          client.Run();
+        }
+      }
+    }
+  }
 }

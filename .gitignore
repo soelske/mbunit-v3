@@ -5,3 +5,5 @@
 Ignore:
 .vs/
 obj/
+bin/
+packages/

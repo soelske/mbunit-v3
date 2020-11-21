@@ -23,112 +23,121 @@ using Gallio.Runtime.Logging;
 
 namespace Gallio.AutoCAD.ProcessManagement
 {
+  /// <summary>
+  /// Implementation of <see cref="IAcadProcess"/> that represents
+  /// a newly created AutoCAD process.
+  /// </summary>
+  /// <remarks>
+  /// The AutoCAD process will be shut down when it is no longer in use by Gallio.
+  /// </remarks>
+  public class CreatedAcadProcess : AcadProcessBase
+  {
+    private readonly ProcessStartInfo startInfo;
+    private readonly IProcessCreator processCreator;
+    private readonly IDebuggerManager debuggerManager;
+    private IProcess process;
+
     /// <summary>
-    /// Implementation of <see cref="IAcadProcess"/> that represents
-    /// a newly created AutoCAD process.
+    /// Creates a new <see cref="CreatedAcadProcess"/> instance.
     /// </summary>
-    /// <remarks>
-    /// The AutoCAD process will be shut down when it is no longer in use by Gallio.
-    /// </remarks>
-    public class CreatedAcadProcess : AcadProcessBase
+    /// <param name="logger">A logger.</param>
+    /// <param name="commandRunner">A AutoCAD command runner.</param>
+    /// <param name="executable">The path to the AutoCAD executable.</param>
+    /// <param name="processCreator">A process creator.</param>
+    /// <param name="debuggerManager">A debugger mananger.</param>
+    /// <param name="pluginLocator">A plugin locator.</param>
+    public CreatedAcadProcess(ILogger logger, IAcadCommandRunner commandRunner,
+        string executable, IProcessCreator processCreator, IDebuggerManager debuggerManager,
+        IAcadPluginLocator pluginLocator)
+        : base(logger, commandRunner, pluginLocator)
     {
-        private readonly ProcessStartInfo startInfo;
-        private readonly IProcessCreator processCreator;
-        private readonly IDebuggerManager debuggerManager;
-        private IProcess process;
+      if (executable == null)
+        throw new ArgumentNullException("executable");
+      if (processCreator == null)
+        throw new ArgumentNullException("processCreator");
+      if (debuggerManager == null)
+        throw new ArgumentNullException("debuggerManager");
+      if (pluginLocator == null)
+        throw new ArgumentNullException("pluginLocator");
 
-        /// <summary>
-        /// Creates a new <see cref="CreatedAcadProcess"/> instance.
-        /// </summary>
-        /// <param name="logger">A logger.</param>
-        /// <param name="commandRunner">A AutoCAD command runner.</param>
-        /// <param name="executable">The path to the AutoCAD executable.</param>
-        /// <param name="processCreator">A process creator.</param>
-        /// <param name="debuggerManager">A debugger mananger.</param>
-        /// <param name="pluginLocator">A plugin locator.</param>
-        public CreatedAcadProcess(ILogger logger, IAcadCommandRunner commandRunner,
-            string executable, IProcessCreator processCreator, IDebuggerManager debuggerManager,
-            IAcadPluginLocator pluginLocator)
-            : base(logger, commandRunner, pluginLocator)
-        {
-            if (executable == null)
-                throw new ArgumentNullException("executable");
-            if (processCreator == null)
-                throw new ArgumentNullException("processCreator");
-            if (debuggerManager == null)
-                throw new ArgumentNullException("debuggerManager");
-            if (pluginLocator == null)
-                throw new ArgumentNullException("pluginLocator");
-
-            startInfo = new ProcessStartInfo(executable);
-            this.processCreator = processCreator;
-            this.debuggerManager = debuggerManager;
-        }
-
-        /// <inheritdoc/>
-        protected override IProcess StartProcess(DebuggerSetup debuggerSetup)
-        {
-            if (process != null)
-                throw new InvalidOperationException("Process already started.");
-
-            process = StartProcessWithDebugger(debuggerSetup) ?? processCreator.Start(startInfo);
-            return process;
-        }
-
-        private IProcess StartProcessWithDebugger(DebuggerSetup debuggerSetup)
-        {
-            if (debuggerSetup == null)
-                return null;
-
-            var debugger = debuggerManager.GetDebugger(debuggerSetup, Logger);
-            var actual = debugger.LaunchProcess(startInfo);
-            return new ProcessWrapper(actual);
-        }
-
-        /// <inheritdoc/>
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-
-            // Shut the AutoCAD process down after calling into base class's Dispose(). This allows
-            // the AutoCAD process a bit of time to complete the current command before we kill it.
-            if (disposing && process != null)
-            {
-                var ownedProcess = Interlocked.Exchange(ref process, null);
-                if (ownedProcess == null)
-                    return;
-
-                if (!ownedProcess.HasExited)
-                    ownedProcess.Kill();
-
-                ownedProcess.Dispose();
-            }
-        }
-
-        /// <summary>
-        /// Gets the command line arguments passed to the AutoCAD process.
-        /// </summary>
-        public string Arguments
-        {
-            get { return startInfo.Arguments; }
-            set { startInfo.Arguments = value; }
-        }
-
-        /// <summary>
-        /// Gets the path the to AutoCAD executable.
-        /// </summary>
-        public string FileName
-        {
-            get { return startInfo.FileName; }
-        }
-
-        /// <summary>
-        /// Gets the working directory used to start a new AutoCAD process.
-        /// </summary>
-        public string WorkingDirectory
-        {
-            get { return startInfo.WorkingDirectory; }
-            set { startInfo.WorkingDirectory = value; }
-        }
+      startInfo = new ProcessStartInfo(executable);
+      this.processCreator = processCreator;
+      this.debuggerManager = debuggerManager;
     }
+
+    /// <inheritdoc/>
+    protected override IProcess StartProcess(DebuggerSetup debuggerSetup)
+    {
+      if (process != null)
+        throw new InvalidOperationException("Process already started.");
+
+      process = StartProcessWithDebugger(debuggerSetup) ?? processCreator.Start(startInfo);
+      return process;
+    }
+
+    private IProcess StartProcessWithDebugger(DebuggerSetup debuggerSetup)
+    {
+      if (debuggerSetup == null)
+        return null;
+
+      var debugger = debuggerManager.GetDebugger(debuggerSetup, Logger);
+      var actual = debugger.LaunchProcess(startInfo);
+      return new ProcessWrapper(actual);
+    }
+
+    /// <inheritdoc/>
+    protected override void Dispose(bool disposing)
+    {
+      base.Dispose(disposing);
+
+      // Shut the AutoCAD process down after calling into base class's Dispose(). This allows
+      // the AutoCAD process a bit of time to complete the current command before we kill it.
+      if (disposing && process != null)
+      {
+        var ownedProcess = Interlocked.Exchange(ref process, null);
+        if (ownedProcess == null)
+          return;
+
+        if (!ownedProcess.HasExited)
+          ownedProcess.Kill();
+
+        //[BSE 21.11.20]lmu is the detailed process for the AutoDesk component. 
+        //Somethimes this AutoDesk component doenst kill correctly, killing the following processes will do this.
+        Process[] lmuProcesses = Process.GetProcessesByName("lmu");
+        foreach (Process lmuProcess in lmuProcesses)
+        {
+          lmuProcess.Kill();
+          lmuProcess.Dispose();
+        }
+
+        ownedProcess.Dispose();
+      }
+    }
+
+    /// <summary>
+    /// Gets the command line arguments passed to the AutoCAD process.
+    /// </summary>
+    public string Arguments
+    {
+      get { return startInfo.Arguments; }
+      set { startInfo.Arguments = value; }
+    }
+
+    /// <summary>
+    /// Gets the path the to AutoCAD executable.
+    /// </summary>
+    public string FileName
+    {
+      get { return startInfo.FileName; }
+    }
+
+    /// <summary>
+    /// Gets the working directory used to start a new AutoCAD process.
+    /// </summary>
+    public string WorkingDirectory
+    {
+      get { return startInfo.WorkingDirectory; }
+      set { startInfo.WorkingDirectory = value; }
+    }
+  }
 }

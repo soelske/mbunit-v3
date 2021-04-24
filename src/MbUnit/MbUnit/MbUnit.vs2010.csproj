@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MbUnit.plugin" />
+    <Compile Include="Framework\Assert.Excel.cs" />
     <None Include="Resources\Database_EnCountries.xml" />
     <None Include="Resources\Database_EnUSMaleNames.xml" />
     <Content Include="Resources\MbUnit.ico" />

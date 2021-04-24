@@ -85,6 +85,7 @@
       <Link>Revision.cs</Link>
     </Compile>
     <Compile Include="Framework\AssertTest_Count.cs" />
+    <Compile Include="Framework\AssertTest_Excel_AreEqual.cs" />
     <Compile Include="Framework\ContractVerifiers\Core\HashStoreResultTest.cs" />
     <Compile Include="Framework\ContractVerifiers\Core\HashStoreTest.cs" />
     <Compile Include="Framework\ContractVerifiers\HashCodeAcceptanceContractTest.cs" />
@@ -246,6 +247,10 @@
     <EmbeddedResource Include="Framework\SolarSystemWithErrors.xml" />
     <EmbeddedResource Include="Framework\SampleBinaryResource.bin" />
     <EmbeddedResource Include="Framework\CsvDataWithEmptyCellsTest.csv" />
+    <EmbeddedResource Include="Framework\AssertTest_Excel_AreEqual.xls" />
+    <EmbeddedResource Include="Framework\AssertTest_Excel_AreEqual_copy.xls" />
+    <EmbeddedResource Include="Framework\AssertTest_Excel_AreNotEqual.xls" />
+    <EmbeddedResource Include="Framework\AssertTest_Excel_AreNotEqual_missing_image.xls" />
     <None Include="MbUnit.Tests.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

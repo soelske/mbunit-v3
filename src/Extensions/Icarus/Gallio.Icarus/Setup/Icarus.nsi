@@ -29,13 +29,6 @@ Icon "${PRODUCT_DIR}\..\Resources\Gallio.Icarus.ico"
 
 InstallDir "${INSTALL_LOCATION}"
 
-; MUI Settings
-;!define MUI_ABORTWARNING
-;!define MUI_ICON "$XX_SETUP$\Resources\xx_Ts.ico"
-;!define MUI_UNICON "$XX_SETUP$\Resources\xx_Ts.ico"
-
-;!define OUTFILE_NAME "${PRODUCT_NAME} ${PRODUCT_VERSION}.exe"
-
 !define PRODUCT_UN_INST_KEY_NAME "${PRODUCT_NAME}"
 
 ;!define CONTENTS_SUBDIR "Contents\"
@@ -48,8 +41,6 @@ Section -"Common" SEC_COMMON
   SetOverwrite ifnewer
 
   SetOutPath "$INSTDIR"
-
-  ;File "${PRODUCT_DIR}\..\Resources\Gallio.Icarus.ico"
   
   ; Programma bestanden
   File "${PRODUCT_DIR}\*.exe"
@@ -57,14 +48,10 @@ Section -"Common" SEC_COMMON
   File "${PRODUCT_DIR}\*.dll"
   File /nonfatal "${PRODUCT_DIR}\*.bmp"
   File /nonfatal "${PRODUCT_DIR}\*.ico"
-
-  ;Icons voor toolbar/ribbon
-  ;SetOutPath "$INSTDIR\TcFormtools\Icons"
-  ;File "${PRODUCT_DIR}\..\Icons\*.*"
-
-  ;blocks
-  ;SetOutPath "$INSTDIR\TcFormtools\Blocks"
-  ;File "${PRODUCT_DIR}\..\Blocks\*.*"
+  
+  ;plugins 
+  SetOutPath "$INSTDIR\Plugins"
+  File /r "${PRODUCT_DIR}\..\Setup\bin\Plugins\*.*"
   
   CreateShortCut "$%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\${PRODUCT_NAME}.lnk" "$INSTDIR\Gallio.Icarus.exe"
   CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\Gallio.Icarus.exe"

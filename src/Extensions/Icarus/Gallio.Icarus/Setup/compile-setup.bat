@@ -3,17 +3,12 @@ SET OUTPUTFOLDER=%~d0%~p0..\bin
 SET NSISOURCE="%~d0%~p0\Icarus.nsi"
 SET NSIDEST="%~d0%~p0\bin\Icarus.nsi"
 
-rem SET NSIUSERINSTALLSOURCE="%XX_SETUP%\xx_acad_user_installer.nsi"
-rem SET NSIUSERINSTALL="%~d0%~p0\bin\xx_acad_user_installer.nsi"
-
-rem IF "%XX_SETUP%"=="" ECHO error TS0010: xx_setup pad niet gevonden. Zet env. var XX_SETUP op root dir van xx_setup (vb. C:\progs\algemeen\xx_setup of C:\progs\xx_setup)
-
 COPY %NSISOURCE% %NSIDEST%
-rem COPY %NSIUSERINSTALLSOURCE% %NSIUSERINSTALL%
 
 XCOPY /Y "%~d0%~p0*.nsh" "%~d0%~p0bin\"
 XCOPY /Y "%~d0%~p0*.ini" "%~d0%~p0bin"
-rem XCOPY /Y "%XX_SETUP%\xx_*.ini" "%~d0%~p0Exec\"
+
+CALL "%~d0%~p0plugins.bat"
 
 %XX_PROGS%\xx_tools\exec\xx_tools.exe getversioninfo "%OUTPUTFOLDER%\Gallio.Icarus.exe" "FileVersion" > %TMP%\version.tmp
 REM Versienummer opvragen van executable
@@ -42,6 +37,10 @@ IF NOT EXIST "%ProgramFiles(x86)%\NSIS\makensis.exe" goto nsis_notinstalled
 CALL "%ProgramFiles(x86)%\NSIS\makensis.exe" "%NSIDEST%"
 
 IF NOT errorlevel 0 goto error_code
+
+rmdir /s /q "%~d0%~p0\bin\Plugins"
+
+goto end
 
 :error_code
 ECHO "Setup build error"

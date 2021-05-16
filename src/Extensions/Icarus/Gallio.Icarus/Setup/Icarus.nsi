@@ -53,6 +53,10 @@ Section -"Common" SEC_COMMON
   SetOutPath "$INSTDIR\Plugins"
   File /r "${PRODUCT_DIR}\..\Setup\bin\Plugins\*.*"
   
+  ;resources 
+  SetOutPath "$INSTDIR\Resources"
+  File /r "${PRODUCT_DIR}\..\Setup\bin\Resources\*.*"
+  
   CreateShortCut "$%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\${PRODUCT_NAME}.lnk" "$INSTDIR\Gallio.Icarus.exe"
   CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\Gallio.Icarus.exe"
   

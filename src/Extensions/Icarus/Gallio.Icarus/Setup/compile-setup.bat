@@ -8,6 +8,10 @@ COPY %NSISOURCE% %NSIDEST%
 XCOPY /Y "%~d0%~p0*.nsh" "%~d0%~p0bin\"
 XCOPY /Y "%~d0%~p0*.ini" "%~d0%~p0bin"
 
+XCOPY /Y /R "%cd%\..\..\..\..\Gallio\Gallio.Host\bin\Gallio.Host.exe" "%OUTPUTFOLDER%"
+XCOPY /Y /R "%cd%\..\..\..\..\MbUnit\MbUnit\bin\MbUnit.dll" "%OUTPUTFOLDER%"
+
+CALL "%~d0%~p0resources.bat"
 CALL "%~d0%~p0plugins.bat"
 
 %XX_PROGS%\xx_tools\exec\xx_tools.exe getversioninfo "%OUTPUTFOLDER%\Gallio.Icarus.exe" "FileVersion" > %TMP%\version.tmp
@@ -38,7 +42,10 @@ CALL "%ProgramFiles(x86)%\NSIS\makensis.exe" "%NSIDEST%"
 
 IF NOT errorlevel 0 goto error_code
 
+del "%OUTPUTFOLDER%\Gallio.Host.exe"
+del "%OUTPUTFOLDER%\MbUnit.dll"
 rmdir /s /q "%~d0%~p0\bin\Plugins"
+rmdir /s /q "%~d0%~p0\bin\Resources"
 
 goto end
 

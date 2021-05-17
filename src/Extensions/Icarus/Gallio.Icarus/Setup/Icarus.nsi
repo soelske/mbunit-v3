@@ -57,6 +57,10 @@ Section -"Common" SEC_COMMON
   SetOutPath "$INSTDIR\Resources"
   File /r "${PRODUCT_DIR}\..\Setup\bin\Resources\*.*"
   
+  ;Gallio.Reports.plugin, verplaatst.
+  IfFileExists "$INSTDIR\Plugins\Gallio.Reports.plugin" 0 +2
+  Delete "$INSTDIR\Plugins\Gallio.Reports.plugin"
+  
   CreateShortCut "$%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs\${PRODUCT_NAME}.lnk" "$INSTDIR\Gallio.Icarus.exe"
   CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\Gallio.Icarus.exe"
   

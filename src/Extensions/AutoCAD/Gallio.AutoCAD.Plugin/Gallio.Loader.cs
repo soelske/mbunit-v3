@@ -216,7 +216,7 @@ namespace Gallio.Loader
       return GetRuntimePathUsingEnvironment()
           ?? GetRuntimePathUsingRegistry()
           ?? GetRuntimePathUsingApplicationBaseDirectoryOrAncestor()
-          ?? GetRuntimePathUsingGallioAssembly();
+          ?? GetRuntimePathUsingAutoCadAssembly();
     }
 
     /// <summary>
@@ -282,7 +282,7 @@ namespace Gallio.Loader
     }
 
     /// <summary>
-    /// Gets the Gallio runtime path by searching the current loaded gallio assembly directory
+    /// Gets the Gallio runtime path by searching the current loaded autocad assembly directory
     /// and its ancestors for Gallio.dll.
     /// </summary>
     /// <remarks>
@@ -293,9 +293,9 @@ namespace Gallio.Loader
     /// application resides in the Gallio source tree.
     /// </remarks>
     /// <returns>The runtime path, or null if not found.</returns>
-    protected virtual string GetRuntimePathUsingGallioAssembly()
+    protected virtual string GetRuntimePathUsingAutoCadAssembly()
     {
-      string candidatePath = Assembly.GetAssembly(typeof(Runtime.Loader.GallioLoaderLocator)).Location;
+      string candidatePath = Assembly.GetAssembly(typeof(AutoCAD.Plugin.Commands)).Location;
       while (candidatePath != null)
       {
         if (IsRuntimePathValid(candidatePath))

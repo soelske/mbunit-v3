@@ -91,6 +91,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="AcadPluginLocatorTest.cs" />
     <Compile Include="Commands\CreateEndpointAndWaitCommandTest.cs" />
     <Compile Include="Commands\NetLoadCommandTest.cs" />

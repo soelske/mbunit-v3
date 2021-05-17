@@ -97,6 +97,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="EchoArguments.cs" />
     <Compile Include="EchoProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,11 +108,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Revision.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Gallio.Echo.plugin" />
+    <None Include="Gallio.Echo.plugin">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\Gallio.Echo.ico" />
     <None Include="Gallio.Echo.exe.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

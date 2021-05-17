@@ -27,12 +27,6 @@ FOR /R %%f IN ("*.plugin") DO (
   XCOPY /Y /R "%%f" "%pluginDir%"
 )
 
-rem cd %cd%\Gallio\Gallio.Reports\Resources\
-
-rem FOR /R %%f IN ("*.*") DO (
-rem   XCOPY /Y /R "%%f" "%reportsDir%\Resources"
-rem )
-
 cd %pluginDir%
 
 FOR /R %%f IN ("*AutoCad*.plugin") DO (

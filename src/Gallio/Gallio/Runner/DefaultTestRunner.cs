@@ -199,148 +199,156 @@ namespace Gallio.Runner
             }
         }
 
-        /// <inheritdoc />
-        public Report Explore(TestPackage testPackage, TestExplorationOptions testExplorationOptions, IProgressMonitor progressMonitor)
+    /// <inheritdoc />
+    public Report Explore(TestPackage testPackage, TestExplorationOptions testExplorationOptions, IProgressMonitor progressMonitor)
+    {
+      if (testPackage == null)
+        throw new ArgumentNullException("testPackageConfig");
+      if (testExplorationOptions == null)
+        throw new ArgumentNullException("testExplorationOptions");
+      if (progressMonitor == null)
+        throw new ArgumentNullException("progressMonitor");
+
+      ThrowIfDisposed();
+      if (state != State.Initialized)
+        throw new InvalidOperationException("The test runner must be initialized before this operation is performed.");
+
+      testPackage = testPackage.Copy();
+      testExplorationOptions = testExplorationOptions.Copy();
+      GenericCollectionUtils.ForEach(testRunnerOptions.Properties, x => testPackage.AddProperty(x.Key, x.Value));
+
+      using (progressMonitor.BeginTask("Exploring the tests.", 10))
+      {
+        Report report = new Report()
         {
-            if (testPackage == null)
-                throw new ArgumentNullException("testPackageConfig");
-            if (testExplorationOptions == null)
-                throw new ArgumentNullException("testExplorationOptions");
-            if (progressMonitor == null)
-                throw new ArgumentNullException("progressMonitor");
+          TestPackage = new TestPackageData(testPackage),
+          TestModel = new TestModelData()
+        };
+        var reportLockBox = new LockBox<Report>(report);
 
-            ThrowIfDisposed();
-            if (state != State.Initialized)
-                throw new InvalidOperationException("The test runner must be initialized before this operation is performed.");
+        eventDispatcher.NotifyExploreStarted(new ExploreStartedEventArgs(testPackage,
+            testExplorationOptions, reportLockBox));
 
-            testPackage = testPackage.Copy();
-            testExplorationOptions = testExplorationOptions.Copy();
-            GenericCollectionUtils.ForEach(testRunnerOptions.Properties, x => testPackage.AddProperty(x.Key, x.Value));
+        bool success;
+        using (Listener listener = new Listener(eventDispatcher, tappedLogger, reportLockBox))
+        {
+          try
+          {
+            ITestDriver testDriver = testFrameworkManager.GetTestDriver(
+                testPackage.CreateTestFrameworkSelector(), tappedLogger);
 
-            using (progressMonitor.BeginTask("Exploring the tests.", 10))
+            using (testIsolationContext.BeginBatch(progressMonitor.SetStatus))
             {
-                Report report = new Report()
-                {
-                    TestPackage = new TestPackageData(testPackage),
-                    TestModel = new TestModelData()
-                };
-                var reportLockBox = new LockBox<Report>(report);
-
-                eventDispatcher.NotifyExploreStarted(new ExploreStartedEventArgs(testPackage,
-                    testExplorationOptions, reportLockBox));
-
-                bool success;
-                using (Listener listener = new Listener(eventDispatcher, tappedLogger, reportLockBox))
-                {
-                    try
-                    {
-                        ITestDriver testDriver = testFrameworkManager.GetTestDriver(
-                            testPackage.CreateTestFrameworkSelector(), tappedLogger);
-
-                        using (testIsolationContext.BeginBatch(progressMonitor.SetStatus))
-                        {
-                            testDriver.Explore(testIsolationContext, testPackage, testExplorationOptions,
-                                listener, progressMonitor.CreateSubProgressMonitor(10));
-                        }
-
-                        success = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        success = false;
-
-                        tappedLogger.Log(LogSeverity.Error,
-                            "A fatal exception occurred while exploring tests.  Possible causes include invalid test runner parameters.",
-                            ex);
-                        report.TestModel.Annotations.Add(new AnnotationData(AnnotationType.Error,
-                            CodeLocation.Unknown, CodeReference.Unknown,
-                            "A fatal exception occurred while exploring tests.  See log for details.", null));
-                    }
-                }
-
-                eventDispatcher.NotifyExploreFinished(new ExploreFinishedEventArgs(success, report));
-
-                return report;
+              testDriver.Explore(testIsolationContext, testPackage, testExplorationOptions,
+                  listener, progressMonitor.CreateSubProgressMonitor(10));
             }
+
+            success = true;
+          }
+          catch (Exception ex)
+          {
+            success = false;
+
+            tappedLogger.Log(LogSeverity.Error,
+                "A fatal exception occurred while exploring tests.  Possible causes include invalid test runner parameters.",
+                ex);
+            report.TestModel.Annotations.Add(new AnnotationData(AnnotationType.Error,
+                CodeLocation.Unknown, CodeReference.Unknown,
+                "A fatal exception occurred while exploring tests.  See log for details.", ex.InnerException.Message));
+            if (ex.InnerException.Message.ToLower().Equals("unable to acquire the active document from autocad."))
+              report.TestModel.Annotations.Add(new AnnotationData(AnnotationType.Warning,
+                CodeLocation.Unknown, CodeReference.Unknown,
+                ex.InnerException.Message, "Set AutoCAD Sytem variable 'STARTUP' to '0'." ));
+          }
         }
 
-        /// <inheritdoc />
-        public Report Run(TestPackage testPackage, TestExplorationOptions testExplorationOptions, TestExecutionOptions testExecutionOptions, IProgressMonitor progressMonitor)
+        eventDispatcher.NotifyExploreFinished(new ExploreFinishedEventArgs(success, report));
+
+        return report;
+      }
+    }
+
+    /// <inheritdoc />
+    public Report Run(TestPackage testPackage, TestExplorationOptions testExplorationOptions, TestExecutionOptions testExecutionOptions, IProgressMonitor progressMonitor)
+    {
+      if (testPackage == null)
+        throw new ArgumentNullException("testPackageConfig");
+      if (testExplorationOptions == null)
+        throw new ArgumentNullException("testExplorationOptions");
+      if (testExecutionOptions == null)
+        throw new ArgumentNullException("testExecutionOptions");
+      if (progressMonitor == null)
+        throw new ArgumentNullException("progressMonitor");
+
+      ThrowIfDisposed();
+      if (state != State.Initialized)
+        throw new InvalidOperationException("The test runner must be initialized before this operation is performed.");
+
+      testPackage = testPackage.Copy();
+      testExplorationOptions = testExplorationOptions.Copy();
+      testExecutionOptions = testExecutionOptions.Copy();
+      GenericCollectionUtils.ForEach(testRunnerOptions.Properties, x => testPackage.AddProperty(x.Key, x.Value));
+
+      using (progressMonitor.BeginTask("Running the tests.", 10))
+      {
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        Report report = new Report()
         {
-            if (testPackage == null)
-                throw new ArgumentNullException("testPackageConfig");
-            if (testExplorationOptions == null)
-                throw new ArgumentNullException("testExplorationOptions");
-            if (testExecutionOptions == null)
-                throw new ArgumentNullException("testExecutionOptions");
-            if (progressMonitor == null)
-                throw new ArgumentNullException("progressMonitor");
+          TestPackage = new TestPackageData(testPackage),
+          TestModel = new TestModelData(),
+          TestPackageRun = new TestPackageRun()
+          {
+            StartTime = DateTime.Now
+          }
+        };
+        var reportLockBox = new LockBox<Report>(report);
 
-            ThrowIfDisposed();
-            if (state != State.Initialized)
-                throw new InvalidOperationException("The test runner must be initialized before this operation is performed.");
+        eventDispatcher.NotifyRunStarted(new RunStartedEventArgs(testPackage, testExplorationOptions,
+            testExecutionOptions, reportLockBox));
 
-            testPackage = testPackage.Copy();
-            testExplorationOptions = testExplorationOptions.Copy();
-            testExecutionOptions = testExecutionOptions.Copy();
-            GenericCollectionUtils.ForEach(testRunnerOptions.Properties, x => testPackage.AddProperty(x.Key, x.Value));
+        bool success;
+        using (Listener listener = new Listener(eventDispatcher, tappedLogger, reportLockBox))
+        {
+          try
+          {
+            ITestDriver testDriver = testFrameworkManager.GetTestDriver(
+                testPackage.CreateTestFrameworkSelector(), tappedLogger);
 
-            using (progressMonitor.BeginTask("Running the tests.", 10))
+            using (testIsolationContext.BeginBatch(progressMonitor.SetStatus))
             {
-                Stopwatch stopwatch = Stopwatch.StartNew();
-                Report report = new Report()
-                {
-                    TestPackage = new TestPackageData(testPackage),
-                    TestModel = new TestModelData(),
-                    TestPackageRun = new TestPackageRun()
-                    {
-                        StartTime = DateTime.Now
-                    }
-                };
-                var reportLockBox = new LockBox<Report>(report);
-
-                eventDispatcher.NotifyRunStarted(new RunStartedEventArgs(testPackage, testExplorationOptions,
-                    testExecutionOptions, reportLockBox));
-
-                bool success;
-                using (Listener listener = new Listener(eventDispatcher, tappedLogger, reportLockBox))
-                {
-                    try
-                    {
-                        ITestDriver testDriver = testFrameworkManager.GetTestDriver(
-                            testPackage.CreateTestFrameworkSelector(), tappedLogger);
-
-                        using (testIsolationContext.BeginBatch(progressMonitor.SetStatus))
-                        {
-                            testDriver.Run(testIsolationContext, testPackage, testExplorationOptions,
-                                testExecutionOptions, listener, progressMonitor.CreateSubProgressMonitor(10));
-                        }
-
-                        success = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        success = false;
-
-                        tappedLogger.Log(LogSeverity.Error,
-                            "A fatal exception occurred while running tests.  Possible causes include invalid test runner parameters and stack overflows.",
-                            ex);
-                        report.TestModel.Annotations.Add(new AnnotationData(AnnotationType.Error,
-                            CodeLocation.Unknown, CodeReference.Unknown,
-                            "A fatal exception occurred while running tests.  See log for details.", null));
-                    }
-                    finally
-                    {
-                        report.TestPackageRun.EndTime = DateTime.Now;
-                        report.TestPackageRun.Statistics.Duration = stopwatch.Elapsed.TotalSeconds;
-                    }
-                }
-
-                eventDispatcher.NotifyRunFinished(new RunFinishedEventArgs(success, report));
-
-                return report;
+              testDriver.Run(testIsolationContext, testPackage, testExplorationOptions,
+                  testExecutionOptions, listener, progressMonitor.CreateSubProgressMonitor(10));
             }
+
+            success = true;
+          }
+          catch (Exception ex)
+          {
+            success = false;
+
+            tappedLogger.Log(LogSeverity.Error,
+                "A fatal exception occurred while running tests.  Possible causes include invalid test runner parameters and stack overflows.",
+                ex);
+            report.TestModel.Annotations.Add(new AnnotationData(AnnotationType.Error,
+                CodeLocation.Unknown, CodeReference.Unknown,
+                "A fatal exception occurred while running tests.  See log for details.", ex.InnerException.Message));
+            if(ex.InnerException.Message.ToLower().Equals("unable to acquire the active document from autocad."))
+              report.TestModel.Annotations.Add(new AnnotationData(AnnotationType.Warning,
+                CodeLocation.Unknown, CodeReference.Unknown,
+                ex.InnerException.Message, "Set AutoCAD Sytem variable 'STARTUP' to '0'."));
+          }
+          finally
+          {
+            report.TestPackageRun.EndTime = DateTime.Now;
+            report.TestPackageRun.Statistics.Duration = stopwatch.Elapsed.TotalSeconds;
+          }
         }
+
+        eventDispatcher.NotifyRunFinished(new RunFinishedEventArgs(success, report));
+
+        return report;
+      }
+    }
 
         /// <inheritdoc />
         public void Dispose(IProgressMonitor progressMonitor)

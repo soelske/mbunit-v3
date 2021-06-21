@@ -141,13 +141,20 @@ namespace Gallio.AutoCAD.Commands
                 }
             }
 
-            private static object GetActiveDocument(object application)
-            {
-                var document = application.GetType().InvokeMember("ActiveDocument", BindingFlags.GetProperty, null, application, null);
-                if (document == null)
-                    throw new InvalidOperationException("Unable to acquire the active document from AutoCAD.");
-                return document;
-            }
+      private static object GetActiveDocument(object application)
+      {
+        object document = null;
+        try
+        {
+          document = application.GetType().InvokeMember("ActiveDocument", BindingFlags.GetProperty, null, application, null);
+        }
+        catch (Exception)
+        {
+        }
+        if (document == null)
+          throw new InvalidOperationException("Unable to acquire the active document from AutoCAD.");
+        return document;
+      }
         }
 
         private class CommandTaskResult : IAsyncResult

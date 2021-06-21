@@ -85,32 +85,32 @@ namespace Gallio.Icarus.Annotations
         {
             showErrors = value;
             optionsController.AnnotationsShowErrors = value;
-            UpdateList();
+            UpdateList(false);
         }
 
         public void ShowWarnings(bool value)
         {
             showWarnings = value;
             optionsController.AnnotationsShowWarnings = value;
-            UpdateList();
+            UpdateList(false);
         }
 
         public void ShowInfos(bool value)
         {
             showInfos = value;
             optionsController.AnnotationsShowInfos = value;
-            UpdateList();
+            UpdateList(false);
         }
 
-        private void UpdateList()
-        {
-            annotations.Clear();
-            testController.ReadReport(r => annotations = r.TestModel.Annotations);
-            OnPropertyChanged(new PropertyChangedEventArgs("Annotations"));
-            OnPropertyChanged(new PropertyChangedEventArgs("ErrorsText"));
-            OnPropertyChanged(new PropertyChangedEventArgs("WarningsText"));
-            OnPropertyChanged(new PropertyChangedEventArgs("InfoText"));
-        }
+    private void UpdateList(bool clear)
+    {
+      if (clear) annotations.Clear();
+      testController.ReadReport(r => annotations = r.TestModel.Annotations);
+      OnPropertyChanged(new PropertyChangedEventArgs("Annotations"));
+      OnPropertyChanged(new PropertyChangedEventArgs("ErrorsText"));
+      OnPropertyChanged(new PropertyChangedEventArgs("WarningsText"));
+      OnPropertyChanged(new PropertyChangedEventArgs("InfoText"));
+    }
 
         private bool FilterAnnotation(AnnotationData annotationData)
         {
@@ -139,7 +139,7 @@ namespace Gallio.Icarus.Annotations
 
         public void Handle(ExploreFinished @event)
         {
-            UpdateList();
+            UpdateList(true);
         }
     }
 }

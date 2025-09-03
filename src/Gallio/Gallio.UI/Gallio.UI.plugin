@@ -4,7 +4,7 @@
         xmlns="http://www.gallio.org/">
   <traits>
     <name>Gallio UI Library</name>
-    <version>4.0.0.0</version>
+   <version>3.4.11.0</version>
     <description>Gallio UI components.</description>
     <icon>plugin://Gallio/Resources/Gallio.ico</icon>
   </traits>

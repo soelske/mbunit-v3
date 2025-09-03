@@ -80,9 +80,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\Revision.cs">
-      <Link>Revision.cs</Link>
-    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="Package.cs" />

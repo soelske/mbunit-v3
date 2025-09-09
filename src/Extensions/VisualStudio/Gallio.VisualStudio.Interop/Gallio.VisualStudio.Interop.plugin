@@ -4,7 +4,7 @@
         xmlns="http://www.gallio.org/">
   <traits>
     <name>Visual Studio Interoperability Plugin</name>
-    <version>4.0.0.0</version>
+   <version>0.0.0.0</version>
     <description>Provides support for opening files in Visual Studio and launching the debugger.</description>
   </traits>
 

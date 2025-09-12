@@ -27,7 +27,7 @@ namespace Gallio.Model.Messages.Execution
     /// Notifies that a test step has started execution and provides its definition.
     /// </summary>
     [Serializable]
-    public class TestStepStartedMessage : Message
+    public class TestStepStartedMessage : Common.Messaging.Message
     {
         [NonSerialized]
         private ICodeElementInfo codeElement;
@@ -53,7 +53,7 @@ namespace Gallio.Model.Messages.Execution
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             TestStepData normalizedStep = Step.Normalize();
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gallio", "Gallio", "{C5B6C601-8C62-46DB-B87D-BDBDEA30E0AA}"
 EndProject
@@ -44,6 +44,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MbUnit40.vs2010", "..\MbUnit\MbUnit40\MbUnit40.vs2010.csproj", "{6D335678-FFFE-4C62-9BD0-D19D835263FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MbUnit40.Tests.vs2010", "..\MbUnit\MbUnit40.Tests\MbUnit40.Tests.vs2010.csproj", "{545B3488-FD55-463A-8E64-58627C3023AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.Core", "Gallio.Core\Gallio.Core.csproj", "{08533110-A324-4F51-AECF-7B310D49C3F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -205,6 +207,14 @@ Global
 		{545B3488-FD55-463A-8E64-58627C3023AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{545B3488-FD55-463A-8E64-58627C3023AA}.Release|x64.ActiveCfg = Release|x64
 		{545B3488-FD55-463A-8E64-58627C3023AA}.Release|x64.Build.0 = Release|x64
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Debug|x64.Build.0 = Debug|Any CPU
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Release|x64.ActiveCfg = Release|Any CPU
+		{08533110-A324-4F51-AECF-7B310D49C3F2}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -229,6 +239,7 @@ Global
 		{D147F5CC-0166-4B9C-B095-F905220090FA} = {2E3CD174-0E74-42A4-8367-B6C40B005D33}
 		{6D335678-FFFE-4C62-9BD0-D19D835263FC} = {2E3CD174-0E74-42A4-8367-B6C40B005D33}
 		{545B3488-FD55-463A-8E64-58627C3023AA} = {2E3CD174-0E74-42A4-8367-B6C40B005D33}
+		{08533110-A324-4F51-AECF-7B310D49C3F2} = {C5B6C601-8C62-46DB-B87D-BDBDEA30E0AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4746B9D5-8A02-4E6A-8B22-C5D3114576F7}

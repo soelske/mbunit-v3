@@ -39,6 +39,21 @@ namespace Gallio.Common.Platform
         /// <summary>
         /// .Net Framework 4.0.
         /// </summary>
-        DotNet40 = 3
+        DotNet40 = 3,
+
+        /// <summary>
+        /// .NET Standard 2.0 (library compatibility baseline)
+        /// </summary>
+        NetStandard20 = 4,
+
+        /// <summary>
+        /// .NET 6.0 (LTS)
+        /// </summary>
+        Net60 = 5,
+
+        /// <summary>
+        /// .NET 8.0 (LTS)
+        /// </summary>
+        Net80 = 6
     }
 }

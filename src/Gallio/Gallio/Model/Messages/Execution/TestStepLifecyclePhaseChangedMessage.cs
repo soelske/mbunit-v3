@@ -24,7 +24,7 @@ namespace Gallio.Model.Messages.Execution
     /// Notifies that a test step has changed lifecycle phase.
     /// </summary>
     [Serializable]
-    public class TestStepLifecyclePhaseChangedMessage : Message
+    public class TestStepLifecyclePhaseChangedMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the id of the test step, not null.
@@ -45,7 +45,7 @@ namespace Gallio.Model.Messages.Execution
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedStepId = ModelNormalizationUtils.NormalizeTestComponentId(StepId);
             string normalizedLifecyclePhase = ModelNormalizationUtils.NormalizeLifecyclePhase(LifecyclePhase);

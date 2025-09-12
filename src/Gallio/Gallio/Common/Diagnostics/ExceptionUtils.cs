@@ -119,7 +119,9 @@ namespace Gallio.Common.Diagnostics
         /// </remarks>
         /// <param name="ex">The exception to rethrow.</param>
         [DebuggerStepThrough, DebuggerHidden]
+#if NETFRAMEWORK
         [ReflectionPermission(SecurityAction.Assert, MemberAccess=true)]
+#endif
         public static void RethrowWithNoStackTraceLoss(Exception ex)
         {
             if (ex == null)

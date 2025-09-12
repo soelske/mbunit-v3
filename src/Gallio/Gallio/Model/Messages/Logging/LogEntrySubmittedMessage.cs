@@ -26,7 +26,7 @@ namespace Gallio.Model.Messages.Logging
     /// Notifies that a diagnostic log message has been submitted.
     /// </summary>
     [Serializable]
-    public class LogEntrySubmittedMessage : Message
+    public class LogEntrySubmittedMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the log severity.
@@ -50,7 +50,7 @@ namespace Gallio.Model.Messages.Logging
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedMessage = ModelNormalizationUtils.NormalizeLogMessage(Message);
             ExceptionData normalizedExceptionData = ExceptionData != null ? ExceptionData.Normalize() : null;

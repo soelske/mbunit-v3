@@ -24,7 +24,7 @@ namespace Gallio.Model.Isolation.Messages
     /// Tells the client to shut down.
     /// </summary>
     [Serializable]
-    public class ShutdownMessage : Message
+    public class ShutdownMessage : Common.Messaging.Message
     {
     }
 }

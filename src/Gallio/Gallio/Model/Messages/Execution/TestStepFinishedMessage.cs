@@ -24,7 +24,7 @@ namespace Gallio.Model.Messages.Execution
     /// Notifies that a test step has finished execution.
     /// </summary>
     [Serializable]
-    public class TestStepFinishedMessage : Message
+    public class TestStepFinishedMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the id of the test step, not null.
@@ -44,7 +44,7 @@ namespace Gallio.Model.Messages.Execution
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedStepId = ModelNormalizationUtils.NormalizeTestComponentId(StepId);
             TestResult normalizedResult = Result.Normalize();

@@ -29,7 +29,7 @@ namespace Gallio.Runtime.Hosting
     {
         private readonly object watchdogLock = new object();
         private readonly int watchdogTimeoutMilliseconds;
-        private Timer watchdogTimer;
+        private System.Threading.Timer watchdogTimer;
         private bool watchdogTimerExpired;
 
         private readonly ManualResetEvent shutdownEvent;
@@ -97,7 +97,7 @@ namespace Gallio.Runtime.Hosting
 
             lock (watchdogLock)
             {
-                watchdogTimer = new Timer(HandleWatchdogTimerExpired, null, watchdogTimeoutMilliseconds, Timeout.Infinite);
+                watchdogTimer = new System.Threading.Timer(HandleWatchdogTimerExpired, null, watchdogTimeoutMilliseconds, Timeout.Infinite);
             }
         }
 

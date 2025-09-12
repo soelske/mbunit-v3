@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<!-- Multi-target build -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+	<UseWindowsForms>true</UseWindowsForms>
+	<AssemblyName>Gallio</AssemblyName>
+	<RootNamespace>Gallio</RootNamespace>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageId>Gallio</PackageId>
+	<Authors>Bart Suelze</Authors>
+	<Description>Modernized build of Gallio for .NET 8 and .NET Standard 2.0</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+  	<Compile Include="..\Gallio\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\Gallio\Common\Messaging\MessageFormatters\BinaryMessageFormatter.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\CciModuleCache.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedAssembly.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedCodeElementFactory.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedCodeElementFactoryInternal.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedConstructorInfo.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedCustomAttributeProvider.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedEventInfo.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedFieldInfo.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedMemberInfo.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedMethodBase.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedMethodInfo.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedParameterInfo.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedPropertyInfo.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedType.cs" />
+    <Compile Remove="..\Gallio\Common\Remoting\BaseChannel.cs" />
+    <Compile Remove="..\Gallio\Common\Remoting\BaseClientChannel.cs" />
+    <Compile Remove="..\Gallio\Common\Remoting\BaseServerChannel.cs" />
+    <Compile Remove="..\Gallio\Common\Remoting\BinaryIpcClientChannel.cs" />
+    <Compile Remove="..\Gallio\Common\Remoting\BinaryIpcServerChannel.cs" />
+    <Compile Remove="..\Gallio\Common\Remoting\BinaryTcpClientChannel.cs" />
+    <Compile Remove="..\Gallio\Common\Remoting\BinaryTcpServerChannel.cs" />
+    <Compile Remove="..\Gallio\Common\Security\Impersonation.cs" />
+    <Compile Remove="..\Gallio\Model\Contexts\DefaultTestContextTracker.cs" />
+    <Compile Remove="..\Gallio\Properties\AssemblyInfo.cs" />
+    <Compile Remove="..\Gallio\Runtime\Hosting\AppDomainUtils.cs" />
+    <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHost.cs" />
+    <Compile Remove="..\Gallio\Runtime\ProgressMonitoring\RemoteProgressMonitor.cs" />
+    <Compile Remove="..\Gallio\Runtime\Security\DefaultElevationManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Gallio\Gallio.plugin" Link="Gallio.plugin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ICSharpCode.SharpZipLib.dll" Version="0.85.4.369" />
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.9" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
+  </ItemGroup>
+
+</Project>

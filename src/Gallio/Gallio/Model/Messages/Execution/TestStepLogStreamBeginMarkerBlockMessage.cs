@@ -28,7 +28,7 @@ namespace Gallio.Model.Messages.Execution
     /// Notifies that a marker block has been started within a test step log stream.
     /// </summary>
     [Serializable]
-    public class TestStepLogStreamBeginMarkerBlockMessage : Message
+    public class TestStepLogStreamBeginMarkerBlockMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the id of the test step, not null.
@@ -53,7 +53,7 @@ namespace Gallio.Model.Messages.Execution
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedStepId = ModelNormalizationUtils.NormalizeTestComponentId(StepId);
             string normalizedStreamName = MarkupNormalizationUtils.NormalizeStreamName(StreamName);

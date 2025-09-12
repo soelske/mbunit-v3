@@ -28,7 +28,7 @@ namespace Gallio.Model.Messages.Execution
     /// Notifies that an attachment has been added to a test step log.
     /// </summary>
     [Serializable]
-    public class TestStepLogAttachMessage : Message
+    public class TestStepLogAttachMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the id of the test step, not null.
@@ -48,7 +48,7 @@ namespace Gallio.Model.Messages.Execution
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedStepId = ModelNormalizationUtils.NormalizeTestComponentId(StepId);
             Attachment normalizedAttachment = Attachment.Normalize();

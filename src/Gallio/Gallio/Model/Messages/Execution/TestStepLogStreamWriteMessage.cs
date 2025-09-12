@@ -27,7 +27,7 @@ namespace Gallio.Model.Messages.Execution
     /// Notifies that text has been written to a test step log stream.
     /// </summary>
     [Serializable]
-    public class TestStepLogStreamWriteMessage : Message
+    public class TestStepLogStreamWriteMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the id of the test step, not null.
@@ -53,7 +53,7 @@ namespace Gallio.Model.Messages.Execution
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedStepId = ModelNormalizationUtils.NormalizeTestComponentId(StepId);
             string normalizedStreamName = MarkupNormalizationUtils.NormalizeStreamName(StreamName);

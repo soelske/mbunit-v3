@@ -25,7 +25,7 @@ namespace Gallio.Model.Messages.Exploration
     /// Notifies that a test has been discovered by the test exploration process.
     /// </summary>
     [Serializable]
-    public class TestDiscoveredMessage : Message
+    public class TestDiscoveredMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the id of the parent test, or null if the test is the root.
@@ -44,7 +44,7 @@ namespace Gallio.Model.Messages.Exploration
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedParentTestId = ModelNormalizationUtils.NormalizeTestComponentId(ParentTestId);
             TestData normalizedTest = Test.Normalize();

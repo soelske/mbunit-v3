@@ -80,7 +80,7 @@ namespace Gallio.Model
         /// </para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="value"/> is null.</exception>
-        public AssemblySignature[] FrameworkAssemblies
+        public AssemblySignature[]FrameworkAssemblies
         {
             get { return frameworkAssemblies ?? EmptyArray<AssemblySignature>.Instance; }
             set

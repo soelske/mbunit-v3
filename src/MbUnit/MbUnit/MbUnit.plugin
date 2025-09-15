@@ -27,7 +27,7 @@
   </files>
 
   <assemblies>
-    <assembly fullName="MbUnit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e"
+    <assembly fullName="MbUnit, Version=3.4.11.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e"
               codeBase="MbUnit.dll"
               qualifyPartialName="true" />
   </assemblies>
@@ -38,7 +38,7 @@
                componentType="MbUnit.Core.MbUnitTestFramework, MbUnit">
       <traits>
         <name>MbUnit v3</name>
-        <frameworkAssemblies>MbUnit, Version=4.0.0.0</frameworkAssemblies>
+        <frameworkAssemblies>MbUnit, Version=3.4.11.0</frameworkAssemblies>
         <icon>plugin://MbUnit/Resources/MbUnit.ico</icon>
        <version>3.4.11.0</version>
         <fileTypes>Assembly</fileTypes>

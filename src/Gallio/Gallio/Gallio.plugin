@@ -37,7 +37,7 @@
   </files>
 
   <assemblies>
-    <assembly fullName="Gallio, Version=4.0.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e"
+    <assembly fullName="Gallio, Version=3.4.11.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e"
               codeBase="Gallio.dll"
               qualifyPartialName="true" />
   </assemblies>

@@ -23,7 +23,7 @@
   </files>
 
   <assemblies>
-    <assembly fullName="MbUnit35, Version=4.0.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e"
+    <assembly fullName="MbUnit35, Version=3.4.11.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e"
               codeBase="MbUnit35.dll"
               qualifyPartialName="true" />
   </assemblies>

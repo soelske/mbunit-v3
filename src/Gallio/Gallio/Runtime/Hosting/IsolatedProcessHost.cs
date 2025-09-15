@@ -196,7 +196,7 @@ namespace Gallio.Runtime.Hosting
             if (HostSetup.ApplicationBaseDirectory != null)
                 hostArguments.Append(@" /application-base-directory:""").Append(
                     FileUtils.StripTrailingBackslash(HostSetup.ApplicationBaseDirectory)).Append('"');
-            
+
             foreach (string hintDirectory in HostSetup.HintDirectories)
                 hostArguments.Append(@" /hint-directory:""").Append(
                     FileUtils.StripTrailingBackslash(hintDirectory)).Append('"');
@@ -343,7 +343,7 @@ namespace Gallio.Runtime.Hosting
         {
             var processTask = (ProcessTask)e.Task;
 
-            if (! processTask.Result.HasValue)
+            if (!processTask.Result.HasValue)
             {
                 Logger.Log(LogSeverity.Error, "Host process encountered an exception.", processTask.Result.Exception);
             }
@@ -390,7 +390,7 @@ namespace Gallio.Runtime.Hosting
 
         private void EnsureProcessIsRunning()
         {
-            if (! processTask.IsRunning)
+            if (!processTask.IsRunning)
                 throw new HostException("The host process terminated abruptly.");
         }
 
@@ -398,7 +398,7 @@ namespace Gallio.Runtime.Hosting
         {
             if (processTask != null)
             {
-                if (! abortImmediately)
+                if (!abortImmediately)
                 {
                     if (!processTask.Join(JoinBeforeAbortWarningTimeout))
                     {
@@ -408,7 +408,7 @@ namespace Gallio.Runtime.Hosting
                     }
                 }
 
-                if (! processTask.Join(TimeSpan.Zero))
+                if (!processTask.Join(TimeSpan.Zero))
                 {
                     Logger.Log(LogSeverity.Warning, "Forcibly killing the host process!");
                     processTask.Abort();

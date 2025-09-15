@@ -13,11 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Reflection;
 using Gallio.Common;
 using Gallio.Common.Collections;
 using Gallio.Common.Messaging;
@@ -26,8 +21,14 @@ using Gallio.Common.Reflection;
 using Gallio.Model.Isolation;
 using Gallio.Runtime.Extensibility;
 using Gallio.Runtime.FileTypes;
+using Gallio.Runtime.Hosting;
 using Gallio.Runtime.Logging;
 using Gallio.Runtime.ProgressMonitoring;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace Gallio.Model

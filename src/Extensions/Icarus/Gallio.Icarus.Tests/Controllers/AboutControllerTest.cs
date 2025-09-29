@@ -44,6 +44,7 @@ namespace Gallio.Icarus.Tests.Controllers
         }
 
         [Test]
+        [System.Diagnostics.DebuggerNonUserCode]
         public void Ctor_should_throw_if_TestFrameworkManager_is_null()
         {
             Assert.Throws<ArgumentNullException>(() => new AboutController(null));

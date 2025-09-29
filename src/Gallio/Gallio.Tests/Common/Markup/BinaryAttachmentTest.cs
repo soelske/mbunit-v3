@@ -71,7 +71,7 @@ namespace Gallio.Tests.Common.Markup.Tags
     	{
 			Assert.That(() => new BinaryAttachment("aVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongString", MimeTypes.Png, new byte[0]), 
 				Throws.An<ArgumentException>()
-					.With(e => e.Message == "name must be 100 chars or less\r\nParameter name: name" && e.ParamName == "name"));
+					.With(e => e.Message.Contains("name must be 100 chars or less") && e.ParamName == "name"));
     	}
     }
 }

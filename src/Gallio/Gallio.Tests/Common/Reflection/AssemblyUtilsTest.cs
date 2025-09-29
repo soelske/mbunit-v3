@@ -158,6 +158,7 @@ namespace Gallio.Tests.Common.Reflection
         }
         
         [Test]
+        [System.Diagnostics.DebuggerNonUserCode]
         public void GetAssemblyMetadata_WhenAttemptingToAccessAssemblyNameButNotRead_Throws()
         {
             var path = "MbUnit.TestResources.dll";

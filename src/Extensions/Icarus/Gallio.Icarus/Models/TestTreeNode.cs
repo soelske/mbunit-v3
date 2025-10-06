@@ -29,6 +29,7 @@ namespace Gallio.Icarus.Models
     {
         private TestStatus? testStatus;
         private readonly List<TestStepRun> testStepRuns = new List<TestStepRun>();
+        private readonly object testStepRunsLock = new object();
         private bool isFiltered;
         private IComparer comparer = new AlphanumComparatorFast(); 
 
@@ -164,8 +165,13 @@ namespace Gallio.Icarus.Models
 
         public void AddTestStepRun(TestStepRun testStepRun)
         {
-            testStepRuns.Add(testStepRun);
-            
+            //Since we get here through asynchronis calls, we are in a typicall race situation of multiple calls trying to testStepRuns.Add(testStepRun), triggering an IndexOutRange.
+            //Thus lock.
+            lock (testStepRunsLock)
+            {
+                testStepRuns.Add(testStepRun);
+            }
+
             // combine test status
             if (testStepRun.Result.Outcome.Status > TestStatus || testStepRun.Step.IsPrimary)
                 TestStatus = testStepRun.Result.Outcome.Status;

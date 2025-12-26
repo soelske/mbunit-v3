@@ -69,15 +69,8 @@ namespace MbUnit.Framework
     /// </para>
     /// </remarks>
     [SystemInternal]
-    public abstract partial class Assert
+    public static partial class Assert
     {
-        /// <summary>
-        /// Prevents instantiation.
-        /// Subclasses should likewise define their constructor to be protected.
-        /// </summary>
-        protected Assert()
-        {
-        }
 
         #region Private stuff
         /// <summary>

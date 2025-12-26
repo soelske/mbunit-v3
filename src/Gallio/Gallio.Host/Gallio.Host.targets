@@ -1,112 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <GallioProjectOutputPath>..\Gallio\bin</GallioProjectOutputPath>
+	<PropertyGroup>
+		<GallioProjectOutputPath>..\Gallio\bin</GallioProjectOutputPath>
+		<TargetConfig>$(TargetPath).config</TargetConfig>
+		<TargetPdb>$(OutputPath)$(TargetName).pdb</TargetPdb>
+		<OriginalConfig>$(TargetFileName).config</OriginalConfig>
+		<IntermediateTargetPath>$(IntermediateOutputPath)$(TargetFileName)</IntermediateTargetPath>
+		<IntermediateTargetPdb>$(IntermediateOutputPath)$(TargetName).pdb</IntermediateTargetPdb>
 
-    <TargetConfig>$(TargetPath).config</TargetConfig>
-    <TargetPdb>$(OutputPath)$(TargetName).pdb</TargetPdb>
+		<!-- Disable manifest embedding to avoid mt.exe issues -->
+		<EmbedManifest>false</EmbedManifest>
+	</PropertyGroup>
 
-    <OriginalConfig>$(TargetFileName).config</OriginalConfig>
-    <IntermediateTargetPath>$(IntermediateOutputPath)$(TargetFileName)</IntermediateTargetPath>
-    <IntermediateTargetPdb>$(IntermediateOutputPath)$(TargetName).pdb</IntermediateTargetPdb>
-  </PropertyGroup>
+	<PropertyGroup>
+		<CorflagsToolPath>bin\NETFX 4.8 Tools\</CorflagsToolPath>
+		<CorflagsToolPath Condition="'$(Platform)' != 'AnyCPU'">$(CorflagsToolPath)$(Platform)\</CorflagsToolPath>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <!-- Windows Kits 10 -->
-    <WindowsKitsRoot>$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Kits\Installed Roots', 'KitsRoot10', null, RegistryView.Default, RegistryView.Registry32, RegistryView.Registry64))</WindowsKitsRoot>
-    <MtToolPath Condition="'$(WindowsKitsRoot)' != '' And '$(MtToolPath)' == '' And exists('$(WindowsKitsRoot)bin\10.0.18362.0\')">$(WindowsKitsRoot)bin\10.0.18362.0\</MtToolPath>
-    <MtToolPath Condition="'$(WindowsKitsRoot)' != '' And '$(MtToolPath)' == '' And exists('$(WindowsKitsRoot)bin\10.0.17763.0\')">$(WindowsKitsRoot)bin\10.0.17763.0\</MtToolPath>
-    <MtToolPath Condition="'$(WindowsKitsRoot)' != '' And '$(MtToolPath)' == '' And exists('$(WindowsKitsRoot)bin\10.0.17134.0\')">$(WindowsKitsRoot)bin\10.0.17134.0\</MtToolPath>
-    <MtToolPath Condition="'$(WindowsKitsRoot)' != '' And '$(MtToolPath)' == '' And exists('$(WindowsKitsRoot)bin\10.0.16299.0\')">$(WindowsKitsRoot)bin\10.0.16299.0\</MtToolPath>
+	<ItemGroup>
+		<HostVariant Include="bin\Gallio.Host.exe">
+			<Self>true</Self>
+		</HostVariant>
 
-    <!-- Windows Kits 8 and older -->
-    <WindowsKitsRoot Condition="'$(WindowsKitsRoot)' == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Kits\Installed Roots', 'KitsRoot81', null, RegistryView.Default, RegistryView.Registry32, RegistryView.Registry64))</WindowsKitsRoot>
-    <WindowsKitsRoot Condition="'$(WindowsKitsRoot)' == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Kits\Installed Roots', 'KitsRoot', null, RegistryView.Default, RegistryView.Registry32, RegistryView.Registry64))</WindowsKitsRoot>
-    <MtToolPath Condition="'$(MtToolPath)' == ''">$(WindowsKitsRoot)bin\</MtToolPath>
+		<HostVariant Include="bin\Gallio.Host.x86.exe">
+			<CorFlags>/32BIT+</CorFlags>
+		</HostVariant>
 
-    <MtToolPath Condition=" '$(MtToolPath)' != '' And '$(Platform)' == 'AnyCPU'">$(MtToolPath)x86\</MtToolPath>
-    <MtToolPath Condition=" '$(MtToolPath)' != '' And '$(Platform)' != 'AnyCPU'">$(MtToolPath)$(Platform)\</MtToolPath>
+		<HostVariant Include="bin\Gallio.Host.Elevated.exe" />
 
-    <CorflagsToolPath>bin\NETFX 4.8 Tools\</CorflagsToolPath>
-    <CorflagsToolPath Condition="'$(Platform)' != 'AnyCPU'">$(CorflagsToolPath)$(Platform)\</CorflagsToolPath>
-  </PropertyGroup>
+		<HostVariant Include="bin\Gallio.Host.Elevated.x86.exe">
+			<CorFlags>/32BIT+</CorFlags>
+		</HostVariant>
 
-  <ItemGroup>    
-    <HostVariant Include="bin\Gallio.Host.exe">
-      <Manifest>Standard.manifest</Manifest>
-      <Self>true</Self>
-    </HostVariant>
-    
-    <HostVariant Include="bin\Gallio.Host.x86.exe">
-      <CorFlags>/32BIT+</CorFlags>
-      <Manifest>Standard.manifest</Manifest>
-    </HostVariant>
-    
-    <HostVariant Include="bin\Gallio.Host.Elevated.exe">
-      <Manifest>Elevated.manifest</Manifest>
-    </HostVariant>
-    
-    <HostVariant Include="bin\Gallio.Host.Elevated.x86.exe">
-      <Manifest>Elevated.manifest</Manifest>
-      <CorFlags>/32BIT+</CorFlags>
-    </HostVariant>
+		<HostTargetFile Include="@(HostVariant)">
+			<SourceFile>$(TargetPath)</SourceFile>
+		</HostTargetFile>
 
-    <HostTargetFile Include="@(HostVariant)">
-      <SourceFile>$(TargetPath)</SourceFile>
-    </HostTargetFile>
-    
-    <HostTargetFile Include="@(HostVariant->'%(Identity).config')">
-      <SourceFile>$(TargetConfig)</SourceFile>
-    </HostTargetFile>
+		<HostTargetFile Include="@(HostVariant->'%(RootDir)%(Directory)%(Filename).pdb')">
+			<SourceFile>$(TargetPdb)</SourceFile>
+		</HostTargetFile>
+	</ItemGroup>
 
-    <HostTargetFile Include="@(HostVariant->'%(RootDir)%(Directory)%(Filename).pdb')">
-      <SourceFile>$(TargetPdb)</SourceFile>
-    </HostTargetFile>
-  </ItemGroup>
+	<Target Name="_PopulateHostTargetFileExceptSelf">
+		<CreateItem Include="@(HostTargetFile)"
+					Condition="'%(HostTargetFile.Self)'!='true'">
+			<Output TaskParameter="Include" ItemName="HostTargetFileExceptSelf" />
+		</CreateItem>
+	</Target>
 
-  <Target Name="_PopulateHostTargetFileExceptSelf">
-    <CreateItem Include="@(HostTargetFile)"
-                Condition="'%(HostTargetFile.Self)'!='true'">
-      <Output TaskParameter="Include" ItemName="HostTargetFileExceptSelf" />
-    </CreateItem>
-  </Target>
+	<Target Name="AfterClean" DependsOnTargets="_PopulateHostTargetFileExceptSelf">
+		<Delete Files="@(HostTargetFileExceptSelf)" Condition="Exists('%(Identity)')" />
+	</Target>
 
-  <Target Name="AfterClean"
-          DependsOnTargets="_PopulateHostTargetFileExceptSelf">
-    <Delete Files="@(HostTargetFileExceptSelf)"
-            Condition="Exists('%(Identity)')" />
-  </Target>
+	<Target Name="AfterBuild" DependsOnTargets="_PopulateHostTargetFileExceptSelf" Inputs="$(IntermediateTargetPath);$(OriginalConfig)" Outputs="@(HostVariant)">
+		<!-- Make extra copies for each variant -->
+		<Copy SourceFiles="@(HostTargetFileExceptSelf->'%(SourceFile)')" DestinationFiles="@(HostTargetFileExceptSelf)">
+			<Output TaskParameter="DestinationFiles" ItemName="FilesWrites" />
+		</Copy>
 
-  <Target Name="AfterBuild"
-          DependsOnTargets="_PopulateHostTargetFileExceptSelf"
-          Inputs="$(IntermediateTargetPath);$(OriginalConfig)"
-	  Outputs="@(HostVariant)">
-    <!-- Make extra copies for each variant -->
-    <Copy SourceFiles="@(HostTargetFileExceptSelf->'%(SourceFile)')"
-          DestinationFiles="@(HostTargetFileExceptSelf)">
-      <Output TaskParameter="DestinationFiles" ItemName="FilesWrites" />
-    </Copy>
+		<!-- Patch 32-bit flags if needed -->
+		<Exec Command="&quot;$(TargetFrameworkSDKDirectory)$(CorflagsToolPath)corflags.exe&quot; /force &quot;%(HostVariant.FullPath)&quot; /nologo %(HostVariant.CorFlags)" Condition="'%(HostVariant.CorFlags)'!=''" />
 
-    <!-- Patch all variants in place -->
-    <!--$(TargetFrameworkSDKDirectory)-->
-    <Exec Command="&quot;$(TargetFrameworkSDKDirectory)$(CorflagsToolPath)corflags.exe&quot; /force &quot;%(HostVariant.FullPath)&quot; /nologo %(HostVariant.CorFlags) >nul"
-          Condition="'%(HostVariant.CorFlags)'!=''" />
+		<!-- Copy variants into Gallio bin folder for local debugging -->
+		<Copy SourceFiles="@(HostTargetFile)" DestinationFolder="$(GallioProjectOutputPath)">
+			<Output TaskParameter="DestinationFiles" ItemName="FilesWrites" />
+		</Copy>
 
-    <Exec Command="&quot;$(MtToolPath)mt.exe&quot; -nologo -manifest &quot;%(HostVariant.Manifest)&quot; -managedassemblyname:&quot;%(HostVariant.FullPath)&quot; -nodependency -outputresource:&quot;%(HostVariant.FullPath);#1&quot; >nul"
-          Condition="'%(HostVariant.Manifest)'!=''" />
-
-    <Exec Command="&quot;$(TargetFrameworkSDKDirectory)$(CorflagsToolPath)sn.exe&quot; -q -R &quot;%(HostVariant.FullPath)&quot; &quot;$(AssemblyOriginatorKeyFile)&quot;" />
-
-    <!-- Copy the variants into the Gallio project bin folder for local debugging -->
-    <Copy SourceFiles="@(HostTargetFile)"
-          DestinationFolder="$(GallioProjectOutputPath)">
-      <Output TaskParameter="DestinationFiles" ItemName="FilesWrites" />
-    </Copy>
-
-    <!-- Touch the output and replace the original Gallio.Host.exe in the intermediate path to avoid redundant builds or potential overwriting by the old pre-patched version -->
-    <Touch Files="@(HostTargetFile)" />
-    
-    <Copy SourceFiles="$(TargetPath)"
-          DestinationFiles="$(IntermediateTargetPath)" />
-  </Target>
+		<!-- Touch outputs -->
+		<Touch Files="@(HostTargetFile)" />
+		<Copy SourceFiles="$(TargetPath)" DestinationFiles="$(IntermediateTargetPath)" />
+	</Target>
 </Project>
+

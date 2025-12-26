@@ -69,9 +69,8 @@ namespace MbUnit.Framework
     /// </para>
     /// </remarks>
     [SystemInternal]
-    public static partial class Assert
+    public abstract partial class Assert
     {
-
         #region Private stuff
         /// <summary>
         /// Always throws an <see cref="InvalidOperationException" />.

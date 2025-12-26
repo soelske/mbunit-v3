@@ -21,6 +21,9 @@
   <ItemGroup>
     <Compile Remove="..\MbUnit\Framework\Assert.Serialization.cs" />
     <Compile Remove="..\MbUnit\Framework\Assert.That.cs" />
+    <Compile Remove="..\MbUnit\Framework\ImpersonateAttribute.cs" />
+    <Compile Remove="..\MbUnit\Framework\ContractVerifiers\Core\ImmutableTypeCollection.cs" />
+    <Compile Remove="..\MbUnit\Framework\ContractVerifiers\ExceptionContract.cs" />
     <Compile Remove="..\MbUnit\Properties\AssemblyInfo.cs" />
   </ItemGroup>
 

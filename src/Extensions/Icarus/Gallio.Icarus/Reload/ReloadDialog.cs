@@ -38,8 +38,9 @@ namespace Gallio.Icarus.Reload
 
 		protected override void OnLoad(EventArgs e)
 		{
-			alwaysReload.DataBindings.Add("Checked", optionsController, "AlwaysReloadFiles",
-				false, DataSourceUpdateMode.OnPropertyChanged);
+			if(alwaysReload.DataBindings.Count <= 0)
+				alwaysReload.DataBindings.Add("Checked", optionsController, "AlwaysReloadFiles",
+					false, DataSourceUpdateMode.OnPropertyChanged);
 
 			base.OnLoad(e);
 		}

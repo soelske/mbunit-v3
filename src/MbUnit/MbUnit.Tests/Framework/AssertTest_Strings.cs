@@ -41,7 +41,13 @@ namespace MbUnit.Tests.Framework
             Assert.AreEqual("\"ABCDEF\"", failures[0].LabeledValues[1].FormattedValue.ToString());
         }
 
-        [Test, ExpectedArgumentNullException("Value cannot be null.")]
+        // Note: Removed hardcoded exception message to support multiple languages (e.g., Dutch Windows)
+        // Old: [Test, ExpectedArgumentNullException("Value cannot be null.")]
+        // The exception message is culture-dependent:
+        // - English: "Value cannot be null."
+        // - Dutch: "Waarde kan niet null zijn."
+        // By omitting the message parameter, we only verify the exception type, making tests language-independent.
+        [Test, ExpectedArgumentNullException]
         public void Contains_fails_when_expected_substring_is_null()
         {
             Assert.Contains("Abcdef", null);
@@ -91,7 +97,13 @@ namespace MbUnit.Tests.Framework
             Assert.AreEqual("\"ABCDEF\"", failures[0].LabeledValues[1].FormattedValue.ToString());
         }
 
-        [Test, ExpectedArgumentNullException("Value cannot be null.")]
+        // Note: Removed hardcoded exception message to support multiple languages (e.g., Dutch Windows)
+        // Old: [Test, ExpectedArgumentNullException("Value cannot be null.")]
+        // The exception message is culture-dependent:
+        // - English: "Value cannot be null."
+        // - Dutch: "Waarde kan niet null zijn."
+        // By omitting the message parameter, we only verify the exception type, making tests language-independent.
+        [Test, ExpectedArgumentNullException]
         public void DoesNotContain_fails_when_expected_substring_is_null()
         {
             Assert.DoesNotContain("Abcdef", null);

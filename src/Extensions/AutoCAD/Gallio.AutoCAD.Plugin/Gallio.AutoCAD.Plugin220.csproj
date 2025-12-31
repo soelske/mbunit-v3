@@ -72,9 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\Revision.cs">
-      <Link>Revision.cs</Link>
-    </Compile>
     <Compile Include="Commands.cs" />
     <Compile Include="Gallio.Loader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

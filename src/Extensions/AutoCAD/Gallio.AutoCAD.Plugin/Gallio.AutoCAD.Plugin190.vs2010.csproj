@@ -82,9 +82,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\Revision.cs">
-      <Link>Revision.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\SDK\Loader\Gallio.Loader.cs">
       <Link>Gallio.Loader.cs</Link>
     </Compile>

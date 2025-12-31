@@ -39,6 +39,10 @@ namespace Gallio.Runner.Projects
         private readonly List<string> testRunnerExtensionSpecifications;
         private string testRunnerFactoryName;
         private bool isTestRunnerFactoryNameSpecified;
+        private string autoCADCommandLineArguments;
+        private int? autoCADStartupAction;
+        private string autoCADUserSpecifiedExecutable;
+        private string autoCADWorkingDirectory;
 
         /// <summary>
         /// The default report name format.
@@ -242,6 +246,63 @@ namespace Gallio.Runner.Projects
         }
 
         /// <summary>
+        /// Gets or sets the AutoCAD command line arguments.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This value is nullable to support projects that don't use AutoCAD.
+        /// </para>
+        /// </remarks>
+        public string AutoCADCommandLineArguments
+        {
+            get { return autoCADCommandLineArguments; }
+            set { autoCADCommandLineArguments = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the AutoCAD startup action.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This value is nullable to support projects that don't use AutoCAD.
+        /// The integer values correspond to the StartupAction enum in Gallio.AutoCAD.Preferences.
+        /// </para>
+        /// </remarks>
+        public int? AutoCADStartupAction
+        {
+            get { return autoCADStartupAction; }
+            set { autoCADStartupAction = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the user-specified AutoCAD executable.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This value is nullable to support projects that don't use AutoCAD.
+        /// </para>
+        /// </remarks>
+        public string AutoCADUserSpecifiedExecutable
+        {
+            get { return autoCADUserSpecifiedExecutable; }
+            set { autoCADUserSpecifiedExecutable = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the working directory for AutoCAD processes.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This value is nullable to support projects that don't use AutoCAD.
+        /// </para>
+        /// </remarks>
+        public string AutoCADWorkingDirectory
+        {
+            get { return autoCADWorkingDirectory; }
+            set { autoCADWorkingDirectory = value; }
+        }
+
+        /// <summary>
         /// Returns true if <see cref="ReportNameFormat" /> has been set explicitly.
         /// </summary>
         public bool IsReportNameFormatSpecified
@@ -405,7 +466,11 @@ namespace Gallio.Runner.Projects
                 reportNameFormat = reportNameFormat,
                 isReportNameFormatSpecified = isReportNameFormatSpecified,
                 testPackage = testPackage.Copy(),
-                ReportArchive = ReportArchive
+                ReportArchive = ReportArchive,
+                autoCADCommandLineArguments = autoCADCommandLineArguments,
+                autoCADStartupAction = autoCADStartupAction,
+                autoCADUserSpecifiedExecutable = autoCADUserSpecifiedExecutable,
+                autoCADWorkingDirectory = autoCADWorkingDirectory
             };
 
             GenericCollectionUtils.ConvertAndAddAll(testFilters, copy.testFilters, x => x.Copy());

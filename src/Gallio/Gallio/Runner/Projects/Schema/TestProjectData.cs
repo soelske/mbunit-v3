@@ -38,6 +38,10 @@ namespace Gallio.Runner.Projects.Schema
         private readonly List<string> testRunnerExtensions;
         private string reportNameFormat;
         private string reportDirectory;
+        private string autoCADCommandLineArguments;
+        private int? autoCADStartupAction;
+        private string autoCADUserSpecifiedExecutable;
+        private string autoCADWorkingDirectory;
 
         /// <summary>
         /// Creates an empty test project.
@@ -67,6 +71,10 @@ namespace Gallio.Runner.Projects.Schema
             testRunnerExtensions.AddRange(source.TestRunnerExtensionSpecifications);
             reportNameFormat = source.ReportNameFormat;
             reportDirectory = source.ReportDirectory;
+            autoCADCommandLineArguments = source.AutoCADCommandLineArguments;
+            autoCADStartupAction = source.AutoCADStartupAction;
+            autoCADUserSpecifiedExecutable = source.AutoCADUserSpecifiedExecutable;
+            autoCADWorkingDirectory = source.AutoCADWorkingDirectory;
         }
 
         /// <summary>
@@ -143,6 +151,52 @@ namespace Gallio.Runner.Projects.Schema
         }
 
         /// <summary>
+        /// Gets or sets the AutoCAD command line arguments.
+        /// </summary>
+        [XmlElement("autoCADCommandLineArguments")]
+        public string AutoCADCommandLineArguments
+        {
+            get { return autoCADCommandLineArguments; }
+            set { autoCADCommandLineArguments = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the AutoCAD startup action as an integer.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This property stores the startup action as a nullable integer for XML serialization.
+        /// The values correspond to the StartupAction enum in Gallio.AutoCAD.Preferences.
+        /// </para>
+        /// </remarks>
+        [XmlElement("autoCADStartupAction")]
+        public int? AutoCADStartupAction
+        {
+            get { return autoCADStartupAction; }
+            set { autoCADStartupAction = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the user-specified AutoCAD executable.
+        /// </summary>
+        [XmlElement("autoCADUserSpecifiedExecutable")]
+        public string AutoCADUserSpecifiedExecutable
+        {
+            get { return autoCADUserSpecifiedExecutable; }
+            set { autoCADUserSpecifiedExecutable = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the working directory for AutoCAD processes.
+        /// </summary>
+        [XmlElement("autoCADWorkingDirectory")]
+        public string AutoCADWorkingDirectory
+        {
+            get { return autoCADWorkingDirectory; }
+            set { autoCADWorkingDirectory = value; }
+        }
+
+        /// <summary>
         /// Initializes a test project with the contents of this structure.
         /// </summary>
         /// <param name="testProject">The test project to populate.</param>
@@ -157,6 +211,10 @@ namespace Gallio.Runner.Projects.Schema
             GenericCollectionUtils.ForEach(testRunnerExtensions, x => testProject.AddTestRunnerExtensionSpecification(x));
             testProject.ReportNameFormat = reportNameFormat;
             testProject.ReportDirectory = reportDirectory;
+            testProject.AutoCADCommandLineArguments = autoCADCommandLineArguments;
+            testProject.AutoCADStartupAction = autoCADStartupAction;
+            testProject.AutoCADUserSpecifiedExecutable = autoCADUserSpecifiedExecutable;
+            testProject.AutoCADWorkingDirectory = autoCADWorkingDirectory;
         }
 
         /// <summary>

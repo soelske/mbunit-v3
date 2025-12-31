@@ -49,18 +49,41 @@ bool hasPrefs = testProject.HasAutoCADPreferences();
 - Alleen niet-null waarden worden overgeschreven
 - Type-safe conversie tussen runtime en persistence layer
 
+### 3. Icarus Integration (Losjes gekoppeld)
+
 #### `PluginPreferencesSynchronizer.cs` (Extensions/Icarus/Gallio.Icarus/Projects/)
-Generic synchronizer die automatisch plugin preferences detecteert via **reflectie**:
+**Generic** synchronizer die automatisch **alle** plugin preferences detecteert via **naming convention**:
 
 ```csharp
-Handles<SavingProject>   // Voor save: TestProject ? PreferenceManager
-Handles<ProjectLoaded>   // Na load: TestProject ? PreferenceManager
+Handles<SavingProject>   // Voor save: detecteert alle Save*Preferences methods
+Handles<ProjectLoaded>   // Na load: detecteert alle Load*Preferences methods
+```
+
+**Naming convention vereisten:**
+```csharp
+// In je plugin assembly (bijv. Gallio.AutoCAD.Projects.TestProjectExtensions):
+public static class TestProjectExtensions
+{
+    // Method naam: Load{PluginName}Preferences
+    // Parameters: (TestProject, I*PreferenceManager interface)
+    public static void LoadAutoCADPreferences(
+        this TestProject project, 
+        IAcadPreferenceManager manager) { }
+        
+    // Method naam: Save{PluginName}Preferences  
+    public static void SaveAutoCADPreferences(
+        this TestProject project, 
+        IAcadPreferenceManager manager) { }
+}
 ```
 
 **Belangrijke punten:**
-- Gebruikt **reflectie** om extension methods te vinden (geen harde dependency op AutoCAD)
-- Werkt met **elke** plugin die het patroon volgt
-- Faalt gracefully als plugin niet geladen is
+- Zoekt **automatisch** in alle loaded assemblies naar methods die het patroon volgen
+- **Geen hardcoded plugin namen** in Icarus - volledig generiek!
+- Werkt met **elke** plugin zonder code wijzigingen in Icarus
+- Failt gracefully als plugin niet geladen is
+- Skip system assemblies voor performance
+- Preference manager moet registered zijn in ServiceLocator
 
 ## Gebruik in Icarus
 
@@ -185,10 +208,70 @@ eventAggregator.Add(synchronizer);
 
 Als andere plugins (bijv. VisualStudio, ReSharper) ook preferences willen opslaan:
 
-1. Voeg properties toe aan `TestProject` (primitieve types)
-2. Voeg XML serialization toe aan `TestProjectData`  
-3. Maak extension methods in je plugin project
-4. Maak event handler die `SavingProject`/`ProjectLoaded` handled
+### Stap 1: Voeg properties toe aan core Gallio
 
-**Naming convention:** `{PluginName}{PropertyName}`  
-Bijvoorbeeld: `VisualStudioDebuggerPath`, `ReSharperTestRunnerMode`
+**In `TestProject.cs`:**
+```csharp
+public string VisualStudioDebuggerPath { get; set; }
+public int? ReSharperTestRunnerMode { get; set; }
+```
+
+**In `TestProjectData.cs`:**
+```csharp
+[XmlElement("visualStudioDebuggerPath")]
+public string VisualStudioDebuggerPath { get; set; }
+
+[XmlElement("reSharperTestRunnerMode")]
+public int? ReSharperTestRunnerMode { get; set; }
+```
+
+### Stap 2: Maak extension methods in plugin
+
+**In `Gallio.VisualStudio.Projects.TestProjectExtensions`:**
+```csharp
+public static class TestProjectExtensions
+{
+    public static void LoadVisualStudioPreferences(
+        this TestProject project, 
+        IVisualStudioPreferenceManager manager)
+    {
+        if (project.VisualStudioDebuggerPath != null)
+            manager.DebuggerPath = project.VisualStudioDebuggerPath;
+    }
+    
+    public static void SaveVisualStudioPreferences(
+        this TestProject project, 
+        IVisualStudioPreferenceManager manager)
+    {
+        project.VisualStudioDebuggerPath = manager.DebuggerPath;
+    }
+}
+```
+
+### Stap 3: Registreer preference manager
+
+**In plugin initialization:**
+```csharp
+RuntimeAccessor.ServiceLocator.Register<IVisualStudioPreferenceManager>(
+    new VisualStudioPreferenceManager());
+```
+
+**Dat is alles!** De `PluginPreferencesSynchronizer` detecteert automatisch de nieuwe methods.
+
+### Naming convention
+
+**Property naming:** `{PluginName}{PropertyName}`  
+- ? `AutoCADCommandLineArguments`
+- ? `VisualStudioDebuggerPath`
+- ? `ReSharperTestRunnerMode`
+- ? `CommandLineArguments` (te generiek)
+
+**Method naming:** `{Action}{PluginName}Preferences`
+- ? `LoadAutoCADPreferences`
+- ? `SaveVisualStudioPreferences`
+- ? `LoadPreferences` (te generiek)
+
+**Interface naming:** `I{PluginName}PreferenceManager`
+- ? `IAcadPreferenceManager`
+- ? `IVisualStudioPreferenceManager`
+- ? `IPreferenceManager` (te generiek)

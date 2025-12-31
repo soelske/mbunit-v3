@@ -38,7 +38,7 @@ namespace Gallio.Runtime.Hosting
     {
         private readonly TimeSpan? pingInterval;
         private readonly object pingLock = new object();
-        private Timer pingTimer;
+        private System.Threading.Timer pingTimer;
         private bool lastPingFailed;
         private bool pingInProgress;
 
@@ -102,7 +102,7 @@ namespace Gallio.Runtime.Hosting
 
             lock (pingLock)
             {
-                pingTimer = new Timer(PingTimerElapsed, null, pingInterval.Value, pingInterval.Value);
+                pingTimer = new System.Threading.Timer(PingTimerElapsed, null, pingInterval.Value, pingInterval.Value);
             }
         }
 

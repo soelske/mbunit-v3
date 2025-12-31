@@ -71,14 +71,6 @@ namespace MbUnit.Framework
     [SystemInternal]
     public abstract partial class Assert
     {
-        /// <summary>
-        /// Prevents instantiation.
-        /// Subclasses should likewise define their constructor to be protected.
-        /// </summary>
-        protected Assert()
-        {
-        }
-
         #region Private stuff
         /// <summary>
         /// Always throws an <see cref="InvalidOperationException" />.

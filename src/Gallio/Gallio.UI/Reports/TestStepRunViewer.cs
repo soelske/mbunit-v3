@@ -128,7 +128,7 @@ namespace Gallio.UI.Reports
         {
             DoAsync(() =>
             {
-                if (webBrowser.IsBusy)
+                if (!webBrowser.IsDisposed && webBrowser.IsBusy)
                     webBrowser.Stop();
 
                 var cachedHtmlFile = htmlFile; // in case it changes concurrently

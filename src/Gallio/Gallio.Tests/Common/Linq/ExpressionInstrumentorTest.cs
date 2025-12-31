@@ -147,10 +147,24 @@ namespace Gallio.Tests.Common.Linq
                 // unary
                 AssertTrace(() => arr.Length, 1,
                     new[] { "Constant", "MemberAccess", "ArrayLength" });
+
+                // safe widening conversion (int -> double): always "Convert"
                 AssertTrace(() => (double)x, x,
                     new[] { "Constant", "MemberAccess", "Convert" });
                 AssertTrace(() => checked((double)x), x,
+                    new[] { "Constant", "MemberAccess", "Convert" });
+
+                // narrowing conversions (may overflow): should yield "ConvertChecked"
+                AssertTrace(() => checked((byte)x), (byte)x,
                     new[] { "Constant", "MemberAccess", "ConvertChecked" });
+                AssertTrace(() => checked((short)x), (short)x,
+                    new[] { "Constant", "MemberAccess", "ConvertChecked" });
+                AssertTrace(() => checked((sbyte)x), (sbyte)x,
+                    new[] { "Constant", "MemberAccess", "ConvertChecked" });
+                AssertTrace(() => checked((char)x), (char)x,
+                    new[] { "Constant", "MemberAccess", "ConvertChecked" });
+
+
                 AssertTrace(() => -x, -x,
                     new[] { "Constant", "MemberAccess", "Negate" });
                 AssertTrace(() => checked(-x), -x,

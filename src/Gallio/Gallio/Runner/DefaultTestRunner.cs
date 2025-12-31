@@ -460,7 +460,7 @@ namespace Gallio.Runner
                 tappedLogger.SetListener(null);
             }
 
-            public void Publish(Message message)
+            public void Publish(Common.Messaging.Message message)
             {
                 message.Validate();
 

@@ -277,7 +277,7 @@ namespace Gallio.Framework
             if (!timeout.HasValue)
                 return null;
 
-            return new Timer(delegate
+            return new System.Threading.Timer(delegate
                 {
                     Abort(TestOutcome.Timeout,
                         String.Format("The test timed out after {0} seconds.", timeout.Value.TotalSeconds),

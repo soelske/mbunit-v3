@@ -106,7 +106,8 @@ namespace Gallio.Common.Platform
                 case RegistryHive.Users:
                     return Registry.Users;
                 case RegistryHive.PerformanceData:
-                case RegistryHive.DynData:
+                    //In .NET Framework bestond er een extra enumwaarde RegistryHive.DynData, maar in .NET Core / .NET 5+ is die verwijderd omdat die hive al sinds Windows XP deprecated is en in moderne Windows-versies sowieso niet meer bestaat.
+                    //case RegistryHive.DynData:
                     return Registry.PerformanceData;
                 case RegistryHive.CurrentConfig:
                     return Registry.CurrentConfig;

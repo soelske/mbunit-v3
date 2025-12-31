@@ -24,7 +24,7 @@ namespace Gallio.Model.Messages.Exploration
     /// Notifies that an annotation has been discovered by the test exploration process.
     /// </summary>
     [Serializable]
-    public class AnnotationDiscoveredMessage : Message
+    public class AnnotationDiscoveredMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the annotation, not null.
@@ -38,7 +38,7 @@ namespace Gallio.Model.Messages.Exploration
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             AnnotationData normalizedAnnotation = Annotation.Normalize();
 

@@ -23,14 +23,14 @@ namespace Gallio.Runner.Events
     /// </summary>
     public sealed class MessageReceivedEventArgs : EventArgs
     {
-        private readonly Message message;
+        private readonly Common.Messaging.Message message;
 
         /// <summary>
         /// Initializes the event arguments.
         /// </summary>
         /// <param name="message">The message that was received.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="message"/> is null.</exception>
-        public MessageReceivedEventArgs(Message message)
+        public MessageReceivedEventArgs(Common.Messaging.Message message)
         {
             if (message == null)
                 throw new ArgumentNullException("message");
@@ -41,7 +41,7 @@ namespace Gallio.Runner.Events
         /// <summary>
         /// Gets the message that was received.
         /// </summary>
-        public Message Message
+        public Common.Messaging.Message Message
         {
             get { return message; }
         }

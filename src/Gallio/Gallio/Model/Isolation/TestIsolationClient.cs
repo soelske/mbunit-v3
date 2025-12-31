@@ -80,7 +80,7 @@ namespace Gallio.Model.Isolation
                 var link = (IMessageExchangeLink)clientChannel.GetService(typeof(IMessageExchangeLink), TestIsolationServer.GetMessageExchangeLinkServiceName(linkId));
                 for (; ; )
                 {
-                    Message message = link.Receive(PollTimeout);
+                    Common.Messaging.Message message = link.Receive(PollTimeout);
                     if (message == null)
                         continue;
 

@@ -25,7 +25,7 @@ namespace Gallio.Model.Isolation.Messages
     /// Tells the client to run an isolated task.
     /// </summary>
     [Serializable]
-    public class RunIsolatedTaskMessage : Message
+    public class RunIsolatedTaskMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the unique id of the isolated task.

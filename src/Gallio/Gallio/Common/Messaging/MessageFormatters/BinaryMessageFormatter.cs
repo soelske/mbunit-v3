@@ -14,6 +14,7 @@ namespace Gallio.Common.Messaging.MessageFormatters
 		/// Default ctor.
 		///</summary>
 		public BinaryMessageFormatter()
+
 		{
 			binaryFormatter = new BinaryFormatter();
 		}

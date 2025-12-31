@@ -219,7 +219,9 @@ namespace Gallio.Common.Diagnostics
                 || method.IsDefined(typeof(SystemInternalAttribute), true);
         }
 
+#if NETFRAMEWORK
         [ReflectionPermission(SecurityAction.Assert, MemberAccess=true)]
+#endif
         private static MethodBase FindMethod(string typeFullName, string methodName, string genericParams, string methodParams)
         {
             // Look for a probable match for the method in each loaded assembly.

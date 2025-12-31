@@ -341,6 +341,7 @@ namespace Gallio.Common.Diagnostics
                 case "Source":
                 case "StackTrace":
                 case "TargetSite":
+                case "HResult":
                     return true;
                 default:
                     return false;

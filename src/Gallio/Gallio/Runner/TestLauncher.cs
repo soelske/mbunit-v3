@@ -457,10 +457,10 @@ namespace Gallio.Runner
             Canonicalize(null);
             DisplayConfiguration();
 
-            Timer runTimeTimer = null;
+            System.Threading.Timer runTimeTimer = null;
             if (RunTimeLimit != null)
             {                
-                runTimeTimer = new Timer(delegate
+                runTimeTimer = new System.Threading.Timer(delegate
                 {
                     Cancel();
                     logger.Log(LogSeverity.Warning, "Run time limit reached!  Canceled test run.");

@@ -355,7 +355,7 @@ namespace Gallio.Framework
         /// </summary>
         /// <param name="horizontalAlignment">The horizontal alignment.</param>
         /// <param name="verticalAlignment">The vertical alignment.</param>
-        public static void SetCaptionAlignment(HorizontalAlignment horizontalAlignment, VerticalAlignment verticalAlignment)
+        public static void SetCaptionAlignment(Common.Media.HorizontalAlignment horizontalAlignment, VerticalAlignment verticalAlignment)
         {
             CaptionOverlay captionOverlay = GetCaptionOverlay();
             captionOverlay.HorizontalAlignment = horizontalAlignment;

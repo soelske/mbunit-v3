@@ -15,14 +15,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-using System.Text;
 using Gallio.Common.IO;
-using Gallio.Framework;
-using Microsoft.Cci;
-using Microsoft.Cci.MetadataReader.ObjectModelImplementation;
 
 namespace Gallio.Common.Reflection.Impl
 {

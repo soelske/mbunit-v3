@@ -26,7 +26,7 @@ namespace Gallio.Model.Isolation.Messages
     /// Tells the server that the client has finished processing an isolated task.
     /// </summary>
     [Serializable]
-    public class IsolatedTaskFinishedMessage : Message
+    public class IsolatedTaskFinishedMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the unique id of the isolated task.

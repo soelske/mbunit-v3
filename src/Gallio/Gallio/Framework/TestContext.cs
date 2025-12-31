@@ -576,7 +576,7 @@ namespace Gallio.Framework
         /// </summary>
         /// <param name="message">The message to publish.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="message"/> is null.</exception>
-        internal void PublishMessage(Message message)
+        internal void PublishMessage(Common.Messaging.Message message)
         {
             inner.MessageSink.Publish(message); // Callee checks argument.
         }

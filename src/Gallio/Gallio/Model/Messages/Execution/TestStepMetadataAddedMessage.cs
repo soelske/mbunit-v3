@@ -26,7 +26,7 @@ namespace Gallio.Model.Messages.Execution
     /// Notifies that a test step has dynamically added metadata to itself.
     /// </summary>
     [Serializable]
-    public class TestStepMetadataAddedMessage : Message
+    public class TestStepMetadataAddedMessage : Common.Messaging.Message
     {
         /// <summary>
         /// Gets or sets the id of the test step, not null.
@@ -53,7 +53,7 @@ namespace Gallio.Model.Messages.Execution
         }
 
         /// <inheritdoc />
-        public override Message Normalize()
+        public override Common.Messaging.Message Normalize()
         {
             string normalizedStepId = ModelNormalizationUtils.NormalizeTestComponentId(StepId);
             string normalizedMetadataKey = ModelNormalizationUtils.NormalizeMetadataKey(MetadataKey);

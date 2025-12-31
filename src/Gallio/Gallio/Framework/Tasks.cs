@@ -66,7 +66,7 @@ namespace Gallio.Framework
         /// </remarks>
         /// <param name="task">The task to watch.</param>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="task"/> is null.</exception>
-        public static void WatchTask(Task task)
+        public static void WatchTask(Common.Concurrency.Task task)
         {
             if (task == null)
                 throw new ArgumentNullException("task");
@@ -290,7 +290,7 @@ namespace Gallio.Framework
 
         private static void LogMessageAboutActiveTasks(TestContext context, TaskContainer container, string messagePrefix)
         {
-            IList<Task> activeTasks = container.GetActiveTasks();
+            IList<Common.Concurrency.Task> activeTasks = container.GetActiveTasks();
             if (activeTasks.Count == 0)
                 return;
 
@@ -306,7 +306,7 @@ namespace Gallio.Framework
             context.LogWriter.Warnings.WriteLine(message.ToString());
         }
 
-        private static void RecordTaskResult(TestContext context, Task task)
+        private static void RecordTaskResult(TestContext context, Common.Concurrency.Task task)
         {
             if (task.Result != null && ! task.Result.HasValue)
             {

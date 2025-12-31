@@ -102,6 +102,7 @@ namespace Gallio.Tests.Common.Reflection
         }
 
         [Test]
+        [System.Diagnostics.DebuggerNonUserCode]
         public void IsMatch_WhenAssemblyNameIsNull_Throws()
         {
             var sig = new AssemblySignature("name");

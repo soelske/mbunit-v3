@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<!-- Multi-target build -->
+	<TargetFramework>net8.0-windows</TargetFramework>
+	<UseWindowsForms>true</UseWindowsForms>
+	<AssemblyName>MbUnit</AssemblyName>
+	<RootNamespace>MbUnit</RootNamespace>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageId>MbUnit</PackageId>
+	<Authors>Bart Suelze</Authors>
+	<Description>Modernized build of MbUnit for .NET 8 and .NET Standard 2.0</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Compile Include="..\MbUnit\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\MbUnit\Framework\Assert.Serialization.cs" />
+    <Compile Remove="..\MbUnit\Framework\Assert.That.cs" />
+    <Compile Remove="..\MbUnit\Framework\ImpersonateAttribute.cs" />
+    <Compile Remove="..\MbUnit\Framework\ContractVerifiers\Core\ImmutableTypeCollection.cs" />
+    <Compile Remove="..\MbUnit\Framework\ContractVerifiers\ExceptionContract.cs" />
+    <Compile Remove="..\MbUnit\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHamcrest" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
+  </ItemGroup>
+
+</Project>

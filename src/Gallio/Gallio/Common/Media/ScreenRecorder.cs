@@ -31,7 +31,7 @@ namespace Gallio.Common.Media
         private readonly OverlayManager overlayManager;
 
         private readonly object timerLock = new object();
-        private Timer timer;
+        private System.Threading.Timer timer;
         private Bitmap lastBitmap;
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace Gallio.Common.Media
                     return;
 
                 int period = (int) Math.Round(1000 / video.Parameters.FramesPerSecond);
-                timer = new Timer(TimerElapsed, null, 0, period);
+                timer = new System.Threading.Timer(TimerElapsed, null, 0, period);
             }
         }
 

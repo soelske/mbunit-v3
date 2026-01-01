@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Target .NET 8.0-windows for AutoCAD 2025+ support -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>false</UseWindowsForms>
+    <AssemblyName>Gallio.AutoCAD</AssemblyName>
+    <RootNamespace>Gallio.AutoCAD</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Gallio.AutoCAD</PackageId>
+    <Authors>Bart Suelze</Authors>
+    <Description>Modernized build of Gallio AutoCAD integration for .NET 8</Description>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Link all C# files from Gallio.AutoCAD.vs2010 project -->
+    <Compile Include="..\Gallio.AutoCAD\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Exclude files that are not compatible with .NET 8 or will be replaced -->
+    <Compile Remove="..\Gallio.AutoCAD\Properties\AssemblyInfo.cs" />
+    <Compile Remove="..\Gallio.AutoCAD\Commands\AcadCommandRunner.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include the plugin file -->
+    <None Include="..\Gallio.AutoCAD\Gallio.AutoCAD.plugin" Link="Gallio.AutoCAD.plugin" />
+    <None Include="..\Gallio.AutoCAD\Readme - Debugging.txt" Link="Readme - Debugging.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include resources -->
+    <None Include="..\Gallio.AutoCAD\Resources\Gallio.AutoCAD.ico" Link="Resources\Gallio.AutoCAD.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- NuGet package references for .NET 8 -->
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
+  </ItemGroup>
+
+</Project>

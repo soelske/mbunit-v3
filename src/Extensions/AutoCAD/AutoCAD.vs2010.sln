@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29920.165
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gallio", "Gallio", "{6559CEC8-1B3B-4736-B6B8-EAD15C1BF429}"
 EndProject
@@ -52,6 +52,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin210", "Gallio.AutoCAD.Plugin\Gallio.AutoCAD.Plugin210.csproj", "{E96741A1-4667-4DBD-A426-776D85A4D1CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin230", "Gallio.AutoCAD.Plugin\Gallio.AutoCAD.Plugin230.csproj", "{65657206-A5F7-4AD2-972F-986D541F9217}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Core", "Gallio.AutoCAD.Core\Gallio.AutoCAD.Core.csproj", "{1928CDD8-3636-419C-0A9B-F5004839D95A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.Core", "..\..\Gallio\Gallio.Core\Gallio.Core.csproj", "{37A0B675-6AB8-03FB-D353-1A7C12634E7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -237,6 +241,22 @@ Global
 		{65657206-A5F7-4AD2-972F-986D541F9217}.Release|Any CPU.Build.0 = Release|Any CPU
 		{65657206-A5F7-4AD2-972F-986D541F9217}.Release|x64.ActiveCfg = Release|Any CPU
 		{65657206-A5F7-4AD2-972F-986D541F9217}.Release|x64.Build.0 = Release|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Debug|x64.Build.0 = Debug|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Release|x64.ActiveCfg = Release|Any CPU
+		{1928CDD8-3636-419C-0A9B-F5004839D95A}.Release|x64.Build.0 = Release|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Debug|x64.Build.0 = Debug|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Release|x64.ActiveCfg = Release|Any CPU
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -264,6 +284,8 @@ Global
 		{D64E0B02-45A5-4934-B65F-7973B2F79278} = {65CD393E-F6FA-4703-808B-C91390B47CCD}
 		{E96741A1-4667-4DBD-A426-776D85A4D1CA} = {65CD393E-F6FA-4703-808B-C91390B47CCD}
 		{65657206-A5F7-4AD2-972F-986D541F9217} = {65CD393E-F6FA-4703-808B-C91390B47CCD}
+		{1928CDD8-3636-419C-0A9B-F5004839D95A} = {65CD393E-F6FA-4703-808B-C91390B47CCD}
+		{37A0B675-6AB8-03FB-D353-1A7C12634E7A} = {6559CEC8-1B3B-4736-B6B8-EAD15C1BF429}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5B9BB96-3000-4640-A357-12F779424217}

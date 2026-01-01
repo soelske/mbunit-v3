@@ -81,6 +81,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Revision.cs">
+      <Link>Revision.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ControlPanel\StartupPreferencePane.cs">
       <SubType>UserControl</SubType>

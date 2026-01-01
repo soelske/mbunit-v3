@@ -294,6 +294,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin220", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin210", "Extensions\AutoCAD\Gallio.AutoCAD.Plugin\Gallio.AutoCAD.Plugin210.csproj", "{E96741A1-4667-4DBD-A426-776D85A4D1CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin250", "Extensions\AutoCAD\Gallio.AutoCAD.Plugin\Gallio.AutoCAD.Plugin250.csproj", "{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1460,6 +1462,18 @@ Global
 		{E96741A1-4667-4DBD-A426-776D85A4D1CA}.Release|Mixed Platforms.Build.0 = Release|x64
 		{E96741A1-4667-4DBD-A426-776D85A4D1CA}.Release|x86.ActiveCfg = Release|Any CPU
 		{E96741A1-4667-4DBD-A426-776D85A4D1CA}.Release|x86.Build.0 = Release|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Debug|x86.Build.0 = Debug|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1600,6 +1614,7 @@ Global
 		{65657206-A5F7-4AD2-972F-986D541F9217} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
 		{D64E0B02-45A5-4934-B65F-7973B2F79278} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
 		{E96741A1-4667-4DBD-A426-776D85A4D1CA} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
+		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8FEAF41-F466-4973-A7B3-81B482BC5F1E}

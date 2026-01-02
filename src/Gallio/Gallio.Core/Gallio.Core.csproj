@@ -1,22 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	<!-- Multi-target build -->
-    <TargetFramework>net8.0-windows</TargetFramework>
-	<UseWindowsForms>true</UseWindowsForms>
-	<AssemblyName>Gallio</AssemblyName>
-	<RootNamespace>Gallio</RootNamespace>
-	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<PackageId>Gallio</PackageId>
-	<Authors>Bart Suelze</Authors>
-	<Description>Modernized build of Gallio for .NET 8 and .NET Standard 2.0</Description>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+ <PropertyGroup>
+<!-- Multi-target build -->
+   <TargetFramework>net8.0-windows</TargetFramework>
+<UseWindowsForms>true</UseWindowsForms>
+<AssemblyName>Gallio</AssemblyName>
+<RootNamespace>Gallio</RootNamespace>
+<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+<PackageId>Gallio</PackageId>
+<Authors>Bart Suelze</Authors>
+<Description>Modernized build of Gallio for .NET 8 and .NET Standard 2.0</Description>
+   <ImplicitUsings>enable</ImplicitUsings>
+   <Nullable>enable</Nullable>
+   <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+ </PropertyGroup>
 
-  <ItemGroup>
-  	<Compile Include="..\Gallio\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
-  </ItemGroup>
+ <ItemGroup>
+  <Compile Include="..\Gallio\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  <EmbeddedResource Include="..\Gallio\**\*.resx" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+ </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="..\Gallio\Common\Messaging\MessageFormatters\BinaryMessageFormatter.cs" />
@@ -55,10 +57,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Include icon resources as Content -->
+    <Content Include="..\Gallio\Resources\*.ico" Link="Resources\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ICSharpCode.SharpZipLib.dll" Version="0.85.4.369" />
     <PackageReference Include="Mono.Cecil" Version="0.11.6" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.9" />
-    <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.1" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.11" />
   </ItemGroup>
 
 </Project>

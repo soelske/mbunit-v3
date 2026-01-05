@@ -14,7 +14,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using System.Collections.Concurrent;
 using System.IO.Pipes;
+using System.Reflection;
 
 namespace Gallio.Common.Remoting
 {
@@ -22,6 +24,8 @@ namespace Gallio.Common.Remoting
     {
         private readonly string pipeName;
         private NamedPipeClientStream pipeClient;
+        private readonly ConcurrentDictionary<string, object> serviceProxies = new();
+        private const int ConnectionTimeoutMillis = 1000;
 
         public BinaryIpcClientChannel(string pipeName)
         {
@@ -31,7 +35,12 @@ namespace Gallio.Common.Remoting
         public override async Task StartAsync(CancellationToken cancellationToken = default)
         {
             pipeClient = new NamedPipeClientStream(".", pipeName, PipeDirection.InOut, PipeOptions.Asynchronous);
-            await pipeClient.ConnectAsync(cancellationToken);
+            
+            // Apply timeout for connection
+            using var timeoutCts = new CancellationTokenSource(ConnectionTimeoutMillis);
+            using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, timeoutCts.Token);
+            
+            await pipeClient.ConnectAsync(linkedCts.Token);
         }
 
         public override Task ConnectAsync(CancellationToken cancellationToken = default)
@@ -43,6 +52,16 @@ namespace Gallio.Common.Remoting
 
         public override Task StopAsync(CancellationToken cancellationToken = default)
         {
+            // Dispose all proxies
+            foreach (var proxy in serviceProxies.Values)
+            {
+                if (proxy is IDisposable disposable)
+                {
+                    disposable.Dispose();
+                }
+            }
+            serviceProxies.Clear();
+
             pipeClient?.Dispose();
             pipeClient = null;
             return Task.CompletedTask;
@@ -52,21 +71,52 @@ namespace Gallio.Common.Remoting
         {
             if (disposing)
             {
+                // Dispose all proxies
+                foreach (var proxy in serviceProxies.Values)
+                {
+                    if (proxy is IDisposable disposable)
+                    {
+                        disposable.Dispose();
+                    }
+                }
+                serviceProxies.Clear();
+
                 pipeClient?.Dispose();
                 pipeClient = null;
             }
         }
 
-        // Implementatie van IClientChannel
-        public object GetService(Type serviceType, string serviceName)
+        // IClientChannel implementation
+        public override object GetService(Type serviceType, string serviceName)
         {
             if (serviceType == null)
                 throw new ArgumentNullException(nameof(serviceType));
             if (serviceName == null)
                 throw new ArgumentNullException(nameof(serviceName));
 
-            // TODO: voeg je IPC logica hier toe om een service proxy te verkrijgen
-            return null; // voorlopig dummy return
+            if (pipeClient == null || !pipeClient.IsConnected)
+                throw new InvalidOperationException("Channel is not connected. Call StartAsync first.");
+
+            // Return cached proxy if available
+            var cacheKey = $"{serviceName}:{serviceType.FullName}";
+            if (serviceProxies.TryGetValue(cacheKey, out var cachedProxy))
+            {
+                return cachedProxy;
+            }
+
+            // Create new proxy using reflection
+            var proxyType = typeof(RemoteServiceProxy<>).MakeGenericType(serviceType);
+            var createMethod = proxyType.GetMethod("Create", BindingFlags.Public | BindingFlags.Static);
+            
+            if (createMethod == null)
+                throw new InvalidOperationException($"Could not find Create method on {proxyType.Name}");
+
+            var proxy = createMethod.Invoke(null, new object[] { pipeClient, serviceName });
+            
+            // Cache the proxy
+            serviceProxies[cacheKey] = proxy;
+
+            return proxy;
         }
     }
 }

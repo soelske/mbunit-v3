@@ -20,8 +20,7 @@ using System.Net.Sockets;
 namespace Gallio.Common.Remoting
 {
     /// <summary>
-    /// A server channel based on an <see cref="TcpServerChannel" /> that uses a
-    /// <see cref="BinaryServerFormatterSinkProvider" />.
+    /// A server channel based on TCP sockets with binary message protocol.
     /// </summary>
     public class BinaryTcpServerChannel : BaseServerChannel
     {
@@ -29,41 +28,93 @@ namespace Gallio.Common.Remoting
         private readonly int port;
         private TcpListener listener;
         private TcpClient client;
+        private readonly ServiceDispatcher serviceDispatcher;
+        private readonly MessageChannel messageChannel;
+        private Task listenerTask;
+        private CancellationTokenSource cancellationTokenSource;
 
         public BinaryTcpServerChannel(string host, int port)
         {
             this.host = host ?? throw new ArgumentNullException(nameof(host));
             this.port = port;
+            this.serviceDispatcher = new ServiceDispatcher();
+            this.messageChannel = new MessageChannel();
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken = default)
         {
-            listener = new TcpListener(IPAddress.Parse(host), port);
+            var ipAddress = IPAddress.Parse(host);
+            listener = new TcpListener(ipAddress, port);
             listener.Start();
+            
             client = await listener.AcceptTcpClientAsync(cancellationToken);
+
+            // Start message processing loop
+            cancellationTokenSource = new CancellationTokenSource();
+            listenerTask = Task.Run(() => ProcessMessagesAsync(cancellationTokenSource.Token));
         }
 
         public override Task RegisterServiceAsync<TService>(string serviceName, TService service)
         {
-            // Placeholder: attach service to TCP listener logic
+            if (serviceName == null)
+                throw new ArgumentNullException(nameof(serviceName));
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+
+            serviceDispatcher.RegisterService(serviceName, service);
             return Task.CompletedTask;
+        }
+
+        private async Task ProcessMessagesAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                var stream = client.GetStream();
+                while (!cancellationToken.IsCancellationRequested && client.Connected)
+                {
+                    var request = await messageChannel.ReadMessageAsync(stream, cancellationToken);
+                    if (request == null)
+                        break;
+
+                    if (request.MessageType == RpcMessageType.Request)
+                    {
+                        var response = await serviceDispatcher.DispatchAsync(request, cancellationToken);
+                        await messageChannel.WriteMessageAsync(stream, response, cancellationToken);
+                    }
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                // Expected when stopping
+            }
+            catch (Exception)
+            {
+                // Log or handle connection errors
+            }
         }
 
         public NetworkStream Stream => client?.GetStream();
 
-        public override Task StopAsync(CancellationToken cancellationToken = default)
+        public override async Task StopAsync(CancellationToken cancellationToken = default)
         {
+            cancellationTokenSource?.Cancel();
+            if (listenerTask != null)
+            {
+                await listenerTask;
+            }
             client?.Close();
             listener?.Stop();
             client = null;
             listener = null;
-            return Task.CompletedTask;
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
+                cancellationTokenSource?.Cancel();
+                listenerTask?.Wait(TimeSpan.FromSeconds(2));
+                cancellationTokenSource?.Dispose();
                 client?.Dispose();
                 listener = null;
                 client = null;

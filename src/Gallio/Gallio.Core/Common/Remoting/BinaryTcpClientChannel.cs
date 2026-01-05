@@ -14,16 +14,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using System.Collections.Concurrent;
 using System.Net.Sockets;
+using System.Reflection;
 
 namespace Gallio.Common.Remoting
 {
     /// <summary>
+    /// A client channel based on TCP sockets with binary message protocol.
+    /// </summary>
     public class BinaryTcpClientChannel : BaseClientChannel
     {
         private readonly string host;
         private readonly int port;
         private TcpClient tcpClient;
+        private readonly ConcurrentDictionary<string, object> serviceProxies = new();
 
         public BinaryTcpClientChannel(string host, int port)
         {
@@ -46,6 +51,16 @@ namespace Gallio.Common.Remoting
 
         public override Task StopAsync(CancellationToken cancellationToken = default)
         {
+            // Dispose all proxies
+            foreach (var proxy in serviceProxies.Values)
+            {
+                if (proxy is IDisposable disposable)
+                {
+                    disposable.Dispose();
+                }
+            }
+            serviceProxies.Clear();
+
             tcpClient?.Close();
             tcpClient = null;
             return Task.CompletedTask;
@@ -55,9 +70,52 @@ namespace Gallio.Common.Remoting
         {
             if (disposing)
             {
+                // Dispose all proxies
+                foreach (var proxy in serviceProxies.Values)
+                {
+                    if (proxy is IDisposable disposable)
+                    {
+                        disposable.Dispose();
+                    }
+                }
+                serviceProxies.Clear();
+
                 tcpClient?.Dispose();
                 tcpClient = null;
             }
+        }
+
+        // GetService implementation for IClientChannel compatibility
+        public override object GetService(Type serviceType, string serviceName)
+        {
+            if (serviceType == null)
+                throw new ArgumentNullException(nameof(serviceType));
+            if (serviceName == null)
+                throw new ArgumentNullException(nameof(serviceName));
+
+            if (tcpClient == null || !tcpClient.Connected)
+                throw new InvalidOperationException("Channel is not connected. Call StartAsync first.");
+
+            // Return cached proxy if available
+            var cacheKey = $"{serviceName}:{serviceType.FullName}";
+            if (serviceProxies.TryGetValue(cacheKey, out var cachedProxy))
+            {
+                return cachedProxy;
+            }
+
+            // Create new proxy using reflection
+            var proxyType = typeof(RemoteServiceProxy<>).MakeGenericType(serviceType);
+            var createMethod = proxyType.GetMethod("Create", BindingFlags.Public | BindingFlags.Static);
+            
+            if (createMethod == null)
+                throw new InvalidOperationException($"Could not find Create method on {proxyType.Name}");
+
+            var proxy = createMethod.Invoke(null, new object[] { tcpClient.GetStream(), serviceName });
+            
+            // Cache the proxy
+            serviceProxies[cacheKey] = proxy;
+
+            return proxy;
         }
     }
 }

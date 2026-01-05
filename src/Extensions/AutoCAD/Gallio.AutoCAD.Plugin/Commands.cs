@@ -159,7 +159,12 @@ namespace Gallio.AutoCAD.Plugin
     {
       public static void Run(string ipcPortName, Guid linkId)
       {
+
+#if NETCOREAPP
+        using (var client = new TestIsolationClientAdapter(ipcPortName, linkId))
+#else
         using (var client = new TestIsolationClient(ipcPortName, linkId))
+#endif
         {
           client.Run();
         }

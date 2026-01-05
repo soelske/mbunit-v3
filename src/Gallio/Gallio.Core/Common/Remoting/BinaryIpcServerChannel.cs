@@ -22,51 +22,95 @@ namespace Gallio.Common.Remoting
     {
         private readonly string pipeName;
         private NamedPipeServerStream pipeServer;
+        private readonly ServiceDispatcher serviceDispatcher;
+        private readonly MessageChannel messageChannel;
+        private Task listenerTask;
+        private CancellationTokenSource cancellationTokenSource;
 
         public BinaryIpcServerChannel(string pipeName)
         {
             this.pipeName = pipeName ?? throw new ArgumentNullException(nameof(pipeName));
+            this.serviceDispatcher = new ServiceDispatcher();
+            this.messageChannel = new MessageChannel();
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken = default)
         {
             pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous);
             await pipeServer.WaitForConnectionAsync(cancellationToken);
+
+            // Start message processing loop
+            cancellationTokenSource = new CancellationTokenSource();
+            listenerTask = Task.Run(() => ProcessMessagesAsync(cancellationTokenSource.Token));
         }
 
         public override Task RegisterServiceAsync<TService>(string serviceName, TService service)
         {
-            // placeholder
+            if (serviceName == null)
+                throw new ArgumentNullException(nameof(serviceName));
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+
+            serviceDispatcher.RegisterService(serviceName, service);
             return Task.CompletedTask;
+        }
+
+        private async Task ProcessMessagesAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                while (!cancellationToken.IsCancellationRequested && pipeServer.IsConnected)
+                {
+                    var request = await messageChannel.ReadMessageAsync(pipeServer, cancellationToken);
+                    if (request == null)
+                        break;
+
+                    if (request.MessageType == RpcMessageType.Request)
+                    {
+                        var response = await serviceDispatcher.DispatchAsync(request, cancellationToken);
+                        await messageChannel.WriteMessageAsync(pipeServer, response, cancellationToken);
+                    }
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                // Expected when stopping
+            }
+            catch (Exception)
+            {
+                // Log or handle connection errors
+            }
         }
 
         public Stream Stream => pipeServer;
 
-        public override Task StopAsync(CancellationToken cancellationToken = default)
+        public override async Task StopAsync(CancellationToken cancellationToken = default)
         {
+            cancellationTokenSource?.Cancel();
+            if (listenerTask != null)
+            {
+                await listenerTask;
+            }
             pipeServer?.Dispose();
             pipeServer = null;
-            return Task.CompletedTask;
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
+                cancellationTokenSource?.Cancel();
+                listenerTask?.Wait(TimeSpan.FromSeconds(2));
+                cancellationTokenSource?.Dispose();
                 pipeServer?.Dispose();
                 pipeServer = null;
             }
         }
 
-        // Implementatie van IServerChannel
+        // IServerChannel implementation for compatibility
         public void RegisterService(string serviceName, MarshalByRefObject component)
         {
-            if (serviceName == null)
-                throw new ArgumentNullException(nameof(serviceName));
-            if (component == null)
-                throw new ArgumentNullException(nameof(component));
-
-            // TODO: voeg je IPC logica hier toe om een service te registreren
+            RegisterServiceAsync(serviceName, component).GetAwaiter().GetResult();
         }
     }
 }

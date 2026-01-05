@@ -14,45 +14,33 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System.Collections.Concurrent;
-
 namespace Gallio.Common.Remoting
 {
     /// <summary>
-    /// Base class for client channels with a local service registry.
+    /// Base class for client channels.
     /// </summary>
     public abstract class BaseClientChannel : BaseChannel
     {
-        private readonly ConcurrentDictionary<string, object> services = new();
-
+        /// <summary>
+        /// Connects to the remote endpoint asynchronously.
+        /// </summary>
         public abstract Task ConnectAsync(CancellationToken cancellationToken = default);
 
-        public void RegisterService(string serviceName, object service)
-        {
-            if (serviceName == null) throw new ArgumentNullException(nameof(serviceName));
-            if (service == null) throw new ArgumentNullException(nameof(service));
+        /// <summary>
+        /// Gets a remote service proxy by type and name.
+        /// This must be implemented by derived classes to provide the actual proxy mechanism.
+        /// </summary>
+        /// <param name="serviceType">The type of the service interface.</param>
+        /// <param name="serviceName">The name of the service.</param>
+        /// <returns>A proxy object that implements the service interface.</returns>
+        public abstract object GetService(Type serviceType, string serviceName);
 
-            services[serviceName] = service;
-        }
-
-        public object GetService(Type serviceType, string serviceName)
-        {
-            if (serviceName == null) throw new ArgumentNullException(nameof(serviceName));
-            if (serviceType == null) throw new ArgumentNullException(nameof(serviceType));
-
-            if (services.TryGetValue(serviceName, out var service) &&
-                serviceType.IsInstanceOfType(service))
-            {
-                return service;
-            }
-
-            return null;
-        }
-
-        // Optional generic overload
+        /// <summary>
+        /// Generic helper method to get a strongly-typed service proxy.
+        /// </summary>
         public T GetService<T>(string serviceName) where T : class
         {
-            return GetService(typeof(T), serviceName) as T;
+            return (T)GetService(typeof(T), serviceName);
         }
     }
 }

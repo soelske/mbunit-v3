@@ -16,8 +16,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- Exclude files that are not compatible with .NET 8 or will be replaced -->
-    <Compile Remove="..\Gallio.AutoCAD.Plugin\Properties\AssemblyInfo.cs" />
     <Compile Remove="..\Gallio.AutoCAD.Plugin\packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Revision.cs" Link="Revision.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoCAD.NET.Core" Version="25.1.0" />

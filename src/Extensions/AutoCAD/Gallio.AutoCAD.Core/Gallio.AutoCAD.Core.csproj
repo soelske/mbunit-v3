@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <!-- Target .NET 8.0-windows for AutoCAD 2025+ support -->
@@ -8,6 +8,7 @@
     <RootNamespace>Gallio.AutoCAD</RootNamespace>
     <Version>4.0.0</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <PackageId>Gallio.AutoCAD</PackageId>
     <Authors>Gallio Project, Bart Suelze</Authors>
     <Description>Gallio AutoCAD Integration v4 - .NET 8 support for AutoCAD 2025+</Description>
@@ -23,8 +24,11 @@
 
   <ItemGroup>
     <!-- Exclude files that are not compatible with .NET 8 or will be replaced -->
-    <Compile Remove="..\Gallio.AutoCAD\Properties\AssemblyInfo.cs" />
     <Compile Remove="..\Gallio.AutoCAD\Commands\AcadCommandRunner.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Revision.cs" Link="Revision.cs" />
   </ItemGroup>
 
   <ItemGroup>

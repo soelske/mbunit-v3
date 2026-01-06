@@ -6,16 +6,24 @@
 	<UseWindowsForms>true</UseWindowsForms>
 	<AssemblyName>MbUnit</AssemblyName>
 	<RootNamespace>MbUnit</RootNamespace>
+	<Version>4.0.0</Version>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageId>MbUnit</PackageId>
-	<Authors>Bart Suelze</Authors>
-	<Description>Modernized build of MbUnit for .NET 8 and .NET Standard 2.0</Description>
+	<Authors>Gallio Project, Bart Suelze</Authors>
+	<Description>MbUnit Test Framework v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
+	<PackageTags>testing;test-framework;mbunit;unit-testing;tdd;bdd;automation;dotnet;csharp</PackageTags>
+	<PackageProjectUrl>https://github.com/soelske/mbunit-v3</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	<Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
 	<Compile Include="..\MbUnit\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  <Compile Include="..\MbUnit\**\*.plugin" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
   <ItemGroup>

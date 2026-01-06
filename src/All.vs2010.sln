@@ -296,6 +296,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin210", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin250", "Extensions\AutoCAD\Gallio.AutoCAD.Plugin\Gallio.AutoCAD.Plugin250.csproj", "{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MbUnit.Core", "MbUnit\MbUnit.Core\MbUnit.Core.csproj", "{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1474,6 +1476,18 @@ Global
 		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|x86.ActiveCfg = Release|Any CPU
 		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE}.Release|x86.Build.0 = Release|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Debug|x86.Build.0 = Debug|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|x86.ActiveCfg = Release|Any CPU
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1615,6 +1629,7 @@ Global
 		{D64E0B02-45A5-4934-B65F-7973B2F79278} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
 		{E96741A1-4667-4DBD-A426-776D85A4D1CA} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
 		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
+		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34} = {4D506DA5-13C1-4B1F-9018-4FDCA066993A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8FEAF41-F466-4973-A7B3-81B482BC5F1E}

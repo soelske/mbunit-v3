@@ -6,10 +6,17 @@
 <UseWindowsForms>true</UseWindowsForms>
 <AssemblyName>Gallio</AssemblyName>
 <RootNamespace>Gallio</RootNamespace>
+<Version>4.0.0</Version>
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 <PackageId>Gallio</PackageId>
-<Authors>Bart Suelze</Authors>
-<Description>Modernized build of Gallio for .NET 8 and .NET Standard 2.0</Description>
+<Authors>Gallio Project, Bart Suelze</Authors>
+<Description>Gallio Test Automation Platform v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
+<PackageTags>testing;test-framework;gallio;mbunit;unit-testing;automation;dotnet;csharp</PackageTags>
+<PackageProjectUrl>https://github.com/soelske/mbunit-v3</PackageProjectUrl>
+<RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>
+<RepositoryType>git</RepositoryType>
+<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+<Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
    <ImplicitUsings>enable</ImplicitUsings>
    <Nullable>enable</Nullable>
    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>

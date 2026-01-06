@@ -6,10 +6,11 @@
     <UseWindowsForms>false</UseWindowsForms>
     <AssemblyName>Gallio.AutoCAD</AssemblyName>
     <RootNamespace>Gallio.AutoCAD</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>4.0.0</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>Gallio.AutoCAD</PackageId>
-    <Authors>Bart Suelze</Authors>
-    <Description>Modernized build of Gallio AutoCAD integration for .NET 8</Description>
+    <Authors>Gallio Project, Bart Suelze</Authors>
+    <Description>Gallio AutoCAD Integration v4 - .NET 8 support for AutoCAD 2025+</Description>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>

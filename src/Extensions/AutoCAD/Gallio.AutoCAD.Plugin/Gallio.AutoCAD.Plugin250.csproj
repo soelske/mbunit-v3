@@ -4,6 +4,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Gallio.AutoCAD.Plugin250</RootNamespace>
     <AssemblyName>Gallio.AutoCAD.Plugin250</AssemblyName>
+    <Version>4.0.0</Version>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -14,9 +15,14 @@
     <DefineConstants>TRACE;DEBUG;R25</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AutoCAD.NET.Core" Version="25.0.0" />
-    <PackageReference Include="AutoCAD.NET.Model" Version="25.0.0" />
-    <PackageReference Include="AutoCAD.NET" Version="25.0.0" />
+    <!-- Exclude files that are not compatible with .NET 8 or will be replaced -->
+    <Compile Remove="..\Gallio.AutoCAD.Plugin\Properties\AssemblyInfo.cs" />
+    <Compile Remove="..\Gallio.AutoCAD.Plugin\packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoCAD.NET.Core" Version="25.1.0" />
+    <PackageReference Include="AutoCAD.NET.Model" Version="25.1.0" />
+    <PackageReference Include="AutoCAD.NET" Version="25.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />

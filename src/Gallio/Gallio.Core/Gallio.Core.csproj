@@ -3,20 +3,21 @@
  <PropertyGroup>
 <!-- Multi-target build -->
    <TargetFramework>net8.0-windows</TargetFramework>
-<UseWindowsForms>true</UseWindowsForms>
-<AssemblyName>Gallio</AssemblyName>
-<RootNamespace>Gallio</RootNamespace>
-<Version>4.0.0</Version>
-<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-<PackageId>Gallio</PackageId>
-<Authors>Gallio Project, Bart Suelze</Authors>
-<Description>Gallio Test Automation Platform v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
-<PackageTags>testing;test-framework;gallio;mbunit;unit-testing;automation;dotnet;csharp</PackageTags>
-<PackageProjectUrl>https://github.com/soelske/mbunit-v3</PackageProjectUrl>
-<RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>
-<RepositoryType>git</RepositoryType>
-<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-<Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
+   <UseWindowsForms>true</UseWindowsForms>
+   <AssemblyName>Gallio</AssemblyName>
+   <RootNamespace>Gallio</RootNamespace>
+   <Version>4.0.0</Version>
+   <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+   <PackageId>Gallio</PackageId>
+   <Authors>Gallio Project, Bart Suelze</Authors>
+   <Description>Gallio Test Automation Platform v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
+   <PackageTags>testing;test-framework;gallio;mbunit;unit-testing;automation;dotnet;csharp</PackageTags>
+   <PackageProjectUrl>https://github.com/soelske/mbunit-v3</PackageProjectUrl>
+   <RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>
+   <RepositoryType>git</RepositoryType>
+   <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+   <Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
    <ImplicitUsings>enable</ImplicitUsings>
    <Nullable>enable</Nullable>
    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -52,7 +53,6 @@
     <Compile Remove="..\Gallio\Common\Remoting\BinaryTcpServerChannel.cs" />
     <Compile Remove="..\Gallio\Common\Security\Impersonation.cs" />
     <Compile Remove="..\Gallio\Model\Contexts\DefaultTestContextTracker.cs" />
-    <Compile Remove="..\Gallio\Properties\AssemblyInfo.cs" />
     <Compile Remove="..\Gallio\Runtime\Hosting\AppDomainUtils.cs" />
     <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHost.cs" />
     <Compile Remove="..\Gallio\Runtime\ProgressMonitoring\RemoteProgressMonitor.cs" />
@@ -66,6 +66,10 @@
   <ItemGroup>
     <!-- Include icon resources as Content -->
     <Content Include="..\Gallio\Resources\*.ico" Link="Resources\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Revision.cs" Link="Revision.cs" />
   </ItemGroup>
 
   <ItemGroup>

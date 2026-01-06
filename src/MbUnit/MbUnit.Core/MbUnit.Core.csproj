@@ -8,6 +8,7 @@
 	<RootNamespace>MbUnit</RootNamespace>
 	<Version>4.0.0</Version>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<PackageId>MbUnit</PackageId>
 	<Authors>Gallio Project, Bart Suelze</Authors>
 	<Description>MbUnit Test Framework v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
@@ -17,13 +18,15 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 	<Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+  <ImplicitUsings>enable</ImplicitUsings>
+  <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-	<Compile Include="..\MbUnit\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
-  <Compile Include="..\MbUnit\**\*.plugin" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+	  <Compile Include="..\MbUnit\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- Include icon resources as Content -->
+    <Content Include="..\MbUnit\Resources\*.*" Link="Resources\%(Filename)%(Extension)" />
+    <None Include="..\MbUnit\MbUnit.plugin" Link="MbUnit.plugin" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +35,10 @@
     <Compile Remove="..\MbUnit\Framework\ImpersonateAttribute.cs" />
     <Compile Remove="..\MbUnit\Framework\ContractVerifiers\Core\ImmutableTypeCollection.cs" />
     <Compile Remove="..\MbUnit\Framework\ContractVerifiers\ExceptionContract.cs" />
-    <Compile Remove="..\MbUnit\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Revision.cs" Link="Revision.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,14 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
  <PropertyGroup>
-<!-- Multi-target build -->
    <TargetFramework>net8.0-windows</TargetFramework>
    <UseWindowsForms>true</UseWindowsForms>
    <AssemblyName>Gallio</AssemblyName>
    <RootNamespace>Gallio</RootNamespace>
    <Version>4.0.0</Version>
-   <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+   <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <PackageId>Gallio</PackageId>
    <Authors>Gallio Project, Bart Suelze</Authors>
    <Description>Gallio Test Automation Platform v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
@@ -31,6 +30,11 @@
  </ItemGroup>
 
   <ItemGroup>
+    <!-- Exclude auto-generated files and build output -->
+    <Compile Remove="..\Gallio\obj\**\*.cs" />
+    <Compile Remove="..\Gallio\bin\**\*.cs" />
+    
+    <!-- Exclude files that don't compile in .NET 8 -->
     <Compile Remove="..\Gallio\Common\Messaging\MessageFormatters\BinaryMessageFormatter.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\CciModuleCache.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedAssembly.cs" />
@@ -82,5 +86,17 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.1" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.11" />
   </ItemGroup>
+
+  <!-- Post-build event to create multi-target package in Release mode -->
+  <Target Name="CreateMultiTargetPackage" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <PropertyGroup>
+      <ProjectDirTrimmed>$(ProjectDir.TrimEnd('\'))</ProjectDirTrimmed>
+    </PropertyGroup>
+    <Message Text="Creating multi-target NuGet package..." Importance="high" />
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDirTrimmed)\Build-MultiTarget-Package.ps1&quot; -ProjectDir &quot;$(ProjectDirTrimmed)&quot; -Configuration &quot;$(Configuration)&quot; -PackageId &quot;$(PackageId)&quot; -Version &quot;$(Version)&quot;" 
+          WorkingDirectory="$(ProjectDirTrimmed)"
+          ContinueOnError="true" 
+          IgnoreExitCode="true" />
+  </Target>
 
 </Project>

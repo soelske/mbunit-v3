@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<!-- Multi-target build -->
-	<TargetFramework>net8.0-windows</TargetFramework>
-	<UseWindowsForms>true</UseWindowsForms>
+  <!-- Multi-target build -->
+  <TargetFramework>net8.0-windows</TargetFramework>
+  <UseWindowsForms>true</UseWindowsForms>
 	<AssemblyName>MbUnit</AssemblyName>
 	<RootNamespace>MbUnit</RootNamespace>
 	<Version>4.0.0</Version>
-	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<PackageId>MbUnit</PackageId>
 	<Authors>Gallio Project, Bart Suelze</Authors>
 	<Description>MbUnit Test Framework v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
@@ -34,6 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Exclude auto-generated files and build output -->
+    <Compile Remove="..\MbUnit\obj\**\*.cs" />
+    <Compile Remove="..\MbUnit\bin\**\*.cs" />
+    
+    <!-- Exclude files that don't compile in .NET 8 -->
     <Compile Remove="..\MbUnit\Framework\Assert.Serialization.cs" />
     <Compile Remove="..\MbUnit\Framework\Assert.That.cs" />
     <Compile Remove="..\MbUnit\Framework\ImpersonateAttribute.cs" />
@@ -52,5 +57,16 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
   </ItemGroup>
+
+  <!-- Post-build event to create multi-target package in Release mode -->
+  <Target Name="CreateMultiTargetPackage" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <PropertyGroup>
+      <ProjectDirTrimmed>$(ProjectDir.TrimEnd('\'))</ProjectDirTrimmed>
+    </PropertyGroup>
+    <Message Text="Creating multi-target NuGet package..." Importance="high" />
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDirTrimmed)\Build-MultiTarget-Package.ps1&quot; -ProjectDir &quot;$(ProjectDirTrimmed)&quot; -Configuration &quot;$(Configuration)&quot; -PackageId &quot;$(PackageId)&quot; -Version &quot;$(Version)&quot;" 
+          ContinueOnError="true" 
+          IgnoreExitCode="true" />
+  </Target>
 
 </Project>

@@ -17,6 +17,8 @@
    <RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>
    <RepositoryType>git</RepositoryType>
    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+   <PackageReadmeFile>README.md</PackageReadmeFile>
+   <PackageIcon>Pillar.png</PackageIcon>
    <Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
    <ImplicitUsings>enable</ImplicitUsings>
    <Nullable>enable</Nullable>
@@ -61,11 +63,13 @@
 
   <ItemGroup>
     <None Include="..\Gallio\Gallio.plugin" Link="Gallio.plugin" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Include icon resources as Content -->
     <Content Include="..\Gallio\Resources\*.ico" Link="Resources\%(Filename)%(Extension)" />
+    <Content Include="..\Gallio\Resources\Pillar.png" Pack="true" PackagePath="\" Link="Resources\%(Filename)%(Extension)" />
   </ItemGroup>
 
   <ItemGroup>

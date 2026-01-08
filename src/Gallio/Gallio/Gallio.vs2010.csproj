@@ -1225,6 +1225,7 @@
     <Content Include="Gallio.plugin" />
     <Content Include="Resources\Assembly.ico" />
     <Content Include="Resources\Container.ico" />
+    <Content Include="Resources\Pillar.png" />
     <Content Include="Resources\Unsupported.ico" />
     <Content Include="Resources\Fixture.ico" />
     <Content Include="Resources\Gallio.ico" />

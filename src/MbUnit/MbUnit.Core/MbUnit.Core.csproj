@@ -17,6 +17,8 @@
 	<RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageIcon>MbUnit.png</PackageIcon>
 	<Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
   <ImplicitUsings>enable</ImplicitUsings>
   <Nullable>enable</Nullable>
@@ -26,7 +28,9 @@
 	  <Compile Include="..\MbUnit\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
     <!-- Include icon resources as Content -->
     <Content Include="..\MbUnit\Resources\*.*" Link="Resources\%(Filename)%(Extension)" />
+    <Content Include="..\MbUnit\Resources\MbUnit.png" Pack="true" PackagePath="\" Link="Resources\%(Filename)%(Extension)" />
     <None Include="..\MbUnit\MbUnit.plugin" Link="MbUnit.plugin" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>

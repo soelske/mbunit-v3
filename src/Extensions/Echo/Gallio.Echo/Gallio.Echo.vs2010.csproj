@@ -97,7 +97,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\Revision.cs">
+    <Compile Include="..\Revision.cs">
       <Link>Revision.cs</Link>
     </Compile>
     <Compile Include="EchoArguments.cs" />

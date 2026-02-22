@@ -9,7 +9,7 @@
 	<Version>4.0.0</Version>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   <GenerateDocumentationFile>true</GenerateDocumentationFile>
-	<PackageId>MbUnit</PackageId>
+	<PackageId>MbUnit.V4</PackageId>
 	<Authors>Gallio Project, Bart Suelze</Authors>
 	<Description>MbUnit Test Framework v4 - Now with .NET 8 support! Multi-target package supporting .NET Framework 3.5+ and .NET 8.</Description>
 	<PackageTags>testing;test-framework;mbunit;unit-testing;tdd;bdd;automation;dotnet;csharp</PackageTags>

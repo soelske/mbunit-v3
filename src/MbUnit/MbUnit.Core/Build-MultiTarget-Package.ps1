@@ -98,7 +98,7 @@ $tempCsprojContent = @"
     <PackageId>$PackageId</PackageId>
     <Version>$Version</Version>
     <Authors>Gallio Project, Bart Suelze</Authors>
-    <Description>$PackageId Test Framework v4 - Multi-target package supporting .NET Framework 3.5+ and .NET 8. Requires Gallio package.</Description>
+    <Description>$PackageId Test Framework v4 - Multi-target package supporting .NET Framework 3.5+ and .NET 8-windows.</Description>
     <Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
     <PackageTags>testing;test-framework;mbunit;unit-testing;tdd;bdd;automation;dotnet;csharp</PackageTags>
     <PackageProjectUrl>https://github.com/soelske/mbunit-v3</PackageProjectUrl>

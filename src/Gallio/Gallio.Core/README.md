@@ -1,6 +1,6 @@
 # Gallio Test Automation Platform v4.0
 
-Modern test automation platform for .NET, now with .NET 8 support!
+Test automation platform for .NET, now with .NET 8-windows support.
 
 ## ?? Installation
 
@@ -72,6 +72,17 @@ Gallio supports various extensions:
 - **xUnit** - xUnit.net test framework adapter
 - **AutoCAD** - Run tests in AutoCAD environment
 - **Custom Frameworks** - Build your own test framework
+
+## ??? Framework Support
+
+| Framework | Support |
+|-----------|---------|
+| .NET Framework 3.5 | ? Full support |
+| .NET Framework 4.0 | ? Full support |
+| .NET Framework 4.5+ | ? Full support |
+| .NET Framework 4.8 | ? Full support |
+| .NET 8 | windows support |
+| .NET 9+ | ?? Planned |
 
 ## ?? Documentation
 

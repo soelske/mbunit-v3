@@ -1,6 +1,6 @@
 # MbUnit Test Framework v4.0
 
-Modern unit testing framework for .NET with rich assertions and data-driven testing support!
+Unit testing framework for .NET with rich assertions and data-driven testing, now with .NET 8-windows support.
 
 ## ?? Installation
 
@@ -178,7 +178,7 @@ public void TestFromCsv(string name, int age, string city)
 | .NET Framework 4.0 | ? Full support |
 | .NET Framework 4.5+ | ? Full support |
 | .NET Framework 4.8 | ? Full support |
-| .NET 8 | ? Full support |
+| .NET 8 | windows support |
 | .NET 9+ | ?? Planned |
 
 ## ?? Documentation

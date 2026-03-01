@@ -298,6 +298,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.AutoCAD.Plugin250", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MbUnit.Core", "MbUnit\MbUnit.Core\MbUnit.Core.csproj", "{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.Icarus.Core", "Extensions\Icarus\Gallio.Icarus.Core\Gallio.Icarus.Core.csproj", "{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.UI.Core", "Gallio\Gallio.UI.Core\Gallio.UI.Core.csproj", "{DAC123E5-93BE-A184-D65E-34A7CB777D6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1488,6 +1492,30 @@ Global
 		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|x86.ActiveCfg = Release|Any CPU
 		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34}.Release|x86.Build.0 = Release|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Debug|x86.Build.0 = Debug|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Release|x86.ActiveCfg = Release|Any CPU
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D}.Release|x86.Build.0 = Release|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Debug|x86.Build.0 = Debug|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Release|x86.ActiveCfg = Release|Any CPU
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1630,6 +1658,8 @@ Global
 		{E96741A1-4667-4DBD-A426-776D85A4D1CA} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
 		{E0B7631F-06EB-2673-01D5-B1BC24BDC0EE} = {A4C7BF21-4DEE-4E6A-B9D6-B5F8AA4DE806}
 		{C82E0E60-2AC9-FFCB-C894-76E3514E7D34} = {4D506DA5-13C1-4B1F-9018-4FDCA066993A}
+		{BEDDD79F-63FF-3B88-B1D1-B5336F8A947D} = {EF7C2792-A4BD-4BCC-93B4-3927303AA59C}
+		{DAC123E5-93BE-A184-D65E-34A7CB777D6B} = {00CE3107-C47F-4D2B-986B-763181832B51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8FEAF41-F466-4973-A7B3-81B482BC5F1E}

@@ -33,18 +33,18 @@ namespace Gallio.Common.Remoting
         private Task listenerTask;
         private CancellationTokenSource cancellationTokenSource;
 
-        public BinaryTcpServerChannel(string host, int port)
+        public BinaryTcpServerChannel(string hostName, int portNumber)
         {
-            this.host = host ?? throw new ArgumentNullException(nameof(host));
-            this.port = port;
+            this.host = hostName ?? throw new ArgumentNullException(nameof(hostName));
+            this.port = portNumber;
             this.serviceDispatcher = new ServiceDispatcher();
             this.messageChannel = new MessageChannel();
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken = default)
         {
-            var ipAddress = IPAddress.Parse(host);
-            listener = new TcpListener(ipAddress, port);
+            // Listen on loopback only (matches original rejectRemoteRequests=true behaviour).
+            listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
             
             client = await listener.AcceptTcpClientAsync(cancellationToken);
@@ -119,6 +119,12 @@ namespace Gallio.Common.Remoting
                 listener = null;
                 client = null;
             }
+        }
+
+        // IServerChannel compatibility: synchronous registration before StartAsync is called.
+        public void RegisterService(string serviceName, MarshalByRefObject component)
+        {
+            RegisterServiceAsync(serviceName, component).GetAwaiter().GetResult();
         }
     }
 }

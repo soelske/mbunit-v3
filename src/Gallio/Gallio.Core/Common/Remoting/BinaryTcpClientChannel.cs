@@ -27,14 +27,23 @@ namespace Gallio.Common.Remoting
     {
         private readonly string host;
         private readonly int port;
+        private readonly int requestTimeoutMillis;
         private TcpClient tcpClient;
         private readonly ConcurrentDictionary<string, object> serviceProxies = new();
 
-        public BinaryTcpClientChannel(string host, int port)
+        /// <summary>Creates a channel matching the original BinaryTcpClientChannel signature.</summary>
+        public BinaryTcpClientChannel(string hostName, int portNumber, TimeSpan? requestTimeout)
         {
-            this.host = host ?? throw new ArgumentNullException(nameof(host));
-            this.port = port;
+            this.host = hostName ?? throw new ArgumentNullException(nameof(hostName));
+            this.port = portNumber;
+            this.requestTimeoutMillis = requestTimeout.HasValue
+                ? (int)requestTimeout.Value.TotalMilliseconds
+                : -1;
         }
+
+        /// <summary>Convenience constructor without timeout.</summary>
+        public BinaryTcpClientChannel(string hostName, int portNumber)
+            : this(hostName, portNumber, null) { }
 
         public override async Task StartAsync(CancellationToken cancellationToken = default)
         {

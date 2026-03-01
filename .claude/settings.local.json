@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.nuget.org)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(dotnet build:*)",
+      "Bash(powershell:*)",
+      "Bash(dotnet msbuild:*)",
+      "Bash(python3:*)",
+      "Bash(grep:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)"
+    ]
+  }
+}

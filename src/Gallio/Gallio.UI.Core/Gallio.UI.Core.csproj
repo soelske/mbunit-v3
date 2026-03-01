@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Gallio.UI</AssemblyName>
+    <RootNamespace>Gallio.UI</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <!-- Wildcards buiten projectmap vereisen expliciete includes -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <!-- Alle bronbestanden van het originele Gallio.UI project via wildcard -->
+  <ItemGroup>
+    <Compile Include="..\Gallio.UI\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="..\Gallio.UI\**\*.resx" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- Sluit build-output mappen uit -->
+  <ItemGroup>
+    <Compile Remove="..\Gallio.UI\obj\**\*.cs" />
+    <Compile Remove="..\Gallio.UI\bin\**\*.cs" />
+    <EmbeddedResource Remove="..\Gallio.UI\obj\**\*.resx" />
+    <EmbeddedResource Remove="..\Gallio.UI\bin\**\*.resx" />
+  </ItemGroup>
+
+  <!-- Revision.cs gedeeld vanuit src/ -->
+  <ItemGroup>
+    <Compile Include="..\..\Revision.cs" Link="Revision.cs" />
+  </ItemGroup>
+
+  <!-- Plugin descriptor meepubliceren -->
+  <ItemGroup>
+    <None Include="..\Gallio.UI\Gallio.UI.plugin" Link="Gallio.UI.plugin" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Aga.Controls: geen .NET 8 NuGet, lokale DLL via HintPath -->
+    <Reference Include="Aga.Controls">
+      <HintPath>..\libs\Aga.Controls.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <!-- App.config ondersteuning -->
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Verwijst naar Gallio.Core i.p.v. het oude Gallio.vs2010 project -->
+    <ProjectReference Include="..\Gallio.Core\Gallio.Core.csproj" />
+  </ItemGroup>
+
+</Project>

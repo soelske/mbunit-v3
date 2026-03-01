@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Gallio.Icarus</AssemblyName>
+    <RootNamespace>Gallio.Icarus</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <!-- Wildcards outside project directory require explicit includes -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <ApplicationIcon>..\Gallio.Icarus\Resources\Gallio.Icarus.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <!-- All original Icarus source via wildcard -->
+  <ItemGroup>
+    <Compile Include="..\Gallio.Icarus\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="..\Gallio.Icarus\**\*.resx" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- Exclusions for files that need .NET 8 replacements -->
+  <ItemGroup>
+    <Compile Remove="..\Gallio.Icarus\obj\**\*.cs" />
+    <Compile Remove="..\Gallio.Icarus\bin\**\*.cs" />
+
+    <!-- ICSharpCode.TextEditor removed; RichTextBox replacements live in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Views\CodeViewer\CodeViewer.cs" />
+    <Compile Remove="..\Gallio.Icarus\Views\CodeViewer\CodeViewer.Designer.cs" />
+
+    <!-- DockPanel.Skin API removed in DockPanelSuite v3; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Main.Designer.cs" />
+  </ItemGroup>
+
+  <!-- Replacement files in this project directory -->
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="obj\**\*.cs;bin\**\*.cs" />
+  </ItemGroup>
+
+  <!-- Shared Revision.cs -->
+  <ItemGroup>
+    <Compile Include="..\..\..\Revision.cs" Link="Revision.cs" />
+  </ItemGroup>
+
+  <!-- Plugin descriptor -->
+  <ItemGroup>
+    <None Include="..\Gallio.Icarus\Gallio.Icarus.plugin" Link="Gallio.Icarus.plugin" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Aga.Controls: no .NET 8 NuGet, local DLL via HintPath -->
+    <Reference Include="Aga.Controls">
+      <HintPath>..\..\..\Gallio\libs\Aga.Controls.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <!-- DockPanelSuite v3 replaces WeifenLuo.WinFormsUI.Docking v2 -->
+    <PackageReference Include="DockPanelSuite" Version="3.1.1" />
+    <!-- App.config support -->
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
+    <ProjectReference Include="..\..\..\Gallio\Gallio.UI.Core\Gallio.UI.Core.csproj" />
+  </ItemGroup>
+
+</Project>

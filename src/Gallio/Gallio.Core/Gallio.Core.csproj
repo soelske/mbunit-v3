@@ -19,9 +19,14 @@
    <PackageReadmeFile>README.md</PackageReadmeFile>
    <PackageIcon>Pillar.png</PackageIcon>
    <Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
-   <ImplicitUsings>enable</ImplicitUsings>
+   <!-- Source files hebben allemaal expliciete usings; disable voorkomt Timer-ambiguïteit -->
+  <ImplicitUsings>disable</ImplicitUsings>
    <Nullable>enable</Nullable>
    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  <!-- Alle .cs komen via expliciete wildcards buiten de projectmap;
+       SDK auto-include veroorzaakt duplicates via de Link-virtuele paden. -->
+  <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
  </PropertyGroup>
 
  <ItemGroup>
@@ -33,10 +38,12 @@
     <!-- Exclude auto-generated files and build output -->
     <Compile Remove="..\Gallio\obj\**\*.cs" />
     <Compile Remove="..\Gallio\bin\**\*.cs" />
-    
-    <!-- Exclude files that don't compile in .NET 8 -->
-    <Compile Remove="..\Gallio\Common\Messaging\MessageFormatters\BinaryMessageFormatter.cs" />
+
+    <!-- Exclude files that still depend on Microsoft.Cci.* (no .NET 8 NuGet equivalent) -->
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\CciDebugSymbolResolver.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\CciModuleCache.cs" />
+
+    <!-- Exclude Unresolved* types: .NET 8–compatible replacements live in this project directory -->
     <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedAssembly.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedCodeElementFactory.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedCodeElementFactoryInternal.cs" />
@@ -50,6 +57,12 @@
     <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedParameterInfo.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedPropertyInfo.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\UnresolvedType.cs" />
+
+    <!-- DebugSymbolUtils / ReflectorResolveUtils: replacements live in this project directory -->
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\DebugSymbolUtils.cs" />
+    <Compile Remove="..\Gallio\Common\Reflection\Impl\ReflectorResolveUtils.cs" />
+
+    <!-- .NET Remoting channel files: replacements (Named Pipes / TCP) live in this project directory -->
     <Compile Remove="..\Gallio\Common\Remoting\BaseChannel.cs" />
     <Compile Remove="..\Gallio\Common\Remoting\BaseClientChannel.cs" />
     <Compile Remove="..\Gallio\Common\Remoting\BaseServerChannel.cs" />
@@ -57,12 +70,31 @@
     <Compile Remove="..\Gallio\Common\Remoting\BinaryIpcServerChannel.cs" />
     <Compile Remove="..\Gallio\Common\Remoting\BinaryTcpClientChannel.cs" />
     <Compile Remove="..\Gallio\Common\Remoting\BinaryTcpServerChannel.cs" />
+
+    <!-- Security: WindowsImpersonationContext removed from .NET 8; replacement in this project directory -->
     <Compile Remove="..\Gallio\Common\Security\Impersonation.cs" />
+
+    <!-- CallContext removed from .NET 8; replacement uses AsyncLocal<T> in this project directory -->
     <Compile Remove="..\Gallio\Model\Contexts\DefaultTestContextTracker.cs" />
-    <Compile Remove="..\Gallio\Runtime\Hosting\AppDomainUtils.cs" />
-    <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHost.cs" />
+
+    <!-- [OneWay] from System.Runtime.Remoting.Messaging removed; replacement in this project directory -->
     <Compile Remove="..\Gallio\Runtime\ProgressMonitoring\RemoteProgressMonitor.cs" />
+
+    <!-- BinaryFormatter obsoleted; JSON replacement lives in this project directory -->
+    <Compile Remove="..\Gallio\Common\Messaging\MessageFormatters\BinaryMessageFormatter.cs" />
+
+    <!-- AppDomainUtils / DefaultElevationManager: replacements live in this project directory -->
+    <Compile Remove="..\Gallio\Runtime\Hosting\AppDomainUtils.cs" />
     <Compile Remove="..\Gallio\Runtime\Security\DefaultElevationManager.cs" />
+
+    <!-- IsolatedAppDomainHost(Factory): AppDomain APIs removed; excluded until fully replaced -->
+    <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHostFactory.cs" />
+    <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHost.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include all replacement .cs files in this project directory -->
+    <Compile Include="**\*.cs" Exclude="obj\**\*.cs;bin\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -81,10 +113,46 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ICSharpCode.SharpZipLib.dll" Version="0.85.4.369" />
-    <PackageReference Include="Mono.Cecil" Version="0.11.6" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.1" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.11" />
+    <!-- SharpZipLib: vervangt lokale ICSharpCode.SharpZipLib.dll -->
+    <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <!-- Mono.Cecil: vervangt lokale Mono.Cecil.dll -->
+    <PackageReference Include="Mono.Cecil" Version="0.11.5" />
+    <!-- App.config ondersteuning -->
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <!-- System.Drawing op niet-Windows platforms -->
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+
+    <!--
+      Gallio.ReflectionShim: lokale shim-assembly voor .NET 2.0 reflectie.
+    -->
+    <Reference Include="Gallio.ReflectionShim">
+      <HintPath>..\Gallio\libs\Gallio.ReflectionShim.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+
+    <!--
+      Microsoft.Cci.*: oude CCI metadata-assemblies, geen .NET 8 NuGet beschikbaar.
+    -->
+    <Reference Include="Microsoft.Cci.MetadataHelper">
+      <HintPath>..\Gallio\libs\CciMetadata\Bin\Microsoft.Cci.MetadataHelper.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.Cci.MetadataModel">
+      <HintPath>..\Gallio\libs\CciMetadata\Bin\Microsoft.Cci.MetadataModel.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.Cci.PdbReader">
+      <HintPath>..\Gallio\libs\CciMetadata\Bin\Microsoft.Cci.PdbReader.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.Cci.PeReader">
+      <HintPath>..\Gallio\libs\CciMetadata\Bin\Microsoft.Cci.PeReader.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Microsoft.Cci.SourceModel">
+      <HintPath>..\Gallio\libs\CciMetadata\Bin\Microsoft.Cci.SourceModel.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
   </ItemGroup>
 
   <!-- Post-build event to create multi-target package in Release mode -->

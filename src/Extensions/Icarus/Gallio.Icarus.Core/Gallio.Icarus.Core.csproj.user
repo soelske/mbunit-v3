@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="..\Gallio.Icarus\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Annotations\AnnotationsWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\ExecutionLogPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\ProgressMonitoringPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\ReportsPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\ShutdownPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\StartupPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\TestExplorerPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\TestRunnerExtensionsPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\TestRunnerFactoryPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\TestStatusPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ControlPanel\TreeViewCategoryPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\NodeIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\NodeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\PluginTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\ProjectTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\PropertiesTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\TestKindIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\TestNodeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\TestResultsList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\TestStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\TestStatusNodeIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Controls\TestTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\DockWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ExecutionLog\ExecutionLogWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Filters\FiltersView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ProjectExplorer\ProjectExplorerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\ProjectProperties\View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Projects\ProjectReloadDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Reload\ReloadDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\RuntimeLog\RuntimeLogWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Search\View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\TestExplorer\TestExplorerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\TestResults\TestResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Views\PluginBrowser\PluginBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="..\Gallio.Icarus\Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CodeViewer\CodeViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

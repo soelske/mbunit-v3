@@ -61,12 +61,25 @@ namespace Gallio.Runtime.Extensibility
             if (registry == null)
                 throw new ArgumentNullException("registry");
 
-            var topologicallySortedPlugins = TopologicalSortByDependencies(plugins);
+            var uniquePlugins = ExcludeDuplicatePluginIds(plugins);
+            var topologicallySortedPlugins = TopologicalSortByDependencies(uniquePlugins);
 
             IList<IPluginDescriptor> pluginDescriptors = RegisterPlugins(registry,
                 topologicallySortedPlugins);
             RegisterServices(registry, topologicallySortedPlugins, pluginDescriptors);
             RegisterComponents(registry, topologicallySortedPlugins, pluginDescriptors);
+        }
+
+        private static IList<PluginData> ExcludeDuplicatePluginIds(IList<PluginData> plugins)
+        {
+            var seen = new HashSet<string>();
+            var result = new List<PluginData>(plugins.Count);
+            foreach (var plugin in plugins)
+            {
+                if (seen.Add(plugin.Plugin.PluginId))
+                    result.Add(plugin);
+            }
+            return result;
         }
 
         private static IList<IPluginDescriptor> RegisterPlugins(IRegistry registry, IList<PluginData> topologicallySortedPlugins)

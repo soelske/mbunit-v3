@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Gallio.AutoCAD.UI</AssemblyName>
+    <RootNamespace>Gallio.AutoCAD.UI</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <!-- Wildcards outside project directory require explicit includes -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <!-- All source from the original Gallio.AutoCAD.UI project via wildcard -->
+  <ItemGroup>
+    <Compile Include="..\Gallio.AutoCAD.UI\**\*.cs"
+             Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="..\Gallio.AutoCAD.UI\**\*.resx"
+                      Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- Exclude build output dirs and AssemblyInfo (GenerateAssemblyInfo=false pattern) -->
+  <ItemGroup>
+    <Compile Remove="..\Gallio.AutoCAD.UI\obj\**\*.cs" />
+    <Compile Remove="..\Gallio.AutoCAD.UI\bin\**\*.cs" />
+    <Compile Remove="..\Gallio.AutoCAD.UI\Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Remove="..\Gallio.AutoCAD.UI\obj\**\*.resx" />
+    <EmbeddedResource Remove="..\Gallio.AutoCAD.UI\bin\**\*.resx" />
+  </ItemGroup>
+
+  <!-- AutoCAD-local Revision.cs (src/Extensions/AutoCAD/Revision.cs) -->
+  <ItemGroup>
+    <Compile Include="..\Revision.cs" Link="Revision.cs" />
+  </ItemGroup>
+
+  <!-- Plugin descriptor -->
+  <ItemGroup>
+    <None Include="..\Gallio.AutoCAD.UI\Gallio.AutoCAD.UI.plugin"
+          Link="Gallio.AutoCAD.UI.plugin" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- Core-to-Core references only — never reference old .NET Framework projects -->
+  <ItemGroup>
+    <ProjectReference Include="..\Gallio.AutoCAD.Core\Gallio.AutoCAD.Core.csproj" />
+    <ProjectReference Include="..\..\..\Gallio\Gallio.UI.Core\Gallio.UI.Core.csproj" />
+  </ItemGroup>
+
+</Project>

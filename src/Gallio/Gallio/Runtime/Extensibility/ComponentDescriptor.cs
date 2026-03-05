@@ -112,7 +112,9 @@ namespace Gallio.Runtime.Extensibility
                 }
                 catch (Exception ex)
                 {
-                    throw new RuntimeException(string.Format("Could not resolve the component type of component '{0}'.", componentId), ex);
+                    string reason = string.Format("Could not resolve the component type of component '{0}'. {1}", componentId, ex.Message);
+                    pluginDescriptor.Disable(reason);
+                    throw new RuntimeException(reason, ex);
                 }
             }
 

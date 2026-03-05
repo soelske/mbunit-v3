@@ -118,7 +118,7 @@
     <!-- Mono.Cecil: vervangt lokale Mono.Cecil.dll -->
     <PackageReference Include="Mono.Cecil" Version="0.11.5" />
     <!-- App.config ondersteuning -->
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.1" />
     <!-- System.Drawing op niet-Windows platforms -->
     <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
 

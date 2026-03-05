@@ -108,7 +108,16 @@ namespace Gallio.Runtime.Extensibility
         {
             var result = new List<ComponentHandle<TService, TTraits>>();
             foreach (IComponentDescriptor descriptor in ResolveAllNonDisabledDescriptors(typeof(TService)))
-                result.Add(ComponentHandle.CreateInstance<TService, TTraits>(descriptor));
+            {
+                try
+                {
+                    result.Add(ComponentHandle.CreateInstance<TService, TTraits>(descriptor));
+                }
+                catch (RuntimeException)
+                {
+                    // Component failed to resolve; skip.
+                }
+            }
 
             return result;
         }
@@ -121,7 +130,16 @@ namespace Gallio.Runtime.Extensibility
 
             var result = new List<ComponentHandle>();
             foreach (IComponentDescriptor descriptor in ResolveAllNonDisabledDescriptors(serviceType))
-                result.Add(ComponentHandle.CreateInstance(descriptor));
+            {
+                try
+                {
+                    result.Add(ComponentHandle.CreateInstance(descriptor));
+                }
+                catch (RuntimeException)
+                {
+                    // Component failed to resolve; skip.
+                }
+            }
 
             return result;
         }
@@ -165,7 +183,17 @@ namespace Gallio.Runtime.Extensibility
         {
             var result = new List<TService>();
             foreach (IComponentDescriptor descriptor in ResolveAllNonDisabledDescriptors(serviceType))
-                result.Add((TService)descriptor.ResolveComponent());
+            {
+                try
+                {
+                    result.Add((TService)descriptor.ResolveComponent());
+                }
+                catch (RuntimeException)
+                {
+                    // Component failed to resolve (e.g. plugin disabled itself due to a missing dependency).
+                    // Skip this component and continue with the remaining ones.
+                }
+            }
 
             return result;
         }

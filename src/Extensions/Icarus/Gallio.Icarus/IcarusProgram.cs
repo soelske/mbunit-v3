@@ -120,9 +120,19 @@ namespace Gallio.Icarus
         {
             var testController = RuntimeAccessor.ServiceLocator.Resolve<ITestController>();
             var testRunnerManager = RuntimeAccessor.ServiceLocator.Resolve<ITestRunnerManager>();
-            var testRunnerFactory = testRunnerManager.GetFactory(factoryName);
 
-            testController.SetTestRunnerFactory(testRunnerFactory);
+            ITestRunnerFactory testRunnerFactory = null;
+            try
+            {
+                testRunnerFactory = testRunnerManager.GetFactory(factoryName);
+            }
+            catch (Exception ex)
+            {
+                UnhandledExceptionPolicy.Report(string.Format("Could not activate test runner factory '{0}'. The plugin may be disabled or unavailable.", factoryName), ex);
+            }
+
+            if (testRunnerFactory != null)
+                testController.SetTestRunnerFactory(testRunnerFactory);
         }
 
         private static void LoadPackages()

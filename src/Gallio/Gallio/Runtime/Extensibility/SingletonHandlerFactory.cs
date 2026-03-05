@@ -28,7 +28,7 @@ namespace Gallio.Runtime.Extensibility
         /// <inheritdoc />
         public IHandler CreateHandler(IObjectDependencyResolver dependencyResolver, Type contractType, Type objectType, PropertySet properties)
         {
-            if (! contractType.IsAssignableFrom(objectType))
+            if (!contractType.IsAssignableFrom(objectType))
                 throw new RuntimeException(string.Format("Could not satisfy contract of type '{0}' by creating an instance of type '{1}'.",
                     contractType, objectType));
 

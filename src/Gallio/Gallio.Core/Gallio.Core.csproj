@@ -90,6 +90,9 @@
     <!-- IsolatedAppDomainHost(Factory): AppDomain APIs removed; excluded until fully replaced -->
     <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHostFactory.cs" />
     <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHost.cs" />
+
+    <!-- ConfigureForDebugging: .NET 8 variant in this project directory -->
+    <Compile Remove="..\Gallio\Runtime\DefaultRuntime.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -98,14 +101,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\Gallio\Gallio.plugin" Link="Gallio.plugin" />
+    <None Include="..\Gallio\Gallio.plugin" Link="Gallio.plugin" CopyToOutputDirectory="PreserveNewest" />
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Include icon resources as Content -->
-    <Content Include="..\Gallio\Resources\*.ico" Link="Resources\%(Filename)%(Extension)" />
-    <Content Include="..\Gallio\Resources\Pillar.png" Pack="true" PackagePath="\" Link="Resources\%(Filename)%(Extension)" />
+    <Content Include="..\Gallio\Resources\*.ico" Link="Resources\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\Gallio\Resources\Pillar.png" Pack="true" PackagePath="\" Link="Resources\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

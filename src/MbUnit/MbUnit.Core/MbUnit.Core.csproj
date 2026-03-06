@@ -27,9 +27,9 @@
   <ItemGroup>
 	  <Compile Include="..\MbUnit\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
     <!-- Include icon resources as Content -->
-    <Content Include="..\MbUnit\Resources\*.*" Link="Resources\%(Filename)%(Extension)" />
-    <Content Include="..\MbUnit\Resources\MbUnit.png" Pack="true" PackagePath="\" Link="Resources\%(Filename)%(Extension)" />
-    <None Include="..\MbUnit\MbUnit.plugin" Link="MbUnit.plugin" />
+    <Content Include="..\MbUnit\Resources\*.*" Link="Resources\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\MbUnit\Resources\MbUnit.png" Pack="true" PackagePath="\" Link="Resources\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\MbUnit\MbUnit.plugin" Link="MbUnit.plugin" CopyToOutputDirectory="PreserveNewest" />
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 

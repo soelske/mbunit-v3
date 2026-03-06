@@ -15,7 +15,9 @@
       "Bash(cmd:*)",
       "Bash(\"/c/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/MSBuild.exe\":*)",
       "Bash(\"$MSBUILD\":*)",
-      "Bash(grep -rn \"TypeName\\\\|Resolve\\\\\\(\\\\\\)\" /c/Progs/mbunit-v3/Git/mbunit-v3/src/Gallio/Gallio/Runtime/Extensibility/InstanceHandlerFactory.cs 2>/dev/null | head -20\ngrep -rn \"ReflectionResolveException\\\\|TypeName.*Resolve\\\\|\\\\.Resolve\\(\\)\" /c/Progs/mbunit-v3/Git/mbunit-v3/src/Gallio/Gallio/Runtime/Extensibility/DefaultObjectDependencyResolver.cs 2>/dev/null | head -20)"
+      "Bash(grep -rn \"TypeName\\\\|Resolve\\\\\\(\\\\\\)\" /c/Progs/mbunit-v3/Git/mbunit-v3/src/Gallio/Gallio/Runtime/Extensibility/InstanceHandlerFactory.cs 2>/dev/null | head -20\ngrep -rn \"ReflectionResolveException\\\\|TypeName.*Resolve\\\\|\\\\.Resolve\\(\\)\" /c/Progs/mbunit-v3/Git/mbunit-v3/src/Gallio/Gallio/Runtime/Extensibility/DefaultObjectDependencyResolver.cs 2>/dev/null | head -20)",
+      "Bash(node:*)",
+      "Skill(gsd:plan-phase)"
     ]
   }
 }

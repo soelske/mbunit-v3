@@ -39,7 +39,7 @@
 
   <ItemGroup>
     <!-- Include resources -->
-    <None Include="..\Gallio.AutoCAD\Resources\Gallio.AutoCAD.ico" Link="Resources\Gallio.AutoCAD.ico" />
+    <Content Include="..\Gallio.AutoCAD\Resources\Gallio.AutoCAD.ico" Link="Resources\Gallio.AutoCAD.ico" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

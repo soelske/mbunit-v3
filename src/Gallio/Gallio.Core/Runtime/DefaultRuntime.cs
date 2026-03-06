@@ -658,12 +658,24 @@ namespace Gallio.Runtime
             if (string.IsNullOrEmpty(runtimeSetup.RuntimePath))
                 runtimeSetup.RuntimePath = srcDir;
 
-            // Only add net8.0-windows output directories so that the new .plugin files (with DLLs
-            // next to them) are discovered instead of the old source-tree .plugin files that have no
-            // assemblies in their base directory. Adding the whole srcDir would cause the old plugin
-            // files to be found first alphabetically, disabling all plugins via ProbeForCodeBase failure.
+            // 1. Core plugins first: net8.0-windows output dirs get priority.
+            //    ExcludeDuplicatePluginIds in PluginCatalog keeps the FIRST occurrence of each
+            //    plugin ID, so registering Core plugins first ensures they win over old variants.
             foreach (string netDir in Directory.GetDirectories(srcDir, "net8.0-windows", SearchOption.AllDirectories))
                 AddPluginDirectory(netDir);
+
+            // 2. Old plugins without a Core variant: add the source tree after, so that:
+            //    - Plugins that already have a Core variant are silently skipped (duplicate ID).
+            //    - Plugins that have no Core variant yet are still attempted.
+            //    Note: old .NET Framework assemblies may fail to load in .NET 8 if they don't
+            //    target .NET Standard; those will be disabled at component-resolve time.
+            AddPluginDirectory(srcDir);
+            foreach (string extraPluginFolder in Directory.GetDirectories(srcDir, "plugins", SearchOption.AllDirectories))
+            {
+                AddPluginDirectory(extraPluginFolder);
+                foreach (string extraPluginSubFolder in Directory.GetDirectories(extraPluginFolder))
+                    AddPluginDirectory(extraPluginSubFolder);
+            }
 
             // Remember we are in debug mode.
             debugMode = true;

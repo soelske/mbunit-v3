@@ -50,9 +50,9 @@
     <Compile Include="..\..\..\Revision.cs" Link="Revision.cs" />
   </ItemGroup>
 
-  <!-- Plugin descriptor -->
+  <!-- Plugin descriptor — not via CopyToOutputDirectory; copied via Target below instead. -->
   <ItemGroup>
-    <None Include="..\Gallio.Icarus\Gallio.Icarus.plugin" Link="Gallio.Icarus.plugin" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\Gallio.Icarus\Gallio.Icarus.plugin" Link="Gallio.Icarus.plugin" />
   </ItemGroup>
 
   <!-- Icarus resource files loaded from disk at runtime -->
@@ -76,5 +76,12 @@
     <ProjectReference Include="..\..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
     <ProjectReference Include="..\..\..\Gallio\Gallio.UI.Core\Gallio.UI.Core.csproj" />
   </ItemGroup>
+
+  <!-- Copy plugin file to THIS project's output only. -->
+  <Target Name="CopyPluginToOutput" AfterTargets="Build">
+    <Copy SourceFiles="..\Gallio.Icarus\Gallio.Icarus.plugin"
+          DestinationFiles="$(OutputPath)Gallio.Icarus.plugin"
+          SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

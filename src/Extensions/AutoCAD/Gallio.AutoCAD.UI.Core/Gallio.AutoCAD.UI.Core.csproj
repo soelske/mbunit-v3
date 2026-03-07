@@ -39,10 +39,11 @@
     <Compile Include="..\Revision.cs" Link="Revision.cs" />
   </ItemGroup>
 
-  <!-- Plugin descriptor -->
+  <!-- Plugin descriptor — not via CopyToOutputDirectory (would propagate to all
+       ProjectReference dependents); copied via Target below instead. -->
   <ItemGroup>
     <None Include="..\Gallio.AutoCAD.UI\Gallio.AutoCAD.UI.plugin"
-          Link="Gallio.AutoCAD.UI.plugin" CopyToOutputDirectory="PreserveNewest" />
+          Link="Gallio.AutoCAD.UI.plugin" />
   </ItemGroup>
 
   <!-- Core-to-Core references only — never reference old .NET Framework projects -->
@@ -50,5 +51,14 @@
     <ProjectReference Include="..\Gallio.AutoCAD.Core\Gallio.AutoCAD.Core.csproj" />
     <ProjectReference Include="..\..\..\Gallio\Gallio.UI.Core\Gallio.UI.Core.csproj" />
   </ItemGroup>
+
+  <!-- Copy plugin file to THIS project's output only.
+       Using a Target instead of CopyToOutputDirectory prevents MSBuild from propagating
+       the file to every project that references this one via ProjectReference. -->
+  <Target Name="CopyPluginToOutput" AfterTargets="Build">
+    <Copy SourceFiles="..\Gallio.AutoCAD.UI\Gallio.AutoCAD.UI.plugin"
+          DestinationFiles="$(OutputPath)Gallio.AutoCAD.UI.plugin"
+          SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

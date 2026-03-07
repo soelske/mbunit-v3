@@ -29,7 +29,8 @@
     <!-- Include icon resources as Content -->
     <Content Include="..\MbUnit\Resources\*.*" Link="Resources\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="..\MbUnit\Resources\MbUnit.png" Pack="true" PackagePath="\" Link="Resources\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="..\MbUnit\MbUnit.plugin" Link="MbUnit.plugin" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Not via CopyToOutputDirectory; copied via Target below instead. -->
+    <None Include="..\MbUnit\MbUnit.plugin" Link="MbUnit.plugin" />
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
@@ -57,6 +58,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
   </ItemGroup>
+
+  <!-- Copy plugin file to THIS project's output only. -->
+  <Target Name="CopyPluginToOutput" AfterTargets="Build">
+    <Copy SourceFiles="..\MbUnit\MbUnit.plugin"
+          DestinationFiles="$(OutputPath)MbUnit.plugin"
+          SkipUnchangedFiles="true" />
+  </Target>
 
   <!-- Post-build event to create multi-target package in Release mode -->
   <Target Name="CreateMultiTargetPackage" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">

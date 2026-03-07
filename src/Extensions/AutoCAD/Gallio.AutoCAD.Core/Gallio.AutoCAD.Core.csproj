@@ -32,7 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Include the plugin file -->
+    <!-- Include the plugin file — not via CopyToOutputDirectory (would propagate to all
+         ProjectReference dependents); copied via Target below instead. -->
     <None Include="..\Gallio.AutoCAD\Gallio.AutoCAD.plugin" Link="Gallio.AutoCAD.plugin" />
     <None Include="..\Gallio.AutoCAD\Readme - Debugging.txt" Link="Readme - Debugging.txt" />
   </ItemGroup>
@@ -50,5 +51,14 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
   </ItemGroup>
+
+  <!-- Copy plugin file to THIS project's output only.
+       Using a Target instead of CopyToOutputDirectory prevents MSBuild from propagating
+       the file to every project that references this one via ProjectReference. -->
+  <Target Name="CopyPluginToOutput" AfterTargets="Build">
+    <Copy SourceFiles="..\Gallio.AutoCAD\Gallio.AutoCAD.plugin"
+          DestinationFiles="$(OutputPath)Gallio.AutoCAD.plugin"
+          SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

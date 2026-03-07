@@ -38,7 +38,8 @@
 
   <!-- Plugin descriptor meepubliceren -->
   <ItemGroup>
-    <None Include="..\Gallio.UI\Gallio.UI.plugin" Link="Gallio.UI.plugin" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Not via CopyToOutputDirectory — would propagate to all ProjectReference dependents; copied via Target below instead. -->
+    <None Include="..\Gallio.UI\Gallio.UI.plugin" Link="Gallio.UI.plugin" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,5 +56,12 @@
     <!-- Verwijst naar Gallio.Core i.p.v. het oude Gallio.vs2010 project -->
     <ProjectReference Include="..\Gallio.Core\Gallio.Core.csproj" />
   </ItemGroup>
+
+  <!-- Copy plugin file to THIS project's output only. -->
+  <Target Name="CopyPluginToOutput" AfterTargets="Build">
+    <Copy SourceFiles="..\Gallio.UI\Gallio.UI.plugin"
+          DestinationFiles="$(OutputPath)Gallio.UI.plugin"
+          SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

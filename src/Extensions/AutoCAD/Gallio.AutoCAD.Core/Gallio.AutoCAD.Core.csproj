@@ -25,6 +25,8 @@
   <ItemGroup>
     <!-- Exclude files that are not compatible with .NET 8 or will be replaced -->
     <Compile Remove="..\Gallio.AutoCAD\Commands\AcadCommandRunner.cs" />
+    <!-- Exclude CreatedAcadProcess: .NET 8 replacement adds UseShellExecute=true for .lnk shortcuts -->
+    <Compile Remove="..\Gallio.AutoCAD\ProcessManagement\CreatedAcadProcess.cs" />
   </ItemGroup>
 
   <ItemGroup>

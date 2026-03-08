@@ -1,0 +1,143 @@
+// Copyright 2005-2010 Gallio Project - http://www.gallio.org/
+// Portions Copyright 2000-2004 Jonathan de Halleux
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+using System;
+using System.Diagnostics;
+using System.Threading;
+using Gallio.AutoCAD.Commands;
+using Gallio.Common.Concurrency;
+using Gallio.Runtime.Debugging;
+using Gallio.Runtime.Logging;
+
+namespace Gallio.AutoCAD.ProcessManagement
+{
+    /// <summary>
+    /// Implementation of <see cref="IAcadProcess"/> that represents
+    /// a newly created AutoCAD process.
+    /// </summary>
+    /// <remarks>
+    /// The AutoCAD process will be shut down when it is no longer in use by Gallio.
+    /// </remarks>
+    public class CreatedAcadProcess : AcadProcessBase
+    {
+        private readonly ProcessStartInfo startInfo;
+        private readonly IProcessCreator processCreator;
+        private readonly IDebuggerManager debuggerManager;
+        private IProcess process;
+
+        /// <summary>
+        /// Creates a new <see cref="CreatedAcadProcess"/> instance.
+        /// </summary>
+        public CreatedAcadProcess(ILogger logger, IAcadCommandRunner commandRunner,
+            string executable, IProcessCreator processCreator, IDebuggerManager debuggerManager,
+            IAcadPluginLocator pluginLocator)
+            : base(logger, commandRunner, pluginLocator)
+        {
+            if (executable == null)
+                throw new ArgumentNullException("executable");
+            if (processCreator == null)
+                throw new ArgumentNullException("processCreator");
+            if (debuggerManager == null)
+                throw new ArgumentNullException("debuggerManager");
+            if (pluginLocator == null)
+                throw new ArgumentNullException("pluginLocator");
+
+            startInfo = new ProcessStartInfo(executable);
+
+            // In .NET 8, UseShellExecute defaults to false. Windows shortcut (.lnk) files
+            // require UseShellExecute=true to be resolved by the Windows Shell.
+            if (executable.EndsWith(".lnk", StringComparison.OrdinalIgnoreCase))
+                startInfo.UseShellExecute = true;
+
+            this.processCreator = processCreator;
+            this.debuggerManager = debuggerManager;
+        }
+
+        /// <inheritdoc/>
+        protected override IProcess StartProcess(DebuggerSetup debuggerSetup)
+        {
+            if (process != null)
+                throw new InvalidOperationException("Process already started.");
+
+            process = StartProcessWithDebugger(debuggerSetup) ?? processCreator.Start(startInfo);
+            return process;
+        }
+
+        private IProcess StartProcessWithDebugger(DebuggerSetup debuggerSetup)
+        {
+            if (debuggerSetup == null)
+                return null;
+
+            var debugger = debuggerManager.GetDebugger(debuggerSetup, Logger);
+            var actual = debugger.LaunchProcess(startInfo);
+            return new ProcessWrapper(actual);
+        }
+
+        /// <inheritdoc/>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            // Shut the AutoCAD process down after calling into base class's Dispose(). This allows
+            // the AutoCAD process a bit of time to complete the current command before we kill it.
+            if (disposing && process != null)
+            {
+                var ownedProcess = Interlocked.Exchange(ref process, null);
+                if (ownedProcess == null)
+                    return;
+
+                if (!ownedProcess.HasExited)
+                    ownedProcess.Kill();
+
+                //[BSE 21.11.20]lmu is the detailed process for the AutoDesk component.
+                //Somethimes this AutoDesk component doenst kill correctly, killing the following processes will do this.
+                Process[] lmuProcesses = Process.GetProcessesByName("lmu");
+                foreach (Process lmuProcess in lmuProcesses)
+                {
+                    lmuProcess.Kill();
+                    lmuProcess.Dispose();
+                }
+
+                ownedProcess.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the command line arguments passed to the AutoCAD process.
+        /// </summary>
+        public string Arguments
+        {
+            get { return startInfo.Arguments; }
+            set { startInfo.Arguments = value; }
+        }
+
+        /// <summary>
+        /// Gets the path to the AutoCAD executable.
+        /// </summary>
+        public string FileName
+        {
+            get { return startInfo.FileName; }
+        }
+
+        /// <summary>
+        /// Gets or sets the working directory used to start a new AutoCAD process.
+        /// </summary>
+        public string WorkingDirectory
+        {
+            get { return startInfo.WorkingDirectory; }
+            set { startInfo.WorkingDirectory = value; }
+        }
+    }
+}

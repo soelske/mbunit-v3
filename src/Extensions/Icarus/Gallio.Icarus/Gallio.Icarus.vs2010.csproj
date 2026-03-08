@@ -768,7 +768,10 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <Target Name="CleanSiblingOutputDirs" BeforeTargets="Rebuild">
+    <Exec Command="powershell -NoProfile -NonInteractive -Command &quot;Get-ChildItem -Path '$(MSBuildProjectDirectory)\..' -Recurse -Directory | Where-Object { ($_.Name -eq 'bin' -or $_.Name -eq 'obj') -and $_.FullName -notlike '*\libs\*' -and $_.FullName -notlike '$(MSBuildProjectDirectory)\*' } | Sort-Object FullName -Descending | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue&quot;" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

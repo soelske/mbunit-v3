@@ -93,6 +93,10 @@
 
     <!-- ConfigureForDebugging: .NET 8 variant in this project directory -->
     <Compile Remove="..\Gallio\Runtime\DefaultRuntime.cs" />
+    <!-- Replacement in Gallio.Core/Common/Reflection/TypeName.cs adds .NET 8 assembly-load fallback in Resolve() -->
+    <Compile Remove="..\Gallio\Common\Reflection\TypeName.cs" />
+    <!-- Replacement in Gallio.Core/Runtime/Loader/DefaultAssemblyLoader.cs fixes .NET 8 assembly resolution -->
+    <Compile Remove="..\Gallio\Runtime\Loader\DefaultAssemblyLoader.cs" />
   </ItemGroup>
 
   <ItemGroup>

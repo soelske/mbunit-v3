@@ -86,6 +86,12 @@
     <!-- BinaryFormatter obsoleted; JSON replacement lives in this project directory -->
     <Compile Remove="..\Gallio\Common\Messaging\MessageFormatters\BinaryMessageFormatter.cs" />
 
+    <!-- QueuedMessageSink: Delegate.BeginInvoke removed in .NET 8; Task.Run replacement lives in this project directory -->
+    <Compile Remove="..\Gallio\Common\Messaging\MessageSinks\QueuedMessageSink.cs" />
+
+    <!-- TestIsolationServer: .NET 8 replacement uses direct named pipe (no RPC layer) -->
+    <Compile Remove="..\Gallio\Model\Isolation\TestIsolationServer.cs" />
+
     <!-- AppDomainUtils / DefaultElevationManager: replacements live in this project directory -->
     <Compile Remove="..\Gallio\Runtime\Hosting\AppDomainUtils.cs" />
     <Compile Remove="..\Gallio\Runtime\Security\DefaultElevationManager.cs" />

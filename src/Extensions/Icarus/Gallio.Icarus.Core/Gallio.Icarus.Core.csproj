@@ -38,6 +38,9 @@
 
     <!-- ConfigureTestRunnerFactory: null-guard + Local fallback added; replacement in this project directory -->
     <Compile Remove="..\Gallio.Icarus\IcarusProgram.cs" />
+
+    <!-- DockPanel.config filename changed to DockPanel3.config (v2/v3 schema incompatibility); replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Paths.cs" />
   </ItemGroup>
 
   <!-- Replacement files in this project directory -->
@@ -68,6 +71,7 @@
     </Reference>
     <!-- DockPanelSuite v3 replaces WeifenLuo.WinFormsUI.Docking v2 -->
     <PackageReference Include="DockPanelSuite" Version="3.1.1" />
+    <PackageReference Include="DockPanelSuite.ThemeVS2015" Version="3.1.1" />
     <!-- App.config support -->
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.1" />
   </ItemGroup>

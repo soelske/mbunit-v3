@@ -20,7 +20,12 @@
       "Skill(gsd:plan-phase)",
       "Bash(dotnet clean:*)",
       "Bash(cp:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $f ===\")",
+      "Read(//c/Progs/mbunit-v3/Git/mbunit-v3/src/Extensions/Icarus/Gallio.Icarus/**)",
+      "Bash(done)"
     ]
   }
 }

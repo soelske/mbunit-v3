@@ -440,6 +440,7 @@ namespace Gallio.Icarus
             this.dockPanel.DockRightPortion = 0.33D;
             this.dockPanel.DockTopPortion = 0.15D;
             this.dockPanel.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
+            this.dockPanel.Theme = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
             this.dockPanel.Location = new System.Drawing.Point(0, 0);
             this.dockPanel.Name = "dockPanel";
             this.dockPanel.Size = new System.Drawing.Size(1003, 611);

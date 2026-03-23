@@ -39,6 +39,9 @@
     <!-- ConfigureTestRunnerFactory: null-guard + Local fallback added; replacement in this project directory -->
     <Compile Remove="..\Gallio.Icarus\IcarusProgram.cs" />
 
+    <!-- SetupReportMenus: warning item when Gallio.Reports.dll ontbreekt; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Main.cs" />
+
     <!-- DockPanel.config filename changed to DockPanel3.config (v2/v3 schema incompatibility); replacement in this project directory -->
     <Compile Remove="..\Gallio.Icarus\Paths.cs" />
   </ItemGroup>

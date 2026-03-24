@@ -29,6 +29,14 @@
     <Compile Remove="..\Gallio.UI\bin\**\*.cs" />
     <EmbeddedResource Remove="..\Gallio.UI\obj\**\*.resx" />
     <EmbeddedResource Remove="..\Gallio.UI\bin\**\*.resx" />
+
+    <!-- TestStepRunViewer: silently skip when Gallio.Reports plugin is missing; replacement in this project directory -->
+    <Compile Remove="..\Gallio.UI\Reports\TestStepRunViewer.cs" />
+  </ItemGroup>
+
+  <!-- Replacement files in this project directory -->
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="obj\**\*.cs;bin\**\*.cs" />
   </ItemGroup>
 
   <!-- Revision.cs gedeeld vanuit src/ -->

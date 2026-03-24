@@ -65,5 +65,8 @@
     <Compile Update="..\Gallio.UI\Tree\NodeControls\NodeCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Reports\TestStepRunViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

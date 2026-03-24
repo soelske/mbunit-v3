@@ -42,6 +42,12 @@
     <!-- SetupReportMenus: warning item when Gallio.Reports.dll ontbreekt; replacement in this project directory -->
     <Compile Remove="..\Gallio.Icarus\Main.cs" />
 
+    <!-- GenerateReport: silent skip + Runtime Log warning when Gallio.Reports.dll ontbreekt; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Controllers\ReportController.cs" />
+
+    <!-- AnnotationsController: toont Warning annotation wanneer Gallio.Reports.dll ontbreekt; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Annotations\AnnotationsController.cs" />
+
     <!-- DockPanel.config filename changed to DockPanel3.config (v2/v3 schema incompatibility); replacement in this project directory -->
     <Compile Remove="..\Gallio.Icarus\Paths.cs" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11605.240 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gallio", "Gallio", "{C5B6C601-8C62-46DB-B87D-BDBDEA30E0AA}"
 EndProject
@@ -50,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MbUnit.Core", "..\MbUnit\MbUnit.Core\MbUnit.Core.csproj", "{14138F7B-8D47-E883-625F-102B0E485283}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.UI.Core", "Gallio.UI.Core\Gallio.UI.Core.csproj", "{BBEE831F-C81D-6754-5201-DF07615D9BD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gallio.Reports.Core", "Gallio.Reports.Core\Gallio.Reports.Core.csproj", "{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -235,6 +237,14 @@ Global
 		{BBEE831F-C81D-6754-5201-DF07615D9BD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BBEE831F-C81D-6754-5201-DF07615D9BD4}.Release|x64.ActiveCfg = Release|Any CPU
 		{BBEE831F-C81D-6754-5201-DF07615D9BD4}.Release|x64.Build.0 = Release|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Debug|x64.Build.0 = Debug|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Release|x64.ActiveCfg = Release|Any CPU
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -262,6 +272,7 @@ Global
 		{08533110-A324-4F51-AECF-7B310D49C3F2} = {C5B6C601-8C62-46DB-B87D-BDBDEA30E0AA}
 		{14138F7B-8D47-E883-625F-102B0E485283} = {2E3CD174-0E74-42A4-8367-B6C40B005D33}
 		{BBEE831F-C81D-6754-5201-DF07615D9BD4} = {C5B6C601-8C62-46DB-B87D-BDBDEA30E0AA}
+		{14BF2666-8F5F-68C9-3C76-19CF67D66C8A} = {C5B6C601-8C62-46DB-B87D-BDBDEA30E0AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4746B9D5-8A02-4E6A-8B22-C5D3114576F7}

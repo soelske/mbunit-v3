@@ -88,6 +88,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
     <ProjectReference Include="..\..\..\Gallio\Gallio.UI.Core\Gallio.UI.Core.csproj" />
+    <ProjectReference Include="..\..\..\Gallio\Gallio.Reports.Core\Gallio.Reports.Core.csproj" />
   </ItemGroup>
 
   <!-- Copy plugin file to THIS project's output only. -->

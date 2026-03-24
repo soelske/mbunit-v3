@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Gallio.Reports</AssemblyName>
+    <RootNamespace>Gallio.Reports</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <!-- Wildcards outside project directory require explicit includes -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <!-- All original Gallio.Reports source via wildcard -->
+  <ItemGroup>
+    <Compile Include="..\Gallio.Reports\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- Exclusions -->
+  <ItemGroup>
+    <Compile Remove="..\Gallio.Reports\obj\**\*.cs" />
+    <Compile Remove="..\Gallio.Reports\bin\**\*.cs" />
+  </ItemGroup>
+
+  <!-- Replacement files in this project directory (overrides go here) -->
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="obj\**\*.cs;bin\**\*.cs" />
+  </ItemGroup>
+
+  <!-- Shared Revision.cs -->
+  <ItemGroup>
+    <Compile Include="..\..\Revision.cs" Link="Revision.cs" />
+  </ItemGroup>
+
+  <!-- Plugin descriptor (local copy with Report.ico) — not via CopyToOutputDirectory; copied via Target below instead -->
+  <ItemGroup>
+    <None Include="Gallio.Reports.plugin" />
+  </ItemGroup>
+
+  <!-- Resource files: copy to output in correct structure -->
+  <ItemGroup>
+    <Content Include="..\Gallio.Reports\Resources\**\*.*"
+             Link="Resources\%(RecursiveDir)%(Filename)%(Extension)"
+             CopyToOutputDirectory="PreserveNewest" />
+    <!-- Report.ico — sourced from Icarus resources; referenced by plugin icon URI -->
+    <Content Include="..\..\Extensions\Icarus\Gallio.Icarus\Resources\Report.ico"
+             Link="Resources\img\Report.ico"
+             CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- NVelocity 1.2.0 targets .NET Standard 2.0 — compatible with .NET 8 -->
+    <PackageReference Include="NVelocity" Version="1.2.0" />
+    <!-- System.Drawing.Common for Icon/Bitmap usage in ReportResourcesInstaller -->
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gallio.Core\Gallio.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Copy local plugin file (with Report.ico) to THIS project's output only -->
+  <Target Name="CopyPluginToOutput" AfterTargets="Build">
+    <Copy SourceFiles="Gallio.Reports.plugin"
+          DestinationFiles="$(OutputPath)Gallio.Reports.plugin"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

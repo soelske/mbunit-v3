@@ -120,19 +120,31 @@ namespace Gallio.UI.Reports
         {
             DoAsync(() =>
             {
-                if (!webBrowser.IsDisposed && webBrowser.IsBusy)
-                    webBrowser.Stop();
-
-                var cachedHtmlFile = htmlFile;
-
-                if (cachedHtmlFile != null)
+                try
                 {
-                    webBrowser.Url = new Uri(cachedHtmlFile.FullName);
-                    webBrowser.Show();
+                    // webBrowser.IsBusy calls IHTMLLocation.GetHref() via COM; when the
+                    // control transitions between cross-origin URLs (file:// → null) MSHTML
+                    // returns E_ACCESSDENIED (0x80070005). Catch it here so the viewer
+                    // stays silent instead of surfacing an unhandled exception.
+                    if (!webBrowser.IsDisposed && webBrowser.IsBusy)
+                        webBrowser.Stop();
+
+                    var cachedHtmlFile = htmlFile;
+
+                    if (cachedHtmlFile != null)
+                    {
+                        webBrowser.Url = new Uri(cachedHtmlFile.FullName);
+                        webBrowser.Show();
+                    }
+                    else
+                    {
+                        webBrowser.Url = null;
+                    }
                 }
-                else
+                catch (UnauthorizedAccessException)
                 {
-                    webBrowser.Url = null;
+                    // COM access denied during navigation transition — ignore and let the
+                    // next Show()/Clear() call update the browser.
                 }
             });
         }

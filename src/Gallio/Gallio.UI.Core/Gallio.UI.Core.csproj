@@ -32,6 +32,9 @@
 
     <!-- TestStepRunViewer: silently skip when Gallio.Reports plugin is missing; replacement in this project directory -->
     <Compile Remove="..\Gallio.UI\Reports\TestStepRunViewer.cs" />
+
+    <!-- TaskQueue: ConcurrentDictionary replaces Dictionary to fix race condition on parallel test runs; replacement in this project directory -->
+    <Compile Remove="..\Gallio.UI\ProgressMonitoring\TaskQueue.cs" />
   </ItemGroup>
 
   <!-- Replacement files in this project directory -->

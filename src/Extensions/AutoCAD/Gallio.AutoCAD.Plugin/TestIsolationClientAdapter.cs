@@ -39,6 +39,10 @@ namespace Gallio.AutoCAD.Plugin
 
         private readonly string ipcPortName;
         private readonly CancellationTokenSource cts = new CancellationTokenSource();
+        // Dispatcher van AutoCAD's command thread (de thread waarop CREATEENDPOINTANDWAIT
+        // wordt aangeroepen). Tests worden via BeginInvoke op deze thread uitgevoerd zodat
+        // zowel COM vtable QI als WPF DependencyObject-toegang correct werken.
+        private readonly System.Windows.Threading.Dispatcher _acadDispatcher;
 
         /// <summary>
         /// Creates a test isolation client adapter.
@@ -52,6 +56,7 @@ namespace Gallio.AutoCAD.Plugin
                 throw new ArgumentNullException(nameof(ipcPortName));
 
             this.ipcPortName = ipcPortName;
+            _acadDispatcher = System.Windows.Threading.Dispatcher.CurrentDispatcher;
         }
 
         /// <inheritdoc />
@@ -69,7 +74,13 @@ namespace Gallio.AutoCAD.Plugin
         {
             try
             {
-                Task.Run(() => RunAsync()).GetAwaiter().GetResult();
+                // PushFrame i.p.v. GetResult(): houdt de dispatcher aan het pompen zodat
+                // BeginInvoke-callbacks van RunOnStaThreadAsync opgepikt worden.
+                var task = Task.Run(() => RunAsync());
+                var frame = new System.Windows.Threading.DispatcherFrame();
+                task.ContinueWith(_ => frame.Continue = false, TaskScheduler.Default);
+                System.Windows.Threading.Dispatcher.PushFrame(frame);
+                task.GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {
@@ -106,7 +117,7 @@ namespace Gallio.AutoCAD.Plugin
             }
         }
 
-        private static async Task RunIsolatedTaskAsync(Stream pipe, TestIsolationWireMsg msg)
+        private async Task RunIsolatedTaskAsync(Stream pipe, TestIsolationWireMsg msg)
         {
             string? resultTypeName = null;
             string? resultJson = null;
@@ -121,7 +132,7 @@ namespace Gallio.AutoCAD.Plugin
 
                 object[] args = DeserializeArgs(pipe, msg);
 
-                object? result = isolatedTask.Run(args);
+                object? result = await RunOnStaThreadAsync(() => isolatedTask.Run(args));
 
                 if (result != null)
                 {
@@ -148,6 +159,23 @@ namespace Gallio.AutoCAD.Plugin
             };
 
             await TestIsolationPipeProtocol.WriteAsync(pipe, response, CancellationToken.None);
+        }
+
+        private Task<object?> RunOnStaThreadAsync(Func<object?> action)
+        {
+            if (_acadDispatcher.CheckAccess())
+            {
+                try { return Task.FromResult(action()); }
+                catch (Exception ex) { return Task.FromException<object?>(ex); }
+            }
+
+            var tcs = new TaskCompletionSource<object?>();
+            _acadDispatcher.BeginInvoke(new Action(() =>
+            {
+                try { tcs.SetResult(action()); }
+                catch (Exception ex) { tcs.SetException(ex); }
+            }));
+            return tcs.Task;
         }
 
         private static object[] DeserializeArgs(Stream pipe, TestIsolationWireMsg msg)

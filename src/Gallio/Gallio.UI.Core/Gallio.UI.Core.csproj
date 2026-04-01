@@ -35,6 +35,9 @@
 
     <!-- TaskQueue: ConcurrentDictionary replaces Dictionary to fix race condition on parallel test runs; replacement in this project directory -->
     <Compile Remove="..\Gallio.UI\ProgressMonitoring\TaskQueue.cs" />
+
+    <!-- ControlPanelDialog.Designer: ClientSize verhoogd van 492→600 zodat rechterpaneel (min 300px) niet geclipped wordt; replacement in this project directory -->
+    <Compile Remove="..\Gallio.UI\ControlPanel\ControlPanelDialog.Designer.cs" />
   </ItemGroup>
 
   <!-- Replacement files in this project directory -->

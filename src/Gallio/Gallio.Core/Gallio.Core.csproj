@@ -42,6 +42,9 @@
     <!-- Exclude CachingPluginLoader: .NET 8–compatible replacement with stale-cache detection lives in this project directory -->
     <Compile Remove="..\Gallio\Runtime\Extensibility\CachingPluginLoader.cs" />
 
+    <!-- FileSystem.OpenFile: UseShellExecute=true required in .NET 8 to open files via associated application; replacement in this project directory -->
+    <Compile Remove="..\Gallio\Common\IO\FileSystem.cs" />
+
     <!-- Exclude files that still depend on Microsoft.Cci.* (no .NET 8 NuGet equivalent) -->
     <Compile Remove="..\Gallio\Common\Reflection\Impl\CciDebugSymbolResolver.cs" />
     <Compile Remove="..\Gallio\Common\Reflection\Impl\CciModuleCache.cs" />

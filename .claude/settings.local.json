@@ -42,7 +42,8 @@
       "Read(//c/iTs/Icarus/Plugins/**)",
       "Read(//c/iTs/Icarus/Resources/**)",
       "Read(//c/Progs/mbunit-v3/Git/mbunit-v3/src/Extensions/Icarus/Gallio.Icarus.Core/$USERPROFILE/.nuget/packages/nvelocity/1.2.0/**)",
-      "Read(//c/Users/$USER/.nuget/packages/**)"
+      "Read(//c/Users/$USER/.nuget/packages/**)",
+      "Bash(find C:/Users/bart.suelze/Desktop -name *.xml)"
     ]
   }
 }

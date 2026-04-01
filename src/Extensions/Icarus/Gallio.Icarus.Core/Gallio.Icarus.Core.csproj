@@ -50,6 +50,18 @@
 
     <!-- DockPanel.config filename changed to DockPanel3.config (v2/v3 schema incompatibility); replacement in this project directory -->
     <Compile Remove="..\Gallio.Icarus\Paths.cs" />
+
+    <!-- ProjectTreeModel.GetChildren: report directory resolved via testProject.ReportDirectory (relative to project file), not hardcoded "Reports"; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Models\ProjectTreeModel.cs" />
+
+    <!-- ProjectExplorerView.OpenReport: UseShellExecute=true required in .NET 8 to open files via associated application; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\ProjectExplorer\ProjectExplorerView.cs" />
+
+    <!-- ReportMonitor.SetupDirectoryWatcher: FileSystemWatcher.Filter with multi-wildcard glob unreliable in .NET 8; use "*.xml" + Regex match instead; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Reports\ReportMonitor.cs" />
+
+    <!-- ProjectController.ReportDirectory: resolves relative ReportDirectory against project file location so reports are saved to the watched directory regardless of CWD; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Controllers\ProjectController.cs" />
   </ItemGroup>
 
   <!-- Replacement files in this project directory -->

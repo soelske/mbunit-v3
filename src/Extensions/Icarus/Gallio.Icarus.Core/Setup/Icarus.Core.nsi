@@ -58,6 +58,9 @@ Section -"Common" SEC_COMMON
   ; .NET 8 runtime configuratie
   File "${PRODUCT_DIR}\*.json"
 
+  ; Applicatieconfiguratie (AppSettings, TaskManager queue ID, etc.)
+  File "${PRODUCT_DIR}\*.config"
+
   ; Plugin descriptors in Plugins\ subfolder — individueel opgelijst zodat elke plugin
   ; in zijn eigen submap terechtkomt (geen wildcard die ze dubbel plaatst)
   SetOutPath "$INSTDIR\Plugins"

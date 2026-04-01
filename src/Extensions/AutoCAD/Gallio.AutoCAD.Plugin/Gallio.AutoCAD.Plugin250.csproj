@@ -15,6 +15,10 @@
     <OutputPath>bin\v25.0\</OutputPath>
     <DefineConstants>TRACE;DEBUG;R25</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\v25.0\</OutputPath>
+    <DefineConstants>TRACE;R25</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <!-- Exclude files that are not compatible with .NET 8 or will be replaced -->
     <Compile Remove="..\Gallio.AutoCAD.Plugin\packages.config" />

@@ -633,7 +633,9 @@ namespace Gallio.Runtime
         // path has been set, it is overridden with the location of the Gallio project
         // "bin" folder and the root directory of the source tree is added
         // the list of plugin directories to ensure that plugins can be resolved.
-        [Conditional("DEBUG")]
+        // Detects whether Gallio is running from a local source tree (by walking up to find a "src"
+        // directory) and configures the runtime accordingly. Works for both Debug and Release builds
+        // locally. When running from an installed location, "src" is not found and this is a no-op.
         private void ConfigureForDebugging()
         {
             // Find the root "src" dir.
@@ -649,8 +651,8 @@ namespace Gallio.Runtime
             while (srcDir != null && Path.GetFileName(srcDir) != @"src")
                 srcDir = Path.GetDirectoryName(srcDir);
 
-            if (srcDir == null) // not found!
-                srcDir = initPath;
+            if (srcDir == null) // not in a source tree — installed version, do nothing
+                return;
 
             // In .NET 8, the caller (e.g. IcarusProgram) already set RuntimePath to the entry assembly
             // directory (the net8.0-windows build output). Keep that; don't override with the old

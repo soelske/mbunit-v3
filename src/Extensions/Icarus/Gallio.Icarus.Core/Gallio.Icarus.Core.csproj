@@ -88,14 +88,41 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Gallio\Gallio.Core\Gallio.Core.csproj" />
     <ProjectReference Include="..\..\..\Gallio\Gallio.UI.Core\Gallio.UI.Core.csproj" />
-    <ProjectReference Include="..\..\..\Gallio\Gallio.Reports.Core\Gallio.Reports.Core.csproj" />
+    <!-- Build-only dependency: ensures Reports.Core (and NVelocity.dll) is built before NSIS runs.
+         ReferenceOutputAssembly=false: geen compile-time referentie, output niet naar Icarus kopiëren. -->
+    <ProjectReference Include="..\..\..\Gallio\Gallio.Reports.Core\Gallio.Reports.Core.csproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>false</Private>
+    </ProjectReference>
   </ItemGroup>
 
-  <!-- Copy plugin file to THIS project's output only. -->
+  <!-- Copy plugin files to THIS project's output.
+       Lokaal (Debug + Release): ConfigureForDebugging detecteert de src\-tree en vindt
+       alle plugins automatisch in hun eigen project outputs.
+       Voor de NSIS installer: *.plugin en *.dll worden via wildcards uit deze output gepakt.
+       AutoCAD bestanden worden door de installer rechtstreeks uit de AutoCAD project outputs gehaald. -->
   <Target Name="CopyPluginToOutput" AfterTargets="Build">
     <Copy SourceFiles="..\Gallio.Icarus\Gallio.Icarus.plugin"
           DestinationFiles="$(OutputPath)Gallio.Icarus.plugin"
           SkipUnchangedFiles="true" />
+    <Copy SourceFiles="..\..\..\Gallio\Gallio\Gallio.plugin"
+          DestinationFiles="$(OutputPath)Gallio.plugin"
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="..\..\..\Gallio\Gallio.UI\Gallio.UI.plugin"
+          DestinationFiles="$(OutputPath)Gallio.UI.plugin"
+          SkipUnchangedFiles="true" />
+    <!-- MbUnit is een zelfstandige plugin in Plugins\MbUnit\; installer haalt
+         MbUnit.dll en MbUnit.plugin rechtstreeks uit MbUnit.Core output. -->
+  </Target>
+
+  <!-- Build NSIS setup automatically on Release builds.
+       Vereist: NSIS geïnstalleerd in %ProgramFiles(x86)%\NSIS\
+                Omgevingsvariabelen XX_PROGS en XX_SETUP ingesteld. -->
+  <Target Name="BuildNsisSetup" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <Message Text="Building NSIS setup (Release)..." Importance="high" />
+    <Exec Command="cmd.exe /c &quot;$(MSBuildThisFileDirectory)Setup\compile-setup.bat&quot;"
+          WorkingDirectory="$(MSBuildThisFileDirectory)Setup"
+          ContinueOnError="WarnAndContinue" />
   </Target>
 
 </Project>

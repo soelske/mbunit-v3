@@ -50,7 +50,11 @@
       "Bash(powershell -Command \"\n\\\\$dll = 'C:\\\\Progs\\\\mbunit-v3\\\\Git\\\\mbunit-v3\\\\src\\\\Extensions\\\\Icarus\\\\Gallio.Icarus.Core\\\\bin\\\\Debug\\\\net8.0-windows\\\\Gallio.Icarus.dll'\n\\\\$asm = [System.Reflection.Assembly]::LoadFrom\\(\\\\$dll\\)\n\\\\$rm = New-Object System.Resources.ResourceManager\\('Gallio.Icarus.TestExplorer.TestExplorerResources', \\\\$asm\\)\ntry {\n    \\\\$icon = \\\\$rm.GetObject\\('TestExplorerIcon'\\)\n    if \\(\\\\$icon -eq \\\\$null\\) { Write-Host 'TestExplorerIcon = NULL' } else { Write-Host \\('TestExplorerIcon type: ' + \\\\$icon.GetType\\(\\).FullName\\) }\n} catch {\n    Write-Host \\('Error: ' + \\\\$_.Exception.Message\\)\n}\n\\\\$rm2 = New-Object System.Resources.ResourceManager\\('Gallio.Icarus.ProjectExplorer.ProjectExplorerResources', \\\\$asm\\)\ntry {\n    \\\\$icon2 = \\\\$rm2.GetObject\\('ProjectExplorerIcon'\\)\n    if \\(\\\\$icon2 -eq \\\\$null\\) { Write-Host 'ProjectExplorerIcon = NULL' } else { Write-Host \\('ProjectExplorerIcon type: ' + \\\\$icon2.GetType\\(\\).FullName\\) }\n} catch {\n    Write-Host \\('Error: ' + \\\\$_.Exception.Message\\)\n}\n\" 2>&1)",
       "Bash(git -C C:Progsmbunit-v3Gitmbunit-v3 log --oneline --follow src/Extensions/Icarus/Gallio.Icarus/Projects/PluginPreferencesSynchronizer.cs)",
       "Bash(git -C C:Progsmbunit-v3Gitmbunit-v3 status --short)",
-      "Bash(git:*)"
+      "Bash(git:*)",
+      "Bash(msbuild Gallio.AutoCAD.Plugin230.csproj /p:Configuration=Debug /v:minimal)",
+      "Bash(\"/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/MSBuild.exe\" Gallio.AutoCAD.Plugin230.csproj /p:Configuration=Debug /v:minimal)",
+      "Bash(find '/c/Program Files' -name MSBuild.exe -path */Current/Bin/*)",
+      "Bash(\"/c/Program Files/Microsoft Visual Studio/18/Professional/MSBuild/Current/Bin/MSBuild.exe\" Gallio.AutoCAD.Plugin230.csproj /p:Configuration=Debug /v:minimal)"
     ]
   }
 }

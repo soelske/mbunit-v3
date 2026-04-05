@@ -39,8 +39,8 @@ Write-Host "`nSearching for Framework DLLs..." -ForegroundColor Cyan
 
 # Define framework mappings
 $frameworks = @(
-    @{ Name = "net35"; Path = Join-Path $gallioRoot "Gallio35\bin" },
-    @{ Name = "net40"; Path = Join-Path $gallioRoot "Gallio40\bin" },
+    @{ Name = "net35"; Path = Join-Path $gallioRoot "Gallio35\bin\x64\$Configuration" },
+    @{ Name = "net40"; Path = Join-Path $gallioRoot "Gallio40\bin\x64\$Configuration" },
     @{ Name = "net48"; Path = Join-Path $gallioRoot "Gallio\bin" },
     @{ Name = "net8.0-windows7.0"; Path = Join-Path $outputDir "net8.0-windows" }
 )
@@ -101,7 +101,7 @@ $tempCsprojContent = @"
     <Version>$Version</Version>
     <Authors>Gallio Project, Bart Suelze</Authors>
     <Description>$AssemblyName Test Automation Platform v4 - Multi-target package supporting .NET Framework 3.5+ and .NET 8-windows.</Description>
-    <Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
+    <Copyright>Copyright Â© 2005-2025 Gallio Project</Copyright>
     <PackageTags>testing;test-framework;gallio;mbunit;unit-testing;automation;dotnet;csharp</PackageTags>
     <PackageProjectUrl>https://github.com/soelske/mbunit-v3</PackageProjectUrl>
     <RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>

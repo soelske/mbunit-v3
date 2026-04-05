@@ -1,6 +1,6 @@
-// Copyright 2005-2026 Gallio Project - http://www.gallio.org/
+ï»¿// Copyright 2005-2026 Gallio Project - http://www.gallio.org/
 // Portions Copyright 2000-2004 Jonathan de Halleux
-// Portions Copyright 2020-2026 Bart Suelze
+// Portions Copyright 2018-2026 Bart Suelze
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ using System.Security;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Gallio")]
-[assembly: AssemblyCopyright("Copyright © 2005-2026 Gallio Project - http://www.gallio.org/")]
+[assembly: AssemblyCopyright("Copyright ï¿½ 2005-2026 Gallio Project - http://www.gallio.org/")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

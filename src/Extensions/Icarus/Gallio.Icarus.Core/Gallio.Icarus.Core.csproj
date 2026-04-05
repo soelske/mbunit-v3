@@ -62,6 +62,12 @@
 
     <!-- ProjectController.ReportDirectory: resolves relative ReportDirectory against project file location so reports are saved to the watched directory regardless of CWD; replacement in this project directory -->
     <Compile Remove="..\Gallio.Icarus\Controllers\ProjectController.cs" />
+
+    <!-- OptionsController: IProjectTreeModel dependency + per-project TestRunnerFactory restore/save; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Controllers\OptionsController.cs" />
+
+    <!-- PluginPreferencesSynchronizer: PreloadPreferenceManagerAssemblies added to force lazy plugin assembly load before reflection scan; replacement in this project directory -->
+    <Compile Remove="..\Gallio.Icarus\Projects\PluginPreferencesSynchronizer.cs" />
   </ItemGroup>
 
   <!-- Replacement files in this project directory -->

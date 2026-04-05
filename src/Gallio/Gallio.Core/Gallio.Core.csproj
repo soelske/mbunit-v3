@@ -103,6 +103,9 @@
     <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHostFactory.cs" />
     <Compile Remove="..\Gallio\Runtime\Hosting\IsolatedAppDomainHost.cs" />
 
+    <!-- TestProjectData: testRunnerFactoryName XML element added; replacement in this project directory -->
+    <Compile Remove="..\Gallio\Runner\Projects\Schema\TestProjectData.cs" />
+
     <!-- ConfigureForDebugging: .NET 8 variant in this project directory -->
     <Compile Remove="..\Gallio\Runtime\DefaultRuntime.cs" />
     <!-- Replacement in Gallio.Core/Common/Reflection/TypeName.cs adds .NET 8 assembly-load fallback in Resolve() -->

@@ -6,7 +6,8 @@ param(
     [string]$Configuration = "Release",
 	[string]$AssemblyName = "MbUnit",
     [string]$PackageId = "MbUnit.V4",
-    [string]$Version = "4.0.0"
+    [string]$Version = "4.0.0",
+    [string]$ReleaseNotes = ""
 )
 
 Write-Host "========================================" -ForegroundColor Cyan
@@ -101,7 +102,8 @@ $tempCsprojContent = @"
     <Version>$Version</Version>
     <Authors>Gallio Project, Bart Suelze</Authors>
     <Description>$AssemblyName Test Framework v4 - Multi-target package supporting .NET Framework 3.5+ and .NET 8-windows.</Description>
-    <Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
+    <Copyright>Copyright &#169; 2005-2026 Gallio Project</Copyright>
+    <PackageReleaseNotes>$ReleaseNotes</PackageReleaseNotes>
     <PackageTags>testing;test-framework;mbunit;unit-testing;tdd;bdd;automation;dotnet;csharp</PackageTags>
     <PackageProjectUrl>https://github.com/soelske/mbunit-v3</PackageProjectUrl>
     <RepositoryUrl>https://github.com/soelske/mbunit-v3</RepositoryUrl>

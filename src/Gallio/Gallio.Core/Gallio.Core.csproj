@@ -18,7 +18,12 @@
    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
    <PackageReadmeFile>README.md</PackageReadmeFile>
    <PackageIcon>Pillar.png</PackageIcon>
-   <Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
+   <Copyright>Copyright &#169; 2005-2026 Gallio Project</Copyright>
+   <PackageReleaseNotes>4.0.1
+- Fix: Restore TestRunnerFactory and AutoCAD startup settings from .gallio project file on open
+- Fix: CachingPluginLoader now detects newly added plugin files in a stale cache
+- Fix: Plugin preferences correctly loaded via lazy assembly activation on project open
+- Fix: Plugin version number now visible in Icarus plugin browser</PackageReleaseNotes>
    <!-- Source files hebben allemaal expliciete usings; disable voorkomt Timer-ambiguïteit -->
   <ImplicitUsings>disable</ImplicitUsings>
    <Nullable>enable</Nullable>
@@ -191,7 +196,7 @@
       <ProjectDirTrimmed>$(ProjectDir.TrimEnd('\'))</ProjectDirTrimmed>
     </PropertyGroup>
     <Message Text="Creating multi-target NuGet package..." Importance="high" />
-    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDirTrimmed)\Build-MultiTarget-Package.ps1&quot; -ProjectDir &quot;$(ProjectDirTrimmed)&quot; -Configuration &quot;$(Configuration)&quot; -PackageId &quot;$(PackageId)&quot; -Version &quot;$(Version)&quot;" 
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDirTrimmed)\Build-MultiTarget-Package.ps1&quot; -ProjectDir &quot;$(ProjectDirTrimmed)&quot; -Configuration &quot;$(Configuration)&quot; -PackageId &quot;$(PackageId)&quot; -Version &quot;$(Version)&quot; -ReleaseNotes &quot;$(PackageReleaseNotes)&quot;"
           WorkingDirectory="$(ProjectDirTrimmed)"
           ContinueOnError="true" 
           IgnoreExitCode="true" />

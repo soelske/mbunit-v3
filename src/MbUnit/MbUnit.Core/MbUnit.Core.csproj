@@ -19,7 +19,10 @@
 	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageIcon>MbUnit.png</PackageIcon>
-	<Copyright>Copyright © 2005-2025 Gallio Project</Copyright>
+	<Copyright>Copyright &#169; 2005-2026 Gallio Project</Copyright>
+	<PackageReleaseNotes>4.0.1
+- Compatibility update with Gallio 4.0.1
+- No functional changes to the test framework itself</PackageReleaseNotes>
   <ImplicitUsings>enable</ImplicitUsings>
   <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -72,7 +75,7 @@
       <ProjectDirTrimmed>$(ProjectDir.TrimEnd('\'))</ProjectDirTrimmed>
     </PropertyGroup>
     <Message Text="Creating multi-target NuGet package..." Importance="high" />
-    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDirTrimmed)\Build-MultiTarget-Package.ps1&quot; -ProjectDir &quot;$(ProjectDirTrimmed)&quot; -Configuration &quot;$(Configuration)&quot; -PackageId &quot;$(PackageId)&quot; -Version &quot;$(Version)&quot;" 
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDirTrimmed)\Build-MultiTarget-Package.ps1&quot; -ProjectDir &quot;$(ProjectDirTrimmed)&quot; -Configuration &quot;$(Configuration)&quot; -PackageId &quot;$(PackageId)&quot; -Version &quot;$(Version)&quot; -ReleaseNotes &quot;$(PackageReleaseNotes)&quot;"
           ContinueOnError="true" 
           IgnoreExitCode="true" />
   </Target>

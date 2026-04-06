@@ -6,7 +6,7 @@
   <UseWindowsForms>true</UseWindowsForms>
 	<AssemblyName>MbUnit</AssemblyName>
 	<RootNamespace>MbUnit</RootNamespace>
-	<Version>4.0.0</Version>
+	<Version>4.0.1</Version>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<PackageId>MbUnit.V4</PackageId>

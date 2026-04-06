@@ -77,7 +77,7 @@
 
   <!-- Shared Revision.cs -->
   <ItemGroup>
-    <Compile Include="..\..\..\Revision.cs" Link="Revision.cs" />
+    <Compile Include="..\Revision.cs" Link="Revision.cs" />
   </ItemGroup>
 
   <!-- Plugin descriptor — not via CopyToOutputDirectory; copied via Target below instead. -->

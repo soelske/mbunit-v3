@@ -5,7 +5,7 @@
    <UseWindowsForms>true</UseWindowsForms>
    <AssemblyName>Gallio</AssemblyName>
    <RootNamespace>Gallio</RootNamespace>
-   <Version>4.0.1</Version>
+   <Version>4.0.0</Version>
    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
    <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <PackageId>Gallio.V4</PackageId>

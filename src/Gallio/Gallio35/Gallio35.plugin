@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <plugin pluginId="Gallio35"
         recommendedInstallationPath=""
         enableCondition="${minFramework:NET35}"
         xmlns="http://www.gallio.org/">
   <traits>
     <name>Gallio Extensions for .Net 3.5</name>
-    <version>4.0.1.0</version>
+    <version>4.0.0.0</version>
     <description>Provides additional Gallio features for use with .Net 3.5.</description>
     <icon>plugin://Gallio/Resources/Gallio.ico</icon>
   </traits>

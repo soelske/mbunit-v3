@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <plugin pluginId="MbUnit40"
         recommendedInstallationPath=""
         enableCondition="${minFramework:NET40}"
         xmlns="http://www.gallio.org/">
   <traits>
     <name>MbUnit v3 Extensions for .Net 4.0</name>
-    <version>4.0.0.0</version>
+    <version>4.0.1.0</version>
     <description>Provides additional MbUnit v3 features for use with .Net 4.0.</description>
     <icon>plugin://MbUnit/Resources/MbUnit.ico</icon>
   </traits>

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <plugin pluginId="Gallio.AutoCAD.UI"
         recommendedInstallationPath="AutoCAD"
         xmlns="http://www.gallio.org/">
   <traits>
     <name>AutoCAD Integration Plugin UI</name>
-    <version>4.0.0.0</version>
+    <version>4.0.1.0</version>
     <description>AutoCAD plugin UI components.</description>
     <icon>plugin://Gallio.AutoCAD/Resources/Gallio.AutoCAD.ico</icon>
   </traits>

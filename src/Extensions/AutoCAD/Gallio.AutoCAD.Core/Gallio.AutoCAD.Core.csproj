@@ -6,7 +6,7 @@
     <UseWindowsForms>false</UseWindowsForms>
     <AssemblyName>Gallio.AutoCAD</AssemblyName>
     <RootNamespace>Gallio.AutoCAD</RootNamespace>
-    <Version>4.0.0</Version>
+    <Version>4.0.1</Version>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>Gallio.AutoCAD</PackageId>
